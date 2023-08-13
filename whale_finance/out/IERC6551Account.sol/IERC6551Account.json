@@ -1,0 +1,740 @@
+{
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "value",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bytes",
+          "name": "data",
+          "type": "bytes"
+        }
+      ],
+      "name": "executeCall",
+      "outputs": [
+        {
+          "internalType": "bytes",
+          "name": "",
+          "type": "bytes"
+        }
+      ],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "nonce",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "token",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "chainId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "tokenContract",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "stateMutability": "payable",
+      "type": "receive"
+    }
+  ],
+  "bytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "deployedBytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "methodIdentifiers": {
+    "executeCall(address,uint256,bytes)": "9e5d4c49",
+    "nonce()": "affed0e0",
+    "owner()": "8da5cb5b",
+    "token()": "fc0c546a"
+  },
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.17+commit.8df45f5f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\"}],\"name\":\"executeCall\",\"outputs\":[{\"internalType\":\"bytes\",\"name\":\"\",\"type\":\"bytes\"}],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"nonce\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"token\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"chainId\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"tokenContract\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"stateMutability\":\"payable\",\"type\":\"receive\"}],\"devdoc\":{\"details\":\"the ERC-165 identifier for this interface is `0x400a0398`\",\"kind\":\"dev\",\"methods\":{\"executeCall(address,uint256,bytes)\":{\"details\":\"Executes `call` on address `to`, with value `value` and calldata `data`. MUST revert and bubble up errors if call fails. By default, token bound accounts MUST allow the owner of the ERC-721 token which owns the account to execute arbitrary calls using `executeCall`. Token bound accounts MAY implement additional authorization mechanisms which limit the ability of the ERC-721 token holder to execute calls. Token bound accounts MAY implement additional execution functions which grant execution permissions to other non-owner accounts.\",\"returns\":{\"_0\":\"The result of the call\"}},\"nonce()\":{\"details\":\"Returns a nonce value that is updated on every successful transaction\",\"returns\":{\"_0\":\"The current account nonce\"}},\"owner()\":{\"details\":\"Returns the owner of the ERC-721 token which controls the account if the token exists. This is value is obtained by calling `ownerOf` on the ERC-721 contract.\",\"returns\":{\"_0\":\"Address of the owner of the ERC-721 token which owns the account\"}},\"token()\":{\"details\":\"Returns identifier of the ERC-721 token which owns the account The return value of this function MUST be constant - it MUST NOT change over time.\",\"returns\":{\"chainId\":\"The EIP-155 ID of the chain the ERC-721 token exists on\",\"tokenContract\":\"The contract address of the ERC-721 token\",\"tokenId\":\"The ID of the ERC-721 token\"}}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"src/interface/IERC6551Account.sol\":\"IERC6551Account\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":20000},\"remappings\":[\":@openzeppelin/=lib/openzeppelin-contracts/\",\":@upgradeable/=lib/openzeppelin-contracts-upgradeable/\",\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":erc4626-tests/=lib/openzeppelin-contracts/lib/erc4626-tests/\",\":forge-std/=lib/forge-std/src/\",\":openzeppelin-contracts-upgradeable/=lib/openzeppelin-contracts-upgradeable/\",\":openzeppelin-contracts/=lib/openzeppelin-contracts/\",\":openzeppelin/=lib/openzeppelin-contracts/contracts/\"]},\"sources\":{\"src/interface/IERC6551Account.sol\":{\"keccak256\":\"0x17094454fd93bf100f335d11f20f452948927b2b42115dbfc2c0f80aebbd4e78\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://2d47f0000326a60c902afb4d02ad0747aefb49933a5a6f02677528dde73bd55f\",\"dweb:/ipfs/QmRjGCTZ1iARxxnsjfBLLvH6Chkag97jhxUDYtQBE7rKrC\"]}},\"version\":1}",
+  "metadata": {
+    "compiler": {
+      "version": "0.8.17+commit.8df45f5f"
+    },
+    "language": "Solidity",
+    "output": {
+      "abi": [
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "to",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "value",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bytes",
+              "name": "data",
+              "type": "bytes"
+            }
+          ],
+          "stateMutability": "payable",
+          "type": "function",
+          "name": "executeCall",
+          "outputs": [
+            {
+              "internalType": "bytes",
+              "name": "",
+              "type": "bytes"
+            }
+          ]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "nonce",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "owner",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "token",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "chainId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address",
+              "name": "tokenContract",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "tokenId",
+              "type": "uint256"
+            }
+          ]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "payable",
+          "type": "receive"
+        }
+      ],
+      "devdoc": {
+        "kind": "dev",
+        "methods": {
+          "executeCall(address,uint256,bytes)": {
+            "details": "Executes `call` on address `to`, with value `value` and calldata `data`. MUST revert and bubble up errors if call fails. By default, token bound accounts MUST allow the owner of the ERC-721 token which owns the account to execute arbitrary calls using `executeCall`. Token bound accounts MAY implement additional authorization mechanisms which limit the ability of the ERC-721 token holder to execute calls. Token bound accounts MAY implement additional execution functions which grant execution permissions to other non-owner accounts.",
+            "returns": {
+              "_0": "The result of the call"
+            }
+          },
+          "nonce()": {
+            "details": "Returns a nonce value that is updated on every successful transaction",
+            "returns": {
+              "_0": "The current account nonce"
+            }
+          },
+          "owner()": {
+            "details": "Returns the owner of the ERC-721 token which controls the account if the token exists. This is value is obtained by calling `ownerOf` on the ERC-721 contract.",
+            "returns": {
+              "_0": "Address of the owner of the ERC-721 token which owns the account"
+            }
+          },
+          "token()": {
+            "details": "Returns identifier of the ERC-721 token which owns the account The return value of this function MUST be constant - it MUST NOT change over time.",
+            "returns": {
+              "chainId": "The EIP-155 ID of the chain the ERC-721 token exists on",
+              "tokenContract": "The contract address of the ERC-721 token",
+              "tokenId": "The ID of the ERC-721 token"
+            }
+          }
+        },
+        "version": 1
+      },
+      "userdoc": {
+        "kind": "user",
+        "methods": {},
+        "version": 1
+      }
+    },
+    "settings": {
+      "remappings": [
+        ":@openzeppelin/=lib/openzeppelin-contracts/",
+        ":@upgradeable/=lib/openzeppelin-contracts-upgradeable/",
+        ":ds-test/=lib/forge-std/lib/ds-test/src/",
+        ":erc4626-tests/=lib/openzeppelin-contracts/lib/erc4626-tests/",
+        ":forge-std/=lib/forge-std/src/",
+        ":openzeppelin-contracts-upgradeable/=lib/openzeppelin-contracts-upgradeable/",
+        ":openzeppelin-contracts/=lib/openzeppelin-contracts/",
+        ":openzeppelin/=lib/openzeppelin-contracts/contracts/"
+      ],
+      "optimizer": {
+        "enabled": true,
+        "runs": 20000
+      },
+      "metadata": {
+        "bytecodeHash": "ipfs"
+      },
+      "compilationTarget": {
+        "src/interface/IERC6551Account.sol": "IERC6551Account"
+      },
+      "libraries": {}
+    },
+    "sources": {
+      "src/interface/IERC6551Account.sol": {
+        "keccak256": "0x17094454fd93bf100f335d11f20f452948927b2b42115dbfc2c0f80aebbd4e78",
+        "urls": [
+          "bzz-raw://2d47f0000326a60c902afb4d02ad0747aefb49933a5a6f02677528dde73bd55f",
+          "dweb:/ipfs/QmRjGCTZ1iARxxnsjfBLLvH6Chkag97jhxUDYtQBE7rKrC"
+        ],
+        "license": "MIT"
+      }
+    },
+    "version": 1
+  },
+  "ast": {
+    "absolutePath": "src/interface/IERC6551Account.sol",
+    "id": 47532,
+    "exportedSymbols": {
+      "IERC6551Account": [
+        47531
+      ]
+    },
+    "nodeType": "SourceUnit",
+    "src": "32:2252:47",
+    "nodes": [
+      {
+        "id": 47491,
+        "nodeType": "PragmaDirective",
+        "src": "32:24:47",
+        "nodes": [],
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".13"
+        ]
+      },
+      {
+        "id": 47531,
+        "nodeType": "ContractDefinition",
+        "src": "125:2159:47",
+        "nodes": [
+          {
+            "id": 47496,
+            "nodeType": "FunctionDefinition",
+            "src": "359:27:47",
+            "nodes": [],
+            "documentation": {
+              "id": 47493,
+              "nodeType": "StructuredDocumentation",
+              "src": "157:197:47",
+              "text": "@dev Token bound accounts MUST implement a `receive` function.\n Token bound accounts MAY perform arbitrary logic to restrict conditions\n under which Ether can be received."
+            },
+            "implemented": false,
+            "kind": "receive",
+            "modifiers": [],
+            "name": "",
+            "nameLocation": "-1:-1:-1",
+            "parameters": {
+              "id": 47494,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "366:2:47"
+            },
+            "returnParameters": {
+              "id": 47495,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "385:0:47"
+            },
+            "scope": 47531,
+            "stateMutability": "payable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 47508,
+            "nodeType": "FunctionDefinition",
+            "src": "1085:139:47",
+            "nodes": [],
+            "documentation": {
+              "id": 47497,
+              "nodeType": "StructuredDocumentation",
+              "src": "392:688:47",
+              "text": "@dev Executes `call` on address `to`, with value `value` and calldata\n `data`.\n MUST revert and bubble up errors if call fails.\n By default, token bound accounts MUST allow the owner of the ERC-721 token\n which owns the account to execute arbitrary calls using `executeCall`.\n Token bound accounts MAY implement additional authorization mechanisms\n which limit the ability of the ERC-721 token holder to execute calls.\n Token bound accounts MAY implement additional execution functions which\n grant execution permissions to other non-owner accounts.\n @return The result of the call"
+            },
+            "functionSelector": "9e5d4c49",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "executeCall",
+            "nameLocation": "1094:11:47",
+            "parameters": {
+              "id": 47504,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 47499,
+                  "mutability": "mutable",
+                  "name": "to",
+                  "nameLocation": "1123:2:47",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 47508,
+                  "src": "1115:10:47",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 47498,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1115:7:47",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 47501,
+                  "mutability": "mutable",
+                  "name": "value",
+                  "nameLocation": "1143:5:47",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 47508,
+                  "src": "1135:13:47",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 47500,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1135:7:47",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 47503,
+                  "mutability": "mutable",
+                  "name": "data",
+                  "nameLocation": "1173:4:47",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 47508,
+                  "src": "1158:19:47",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_calldata_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 47502,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1158:5:47",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1105:78:47"
+            },
+            "returnParameters": {
+              "id": 47507,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 47506,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 47508,
+                  "src": "1210:12:47",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_memory_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 47505,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1210:5:47",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1209:14:47"
+            },
+            "scope": 47531,
+            "stateMutability": "payable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 47518,
+            "nodeType": "FunctionDefinition",
+            "src": "1633:121:47",
+            "nodes": [],
+            "documentation": {
+              "id": 47509,
+              "nodeType": "StructuredDocumentation",
+              "src": "1230:398:47",
+              "text": "@dev Returns identifier of the ERC-721 token which owns the\n account\n The return value of this function MUST be constant - it MUST NOT change\n over time.\n @return chainId The EIP-155 ID of the chain the ERC-721 token exists on\n @return tokenContract The contract address of the ERC-721 token\n @return tokenId The ID of the ERC-721 token"
+            },
+            "functionSelector": "fc0c546a",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "token",
+            "nameLocation": "1642:5:47",
+            "parameters": {
+              "id": 47510,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1647:2:47"
+            },
+            "returnParameters": {
+              "id": 47517,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 47512,
+                  "mutability": "mutable",
+                  "name": "chainId",
+                  "nameLocation": "1705:7:47",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 47518,
+                  "src": "1697:15:47",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 47511,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1697:7:47",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 47514,
+                  "mutability": "mutable",
+                  "name": "tokenContract",
+                  "nameLocation": "1722:13:47",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 47518,
+                  "src": "1714:21:47",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 47513,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1714:7:47",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 47516,
+                  "mutability": "mutable",
+                  "name": "tokenId",
+                  "nameLocation": "1745:7:47",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 47518,
+                  "src": "1737:15:47",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 47515,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1737:7:47",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1696:57:47"
+            },
+            "scope": 47531,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 47524,
+            "nodeType": "FunctionDefinition",
+            "src": "2045:49:47",
+            "nodes": [],
+            "documentation": {
+              "id": 47519,
+              "nodeType": "StructuredDocumentation",
+              "src": "1760:280:47",
+              "text": "@dev Returns the owner of the ERC-721 token which controls the account\n if the token exists.\n This is value is obtained by calling `ownerOf` on the ERC-721 contract.\n @return Address of the owner of the ERC-721 token which owns the account"
+            },
+            "functionSelector": "8da5cb5b",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "owner",
+            "nameLocation": "2054:5:47",
+            "parameters": {
+              "id": 47520,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2059:2:47"
+            },
+            "returnParameters": {
+              "id": 47523,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 47522,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 47524,
+                  "src": "2085:7:47",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 47521,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2085:7:47",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2084:9:47"
+            },
+            "scope": 47531,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 47530,
+            "nodeType": "FunctionDefinition",
+            "src": "2233:49:47",
+            "nodes": [],
+            "documentation": {
+              "id": 47525,
+              "nodeType": "StructuredDocumentation",
+              "src": "2100:128:47",
+              "text": "@dev Returns a nonce value that is updated on every successful transaction\n @return The current account nonce"
+            },
+            "functionSelector": "affed0e0",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "nonce",
+            "nameLocation": "2242:5:47",
+            "parameters": {
+              "id": 47526,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2247:2:47"
+            },
+            "returnParameters": {
+              "id": 47529,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 47528,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 47530,
+                  "src": "2273:7:47",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 47527,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2273:7:47",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2272:9:47"
+            },
+            "scope": 47531,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "IERC6551Account",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": {
+          "id": 47492,
+          "nodeType": "StructuredDocumentation",
+          "src": "58:67:47",
+          "text": "@dev the ERC-165 identifier for this interface is `0x400a0398`"
+        },
+        "fullyImplemented": false,
+        "linearizedBaseContracts": [
+          47531
+        ],
+        "name": "IERC6551Account",
+        "nameLocation": "135:15:47",
+        "scope": 47532,
+        "usedErrors": []
+      }
+    ],
+    "license": "MIT"
+  },
+  "id": 47
+}
