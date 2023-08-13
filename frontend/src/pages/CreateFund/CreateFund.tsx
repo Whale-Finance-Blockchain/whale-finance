@@ -5,6 +5,7 @@ export default function CreateFund() {
 
     const [name, setName] = React.useState('');
     const [ticker, setTicker] = React.useState('');
+    const [share, setShare] = React.useState('');
     const [token1, setToken1] = React.useState('');
     const [token2, setToken2] = React.useState('');
 
@@ -22,18 +23,20 @@ export default function CreateFund() {
 
     return (
         <>
-            <div className='w-[100vw] h-screen text-gray-700 bg-[#f6f6f6] overflow-y-auto'>
+            <div className='w-[100vw] text-gray-700 bg-[#f6f6f6] overflow-y-auto'>
                 <section className="h-screen bg-gradient-to-r from-primary-color to-[rgb(162,141,32)]">
-                    <div className="container mx-auto px-6 text-center py-6">
+                    <div className="container mx-auto px-6 text-center py-10">
                         <h2 className="text-4xl font-bold text-center text-white">
                         Fund Creation Page
                         </h2>
-                        <div className='flex flex-row justify-center mt-6'>
+                        <div className='flex flex-row justify-center mt-10 mb-10'>
                             <div className='w-[100%] mx-6 px-10 pb-6 shadow-lg bg-[rgb(162,141,32)] text-white rounded-[20px]'>
                                 <FormManager    name={name}
                                                 setName={setName}
                                                 ticker={ticker}
                                                 setTicker={setTicker}
+                                                share={share}
+                                                setShare={setShare}
                                                 token1={token1}
                                                 setToken1={setToken1}
                                                 token2={token2}

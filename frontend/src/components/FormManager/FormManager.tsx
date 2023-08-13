@@ -17,7 +17,19 @@ export default function FormInvestor(props: any) {
                         onChange={(e) => props.setName(e.target.value)}
                         className="w-full bg-[white] text-center text-black p-2 mt-4 rounded-full outline-0 shadow-lg hover:bg-[#e4e7ff]"
                     />
-                    <label className="block font-medium mb-2 mt-10" htmlFor="ticker">
+                    <label className="block font-medium mb-2 mt-6" htmlFor="share">
+                        What will be the share token address?
+                    </label>
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder='Share Address'
+                        value={props.Share}
+                        onChange={(e) => props.setShare(e.target.value)}
+                        className="w-full bg-[white] text-center text-black p-2 mt-4 rounded-full outline-0 shadow-lg hover:bg-[#e4e7ff]"
+                    />
+                    <label className="block font-medium mb-2 mt-6" htmlFor="ticker">
                         What will be its ticker representation?
                     </label>
                     <input
@@ -29,7 +41,7 @@ export default function FormInvestor(props: any) {
                         onChange={(e) => props.setTicker(e.target.value)}
                         className="w-full bg-[white] text-center text-black p-2 mt-4 rounded-full outline-0 shadow-lg hover:bg-[#e4e7ff]"
                     />
-                    <label className="block font-medium mb-2 mt-10" htmlFor="token1">
+                    <label className="block font-medium mb-2 mt-6" htmlFor="token1">
                         And what will be the allowed ERC20 tokens in your fund?
                     </label>
                     <input
