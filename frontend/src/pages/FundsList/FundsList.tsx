@@ -10,7 +10,7 @@ type DataPoint = {
     description: string;
 };
 
-export default function Investor() {
+export default function FundsList() {
 
     const [funds, setFunds] = useState<DataPoint[]>([]);
 
