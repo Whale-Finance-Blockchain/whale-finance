@@ -1,52 +1,67 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { db } from '../../firebase/firebase';
+import { get, ref } from "firebase/database";
 import { Link } from 'react-router-dom';
 
-export default function Investor() {
+type DataPoint = {
+    id: number;
+    name: string;
+    description: string;
+};
 
-    const [funds, setfunds] = React.useState([
-        // TESTE
-        {
-            id: 1,
-            title: 'GBTC (Grayscale Ethereum Trust)',
-            description: 'Crypto fund for Ethereum exposure without direct ownership.'
-        },
-        {
-            id: 2,
-            title: 'VGSLX (Vanguard Index Fund)',
-            description: 'Real world asset fund.'
-        },
-        {
-            id: 3,
-            title: 'Pantera Capital Digital Asset Fund',
-            description: 'Crypto investment with diverse blockchain projects.'
-        },
-    ]);
+export default function Manager() {
+
+    const [funds, setFunds] = useState<DataPoint[]>([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+          try {
+            const dbRef = ref(db, 'Funds');
+            const snapshot = await get(dbRef);
+            if (snapshot.exists()) {
+              const fbData = snapshot.val();
+              setFunds(fbData);
+            } else {
+              console.log("No data available");
+            }
+          } catch (error) {
+            console.error("Error reading data:", error);
+          }
+        };
+      
+        fetchData();
+      }, []);
 
     const fundsElements = funds.map(fund => (
-        <div key={fund.id} className="bg-[rgb(162,141,32)] text-white rounded-lg shadow-md m-[2vh] hover:bg-[#f6f6f6] hover:text-primary-color transition duration-600 ease-in-out">
-            <Link to={`/investor/${fund.id}`}>
-                <h2 className="m-[1.5vh] text-sencondary-color text-fl font-bold ">{fund.title}</h2>
-                <p className="text-fs m-[2vh]">{fund.description}</p>
-            </Link>
+        <Link to={`/investor/${fund.id}`}>
+            <div key={fund.id} className="bg-gradient-to-r from-white to-[#fcfcfc] h-[180px] flex flex-col items-center justify-center text-gray-500 rounded-lg shadow-lg m-[2vh] hover:bg-gradient-to-r hover:from-white hover:to-gray-100 hover:text-secondary-color transition duration-600 ease-in-out">
+                    <h2 className="m-[1.5vh] text-fl font-bold ">{fund.name}</h2>
+                    <p className="text-fs m-[2vh]">{fund.description}</p>
+            </div>
+        </Link>
+    ))
+
+    const loadingElements = Array(4).fill(null).map((_, index) => (
+        <div key={index} className="bg-gradient-to-r from-white to-[#f6f6f6] h-[180px] opacity-80 flex items-center justify-center text-gray-500 rounded-lg shadow-lg m-[2vh]">
         </div>
     ))
 
     return (
         <>
-            <div className='w-[100vw] h-screen text-gray-700 bg-[#f6f6f6] overflow-y-auto'>
-                <section className="h-screen bg-gradient-to-r from-primary-color to-[rgb(162,141,32)]">
-                    <div className="container mx-auto px-6 text-center py-10">
-                        <h2 className="mb-6 text-4xl font-bold text-center text-white">
-                        Manager Dashboard
+            <div className='w-[100vw] h-screen text-gray-700 bg-[#fcfcfc] overflow-y-auto'>
+                <section className="">
+                    <div className="container mx-auto px-6 text-center py-12">
+                        <h2 className="mb-16 text-4xl font-bold text-center text-secondary-color">
+                        My Hedge Funds List
                         </h2>
-                        <div className='flex flex-col justify-center my-10'>
-                            {funds.length ? fundsElements : <h2>No funds found</h2>}
-                        </div>
                         <Link
-                        className="bg-white text-black font-bold rounded-full border-2 border-transparent py-4 px-8 shadow-lg uppercase tracking-wider hover:bg-primary-color hover:text-[white] hover:border-white transition duration-1000 ease-in-out" to="/create-fund"
+                        className="bg-white text-black font-bold rounded-full border-2 border-transparent py-4 px-8 shadow-lg uppercase tracking-wider hover:bg-secondary-color hover:text-[white] hover:border-white transition duration-1000 ease-in-out" to="/create-fund"
                         >
                         Create Fund
                         </Link>
+                        <div className='grid grid-cols-3 justify-center my-12 cursor-pointer'>
+                            {funds.length ? fundsElements : loadingElements }
+                        </div>
                     </div>
                 </section>
             </div>

@@ -1,0 +1,39 @@
+{
+    "Funds": [
+        {"id": 100001, "name": "Bridgewater Associates", "description": "Macro"},
+        {"id": 100002, "name": "Renaissance Technologies", "description": "Quantitative"},
+        {"id": 100003, "name": "Man Group", "description": "Multi-Strategy"},
+        {"id": 100004, "name": "AQR Capital Management", "description": "Quantitative"},
+        {"id": 100005, "name": "Two Sigma Investments", "description": "Quantitative"},
+        {"id": 100006, "name": "BlackRock", "description": "Multi-Strategy"},
+        {"id": 100007, "name": "Citadel", "description": "Multi-Strategy"},
+        {"id": 100008, "name": "Pantera Capital", "description": "Crypto"},
+        {"id": 100009, "name": "Tiger Global Management", "description": "Equity"},
+        {"id": 100010, "name": "Baupost Group", "description": "Value"}
+    ],
+    "Performance": [
+        {"fundId": 100001, "value": 95, "date": "09-09"},
+        {"fundId": 100001, "value": 98, "date": "09-10"},
+        {"fundId": 100001, "value": 97, "date": "09-11"},
+        {"fundId": 100001, "value": 99, "date": "09-12"},
+        {"fundId": 100001, "value": 100, "date": "09-13"},
+        {"fundId": 100001, "value": 97, "date": "09-14"},
+        {"fundId": 100001, "value": 101, "date": "09-15"},
+        {"fundId": 100001, "value": 104, "date": "09-16"}
+    ],
+    "Benchmark": [
+        {"id": 300001, "name": "Benchmark A"},
+        {"id": 300002, "name": "Benchmark B"},
+        {"id": 300003, "name": "Benchmark C"}
+    ],
+    "BenchmarkValue": [
+        {"bmId": 300001, "value": 90, "date": "09-09"},
+        {"bmId": 300001, "value": 91, "date": "09-10"},
+        {"bmId": 300001, "value": 92, "date": "09-11"},
+        {"bmId": 300001, "value": 93, "date": "09-12"},
+        {"bmId": 300001, "value": 94, "date": "09-13"},
+        {"bmId": 300001, "value": 95, "date": "09-14"},
+        {"bmId": 300001, "value": 96, "date": "09-15"}
+    ]
+  }
+  

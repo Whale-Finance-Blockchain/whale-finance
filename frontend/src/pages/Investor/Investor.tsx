@@ -1,52 +1,96 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { db } from '../../firebase/firebase';
+import { get, ref } from "firebase/database";
 import { Link } from 'react-router-dom';
+import { AiOutlineArrowUp, AiOutlineArrowDown } from "react-icons/ai";
+
+type DataPoint = {
+    id: number;
+    name: string;
+    description: string;
+};
 
 export default function Investor() {
 
-    const [funds, setfunds] = React.useState([
-        // TESTE
-        {
-            id: 1,
-            title: 'GBTC (Grayscale Ethereum Trust)',
-            description: 'Crypto fund for Ethereum exposure without direct ownership.'
-        },
-        {
-            id: 2,
-            title: 'VGSLX (Vanguard Index Fund)',
-            description: 'Real world asset fund.'
-        },
-        {
-            id: 3,
-            title: 'Pantera Capital Digital Asset Fund',
-            description: 'Crypto investment with diverse blockchain projects.'
-        },
-    ]);
+    const [funds, setFunds] = useState<DataPoint[]>([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+          try {
+            const dbRef = ref(db, 'Funds');
+            const snapshot = await get(dbRef);
+            if (snapshot.exists()) {
+              const fbData = snapshot.val();
+              setFunds(fbData);
+            } else {
+              console.log("No data available");
+            }
+          } catch (error) {
+            console.error("Error reading data:", error);
+          }
+        };
+      
+        fetchData();
+    }, []);
+
+    function formatToUSD(number) {
+        const formattedNumber = new Intl.NumberFormat('en-US', { 
+          style: 'currency', 
+          currency: 'USD',
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2
+        }).format(number / 1000000); // Convert to millions
+      
+        return `${formattedNumber} mi`;
+    }
+
+    const rentValue = 0.10;
+    const formattedRent = new Intl.NumberFormat('en-US', { style: 'percent', minimumFractionDigits: 1, maximumFractionDigits: 1 }).format(rentValue);
 
     const fundsElements = funds.map(fund => (
-        <div key={fund.id} className="bg-[rgb(15,37,124)] text-white rounded-lg shadow-md m-[2vh] hover:bg-[#f6f6f6] hover:text-secondary-color transition duration-600 ease-in-out">
-            <Link to={`/investor/${fund.id}`}>
-                <h2 className="m-[1.5vh] text-sencondary-color text-fl font-bold ">{fund.title}</h2>
-                <p className="text-fs m-[2vh]">{fund.description}</p>
-            </Link>
+        <Link to={`/investor/${fund.id}`}>
+            <div key={fund.id} className="bg-gradient-to-r from-white to-[#fcfcfc] h-[180px] flex flex-col items-center justify-center text-gray-500 rounded-lg shadow-lg m-[2vh] hover:bg-gradient-to-r hover:from-white hover:to-gray-100 hover:text-secondary-color transition duration-600 ease-in-out">
+                <h2 className="text-xl font-bold text-secondary-color">{fund.name}</h2>
+                <p className="text-fs mt-2">{fund.description}</p>
+                <div className="grid grid-cols-3 space-x-4 mt-4 w-[80%]">
+                    <div className="">
+                        <p className='text-xl text-black font-bold'>{formatToUSD(113355678)}</p>
+                        <p>TVL</p>
+                    </div>
+                    <div className="">
+                        <p className='text-xl text-black font-bold'>100</p>
+                        <p>Investors</p>
+                    </div>
+                    <div className="fl">
+                        <div className='flex flex-row items-center justify-center space-x-1'>
+                            <p className={`text-xl font-bold ${rentValue > 0 ? 'text-green-500' : rentValue < 0 ? 'text-red-500' : 'text-black'}`}>
+                                {formattedRent} 
+                            </p>
+                            {rentValue > 0 ? <AiOutlineArrowUp color="rgb(34 197 94)" size={20}/> : rentValue < 0 ? <AiOutlineArrowDown color="rgb(249 115 22)" size={20}/> : ''}
+                        </div>
+                        <p>Rent. 12m</p>
+                    </div>
+                </div>
+            </div>
+        </Link>
+    ))
+
+    const loadingElements = Array(4).fill(null).map((_, index) => (
+        <div key={index} className="bg-gradient-to-r from-white to-[#f6f6f6] h-[180px] opacity-80 flex items-center justify-center text-gray-500 rounded-lg shadow-lg m-[2vh]">
         </div>
     ))
 
     return (
         <>
-            <div className='w-[100vw] h-screen text-gray-700 bg-[#f6f6f6] overflow-y-auto'>
-                <section className="h-screen bg-gradient-to-r from-secondary-color to-[rgb(15,37,124)]">
-                    <div className="container mx-auto px-6 text-center py-20">
-                        <h2 className="mb-6 text-4xl font-bold text-center text-white">
+            <div className='w-[100vw] h-screen text-gray-700 bg-[#fcfcfc] overflow-y-auto'>
+                <section className="">
+                    <div className="container mx-auto px-6 text-center py-12">
+                        <h2 className="mb-2 text-4xl font-bold text-center text-secondary-color">
                         Funds List
                         </h2>
-                        <div className='flex flex-col justify-center my-20'>
-                            {funds.length ? fundsElements : <h2>No funds found</h2>}
+                        <div className='grid grid-cols-3 justify-center my-12 cursor-pointer'>
+                            {funds.length ? fundsElements : loadingElements }
                         </div>
-                        {/* <Link
-                        className="bg-white text-black font-bold rounded-full border-2 border-transparent py-4 px-8 shadow-lg uppercase tracking-wider hover:bg-secondary-color hover:text-[white] hover:border-white transition duration-1000 ease-in-out" to="/investor"
-                        >
-                        Go to Manager
-                        </Link> */}
                     </div>
                 </section>
             </div>

@@ -1,13 +1,16 @@
 import ConnectWalletBtn from '../../components/ConnectWallet/ConnectWallet';
+import Logo from '../../assets/whale_logo.png';
+import { useNavigate } from 'react-router-dom';
 
 export default function Header({ isMetamaskInstalled, connectWallet, account, provider, signer }: 
     { isMetamaskInstalled: boolean; connectWallet: any; account: string | null; provider: any; signer: any;}) {
+    
+    const history = useNavigate();
+    
     return (
-        <header className="sticky top-0 z-30 w-full bg-[rgba(255,255,255,0.9)] text-secondary-color border-b-2 border-gray-200">
-            <div className="container mx-auto px-20 py-2 flex justify-between items-center">
-                <a className="font-bold text-2xl lg:text-4xl text-secondary-color" href="#">
-                    Whale Finance
-                </a>
+        <header className="sticky top-0 z-30 w-full bg-gradient-to-r from-blue-color to-secondary-color text-white border-b-2 border-gray-200">
+            <div className="container mx-auto px-20 py-2 flex justify-between items-center cursor-pointer">
+                <img className="h-[7vh]" src={Logo} alt={"whale finance"} onClick={() => history('/home')}/>
 
                 {/* responsivo */}
 
@@ -24,8 +27,8 @@ export default function Header({ isMetamaskInstalled, connectWallet, account, pr
 
                 <div className="hidden lg:block">
                 <ul className="inline-flex items-center space-x-10">
-                    <li><a className="px-16 py-2 text-xl hover:text-primary-color hover:bg-[#fffedc] transition duration-1000 ease-in-out" href="/investor">I'm an investor</a></li>
-                    <li><a className="px-16 py-2 text-xl hover:text-primary-color hover:bg-[#fffedc] transition duration-1000 ease-in-out" href="/manager">I'm a manager</a></li>
+                    <li><a className="px-16 py-2 text-xl hover:bg-[rgb(14,42,98)] transition duration-1000 ease-in-out" href="/investor">I'm an investor</a></li>
+                    <li><a className="px-16 py-2 text-xl hover:bg-[rgb(14,42,98)] transition duration-1000 ease-in-out" href="/manager">I'm a manager</a></li>
                     <ConnectWalletBtn
                         isMetamaskInstalled={isMetamaskInstalled}
                         connectWallet={connectWallet}

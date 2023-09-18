@@ -7,6 +7,7 @@ module.exports = {
       colors: {
         "primary-color": "#efd24a",
         "secondary-color": "#020745",
+        "blue-color": "rgb(17,6,122)",
       },
     },
   },
