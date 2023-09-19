@@ -3,7 +3,6 @@ pragma solidity ^0.8.9;
 
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
-import "@openzeppelin/contracts/utils/Counters.sol";
 import "./interface/IERC6551Registry.sol";
 import "@openzeppelin/contracts/proxy/beacon/BeaconProxy.sol";
 import "@openzeppelin/contracts/proxy/beacon/IBeacon.sol";
@@ -13,10 +12,10 @@ import "@openzeppelin/contracts/proxy/beacon/BeaconProxy.sol";
 import "./QuotaToken.sol";
 
 contract WhaleFinance is ERC721, Ownable {
-    using Counters for Counters.Counter;
+
     
     //GLOBAL VARIABLES FOR THE PLATFORM
-    Counters.Counter public _fundIdCounter;
+    uint256 public _fundIdCounter;
     IERC6551Registry public fundsRegister;
     address public erc6551Implementation;
     address public quotaTokenImplementation;
@@ -39,7 +38,7 @@ contract WhaleFinance is ERC721, Ownable {
     event InvestimentMade(address indexed fundAddress, address indexed investor, uint256 amount);
     event RedeemMade(address indexed fundAddress, address indexed investor, uint256 amount);
 
-    constructor(address _fundsRegister, address _erc6551Implementation, address _erc20Implementation, address _stablecoin) ERC721("WhaleFinance", "WFI") {
+    constructor(address _fundsRegister, address _erc6551Implementation, address _erc20Implementation, address _stablecoin) Ownable(_msgSender()) ERC721("WhaleFinance", "WFI")  {
         fundsRegister = IERC6551Registry(_fundsRegister);
         erc6551Implementation = _erc6551Implementation; //ERC 6551 Implementation
         stablecoin = IERC20(_stablecoin);
@@ -50,8 +49,8 @@ contract WhaleFinance is ERC721, Ownable {
                     uint256 _admFee, uint256 _perfFee, uint256 _openInvestiment, uint256 _closeInvestiments, uint256 _openRedeem) 
                     public returns(uint256){
         
-        uint256 fundId = _fundIdCounter.current();
-        _fundIdCounter.increment();
+        uint256 fundId = _fundIdCounter;
+        _fundIdCounter++;
         _mint(_to, fundId);
 
         for(uint256 i = 0; i < _allowedTokens.length; i++) {

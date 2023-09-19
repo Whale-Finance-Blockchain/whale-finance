@@ -47,7 +47,7 @@
       "versionRequirement": ">=0.5.0",
       "artifacts": {
         "DSTest": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "test.sol/DSTest.json"
+          "0.8.20+commit.a1b79de6.Linux.gcc": "test.sol/DSTest.json"
         }
       }
     },
@@ -90,13 +90,13 @@
       "versionRequirement": ">=0.6.2, <0.9.0",
       "artifacts": {
         "CommonBase": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "Base.sol/CommonBase.json"
+          "0.8.20+commit.a1b79de6.Linux.gcc": "Base.sol/CommonBase.json"
         },
         "ScriptBase": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "Base.sol/ScriptBase.json"
+          "0.8.20+commit.a1b79de6.Linux.gcc": "Base.sol/ScriptBase.json"
         },
         "TestBase": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "Base.sol/TestBase.json"
+          "0.8.20+commit.a1b79de6.Linux.gcc": "Base.sol/TestBase.json"
         }
       }
     },
@@ -150,7 +150,7 @@
       "versionRequirement": ">=0.6.2, <0.9.0",
       "artifacts": {
         "Script": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "Script.sol/Script.json"
+          "0.8.20+commit.a1b79de6.Linux.gcc": "Script.sol/Script.json"
         }
       }
     },
@@ -193,7 +193,7 @@
       "versionRequirement": ">=0.6.2, <0.9.0",
       "artifacts": {
         "StdAssertions": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "StdAssertions.sol/StdAssertions.json"
+          "0.8.20+commit.a1b79de6.Linux.gcc": "StdAssertions.sol/StdAssertions.json"
         }
       }
     },
@@ -235,7 +235,7 @@
       "versionRequirement": ">=0.6.2, <0.9.0",
       "artifacts": {
         "StdChains": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "StdChains.sol/StdChains.json"
+          "0.8.20+commit.a1b79de6.Linux.gcc": "StdChains.sol/StdChains.json"
         }
       }
     },
@@ -278,10 +278,10 @@
       "versionRequirement": ">=0.6.2, <0.9.0",
       "artifacts": {
         "StdCheats": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "StdCheats.sol/StdCheats.json"
+          "0.8.20+commit.a1b79de6.Linux.gcc": "StdCheats.sol/StdCheats.json"
         },
         "StdCheatsSafe": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "StdCheats.sol/StdCheatsSafe.json"
+          "0.8.20+commit.a1b79de6.Linux.gcc": "StdCheats.sol/StdCheatsSafe.json"
         }
       }
     },
@@ -321,7 +321,7 @@
       "versionRequirement": ">=0.6.2, <0.9.0",
       "artifacts": {
         "stdError": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "StdError.sol/stdError.json"
+          "0.8.20+commit.a1b79de6.Linux.gcc": "StdError.sol/stdError.json"
         }
       }
     },
@@ -361,7 +361,7 @@
       "versionRequirement": ">=0.6.2, <0.9.0",
       "artifacts": {
         "StdInvariant": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "StdInvariant.sol/StdInvariant.json"
+          "0.8.20+commit.a1b79de6.Linux.gcc": "StdInvariant.sol/StdInvariant.json"
         }
       }
     },
@@ -403,7 +403,7 @@
       "versionRequirement": ">=0.6.0, <0.9.0",
       "artifacts": {
         "stdJson": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "StdJson.sol/stdJson.json"
+          "0.8.20+commit.a1b79de6.Linux.gcc": "StdJson.sol/stdJson.json"
         }
       }
     },
@@ -443,7 +443,7 @@
       "versionRequirement": ">=0.6.2, <0.9.0",
       "artifacts": {
         "stdMath": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "StdMath.sol/stdMath.json"
+          "0.8.20+commit.a1b79de6.Linux.gcc": "StdMath.sol/stdMath.json"
         }
       }
     },
@@ -485,10 +485,10 @@
       "versionRequirement": ">=0.6.2, <0.9.0",
       "artifacts": {
         "stdStorage": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "StdStorage.sol/stdStorage.json"
+          "0.8.20+commit.a1b79de6.Linux.gcc": "StdStorage.sol/stdStorage.json"
         },
         "stdStorageSafe": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "StdStorage.sol/stdStorageSafe.json"
+          "0.8.20+commit.a1b79de6.Linux.gcc": "StdStorage.sol/stdStorageSafe.json"
         }
       }
     },
@@ -530,7 +530,7 @@
       "versionRequirement": ">=0.4.22, <0.9.0",
       "artifacts": {
         "StdStyle": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "StdStyle.sol/StdStyle.json"
+          "0.8.20+commit.a1b79de6.Linux.gcc": "StdStyle.sol/StdStyle.json"
         }
       }
     },
@@ -573,7 +573,7 @@
       "versionRequirement": ">=0.6.2, <0.9.0",
       "artifacts": {
         "StdUtils": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "StdUtils.sol/StdUtils.json"
+          "0.8.20+commit.a1b79de6.Linux.gcc": "StdUtils.sol/StdUtils.json"
         }
       }
     },
@@ -631,7 +631,7 @@
       "versionRequirement": ">=0.6.2, <0.9.0",
       "artifacts": {
         "Test": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "Test.sol/Test.json"
+          "0.8.20+commit.a1b79de6.Linux.gcc": "Test.sol/Test.json"
         }
       }
     },
@@ -671,10 +671,10 @@
       "versionRequirement": ">=0.6.2, <0.9.0",
       "artifacts": {
         "Vm": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "Vm.sol/Vm.json"
+          "0.8.20+commit.a1b79de6.Linux.gcc": "Vm.sol/Vm.json"
         },
         "VmSafe": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "Vm.sol/VmSafe.json"
+          "0.8.20+commit.a1b79de6.Linux.gcc": "Vm.sol/VmSafe.json"
         }
       }
     },
@@ -714,7 +714,7 @@
       "versionRequirement": ">=0.4.22, <0.9.0",
       "artifacts": {
         "console": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "console.sol/console.json"
+          "0.8.20+commit.a1b79de6.Linux.gcc": "console.sol/console.json"
         }
       }
     },
@@ -754,7 +754,7 @@
       "versionRequirement": ">=0.4.22, <0.9.0",
       "artifacts": {
         "console2": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "console2.sol/console2.json"
+          "0.8.20+commit.a1b79de6.Linux.gcc": "console2.sol/console2.json"
         }
       }
     },
@@ -794,7 +794,7 @@
       "versionRequirement": ">=0.6.2, <0.9.0",
       "artifacts": {
         "IMulticall3": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "IMulticall3.sol/IMulticall3.json"
+          "0.8.20+commit.a1b79de6.Linux.gcc": "IMulticall3.sol/IMulticall3.json"
         }
       }
     },
@@ -834,13 +834,13 @@
       "versionRequirement": ">=0.6.2, <0.9.0",
       "artifacts": {
         "safeconsole": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "safeconsole.sol/safeconsole.json"
+          "0.8.20+commit.a1b79de6.Linux.gcc": "safeconsole.sol/safeconsole.json"
         }
       }
     },
     "lib/openzeppelin-contracts/contracts/access/Ownable.sol": {
-      "lastModificationDate": 1691934076236,
-      "contentHash": "5a20b2cad87ddb61c7a3a6af21289e28",
+      "lastModificationDate": 1695150299119,
+      "contentHash": "eb27e1beb31606e2344c6b96ba476d16",
       "sourceName": "lib/openzeppelin-contracts/contracts/access/Ownable.sol",
       "solcConfig": {
         "settings": {
@@ -873,16 +873,16 @@
       "imports": [
         "lib/openzeppelin-contracts/contracts/utils/Context.sol"
       ],
-      "versionRequirement": "^0.8.0",
+      "versionRequirement": "^0.8.20",
       "artifacts": {
         "Ownable": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "Ownable.sol/Ownable.json"
+          "0.8.20+commit.a1b79de6.Linux.gcc": "Ownable.sol/Ownable.json"
         }
       }
     },
     "lib/openzeppelin-contracts/contracts/interfaces/IERC1271.sol": {
-      "lastModificationDate": 1691934076236,
-      "contentHash": "8fe867b95c856b204f954a1910e28a1e",
+      "lastModificationDate": 1695150299123,
+      "contentHash": "e58d6c782ae10f308d3c5ddb60924166",
       "sourceName": "lib/openzeppelin-contracts/contracts/interfaces/IERC1271.sol",
       "solcConfig": {
         "settings": {
@@ -913,17 +913,17 @@
         }
       },
       "imports": [],
-      "versionRequirement": "^0.8.0",
+      "versionRequirement": "^0.8.20",
       "artifacts": {
         "IERC1271": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "IERC1271.sol/IERC1271.json"
+          "0.8.20+commit.a1b79de6.Linux.gcc": "IERC1271.sol/IERC1271.json"
         }
       }
     },
-    "lib/openzeppelin-contracts/contracts/interfaces/IERC1967.sol": {
-      "lastModificationDate": 1691934076236,
-      "contentHash": "d0d060231a45da7a1eecbb5cd286fa40",
-      "sourceName": "lib/openzeppelin-contracts/contracts/interfaces/IERC1967.sol",
+    "lib/openzeppelin-contracts/contracts/interfaces/draft-IERC6093.sol": {
+      "lastModificationDate": 1695150299123,
+      "contentHash": "2d67be32f639a1f4f3fdb0a3f7f61602",
+      "sourceName": "lib/openzeppelin-contracts/contracts/interfaces/draft-IERC6093.sol",
       "solcConfig": {
         "settings": {
           "optimizer": {
@@ -953,57 +953,23 @@
         }
       },
       "imports": [],
-      "versionRequirement": "^0.8.0",
+      "versionRequirement": "^0.8.20",
       "artifacts": {
-        "IERC1967": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "IERC1967.sol/IERC1967.json"
+        "IERC1155Errors": {
+          "0.8.20+commit.a1b79de6.Linux.gcc": "draft-IERC6093.sol/IERC1155Errors.json"
+        },
+        "IERC20Errors": {
+          "0.8.20+commit.a1b79de6.Linux.gcc": "draft-IERC6093.sol/IERC20Errors.json"
+        },
+        "IERC721Errors": {
+          "0.8.20+commit.a1b79de6.Linux.gcc": "draft-IERC6093.sol/IERC721Errors.json"
         }
       }
     },
-    "lib/openzeppelin-contracts/contracts/interfaces/draft-IERC1822.sol": {
-      "lastModificationDate": 1691934076236,
-      "contentHash": "2858d98e74e67987ec81b39605230b74",
-      "sourceName": "lib/openzeppelin-contracts/contracts/interfaces/draft-IERC1822.sol",
-      "solcConfig": {
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 20000
-          },
-          "metadata": {
-            "bytecodeHash": "ipfs",
-            "appendCBOR": true
-          },
-          "outputSelection": {
-            "*": {
-              "": [
-                "ast"
-              ],
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ]
-            }
-          },
-          "evmVersion": "paris",
-          "libraries": {}
-        }
-      },
-      "imports": [],
-      "versionRequirement": "^0.8.0",
-      "artifacts": {
-        "IERC1822Proxiable": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "draft-IERC1822.sol/IERC1822Proxiable.json"
-        }
-      }
-    },
-    "lib/openzeppelin-contracts/contracts/proxy/ERC1967/ERC1967Upgrade.sol": {
-      "lastModificationDate": 1691934076240,
-      "contentHash": "a127706394bead18392601a20d44867a",
-      "sourceName": "lib/openzeppelin-contracts/contracts/proxy/ERC1967/ERC1967Upgrade.sol",
+    "lib/openzeppelin-contracts/contracts/proxy/ERC1967/ERC1967Utils.sol": {
+      "lastModificationDate": 1695150299123,
+      "contentHash": "d6163e310404f688a97600b5a4da925d",
+      "sourceName": "lib/openzeppelin-contracts/contracts/proxy/ERC1967/ERC1967Utils.sol",
       "solcConfig": {
         "settings": {
           "optimizer": {
@@ -1033,22 +999,20 @@
         }
       },
       "imports": [
-        "lib/openzeppelin-contracts/contracts/interfaces/IERC1967.sol",
-        "lib/openzeppelin-contracts/contracts/interfaces/draft-IERC1822.sol",
         "lib/openzeppelin-contracts/contracts/proxy/beacon/IBeacon.sol",
         "lib/openzeppelin-contracts/contracts/utils/Address.sol",
         "lib/openzeppelin-contracts/contracts/utils/StorageSlot.sol"
       ],
-      "versionRequirement": "^0.8.2",
+      "versionRequirement": "^0.8.20",
       "artifacts": {
-        "ERC1967Upgrade": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "ERC1967Upgrade.sol/ERC1967Upgrade.json"
+        "ERC1967Utils": {
+          "0.8.20+commit.a1b79de6.Linux.gcc": "ERC1967Utils.sol/ERC1967Utils.json"
         }
       }
     },
     "lib/openzeppelin-contracts/contracts/proxy/Proxy.sol": {
-      "lastModificationDate": 1691934076240,
-      "contentHash": "40b3d81a836d50ff47e03893dcaaf204",
+      "lastModificationDate": 1695150299123,
+      "contentHash": "c53c6d63716bd9bb53082c54bc02b515",
       "sourceName": "lib/openzeppelin-contracts/contracts/proxy/Proxy.sol",
       "solcConfig": {
         "settings": {
@@ -1079,16 +1043,16 @@
         }
       },
       "imports": [],
-      "versionRequirement": "^0.8.0",
+      "versionRequirement": "^0.8.20",
       "artifacts": {
         "Proxy": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "Proxy.sol/Proxy.json"
+          "0.8.20+commit.a1b79de6.Linux.gcc": "Proxy.sol/Proxy.json"
         }
       }
     },
     "lib/openzeppelin-contracts/contracts/proxy/beacon/BeaconProxy.sol": {
-      "lastModificationDate": 1691934076240,
-      "contentHash": "dc9dcb6e542154d9cfbfaece646c1092",
+      "lastModificationDate": 1695150299123,
+      "contentHash": "30654e33733382b450d8ca2fd6f350f6",
       "sourceName": "lib/openzeppelin-contracts/contracts/proxy/beacon/BeaconProxy.sol",
       "solcConfig": {
         "settings": {
@@ -1119,24 +1083,22 @@
         }
       },
       "imports": [
-        "lib/openzeppelin-contracts/contracts/interfaces/IERC1967.sol",
-        "lib/openzeppelin-contracts/contracts/interfaces/draft-IERC1822.sol",
-        "lib/openzeppelin-contracts/contracts/proxy/ERC1967/ERC1967Upgrade.sol",
+        "lib/openzeppelin-contracts/contracts/proxy/ERC1967/ERC1967Utils.sol",
         "lib/openzeppelin-contracts/contracts/proxy/Proxy.sol",
         "lib/openzeppelin-contracts/contracts/proxy/beacon/IBeacon.sol",
         "lib/openzeppelin-contracts/contracts/utils/Address.sol",
         "lib/openzeppelin-contracts/contracts/utils/StorageSlot.sol"
       ],
-      "versionRequirement": "^0.8.0",
+      "versionRequirement": "^0.8.20",
       "artifacts": {
         "BeaconProxy": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "BeaconProxy.sol/BeaconProxy.json"
+          "0.8.20+commit.a1b79de6.Linux.gcc": "BeaconProxy.sol/BeaconProxy.json"
         }
       }
     },
     "lib/openzeppelin-contracts/contracts/proxy/beacon/IBeacon.sol": {
-      "lastModificationDate": 1691934076240,
-      "contentHash": "b6bd23bf19e90b771337037706470933",
+      "lastModificationDate": 1695150299123,
+      "contentHash": "dafdced34c5620d63e6f300d0db30014",
       "sourceName": "lib/openzeppelin-contracts/contracts/proxy/beacon/IBeacon.sol",
       "solcConfig": {
         "settings": {
@@ -1167,16 +1129,16 @@
         }
       },
       "imports": [],
-      "versionRequirement": "^0.8.0",
+      "versionRequirement": "^0.8.20",
       "artifacts": {
         "IBeacon": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "IBeacon.sol/IBeacon.json"
+          "0.8.20+commit.a1b79de6.Linux.gcc": "IBeacon.sol/IBeacon.json"
         }
       }
     },
     "lib/openzeppelin-contracts/contracts/proxy/beacon/UpgradeableBeacon.sol": {
-      "lastModificationDate": 1691934076240,
-      "contentHash": "8ffefb755605824cf730ce4092b2f581",
+      "lastModificationDate": 1695150299123,
+      "contentHash": "0f502dea4d86e914f88e1edaf0e855f3",
       "sourceName": "lib/openzeppelin-contracts/contracts/proxy/beacon/UpgradeableBeacon.sol",
       "solcConfig": {
         "settings": {
@@ -1209,19 +1171,18 @@
       "imports": [
         "lib/openzeppelin-contracts/contracts/access/Ownable.sol",
         "lib/openzeppelin-contracts/contracts/proxy/beacon/IBeacon.sol",
-        "lib/openzeppelin-contracts/contracts/utils/Address.sol",
         "lib/openzeppelin-contracts/contracts/utils/Context.sol"
       ],
-      "versionRequirement": "^0.8.0",
+      "versionRequirement": "^0.8.20",
       "artifacts": {
         "UpgradeableBeacon": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "UpgradeableBeacon.sol/UpgradeableBeacon.json"
+          "0.8.20+commit.a1b79de6.Linux.gcc": "UpgradeableBeacon.sol/UpgradeableBeacon.json"
         }
       }
     },
     "lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol": {
-      "lastModificationDate": 1691934076240,
-      "contentHash": "3ae5166c6827a9cf1a7a462d1632b464",
+      "lastModificationDate": 1695150299123,
+      "contentHash": "450bd17045dc83dc4c1feff793e08afd",
       "sourceName": "lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol",
       "solcConfig": {
         "settings": {
@@ -1252,20 +1213,21 @@
         }
       },
       "imports": [
+        "lib/openzeppelin-contracts/contracts/interfaces/draft-IERC6093.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol",
         "lib/openzeppelin-contracts/contracts/utils/Context.sol"
       ],
-      "versionRequirement": "^0.8.0",
+      "versionRequirement": "^0.8.20",
       "artifacts": {
         "ERC20": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "ERC20.sol/ERC20.json"
+          "0.8.20+commit.a1b79de6.Linux.gcc": "ERC20.sol/ERC20.json"
         }
       }
     },
     "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol": {
-      "lastModificationDate": 1691934076240,
-      "contentHash": "df36f7051335cd1e748b1b6463b7fdd3",
+      "lastModificationDate": 1695150299123,
+      "contentHash": "f9d429a75bcbb89457bbbcbe8af5544c",
       "sourceName": "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
       "solcConfig": {
         "settings": {
@@ -1296,16 +1258,16 @@
         }
       },
       "imports": [],
-      "versionRequirement": "^0.8.0",
+      "versionRequirement": "^0.8.20",
       "artifacts": {
         "IERC20": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "IERC20.sol/IERC20.json"
+          "0.8.20+commit.a1b79de6.Linux.gcc": "IERC20.sol/IERC20.json"
         }
       }
     },
     "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol": {
-      "lastModificationDate": 1691934076240,
-      "contentHash": "909ab67fc5c25033fe6cd364f8c056f9",
+      "lastModificationDate": 1695150299127,
+      "contentHash": "56f1bd35ef71dceacdf28101e5f843aa",
       "sourceName": "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol",
       "solcConfig": {
         "settings": {
@@ -1338,16 +1300,16 @@
       "imports": [
         "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol"
       ],
-      "versionRequirement": "^0.8.0",
+      "versionRequirement": "^0.8.20",
       "artifacts": {
         "IERC20Metadata": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "IERC20Metadata.sol/IERC20Metadata.json"
+          "0.8.20+commit.a1b79de6.Linux.gcc": "IERC20Metadata.sol/IERC20Metadata.json"
         }
       }
     },
     "lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol": {
-      "lastModificationDate": 1691934076240,
-      "contentHash": "95602b04f0b53f1139f4668d123ddeb7",
+      "lastModificationDate": 1695150299127,
+      "contentHash": "94744c52200b8cd53c2eebc4b0b9814c",
       "sourceName": "lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol",
       "solcConfig": {
         "settings": {
@@ -1378,10 +1340,10 @@
         }
       },
       "imports": [
+        "lib/openzeppelin-contracts/contracts/interfaces/draft-IERC6093.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC721/IERC721.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC721/IERC721Receiver.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC721/extensions/IERC721Metadata.sol",
-        "lib/openzeppelin-contracts/contracts/utils/Address.sol",
         "lib/openzeppelin-contracts/contracts/utils/Context.sol",
         "lib/openzeppelin-contracts/contracts/utils/Strings.sol",
         "lib/openzeppelin-contracts/contracts/utils/introspection/ERC165.sol",
@@ -1389,16 +1351,16 @@
         "lib/openzeppelin-contracts/contracts/utils/math/Math.sol",
         "lib/openzeppelin-contracts/contracts/utils/math/SignedMath.sol"
       ],
-      "versionRequirement": "^0.8.0",
+      "versionRequirement": "^0.8.20",
       "artifacts": {
         "ERC721": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "ERC721.sol/ERC721.json"
+          "0.8.20+commit.a1b79de6.Linux.gcc": "ERC721.sol/ERC721.json"
         }
       }
     },
     "lib/openzeppelin-contracts/contracts/token/ERC721/IERC721.sol": {
-      "lastModificationDate": 1691934076240,
-      "contentHash": "48de4c9a3a4ae5ef66a2aa620843413f",
+      "lastModificationDate": 1695150299127,
+      "contentHash": "2490cb5bb2f2e4ce3bc22fce382430f6",
       "sourceName": "lib/openzeppelin-contracts/contracts/token/ERC721/IERC721.sol",
       "solcConfig": {
         "settings": {
@@ -1431,16 +1393,16 @@
       "imports": [
         "lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol"
       ],
-      "versionRequirement": "^0.8.0",
+      "versionRequirement": "^0.8.20",
       "artifacts": {
         "IERC721": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "IERC721.sol/IERC721.json"
+          "0.8.20+commit.a1b79de6.Linux.gcc": "IERC721.sol/IERC721.json"
         }
       }
     },
     "lib/openzeppelin-contracts/contracts/token/ERC721/IERC721Receiver.sol": {
-      "lastModificationDate": 1691934076240,
-      "contentHash": "c22d4395e33763de693fd440c6fd10e1",
+      "lastModificationDate": 1695150299127,
+      "contentHash": "d32df1e9fcd4f6149bc96f0e46cc0a0b",
       "sourceName": "lib/openzeppelin-contracts/contracts/token/ERC721/IERC721Receiver.sol",
       "solcConfig": {
         "settings": {
@@ -1471,16 +1433,16 @@
         }
       },
       "imports": [],
-      "versionRequirement": "^0.8.0",
+      "versionRequirement": "^0.8.20",
       "artifacts": {
         "IERC721Receiver": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "IERC721Receiver.sol/IERC721Receiver.json"
+          "0.8.20+commit.a1b79de6.Linux.gcc": "IERC721Receiver.sol/IERC721Receiver.json"
         }
       }
     },
     "lib/openzeppelin-contracts/contracts/token/ERC721/extensions/IERC721Metadata.sol": {
-      "lastModificationDate": 1691934076244,
-      "contentHash": "efbc0d15b80a74e34dbe8da0f3e879bb",
+      "lastModificationDate": 1695150299127,
+      "contentHash": "d93c073156485e7c43319a824127c796",
       "sourceName": "lib/openzeppelin-contracts/contracts/token/ERC721/extensions/IERC721Metadata.sol",
       "solcConfig": {
         "settings": {
@@ -1514,16 +1476,16 @@
         "lib/openzeppelin-contracts/contracts/token/ERC721/IERC721.sol",
         "lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol"
       ],
-      "versionRequirement": "^0.8.0",
+      "versionRequirement": "^0.8.20",
       "artifacts": {
         "IERC721Metadata": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "IERC721Metadata.sol/IERC721Metadata.json"
+          "0.8.20+commit.a1b79de6.Linux.gcc": "IERC721Metadata.sol/IERC721Metadata.json"
         }
       }
     },
     "lib/openzeppelin-contracts/contracts/utils/Address.sol": {
-      "lastModificationDate": 1691934076244,
-      "contentHash": "211ffd288c1588ba8c10eae668ca3c66",
+      "lastModificationDate": 1695150299127,
+      "contentHash": "7d6837b8592ec072cdc589d130f4d3bb",
       "sourceName": "lib/openzeppelin-contracts/contracts/utils/Address.sol",
       "solcConfig": {
         "settings": {
@@ -1554,16 +1516,16 @@
         }
       },
       "imports": [],
-      "versionRequirement": "^0.8.1",
+      "versionRequirement": "^0.8.20",
       "artifacts": {
         "Address": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "Address.sol/Address.json"
+          "0.8.20+commit.a1b79de6.Linux.gcc": "Address.sol/Address.json"
         }
       }
     },
     "lib/openzeppelin-contracts/contracts/utils/Context.sol": {
-      "lastModificationDate": 1691934076244,
-      "contentHash": "5f2c5c4b6af2dd4551027144797bc8be",
+      "lastModificationDate": 1695150299127,
+      "contentHash": "09334082e90e487d918823170e4806b1",
       "sourceName": "lib/openzeppelin-contracts/contracts/utils/Context.sol",
       "solcConfig": {
         "settings": {
@@ -1594,56 +1556,16 @@
         }
       },
       "imports": [],
-      "versionRequirement": "^0.8.0",
+      "versionRequirement": "^0.8.20",
       "artifacts": {
         "Context": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "Context.sol/Context.json"
-        }
-      }
-    },
-    "lib/openzeppelin-contracts/contracts/utils/Counters.sol": {
-      "lastModificationDate": 1691934076244,
-      "contentHash": "74654e3ae5d7f39555055dfe244dab7a",
-      "sourceName": "lib/openzeppelin-contracts/contracts/utils/Counters.sol",
-      "solcConfig": {
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 20000
-          },
-          "metadata": {
-            "bytecodeHash": "ipfs",
-            "appendCBOR": true
-          },
-          "outputSelection": {
-            "*": {
-              "": [
-                "ast"
-              ],
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ]
-            }
-          },
-          "evmVersion": "paris",
-          "libraries": {}
-        }
-      },
-      "imports": [],
-      "versionRequirement": "^0.8.0",
-      "artifacts": {
-        "Counters": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "Counters.sol/Counters.json"
+          "0.8.20+commit.a1b79de6.Linux.gcc": "Context.sol/Context.json"
         }
       }
     },
     "lib/openzeppelin-contracts/contracts/utils/Create2.sol": {
-      "lastModificationDate": 1691934076244,
-      "contentHash": "752ff0901adbdac182deace414d9e75f",
+      "lastModificationDate": 1695150299127,
+      "contentHash": "c7bbc8b8ac6d636177f31b8249747a90",
       "sourceName": "lib/openzeppelin-contracts/contracts/utils/Create2.sol",
       "solcConfig": {
         "settings": {
@@ -1674,16 +1596,16 @@
         }
       },
       "imports": [],
-      "versionRequirement": "^0.8.0",
+      "versionRequirement": "^0.8.20",
       "artifacts": {
         "Create2": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "Create2.sol/Create2.json"
+          "0.8.20+commit.a1b79de6.Linux.gcc": "Create2.sol/Create2.json"
         }
       }
     },
     "lib/openzeppelin-contracts/contracts/utils/StorageSlot.sol": {
-      "lastModificationDate": 1691934076244,
-      "contentHash": "682f7dd1f2e1147c8390e7575deceb2d",
+      "lastModificationDate": 1695150299127,
+      "contentHash": "c6efb1080c1744be0681b96e35a34ce0",
       "sourceName": "lib/openzeppelin-contracts/contracts/utils/StorageSlot.sol",
       "solcConfig": {
         "settings": {
@@ -1714,16 +1636,16 @@
         }
       },
       "imports": [],
-      "versionRequirement": "^0.8.0",
+      "versionRequirement": "^0.8.20",
       "artifacts": {
         "StorageSlot": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "StorageSlot.sol/StorageSlot.json"
+          "0.8.20+commit.a1b79de6.Linux.gcc": "StorageSlot.sol/StorageSlot.json"
         }
       }
     },
     "lib/openzeppelin-contracts/contracts/utils/Strings.sol": {
-      "lastModificationDate": 1691934076244,
-      "contentHash": "48686fc32a22a3754b8e63321857dd2a",
+      "lastModificationDate": 1695150299127,
+      "contentHash": "9f91dbab1ba8f8d5b83cebdf441ace85",
       "sourceName": "lib/openzeppelin-contracts/contracts/utils/Strings.sol",
       "solcConfig": {
         "settings": {
@@ -1757,16 +1679,16 @@
         "lib/openzeppelin-contracts/contracts/utils/math/Math.sol",
         "lib/openzeppelin-contracts/contracts/utils/math/SignedMath.sol"
       ],
-      "versionRequirement": "^0.8.0",
+      "versionRequirement": "^0.8.20",
       "artifacts": {
         "Strings": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "Strings.sol/Strings.json"
+          "0.8.20+commit.a1b79de6.Linux.gcc": "Strings.sol/Strings.json"
         }
       }
     },
     "lib/openzeppelin-contracts/contracts/utils/cryptography/ECDSA.sol": {
-      "lastModificationDate": 1691934076244,
-      "contentHash": "d822a8a9468649cab463f29f5decf5cc",
+      "lastModificationDate": 1695150299127,
+      "contentHash": "c7f3d70607d3713e6f307f71356681bd",
       "sourceName": "lib/openzeppelin-contracts/contracts/utils/cryptography/ECDSA.sol",
       "solcConfig": {
         "settings": {
@@ -1796,21 +1718,17 @@
           "libraries": {}
         }
       },
-      "imports": [
-        "lib/openzeppelin-contracts/contracts/utils/Strings.sol",
-        "lib/openzeppelin-contracts/contracts/utils/math/Math.sol",
-        "lib/openzeppelin-contracts/contracts/utils/math/SignedMath.sol"
-      ],
-      "versionRequirement": "^0.8.0",
+      "imports": [],
+      "versionRequirement": "^0.8.20",
       "artifacts": {
         "ECDSA": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "ECDSA.sol/ECDSA.json"
+          "0.8.20+commit.a1b79de6.Linux.gcc": "ECDSA.sol/ECDSA.json"
         }
       }
     },
     "lib/openzeppelin-contracts/contracts/utils/cryptography/SignatureChecker.sol": {
-      "lastModificationDate": 1691934076244,
-      "contentHash": "53d16b3bec482493405bdc74852eb2cd",
+      "lastModificationDate": 1695150299127,
+      "contentHash": "5e0b389f49e8e556bb2f45553253d09c",
       "sourceName": "lib/openzeppelin-contracts/contracts/utils/cryptography/SignatureChecker.sol",
       "solcConfig": {
         "settings": {
@@ -1842,21 +1760,18 @@
       },
       "imports": [
         "lib/openzeppelin-contracts/contracts/interfaces/IERC1271.sol",
-        "lib/openzeppelin-contracts/contracts/utils/Strings.sol",
-        "lib/openzeppelin-contracts/contracts/utils/cryptography/ECDSA.sol",
-        "lib/openzeppelin-contracts/contracts/utils/math/Math.sol",
-        "lib/openzeppelin-contracts/contracts/utils/math/SignedMath.sol"
+        "lib/openzeppelin-contracts/contracts/utils/cryptography/ECDSA.sol"
       ],
-      "versionRequirement": "^0.8.0",
+      "versionRequirement": "^0.8.20",
       "artifacts": {
         "SignatureChecker": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "SignatureChecker.sol/SignatureChecker.json"
+          "0.8.20+commit.a1b79de6.Linux.gcc": "SignatureChecker.sol/SignatureChecker.json"
         }
       }
     },
     "lib/openzeppelin-contracts/contracts/utils/introspection/ERC165.sol": {
-      "lastModificationDate": 1691934076244,
-      "contentHash": "0e7db055ce108f9da7bb6686a00287c0",
+      "lastModificationDate": 1695150299127,
+      "contentHash": "58383deda501d7fb5d15ba143f2b80b3",
       "sourceName": "lib/openzeppelin-contracts/contracts/utils/introspection/ERC165.sol",
       "solcConfig": {
         "settings": {
@@ -1889,16 +1804,16 @@
       "imports": [
         "lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol"
       ],
-      "versionRequirement": "^0.8.0",
+      "versionRequirement": "^0.8.20",
       "artifacts": {
         "ERC165": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "ERC165.sol/ERC165.json"
+          "0.8.20+commit.a1b79de6.Linux.gcc": "ERC165.sol/ERC165.json"
         }
       }
     },
     "lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol": {
-      "lastModificationDate": 1691934076244,
-      "contentHash": "03e6768535ac4da0e9756f1d8a4a018a",
+      "lastModificationDate": 1695150299127,
+      "contentHash": "5a21a24ec719b683e7faf6eae0db9181",
       "sourceName": "lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol",
       "solcConfig": {
         "settings": {
@@ -1929,16 +1844,16 @@
         }
       },
       "imports": [],
-      "versionRequirement": "^0.8.0",
+      "versionRequirement": "^0.8.20",
       "artifacts": {
         "IERC165": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "IERC165.sol/IERC165.json"
+          "0.8.20+commit.a1b79de6.Linux.gcc": "IERC165.sol/IERC165.json"
         }
       }
     },
     "lib/openzeppelin-contracts/contracts/utils/math/Math.sol": {
-      "lastModificationDate": 1691934076244,
-      "contentHash": "fe63409d8a06818b926cf89e0ea88b1b",
+      "lastModificationDate": 1695150299127,
+      "contentHash": "e6fce8ad19a294f736cfbac317a3dda0",
       "sourceName": "lib/openzeppelin-contracts/contracts/utils/math/Math.sol",
       "solcConfig": {
         "settings": {
@@ -1969,16 +1884,16 @@
         }
       },
       "imports": [],
-      "versionRequirement": "^0.8.0",
+      "versionRequirement": "^0.8.20",
       "artifacts": {
         "Math": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "Math.sol/Math.json"
+          "0.8.20+commit.a1b79de6.Linux.gcc": "Math.sol/Math.json"
         }
       }
     },
     "lib/openzeppelin-contracts/contracts/utils/math/SignedMath.sol": {
-      "lastModificationDate": 1691934076244,
-      "contentHash": "9488ebd4daacfee8ad04811600d7d061",
+      "lastModificationDate": 1695150299127,
+      "contentHash": "043001b4a3a329e572ece8f9cd5e7c2b",
       "sourceName": "lib/openzeppelin-contracts/contracts/utils/math/SignedMath.sol",
       "solcConfig": {
         "settings": {
@@ -2009,16 +1924,16 @@
         }
       },
       "imports": [],
-      "versionRequirement": "^0.8.0",
+      "versionRequirement": "^0.8.20",
       "artifacts": {
         "SignedMath": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "SignedMath.sol/SignedMath.json"
+          "0.8.20+commit.a1b79de6.Linux.gcc": "SignedMath.sol/SignedMath.json"
         }
       }
     },
     "lib/openzeppelin-contracts-upgradeable/contracts/access/OwnableUpgradeable.sol": {
-      "lastModificationDate": 1691934440783,
-      "contentHash": "db24b956904575cc79d02867ec03263c",
+      "lastModificationDate": 1695150301587,
+      "contentHash": "c16e3801aaf080e6863281dd6d49405c",
       "sourceName": "lib/openzeppelin-contracts-upgradeable/contracts/access/OwnableUpgradeable.sol",
       "solcConfig": {
         "settings": {
@@ -2050,19 +1965,64 @@
       },
       "imports": [
         "lib/openzeppelin-contracts-upgradeable/contracts/proxy/utils/Initializable.sol",
-        "lib/openzeppelin-contracts-upgradeable/contracts/utils/AddressUpgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/utils/ContextUpgradeable.sol"
       ],
-      "versionRequirement": "^0.8.0",
+      "versionRequirement": "^0.8.20",
       "artifacts": {
         "OwnableUpgradeable": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "OwnableUpgradeable.sol/OwnableUpgradeable.json"
+          "0.8.20+commit.a1b79de6.Linux.gcc": "OwnableUpgradeable.sol/OwnableUpgradeable.json"
+        }
+      }
+    },
+    "lib/openzeppelin-contracts-upgradeable/contracts/interfaces/draft-IERC6093Upgradeable.sol": {
+      "lastModificationDate": 1695150301591,
+      "contentHash": "7aee604cd19e42ec949e03431315b88c",
+      "sourceName": "lib/openzeppelin-contracts-upgradeable/contracts/interfaces/draft-IERC6093Upgradeable.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 20000
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "paris",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": "^0.8.20",
+      "artifacts": {
+        "IERC1155ErrorsUpgradeable": {
+          "0.8.20+commit.a1b79de6.Linux.gcc": "draft-IERC6093Upgradeable.sol/IERC1155ErrorsUpgradeable.json"
+        },
+        "IERC20ErrorsUpgradeable": {
+          "0.8.20+commit.a1b79de6.Linux.gcc": "draft-IERC6093Upgradeable.sol/IERC20ErrorsUpgradeable.json"
+        },
+        "IERC721ErrorsUpgradeable": {
+          "0.8.20+commit.a1b79de6.Linux.gcc": "draft-IERC6093Upgradeable.sol/IERC721ErrorsUpgradeable.json"
         }
       }
     },
     "lib/openzeppelin-contracts-upgradeable/contracts/proxy/utils/Initializable.sol": {
-      "lastModificationDate": 1691934440791,
-      "contentHash": "b0970a564d121abf9adfff8d1a01eb16",
+      "lastModificationDate": 1695150301591,
+      "contentHash": "761eac0c886f313e8ed44b6ccfa89def",
       "sourceName": "lib/openzeppelin-contracts-upgradeable/contracts/proxy/utils/Initializable.sol",
       "solcConfig": {
         "settings": {
@@ -2092,19 +2052,17 @@
           "libraries": {}
         }
       },
-      "imports": [
-        "lib/openzeppelin-contracts-upgradeable/contracts/utils/AddressUpgradeable.sol"
-      ],
-      "versionRequirement": "^0.8.2",
+      "imports": [],
+      "versionRequirement": "^0.8.20",
       "artifacts": {
         "Initializable": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "Initializable.sol/Initializable.json"
+          "0.8.20+commit.a1b79de6.Linux.gcc": "Initializable.sol/Initializable.json"
         }
       }
     },
     "lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/ERC20Upgradeable.sol": {
-      "lastModificationDate": 1691934440791,
-      "contentHash": "569edd57f8c6c7f5f750a3da1ed9c4c7",
+      "lastModificationDate": 1695150301591,
+      "contentHash": "7ec30de415bb189082d321a5ec9bf6e4",
       "sourceName": "lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/ERC20Upgradeable.sol",
       "solcConfig": {
         "settings": {
@@ -2135,22 +2093,22 @@
         }
       },
       "imports": [
+        "lib/openzeppelin-contracts-upgradeable/contracts/interfaces/draft-IERC6093Upgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/proxy/utils/Initializable.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/IERC20Upgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/extensions/IERC20MetadataUpgradeable.sol",
-        "lib/openzeppelin-contracts-upgradeable/contracts/utils/AddressUpgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/utils/ContextUpgradeable.sol"
       ],
-      "versionRequirement": "^0.8.0",
+      "versionRequirement": "^0.8.20",
       "artifacts": {
         "ERC20Upgradeable": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "ERC20Upgradeable.sol/ERC20Upgradeable.json"
+          "0.8.20+commit.a1b79de6.Linux.gcc": "ERC20Upgradeable.sol/ERC20Upgradeable.json"
         }
       }
     },
     "lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/IERC20Upgradeable.sol": {
-      "lastModificationDate": 1691934440791,
-      "contentHash": "9a9398a7dbda9d014f04d5eb0fb581fd",
+      "lastModificationDate": 1695150301591,
+      "contentHash": "59aea696b04bd4cc62280d56f7a40afd",
       "sourceName": "lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/IERC20Upgradeable.sol",
       "solcConfig": {
         "settings": {
@@ -2181,16 +2139,16 @@
         }
       },
       "imports": [],
-      "versionRequirement": "^0.8.0",
+      "versionRequirement": "^0.8.20",
       "artifacts": {
         "IERC20Upgradeable": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "IERC20Upgradeable.sol/IERC20Upgradeable.json"
+          "0.8.20+commit.a1b79de6.Linux.gcc": "IERC20Upgradeable.sol/IERC20Upgradeable.json"
         }
       }
     },
     "lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/extensions/IERC20MetadataUpgradeable.sol": {
-      "lastModificationDate": 1691934440791,
-      "contentHash": "9efcd5467a7f0bf533910ee8a267adb2",
+      "lastModificationDate": 1695150301591,
+      "contentHash": "3d5d037f9afe20501de9141e0ff30447",
       "sourceName": "lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/extensions/IERC20MetadataUpgradeable.sol",
       "solcConfig": {
         "settings": {
@@ -2223,56 +2181,16 @@
       "imports": [
         "lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/IERC20Upgradeable.sol"
       ],
-      "versionRequirement": "^0.8.0",
+      "versionRequirement": "^0.8.20",
       "artifacts": {
         "IERC20MetadataUpgradeable": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "IERC20MetadataUpgradeable.sol/IERC20MetadataUpgradeable.json"
-        }
-      }
-    },
-    "lib/openzeppelin-contracts-upgradeable/contracts/utils/AddressUpgradeable.sol": {
-      "lastModificationDate": 1691934440791,
-      "contentHash": "c30c805386fda8a42ff515da963d3a95",
-      "sourceName": "lib/openzeppelin-contracts-upgradeable/contracts/utils/AddressUpgradeable.sol",
-      "solcConfig": {
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "runs": 20000
-          },
-          "metadata": {
-            "bytecodeHash": "ipfs",
-            "appendCBOR": true
-          },
-          "outputSelection": {
-            "*": {
-              "": [
-                "ast"
-              ],
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ]
-            }
-          },
-          "evmVersion": "paris",
-          "libraries": {}
-        }
-      },
-      "imports": [],
-      "versionRequirement": "^0.8.1",
-      "artifacts": {
-        "AddressUpgradeable": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "AddressUpgradeable.sol/AddressUpgradeable.json"
+          "0.8.20+commit.a1b79de6.Linux.gcc": "IERC20MetadataUpgradeable.sol/IERC20MetadataUpgradeable.json"
         }
       }
     },
     "lib/openzeppelin-contracts-upgradeable/contracts/utils/ContextUpgradeable.sol": {
-      "lastModificationDate": 1691934440791,
-      "contentHash": "6200b84950eb05b4a92a39fd1d6e0f9b",
+      "lastModificationDate": 1695150301595,
+      "contentHash": "74b581e60576acf02ea0ae6d04f92c1e",
       "sourceName": "lib/openzeppelin-contracts-upgradeable/contracts/utils/ContextUpgradeable.sol",
       "solcConfig": {
         "settings": {
@@ -2303,18 +2221,17 @@
         }
       },
       "imports": [
-        "lib/openzeppelin-contracts-upgradeable/contracts/proxy/utils/Initializable.sol",
-        "lib/openzeppelin-contracts-upgradeable/contracts/utils/AddressUpgradeable.sol"
+        "lib/openzeppelin-contracts-upgradeable/contracts/proxy/utils/Initializable.sol"
       ],
-      "versionRequirement": "^0.8.0",
+      "versionRequirement": "^0.8.20",
       "artifacts": {
         "ContextUpgradeable": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "ContextUpgradeable.sol/ContextUpgradeable.json"
+          "0.8.20+commit.a1b79de6.Linux.gcc": "ContextUpgradeable.sol/ContextUpgradeable.json"
         }
       }
     },
     "script/Deploy1.s.sol": {
-      "lastModificationDate": 1695100224070,
+      "lastModificationDate": 1695149560994,
       "contentHash": "397a76168a9434a5d0d2677bd877a15a",
       "sourceName": "script/Deploy1.s.sol",
       "solcConfig": {
@@ -2362,9 +2279,8 @@
         "lib/forge-std/src/safeconsole.sol",
         "lib/openzeppelin-contracts/contracts/access/Ownable.sol",
         "lib/openzeppelin-contracts/contracts/interfaces/IERC1271.sol",
-        "lib/openzeppelin-contracts/contracts/interfaces/IERC1967.sol",
-        "lib/openzeppelin-contracts/contracts/interfaces/draft-IERC1822.sol",
-        "lib/openzeppelin-contracts/contracts/proxy/ERC1967/ERC1967Upgrade.sol",
+        "lib/openzeppelin-contracts/contracts/interfaces/draft-IERC6093.sol",
+        "lib/openzeppelin-contracts/contracts/proxy/ERC1967/ERC1967Utils.sol",
         "lib/openzeppelin-contracts/contracts/proxy/Proxy.sol",
         "lib/openzeppelin-contracts/contracts/proxy/beacon/BeaconProxy.sol",
         "lib/openzeppelin-contracts/contracts/proxy/beacon/IBeacon.sol",
@@ -2378,7 +2294,6 @@
         "lib/openzeppelin-contracts/contracts/token/ERC721/extensions/IERC721Metadata.sol",
         "lib/openzeppelin-contracts/contracts/utils/Address.sol",
         "lib/openzeppelin-contracts/contracts/utils/Context.sol",
-        "lib/openzeppelin-contracts/contracts/utils/Counters.sol",
         "lib/openzeppelin-contracts/contracts/utils/Create2.sol",
         "lib/openzeppelin-contracts/contracts/utils/StorageSlot.sol",
         "lib/openzeppelin-contracts/contracts/utils/Strings.sol",
@@ -2389,11 +2304,11 @@
         "lib/openzeppelin-contracts/contracts/utils/math/Math.sol",
         "lib/openzeppelin-contracts/contracts/utils/math/SignedMath.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/access/OwnableUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/interfaces/draft-IERC6093Upgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/proxy/utils/Initializable.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/ERC20Upgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/IERC20Upgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/extensions/IERC20MetadataUpgradeable.sol",
-        "lib/openzeppelin-contracts-upgradeable/contracts/utils/AddressUpgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/utils/ContextUpgradeable.sol",
         "src/ERC6551Registry.sol",
         "src/MockERC20.sol",
@@ -2407,12 +2322,12 @@
       "versionRequirement": "^0.8.13",
       "artifacts": {
         "Deploy": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "Deploy1.s.sol/Deploy.json"
+          "0.8.20+commit.a1b79de6.Linux.gcc": "Deploy1.s.sol/Deploy.json"
         }
       }
     },
     "script/Deploy2.s.sol": {
-      "lastModificationDate": 1695100612372,
+      "lastModificationDate": 1695149560994,
       "contentHash": "d318f4cdac1a099769e3df4c516212a6",
       "sourceName": "script/Deploy2.s.sol",
       "solcConfig": {
@@ -2460,9 +2375,8 @@
         "lib/forge-std/src/safeconsole.sol",
         "lib/openzeppelin-contracts/contracts/access/Ownable.sol",
         "lib/openzeppelin-contracts/contracts/interfaces/IERC1271.sol",
-        "lib/openzeppelin-contracts/contracts/interfaces/IERC1967.sol",
-        "lib/openzeppelin-contracts/contracts/interfaces/draft-IERC1822.sol",
-        "lib/openzeppelin-contracts/contracts/proxy/ERC1967/ERC1967Upgrade.sol",
+        "lib/openzeppelin-contracts/contracts/interfaces/draft-IERC6093.sol",
+        "lib/openzeppelin-contracts/contracts/proxy/ERC1967/ERC1967Utils.sol",
         "lib/openzeppelin-contracts/contracts/proxy/Proxy.sol",
         "lib/openzeppelin-contracts/contracts/proxy/beacon/BeaconProxy.sol",
         "lib/openzeppelin-contracts/contracts/proxy/beacon/IBeacon.sol",
@@ -2476,7 +2390,6 @@
         "lib/openzeppelin-contracts/contracts/token/ERC721/extensions/IERC721Metadata.sol",
         "lib/openzeppelin-contracts/contracts/utils/Address.sol",
         "lib/openzeppelin-contracts/contracts/utils/Context.sol",
-        "lib/openzeppelin-contracts/contracts/utils/Counters.sol",
         "lib/openzeppelin-contracts/contracts/utils/Create2.sol",
         "lib/openzeppelin-contracts/contracts/utils/StorageSlot.sol",
         "lib/openzeppelin-contracts/contracts/utils/Strings.sol",
@@ -2487,11 +2400,11 @@
         "lib/openzeppelin-contracts/contracts/utils/math/Math.sol",
         "lib/openzeppelin-contracts/contracts/utils/math/SignedMath.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/access/OwnableUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/interfaces/draft-IERC6093Upgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/proxy/utils/Initializable.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/ERC20Upgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/IERC20Upgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/extensions/IERC20MetadataUpgradeable.sol",
-        "lib/openzeppelin-contracts-upgradeable/contracts/utils/AddressUpgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/utils/ContextUpgradeable.sol",
         "src/ERC6551Registry.sol",
         "src/MockERC20.sol",
@@ -2505,12 +2418,12 @@
       "versionRequirement": "^0.8.13",
       "artifacts": {
         "Deploy": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "Deploy2.s.sol/Deploy.json"
+          "0.8.20+commit.a1b79de6.Linux.gcc": "Deploy2.s.sol/Deploy.json"
         }
       }
     },
     "script/Deploy3.s.sol": {
-      "lastModificationDate": 1695100706177,
+      "lastModificationDate": 1695149560994,
       "contentHash": "00e30dd2783abba6b18474b8718ef4b2",
       "sourceName": "script/Deploy3.s.sol",
       "solcConfig": {
@@ -2558,9 +2471,8 @@
         "lib/forge-std/src/safeconsole.sol",
         "lib/openzeppelin-contracts/contracts/access/Ownable.sol",
         "lib/openzeppelin-contracts/contracts/interfaces/IERC1271.sol",
-        "lib/openzeppelin-contracts/contracts/interfaces/IERC1967.sol",
-        "lib/openzeppelin-contracts/contracts/interfaces/draft-IERC1822.sol",
-        "lib/openzeppelin-contracts/contracts/proxy/ERC1967/ERC1967Upgrade.sol",
+        "lib/openzeppelin-contracts/contracts/interfaces/draft-IERC6093.sol",
+        "lib/openzeppelin-contracts/contracts/proxy/ERC1967/ERC1967Utils.sol",
         "lib/openzeppelin-contracts/contracts/proxy/Proxy.sol",
         "lib/openzeppelin-contracts/contracts/proxy/beacon/BeaconProxy.sol",
         "lib/openzeppelin-contracts/contracts/proxy/beacon/IBeacon.sol",
@@ -2574,7 +2486,6 @@
         "lib/openzeppelin-contracts/contracts/token/ERC721/extensions/IERC721Metadata.sol",
         "lib/openzeppelin-contracts/contracts/utils/Address.sol",
         "lib/openzeppelin-contracts/contracts/utils/Context.sol",
-        "lib/openzeppelin-contracts/contracts/utils/Counters.sol",
         "lib/openzeppelin-contracts/contracts/utils/Create2.sol",
         "lib/openzeppelin-contracts/contracts/utils/StorageSlot.sol",
         "lib/openzeppelin-contracts/contracts/utils/Strings.sol",
@@ -2585,11 +2496,11 @@
         "lib/openzeppelin-contracts/contracts/utils/math/Math.sol",
         "lib/openzeppelin-contracts/contracts/utils/math/SignedMath.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/access/OwnableUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/interfaces/draft-IERC6093Upgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/proxy/utils/Initializable.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/ERC20Upgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/IERC20Upgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/extensions/IERC20MetadataUpgradeable.sol",
-        "lib/openzeppelin-contracts-upgradeable/contracts/utils/AddressUpgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/utils/ContextUpgradeable.sol",
         "src/ERC6551Registry.sol",
         "src/MockERC20.sol",
@@ -2603,13 +2514,205 @@
       "versionRequirement": "^0.8.13",
       "artifacts": {
         "Deploy": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "Deploy3.s.sol/Deploy.json"
+          "0.8.20+commit.a1b79de6.Linux.gcc": "Deploy3.s.sol/Deploy.json"
+        }
+      }
+    },
+    "script/DeployFull.s.sol": {
+      "lastModificationDate": 1695152910572,
+      "contentHash": "6356557d6dd0af88dbeb2977c21061e1",
+      "sourceName": "script/DeployFull.s.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 20000
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "paris",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/forge-std/src/Base.sol",
+        "lib/forge-std/src/Script.sol",
+        "lib/forge-std/src/StdChains.sol",
+        "lib/forge-std/src/StdCheats.sol",
+        "lib/forge-std/src/StdJson.sol",
+        "lib/forge-std/src/StdMath.sol",
+        "lib/forge-std/src/StdStorage.sol",
+        "lib/forge-std/src/StdStyle.sol",
+        "lib/forge-std/src/StdUtils.sol",
+        "lib/forge-std/src/Vm.sol",
+        "lib/forge-std/src/console.sol",
+        "lib/forge-std/src/console2.sol",
+        "lib/forge-std/src/interfaces/IMulticall3.sol",
+        "lib/forge-std/src/safeconsole.sol",
+        "lib/openzeppelin-contracts/contracts/access/Ownable.sol",
+        "lib/openzeppelin-contracts/contracts/interfaces/IERC1271.sol",
+        "lib/openzeppelin-contracts/contracts/interfaces/draft-IERC6093.sol",
+        "lib/openzeppelin-contracts/contracts/proxy/ERC1967/ERC1967Utils.sol",
+        "lib/openzeppelin-contracts/contracts/proxy/Proxy.sol",
+        "lib/openzeppelin-contracts/contracts/proxy/beacon/BeaconProxy.sol",
+        "lib/openzeppelin-contracts/contracts/proxy/beacon/IBeacon.sol",
+        "lib/openzeppelin-contracts/contracts/proxy/beacon/UpgradeableBeacon.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC721/IERC721.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC721/IERC721Receiver.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC721/extensions/IERC721Metadata.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Address.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Context.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Create2.sol",
+        "lib/openzeppelin-contracts/contracts/utils/StorageSlot.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Strings.sol",
+        "lib/openzeppelin-contracts/contracts/utils/cryptography/ECDSA.sol",
+        "lib/openzeppelin-contracts/contracts/utils/cryptography/SignatureChecker.sol",
+        "lib/openzeppelin-contracts/contracts/utils/introspection/ERC165.sol",
+        "lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol",
+        "lib/openzeppelin-contracts/contracts/utils/math/Math.sol",
+        "lib/openzeppelin-contracts/contracts/utils/math/SignedMath.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/access/OwnableUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/interfaces/draft-IERC6093Upgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/proxy/utils/Initializable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/ERC20Upgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/IERC20Upgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/extensions/IERC20MetadataUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/ContextUpgradeable.sol",
+        "src/ERC6551Registry.sol",
+        "src/MockERC20.sol",
+        "src/QuotaBeacon.sol",
+        "src/QuotaToken.sol",
+        "src/SafeAccount.sol",
+        "src/WhaleFinance.sol",
+        "src/interface/IERC6551Account.sol",
+        "src/interface/IERC6551Registry.sol"
+      ],
+      "versionRequirement": "^0.8.13",
+      "artifacts": {
+        "Deploy": {
+          "0.8.20+commit.a1b79de6.Linux.gcc": "DeployFull.s.sol/Deploy.json"
+        }
+      }
+    },
+    "script/Whitelist.s.sol": {
+      "lastModificationDate": 1695152505209,
+      "contentHash": "c4162eae577c7f1c15dab108dbe96e93",
+      "sourceName": "script/Whitelist.s.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 20000
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "paris",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/forge-std/src/Base.sol",
+        "lib/forge-std/src/Script.sol",
+        "lib/forge-std/src/StdChains.sol",
+        "lib/forge-std/src/StdCheats.sol",
+        "lib/forge-std/src/StdJson.sol",
+        "lib/forge-std/src/StdMath.sol",
+        "lib/forge-std/src/StdStorage.sol",
+        "lib/forge-std/src/StdStyle.sol",
+        "lib/forge-std/src/StdUtils.sol",
+        "lib/forge-std/src/Vm.sol",
+        "lib/forge-std/src/console.sol",
+        "lib/forge-std/src/console2.sol",
+        "lib/forge-std/src/interfaces/IMulticall3.sol",
+        "lib/forge-std/src/safeconsole.sol",
+        "lib/openzeppelin-contracts/contracts/access/Ownable.sol",
+        "lib/openzeppelin-contracts/contracts/interfaces/IERC1271.sol",
+        "lib/openzeppelin-contracts/contracts/interfaces/draft-IERC6093.sol",
+        "lib/openzeppelin-contracts/contracts/proxy/ERC1967/ERC1967Utils.sol",
+        "lib/openzeppelin-contracts/contracts/proxy/Proxy.sol",
+        "lib/openzeppelin-contracts/contracts/proxy/beacon/BeaconProxy.sol",
+        "lib/openzeppelin-contracts/contracts/proxy/beacon/IBeacon.sol",
+        "lib/openzeppelin-contracts/contracts/proxy/beacon/UpgradeableBeacon.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC721/IERC721.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC721/IERC721Receiver.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC721/extensions/IERC721Metadata.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Address.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Context.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Create2.sol",
+        "lib/openzeppelin-contracts/contracts/utils/StorageSlot.sol",
+        "lib/openzeppelin-contracts/contracts/utils/Strings.sol",
+        "lib/openzeppelin-contracts/contracts/utils/cryptography/ECDSA.sol",
+        "lib/openzeppelin-contracts/contracts/utils/cryptography/SignatureChecker.sol",
+        "lib/openzeppelin-contracts/contracts/utils/introspection/ERC165.sol",
+        "lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol",
+        "lib/openzeppelin-contracts/contracts/utils/math/Math.sol",
+        "lib/openzeppelin-contracts/contracts/utils/math/SignedMath.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/access/OwnableUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/interfaces/draft-IERC6093Upgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/proxy/utils/Initializable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/ERC20Upgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/IERC20Upgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/extensions/IERC20MetadataUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/utils/ContextUpgradeable.sol",
+        "src/ERC6551Registry.sol",
+        "src/MockERC20.sol",
+        "src/QuotaBeacon.sol",
+        "src/QuotaToken.sol",
+        "src/SafeAccount.sol",
+        "src/WhaleFinance.sol",
+        "src/interface/IERC6551Account.sol",
+        "src/interface/IERC6551Registry.sol"
+      ],
+      "versionRequirement": "^0.8.13",
+      "artifacts": {
+        "Deploy": {
+          "0.8.20+commit.a1b79de6.Linux.gcc": "Whitelist.s.sol/Deploy.json"
         }
       }
     },
     "src/Counter.sol": {
-      "lastModificationDate": 1691933719011,
-      "contentHash": "ae6c800a2b4c57768024d6e9423d39e8",
+      "lastModificationDate": 1695151561098,
+      "contentHash": "8773a93428e84c3c365b94757ceca0c0",
       "sourceName": "src/Counter.sol",
       "solcConfig": {
         "settings": {
@@ -2643,7 +2746,7 @@
       "versionRequirement": "^0.8.13",
       "artifacts": {
         "Counter": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "Counter.sol/Counter.json"
+          "0.8.20+commit.a1b79de6.Linux.gcc": "Counter.sol/Counter.json"
         }
       }
     },
@@ -2686,7 +2789,7 @@
       "versionRequirement": "^0.8.13",
       "artifacts": {
         "ERC6551Registry": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "ERC6551Registry.sol/ERC6551Registry.json"
+          "0.8.20+commit.a1b79de6.Linux.gcc": "ERC6551Registry.sol/ERC6551Registry.json"
         }
       }
     },
@@ -2723,6 +2826,7 @@
         }
       },
       "imports": [
+        "lib/openzeppelin-contracts/contracts/interfaces/draft-IERC6093.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol",
@@ -2731,13 +2835,13 @@
       "versionRequirement": "^0.8.13",
       "artifacts": {
         "MockERC20": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "MockERC20.sol/MockERC20.json"
+          "0.8.20+commit.a1b79de6.Linux.gcc": "MockERC20.sol/MockERC20.json"
         }
       }
     },
     "src/QuotaBeacon.sol": {
-      "lastModificationDate": 1695062305746,
-      "contentHash": "44b4dfa9d6d33d592d3329cbdf835cd5",
+      "lastModificationDate": 1695151728637,
+      "contentHash": "028fc6e42f2918198587c1435e8ae4dc",
       "sourceName": "src/QuotaBeacon.sol",
       "solcConfig": {
         "settings": {
@@ -2771,13 +2875,12 @@
         "lib/openzeppelin-contracts/contracts/access/Ownable.sol",
         "lib/openzeppelin-contracts/contracts/proxy/beacon/IBeacon.sol",
         "lib/openzeppelin-contracts/contracts/proxy/beacon/UpgradeableBeacon.sol",
-        "lib/openzeppelin-contracts/contracts/utils/Address.sol",
         "lib/openzeppelin-contracts/contracts/utils/Context.sol"
       ],
       "versionRequirement": ">=0.8.13",
       "artifacts": {
         "BeaconERC20": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "QuotaBeacon.sol/BeaconERC20.json"
+          "0.8.20+commit.a1b79de6.Linux.gcc": "QuotaBeacon.sol/BeaconERC20.json"
         }
       }
     },
@@ -2814,22 +2917,23 @@
         }
       },
       "imports": [
+        "lib/openzeppelin-contracts/contracts/interfaces/draft-IERC6093.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol",
         "lib/openzeppelin-contracts/contracts/utils/Context.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/access/OwnableUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/interfaces/draft-IERC6093Upgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/proxy/utils/Initializable.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/ERC20Upgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/IERC20Upgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/extensions/IERC20MetadataUpgradeable.sol",
-        "lib/openzeppelin-contracts-upgradeable/contracts/utils/AddressUpgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/utils/ContextUpgradeable.sol"
       ],
       "versionRequirement": "^0.8.13",
       "artifacts": {
         "QuotaToken": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "QuotaToken.sol/QuotaToken.json"
+          "0.8.20+commit.a1b79de6.Linux.gcc": "QuotaToken.sol/QuotaToken.json"
         }
       }
     },
@@ -2868,24 +2972,21 @@
       "imports": [
         "lib/openzeppelin-contracts/contracts/interfaces/IERC1271.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC721/IERC721.sol",
-        "lib/openzeppelin-contracts/contracts/utils/Strings.sol",
         "lib/openzeppelin-contracts/contracts/utils/cryptography/ECDSA.sol",
         "lib/openzeppelin-contracts/contracts/utils/cryptography/SignatureChecker.sol",
         "lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol",
-        "lib/openzeppelin-contracts/contracts/utils/math/Math.sol",
-        "lib/openzeppelin-contracts/contracts/utils/math/SignedMath.sol",
         "src/interface/IERC6551Account.sol"
       ],
       "versionRequirement": "^0.8.13",
       "artifacts": {
         "SafeAccount": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "SafeAccount.sol/SafeAccount.json"
+          "0.8.20+commit.a1b79de6.Linux.gcc": "SafeAccount.sol/SafeAccount.json"
         }
       }
     },
     "src/WhaleFinance.sol": {
-      "lastModificationDate": 1695089080073,
-      "contentHash": "0d1767cddefa77d2e5a796cd5a292e40",
+      "lastModificationDate": 1695153248394,
+      "contentHash": "b86567b5339d6dd26b25f5041525793a",
       "sourceName": "src/WhaleFinance.sol",
       "solcConfig": {
         "settings": {
@@ -2917,9 +3018,8 @@
       },
       "imports": [
         "lib/openzeppelin-contracts/contracts/access/Ownable.sol",
-        "lib/openzeppelin-contracts/contracts/interfaces/IERC1967.sol",
-        "lib/openzeppelin-contracts/contracts/interfaces/draft-IERC1822.sol",
-        "lib/openzeppelin-contracts/contracts/proxy/ERC1967/ERC1967Upgrade.sol",
+        "lib/openzeppelin-contracts/contracts/interfaces/draft-IERC6093.sol",
+        "lib/openzeppelin-contracts/contracts/proxy/ERC1967/ERC1967Utils.sol",
         "lib/openzeppelin-contracts/contracts/proxy/Proxy.sol",
         "lib/openzeppelin-contracts/contracts/proxy/beacon/BeaconProxy.sol",
         "lib/openzeppelin-contracts/contracts/proxy/beacon/IBeacon.sol",
@@ -2932,7 +3032,6 @@
         "lib/openzeppelin-contracts/contracts/token/ERC721/extensions/IERC721Metadata.sol",
         "lib/openzeppelin-contracts/contracts/utils/Address.sol",
         "lib/openzeppelin-contracts/contracts/utils/Context.sol",
-        "lib/openzeppelin-contracts/contracts/utils/Counters.sol",
         "lib/openzeppelin-contracts/contracts/utils/StorageSlot.sol",
         "lib/openzeppelin-contracts/contracts/utils/Strings.sol",
         "lib/openzeppelin-contracts/contracts/utils/introspection/ERC165.sol",
@@ -2940,11 +3039,11 @@
         "lib/openzeppelin-contracts/contracts/utils/math/Math.sol",
         "lib/openzeppelin-contracts/contracts/utils/math/SignedMath.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/access/OwnableUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/interfaces/draft-IERC6093Upgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/proxy/utils/Initializable.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/ERC20Upgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/IERC20Upgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/extensions/IERC20MetadataUpgradeable.sol",
-        "lib/openzeppelin-contracts-upgradeable/contracts/utils/AddressUpgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/utils/ContextUpgradeable.sol",
         "src/QuotaToken.sol",
         "src/interface/IERC6551Registry.sol"
@@ -2952,7 +3051,7 @@
       "versionRequirement": "^0.8.9",
       "artifacts": {
         "WhaleFinance": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "WhaleFinance.sol/WhaleFinance.json"
+          "0.8.20+commit.a1b79de6.Linux.gcc": "WhaleFinance.sol/WhaleFinance.json"
         }
       }
     },
@@ -2992,7 +3091,7 @@
       "versionRequirement": "^0.8.13",
       "artifacts": {
         "IERC6551Account": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "IERC6551Account.sol/IERC6551Account.json"
+          "0.8.20+commit.a1b79de6.Linux.gcc": "IERC6551Account.sol/IERC6551Account.json"
         }
       }
     },
@@ -3032,12 +3131,12 @@
       "versionRequirement": "^0.8.13",
       "artifacts": {
         "IERC6551Registry": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "IERC6551Registry.sol/IERC6551Registry.json"
+          "0.8.20+commit.a1b79de6.Linux.gcc": "IERC6551Registry.sol/IERC6551Registry.json"
         }
       }
     },
     "test/WhaleFinance.t.sol": {
-      "lastModificationDate": 1695091305847,
+      "lastModificationDate": 1695153275601,
       "contentHash": "2fa0c6a62b504840a548befbb00d6b6b",
       "sourceName": "test/WhaleFinance.t.sol",
       "solcConfig": {
@@ -3089,9 +3188,8 @@
         "lib/forge-std/src/safeconsole.sol",
         "lib/openzeppelin-contracts/contracts/access/Ownable.sol",
         "lib/openzeppelin-contracts/contracts/interfaces/IERC1271.sol",
-        "lib/openzeppelin-contracts/contracts/interfaces/IERC1967.sol",
-        "lib/openzeppelin-contracts/contracts/interfaces/draft-IERC1822.sol",
-        "lib/openzeppelin-contracts/contracts/proxy/ERC1967/ERC1967Upgrade.sol",
+        "lib/openzeppelin-contracts/contracts/interfaces/draft-IERC6093.sol",
+        "lib/openzeppelin-contracts/contracts/proxy/ERC1967/ERC1967Utils.sol",
         "lib/openzeppelin-contracts/contracts/proxy/Proxy.sol",
         "lib/openzeppelin-contracts/contracts/proxy/beacon/BeaconProxy.sol",
         "lib/openzeppelin-contracts/contracts/proxy/beacon/IBeacon.sol",
@@ -3105,7 +3203,6 @@
         "lib/openzeppelin-contracts/contracts/token/ERC721/extensions/IERC721Metadata.sol",
         "lib/openzeppelin-contracts/contracts/utils/Address.sol",
         "lib/openzeppelin-contracts/contracts/utils/Context.sol",
-        "lib/openzeppelin-contracts/contracts/utils/Counters.sol",
         "lib/openzeppelin-contracts/contracts/utils/Create2.sol",
         "lib/openzeppelin-contracts/contracts/utils/StorageSlot.sol",
         "lib/openzeppelin-contracts/contracts/utils/Strings.sol",
@@ -3116,11 +3213,11 @@
         "lib/openzeppelin-contracts/contracts/utils/math/Math.sol",
         "lib/openzeppelin-contracts/contracts/utils/math/SignedMath.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/access/OwnableUpgradeable.sol",
+        "lib/openzeppelin-contracts-upgradeable/contracts/interfaces/draft-IERC6093Upgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/proxy/utils/Initializable.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/ERC20Upgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/IERC20Upgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/token/ERC20/extensions/IERC20MetadataUpgradeable.sol",
-        "lib/openzeppelin-contracts-upgradeable/contracts/utils/AddressUpgradeable.sol",
         "lib/openzeppelin-contracts-upgradeable/contracts/utils/ContextUpgradeable.sol",
         "src/ERC6551Registry.sol",
         "src/QuotaBeacon.sol",
@@ -3134,12 +3231,12 @@
       "versionRequirement": "^0.8.13",
       "artifacts": {
         "WhaleFinanceTest": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "WhaleFinance.t.sol/WhaleFinanceTest.json"
+          "0.8.20+commit.a1b79de6.Linux.gcc": "WhaleFinance.t.sol/WhaleFinanceTest.json"
         }
       }
     },
     "test/mocks/mockERC20.sol": {
-      "lastModificationDate": 1695083987899,
+      "lastModificationDate": 1695090911516,
       "contentHash": "708fba17da8873c62ec44561fbeb27fe",
       "sourceName": "test/mocks/mockERC20.sol",
       "solcConfig": {
@@ -3171,6 +3268,7 @@
         }
       },
       "imports": [
+        "lib/openzeppelin-contracts/contracts/interfaces/draft-IERC6093.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol",
@@ -3179,7 +3277,7 @@
       "versionRequirement": "^0.8.13",
       "artifacts": {
         "MockERC20": {
-          "0.8.17+commit.8df45f5f.Linux.gcc": "mockERC20.sol/MockERC20.json"
+          "0.8.20+commit.a1b79de6.Linux.gcc": "mocks/mockERC20.sol/MockERC20.json"
         }
       }
     }

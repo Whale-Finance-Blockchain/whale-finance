@@ -56,7 +56,15 @@ function App() {
             <Route path="/manager/:id" element={<DashboardId />} />
             <Route path="/successfund" element={<SuccessFund />} />
             <Route path="/investor" element={<Investor />} />
-            <Route path="/create-fund" element={<CreateFund />} />
+            <Route path="/create-fund" element={
+              <CreateFund
+              isMetamaskInstalled={isMetamaskInstalled}
+              connectWallet={connectWallet}
+              account={account}
+              provider={provider}
+              signer={signer}
+              />}
+            />
           </Route>
         </Routes>
       </BrowserRouter>

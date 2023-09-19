@@ -6,5 +6,5 @@ import "@openzeppelin/contracts/proxy/beacon/UpgradeableBeacon.sol";
 
 
 contract BeaconERC20 is UpgradeableBeacon{
-    constructor(address _impl) UpgradeableBeacon(_impl){}
+    constructor(address _impl) UpgradeableBeacon(_impl, msg.sender){}
 }
