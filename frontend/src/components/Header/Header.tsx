@@ -1,10 +1,12 @@
 import ConnectWalletBtn from '../../components/ConnectWallet/ConnectWallet';
 import Logo from '../../assets/whale_logo.png';
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 export default function Header({ isMetamaskInstalled, connectWallet, account, provider, signer }: 
     { isMetamaskInstalled: boolean; connectWallet: any; account: string | null; provider: any; signer: any;}) {
     
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
     const history = useNavigate();
     
     return (
@@ -15,13 +17,52 @@ export default function Header({ isMetamaskInstalled, connectWallet, account, pr
                 {/* responsivo */}
 
                 <div className="block lg:hidden">
-                <button className="flex items-center px-3 py-2 border rounded text-gray-500 border-gray-600 hover:text-gray-800 hover:border-teal-500 appearance-none focus:outline-none">
-                    <svg className="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                    <title>Menu</title>
-                    <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-                    </svg>
-                </button>
+                    <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="flex items-center px-3 py-2 border rounded text-white border-white hover:text-blue-color hover:border-blue-color appearance-none focus:outline-none">
+                        <svg className="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <title>Menu</title>
+                        <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+                        </svg>
+                    </button>
                 </div>
+
+                {/* sidebar menu */}
+                {isMenuOpen && (
+                    <div className="fixed inset-0 flex z-40 lg:hidden" role="dialog" aria-modal="true">
+                        <div className="fixed inset-0 bg-gray-600 bg-opacity-75" aria-hidden="true"></div>
+                        <div className="relative flex-1 flex flex-col max-w-xs w-full bg-secondary-color">
+                            <div className="absolute top-0 right-0 -mr-12 pt-2">
+                                <button onClick={() => setIsMenuOpen(false)} className="ml-1 flex items-center justify-center h-10 w-10 rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                                    <span className="sr-only">Close sidebar</span>
+                                    <svg className="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <div className="flex-1 h-0 pt-5 pb-4 overflow-y-auto">
+                                <nav className="mt-5 flex-1 px-2 space-y-1">
+                                    <a href="/investor" className="group flex items-center px-4 py-3 text-xl font-medium rounded-md text-white hover:text-secondary-color hover:bg-gray-100">
+                                        Investor
+                                    </a>
+                                    <a href="/manager" className="group flex items-center px-4 py-3 text-xl font-medium rounded-md text-white hover:text-secondary-color hover:bg-gray-100">
+                                        Manager
+                                    </a>
+                                    <a href="/fundslist" className="group flex items-center px-4 py-3 text-xl font-medium rounded-md text-white hover:text-secondary-color hover:bg-gray-100">
+                                        Funds List
+                                    </a>
+                                </nav>
+                            </div>
+                            <div className="flex-shrink-0 flex border-t border-gray-200 p-4">
+                                <ConnectWalletBtn
+                                    isMetamaskInstalled={isMetamaskInstalled}
+                                    connectWallet={connectWallet}
+                                    account={account}
+                                    provider={provider}
+                                    signer={signer}
+                                />
+                            </div>
+                        </div>
+                    </div>
+                )}
 
                 {/* menu */}
 
@@ -37,7 +78,6 @@ export default function Header({ isMetamaskInstalled, connectWallet, account, pr
                         provider={provider}
                         signer={signer}
                     />
-                    {/* <li><a className="ml-10 px-16 py-1 text-xl shadow-md rounded-full bg-primary-color text-[white] hover:bg-secondary-color transition duration-1000 ease-in-out" href="#">Sign up</a></li> */}
                 </ul>
                 </div>
             </div>
