@@ -17,7 +17,7 @@ contract WhaleFinance is ERC721, Ownable {
     
     //GLOBAL VARIABLES FOR THE PLATFORM
     Counters.Counter public _fundIdCounter;
-    IERC6551Registry public fundCreator;
+    IERC6551Registry public fundsRegister;
     address public erc6551Implementation;
     address public quotaTokenImplementation;
     IERC20 public stablecoin;
@@ -39,8 +39,8 @@ contract WhaleFinance is ERC721, Ownable {
     event InvestimentMade(address indexed fundAddress, address indexed investor, uint256 amount);
     event RedeemMade(address indexed fundAddress, address indexed investor, uint256 amount);
 
-    constructor(address _fundCreator, address _erc6551Implementation, address _erc20Implementation, address _stablecoin) ERC721("WhaleFinance", "WFI") {
-        fundCreator = IERC6551Registry(_fundCreator);
+    constructor(address _fundsRegister, address _erc6551Implementation, address _erc20Implementation, address _stablecoin) ERC721("WhaleFinance", "WFI") {
+        fundsRegister = IERC6551Registry(_fundsRegister);
         erc6551Implementation = _erc6551Implementation; //ERC 6551 Implementation
         stablecoin = IERC20(_stablecoin);
         quotaTokenImplementation = _erc20Implementation;
@@ -48,7 +48,7 @@ contract WhaleFinance is ERC721, Ownable {
 
     function createFund(string calldata _symbol, address _to, address[] memory _allowedTokens, 
                     uint256 _admFee, uint256 _perfFee, uint256 _openInvestiment, uint256 _closeInvestiments, uint256 _openRedeem) 
-                    public returns(address){
+                    public returns(uint256){
         
         uint256 fundId = _fundIdCounter.current();
         _fundIdCounter.increment();
@@ -62,7 +62,7 @@ contract WhaleFinance is ERC721, Ownable {
             fundsAllowedTokens[fundId].push(_allowedTokens[i]);
         }
 
-        address createdFundAddress = fundCreator.createAccount(
+        address createdFundAddress = fundsRegister.createAccount(
             address(erc6551Implementation),
             block.chainid,
             address(this),
@@ -81,8 +81,9 @@ contract WhaleFinance is ERC721, Ownable {
             abi.encodeWithSelector(QuotaToken(address(0)).initialize.selector,
             _symbol, address(this), _openInvestiment));
 
+        quotasAddresses[fundId] = address(newQuotaTokenAddress);
         emit FundCreated(createdFundAddress, address(newQuotaTokenAddress));
-        return address(newQuotaTokenAddress);
+        return fundId;
     }
 
     function invest(uint256 _amount, uint256 fundId) public {
@@ -97,7 +98,7 @@ contract WhaleFinance is ERC721, Ownable {
         uint256 amountInvestor = _amount - managerAdmFee;
 
         stablecoin.transferFrom(msg.sender, fundTargetAddress, amountInvestor);
-        stablecoin.transferFrom(msg.sender, ownerOf(fundId), managerAdmFee); // paying add fee to manager
+        stablecoin.transferFrom(msg.sender, ownerOf(fundId), managerAdmFee); // paying adm fee to manager
 
         initialAmounts[fundId] += amountInvestor;
 
@@ -118,6 +119,14 @@ contract WhaleFinance is ERC721, Ownable {
         QuotaToken(fundQuotaAddress).burn(amountQuotas);
 
         emit RedeemMade(fundsAddresses[fundId], msg.sender, redeemableAmount);
+    }
+
+    function setWhiteListedToken(address _token) public onlyOwner {
+        whiteListedTokens[_token] = true;
+    }
+
+    function removeWhiteListedToken(address _token) public onlyOwner {
+        whiteListedTokens[_token] = false;
     }
 
     
