@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { db } from '../../firebase/firebase';
 import { get, push, ref } from "firebase/database";
-import FormInvestor from '../../components/FormInvestor/FormInvestor';
 import LineChartComponent from '../../components/LineChartComponent/LineChartComponent';
 import PieChartComponent from '../../components/PieChartComponent/PieChartComponent';
 import { useParams } from 'react-router-dom';
 import DataDiv from '../../components/DataDiv/DataDiv';
 import Footer from '../../components/Footer/Footer';
+import FormSwap from '../../components/FormSwap/FormSwap';
 
 type DataPoint = {
     date: string;
@@ -130,7 +130,7 @@ export default function DashboardId() {
                                 <h1 className='font-bold text-2xl mt-6 mb-1 text-left'>Swap</h1>
                                 <div className='h-[2px] w-16 mb-8 bg-secondary-color'></div>
                                 {/* PRECISO MUDAR AQUI */}
-                                <FormInvestor   invest={invest}
+                                <FormSwap   invest={invest}
                                                 setInvest={setInvest}
                                 />
                                 <button

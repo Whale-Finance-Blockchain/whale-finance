@@ -16,7 +16,7 @@ export default function SuccessInvestment() {
                             <h2 className="flex justify-center items-center h-[12vh] mx-6 text-4xl font-bold text-center text-secondary-color">
                             Congratulations
                             </h2>
-                            <div className='w-[12%] h-auto'>
+                            <div className='w-[50%] h-auto md:w-[20%] lg:w-[12%]'>
                                 <Player
                                     src={Animation}
                                     className="player"
@@ -28,12 +28,12 @@ export default function SuccessInvestment() {
                                 You just created a fund with whale.finance
                             </h2>
                             <button
-                            className="my-6 w-[35%] bg-gradient-to-r from-blue-color to-secondary-color text-white font-bold rounded-full border-2 border-transparent py-2 px-20 shadow-lg uppercase tracking-wider hover:from-white hover:to-white hover:text-secondary-color hover:border-secondary-color transition duration-1000 ease-in-out" onClick={() => history('/manager')}
+                            className="my-6 w-[90%] md:w-[55%] lg:w-[35%] bg-gradient-to-r from-blue-color to-secondary-color text-white font-bold rounded-full border-2 border-transparent py-2 px-20 shadow-lg uppercase tracking-wider hover:from-white hover:to-white hover:text-secondary-color hover:border-secondary-color transition duration-1000 ease-in-out" onClick={() => history('/manager')}
                             >
                             Manage my fund now
                             </button>
                             <button
-                            className="mb-6 w-[35%] bg-gradient-to-r from-blue-color to-secondary-color text-white font-bold rounded-full border-2 border-transparent py-2 px-20 shadow-lg uppercase tracking-wider hover:from-white hover:to-white hover:text-secondary-color hover:border-secondary-color transition duration-1000 ease-in-out" onClick={() => history('/manager')}
+                            className="mb-6 w-[90%] md:w-[55%] lg:w-[35%] bg-gradient-to-r from-blue-color to-secondary-color text-white font-bold rounded-full border-2 border-transparent py-2 px-20 shadow-lg uppercase tracking-wider hover:from-white hover:to-white hover:text-secondary-color hover:border-secondary-color transition duration-1000 ease-in-out" onClick={() => history('/manager')}
                             >
                             Back
                             </button>

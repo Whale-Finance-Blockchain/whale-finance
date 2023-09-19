@@ -1,4 +1,4 @@
-export default function FormInvestor(props: any) {
+export default function FormSwap(props: any) {
     return (
         <div className='my-20 mb-12'>
             <div>

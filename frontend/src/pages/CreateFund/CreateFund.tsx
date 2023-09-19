@@ -34,7 +34,7 @@ export default function CreateFund() {
         <>
             <div className='h-screen w-[100vw] text-gray-700 bg-[#f6f6f6] overflow-y-auto'>
                 <section className="">
-                    <div className="container mx-auto px-6 text-center py-12 mb-2">
+                    <div className="container mx-auto px-0 text-center py-12 mb-2 md:px-6 lg:px-6">
                         <h2 className="text-4xl font-bold text-center text-secondary-color">
                         Fund Creation Page
                         </h2>
