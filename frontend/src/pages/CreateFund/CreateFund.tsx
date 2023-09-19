@@ -59,6 +59,7 @@ export default function CreateFund({ isMetamaskInstalled, connectWallet, account
         try{
             const whaleFinanceContract = new ethers.Contract(WhaleFinanceAddress, WhaleFinanceAbi, signer);
             const txNewFund = await whaleFinanceContract.createFund(
+                name,
                 ticker, 
                 account, 
                 tokens, 
