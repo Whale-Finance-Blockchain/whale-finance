@@ -16,10 +16,10 @@ export default class LineChartComponent extends Component {
           height={200}
           data={data}
           margin={{
-            top: 5,
-            right: 30,
+            top: 50,
+            right: 10,
             left: 20,
-            bottom: 100,
+            bottom: 10,
           }}
         >
           <CartesianGrid strokeDasharray="2" />
