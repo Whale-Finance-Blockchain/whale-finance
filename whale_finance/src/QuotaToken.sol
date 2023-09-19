@@ -18,10 +18,10 @@ contract QuotaToken is ERC20Upgradeable, OwnableUpgradeable{
         _disableInitializers();
     }
 
-    function initialize(string calldata _symbol, address _minter, uint256 _openInvestiments)  initializer
-        public {
-        __Ownable_init();
-        __ERC20_init(_symbol, _symbol);
+    function initialize(string calldata _symbol, address _minter, uint256 _openInvestiments)  
+     initializer public {
+        __ERC20_init(_symbol, _symbol); 
+        // __Ownable_init(); --- not sure if this is needed
         fundsFactory = _minter;
         openInvestimentTimestamp = _openInvestiments;
     }
