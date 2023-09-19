@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { db } from '../../firebase/firebase';
 import { get, push, ref } from "firebase/database";
 import FormInvestor from '../../components/FormInvestor/FormInvestor';
@@ -6,6 +7,7 @@ import LineChartComponent from '../../components/LineChartComponent/LineChartCom
 import PieChartComponent from '../../components/PieChartComponent/PieChartComponent';
 import { useParams } from 'react-router-dom';
 import DataDiv from '../../components/DataDiv/DataDiv';
+import Footer from '../../components/Footer/Footer';
 
 type DataPoint = {
     date: string;
@@ -19,7 +21,13 @@ export default function FundId() {
 
     const { id } = useParams<{ id: string }>();
 
+    const history = useNavigate();
+
     const [invest, setInvest] = React.useState('');
+
+    const [fund, setFund] = useState(null);
+
+    const [data, setData] = useState<DataPoint[]>([]);
 
     function handleSubmit() {
 
@@ -30,9 +38,10 @@ export default function FundId() {
         console.log(body);
     }
 
-    const [fund, setFund] = useState(null);
-
-    const [data, setData] = useState<DataPoint[]>([]);
+    const handleClick = () => {
+        handleSubmit();
+        history('/successinvestment');
+      };
 
     useEffect(() => {
         const fetchData = async () => {
@@ -104,6 +113,7 @@ export default function FundId() {
                         </div>
                     </div>
                 </section>
+                <Footer />
             </div> 
         )
     }
@@ -131,7 +141,7 @@ export default function FundId() {
                                                 setInvest={setInvest}
                                 />
                                 <button
-                                className="bg-gradient-to-r from-blue-color to-secondary-color text-white font-bold rounded-full border-2 border-transparent py-2 px-20 shadow-lg uppercase tracking-wider hover:from-white hover:to-white hover:text-secondary-color hover:border-secondary-color transition duration-1000 ease-in-out" onClick={handleSubmit}
+                                className="bg-gradient-to-r from-blue-color to-secondary-color text-white font-bold rounded-full border-2 border-transparent py-2 px-20 shadow-lg uppercase tracking-wider hover:from-white hover:to-white hover:text-secondary-color hover:border-secondary-color transition duration-1000 ease-in-out" onClick={handleClick}
                                 >
                                 Invest
                                 </button>
@@ -153,6 +163,7 @@ export default function FundId() {
                         </div>
                     </div>
                 </section>
+                <Footer />
             </div>
         </>
     )

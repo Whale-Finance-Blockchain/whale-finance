@@ -10,7 +10,7 @@ export default function Header({ isMetamaskInstalled, connectWallet, account, pr
     return (
         <header className="sticky top-0 z-30 w-full bg-gradient-to-r from-blue-color to-secondary-color text-white border-b-2 border-gray-200">
             <div className="container mx-auto px-10 py-2 flex justify-between items-center cursor-pointer">
-                <img className="h-[7vh] p-[5px]" src={Logo} alt={"whale finance"} onClick={() => history('/home')}/>
+                <img className="h-[5vh] p-[5px] md:h-[5vh] lg:h-[7vh]" src={Logo} alt={"whale finance"} onClick={() => history('/')}/>
 
                 {/* responsivo */}
 
@@ -27,9 +27,9 @@ export default function Header({ isMetamaskInstalled, connectWallet, account, pr
 
                 <div className="hidden lg:block">
                 <ul className="inline-flex items-center space-x-10">
-                <li><a className="px-6 py-2 text-[1.23vw] hover:bg-[rgb(14,42,98)] transition duration-1000 ease-in-out" href="/investor">Investor</a></li>
-                    <li><a className="px-6 py-2 text-[1.25vw] hover:bg-[rgb(14,42,98)] transition duration-1000 ease-in-out" href="/manager">Manager</a></li>
-                    <li><a className="px-6 py-2 text-[1.25vw] hover:bg-[rgb(14,42,98)] transition duration-1000 ease-in-out" href="/fundslist">Funds List</a></li>
+                <li><a className="px-6 lg:px-6 py-2 text-[1.23vw] hover:bg-[rgb(14,42,98)] transition duration-1000 ease-in-out" href="/investor">Investor</a></li>
+                    <li><a className="px-6 lg:px-6 py-2 text-[1.25vw] hover:bg-[rgb(14,42,98)] transition duration-1000 ease-in-out" href="/manager">Manager</a></li>
+                    <li><a className="px-6 lg:px-6 py-2 text-[1.25vw] hover:bg-[rgb(14,42,98)] transition duration-1000 ease-in-out" href="/fundslist">Funds List</a></li>
                     <ConnectWalletBtn
                         isMetamaskInstalled={isMetamaskInstalled}
                         connectWallet={connectWallet}

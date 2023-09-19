@@ -3,6 +3,7 @@ import { db } from '../../firebase/firebase';
 import { get, ref } from "firebase/database";
 import { Link } from 'react-router-dom';
 import { AiOutlineArrowUp, AiOutlineArrowDown } from "react-icons/ai";
+import Footer from '../../components/Footer/Footer';
 
 type DataPoint = {
     id: number;
@@ -82,17 +83,18 @@ export default function FundsList() {
 
     return (
         <>
-            <div className='w-[100vw] h-screen text-gray-700 bg-[#fcfcfc] overflow-y-auto'>
+            <div className='w-[100vw] h-[100vh] text-gray-700 bg-[#fcfcfc] overflow-y-auto'>
                 <section className="">
-                    <div className="container mx-auto px-6 text-center py-12">
+                    <div className="container mx-auto px-0 text-center py-12 md:px-6 lg:px-6">
                         <h2 className="mb-2 text-4xl font-bold text-center text-secondary-color">
                         Funds List
                         </h2>
-                        <div className='grid grid-cols-3 justify-center my-12 cursor-pointer'>
+                        <div className='grid grid-cols-1 justify-center my-12 cursor-pointer md:grid-cols-2 lg:grid-cols-3'>
                             {funds.length ? fundsElements : loadingElements }
                         </div>
                     </div>
                 </section>
+                <Footer />
             </div>
         </>
     )

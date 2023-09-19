@@ -3,6 +3,7 @@ import { db } from '../../firebase/firebase';
 import { get, ref } from "firebase/database";
 import { Link } from 'react-router-dom';
 import { AiOutlineArrowUp, AiOutlineArrowDown } from "react-icons/ai";
+import Footer from '../../components/Footer/Footer';
 
 type DataPoint = {
     id: number;
@@ -92,7 +93,7 @@ export default function Manager() {
         <>
             <div className='w-[100vw] h-screen text-gray-700 bg-[#fcfcfc] overflow-y-auto'>
                 <section className="">
-                    <div className="container mx-auto px-6 text-center py-12">
+                    <div className="container mx-auto px-0 text-center py-12 md:px-6 lg:px-6">
                         <h2 className="mb-16 text-4xl font-bold text-center text-secondary-color">
                         Manager's Area
                         </h2>
@@ -102,13 +103,13 @@ export default function Manager() {
                         Create Fund Now
                         </Link>
                         {!manager ? 
-                          <div className='grid grid-cols-3 justify-center mb-12 mt-6'>
+                          <div className='grid grid-cols-1 justify-center mb-12 mt-6 md:grid-cols-2 lg:grid-cols-3'>
                               {nullElements}
                           </div>
                           : 
                           <div>
                             <p className='text-xm mt-16 italic'>Please choose a hedge fund to manage and see stats</p>
-                            <div className='grid grid-cols-3 justify-center mb-12 mt-6 cursor-pointer'>
+                            <div className='grid grid-cols-1 justify-center mb-12 mt-6 cursor-pointer md:grid-cols-2 lg:grid-cols-3'>
                                 {funds.length ? fundsElements : loadingElements }
                             </div>
                           </div>
@@ -120,6 +121,7 @@ export default function Manager() {
                         </div>
                     </div>
                 </section>
+                <Footer />
             </div>
         </>
     )

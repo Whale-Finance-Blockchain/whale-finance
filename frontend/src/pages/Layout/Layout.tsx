@@ -1,6 +1,5 @@
 import { Outlet } from 'react-router-dom';
 import Header from '../../components/Header/Header';
-import Footer from '../../components/Footer/Footer';
 
 export default function Layout({ isMetamaskInstalled, connectWallet, account, provider, signer }: 
     { isMetamaskInstalled: boolean; connectWallet: any; account: string | null; provider: any; signer: any;}) {
@@ -15,7 +14,6 @@ export default function Layout({ isMetamaskInstalled, connectWallet, account, pr
                 signer={signer}
             />
             <Outlet/>
-            <Footer/>
         </div>
     )
 }
