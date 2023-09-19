@@ -2985,8 +2985,8 @@
       }
     },
     "src/WhaleFinance.sol": {
-      "lastModificationDate": 1695153248394,
-      "contentHash": "b86567b5339d6dd26b25f5041525793a",
+      "lastModificationDate": 1695154838353,
+      "contentHash": "a0688506f48232cee1e68be9348775d8",
       "sourceName": "src/WhaleFinance.sol",
       "solcConfig": {
         "settings": {
@@ -3136,8 +3136,8 @@
       }
     },
     "test/WhaleFinance.t.sol": {
-      "lastModificationDate": 1695153275601,
-      "contentHash": "2fa0c6a62b504840a548befbb00d6b6b",
+      "lastModificationDate": 1695155040562,
+      "contentHash": "065a397ad3926c716ddf6a14f2daf2d0",
       "sourceName": "test/WhaleFinance.t.sol",
       "solcConfig": {
         "settings": {

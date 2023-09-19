@@ -1,7 +1,9 @@
+import { ZusdAddress } from "../../utils/addresses";
+
 export default function FormInvestor(props: any) {
 
     const allowedTokens = {
-        "ZUSD": "0xDfE2a8499D344e99b4E54F70C58036a5c75f3f79",
+        "ZUSD": ZusdAddress
     } as {
         [key: string]: string;
     }

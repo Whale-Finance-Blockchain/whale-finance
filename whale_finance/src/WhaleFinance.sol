@@ -24,6 +24,7 @@ contract WhaleFinance is ERC721, Ownable {
 
     // MAPPINGS TO THE NFTS
     mapping(uint256 => address) public fundsAddresses;
+    mapping(uint256 => string) public fundsNames;
     mapping(uint256 => uint256) public admFees;
     mapping(uint256 => uint256) public perfFees;
     mapping(uint256 => uint256) public initialAmounts; // think
@@ -45,7 +46,7 @@ contract WhaleFinance is ERC721, Ownable {
         quotaTokenImplementation = _erc20Implementation;
     }
 
-    function createFund(string calldata _symbol, address _to, address[] memory _allowedTokens, 
+    function createFund(string calldata _name, string calldata _symbol, address _to, address[] memory _allowedTokens, 
                     uint256 _admFee, uint256 _perfFee, uint256 _openInvestiment, uint256 _closeInvestiments, uint256 _openRedeem) 
                     public returns(uint256){
         
@@ -70,7 +71,7 @@ contract WhaleFinance is ERC721, Ownable {
             ""
         );
         fundsAddresses[fundId] = createdFundAddress;
-
+        fundsNames[fundId] = _name;
         admFees[fundId] = _admFee; // the fee is in bps, if admFee = 100, the fee is 1%
         perfFees[fundId] = _perfFee; // the fee is in bps, if admFee = 100, the fee is 1%
         openInvestimentTimestamps[fundId] = _openInvestiment;

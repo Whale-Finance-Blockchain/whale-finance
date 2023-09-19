@@ -50,7 +50,7 @@ contract WhaleFinanceTest is Test {
         uint256 closeInvestiments = block.timestamp + 7 days;
         uint256 openRedeem = block.timestamp + 14 days;
         vm.prank(owner);
-        uint256 fundId = whaleFinance.createFund(symbol, owner, allowedTokens, admFee, perfFee, openInvestiment, closeInvestiments, openRedeem);
+        uint256 fundId = whaleFinance.createFund(symbol,symbol, owner, allowedTokens, admFee, perfFee, openInvestiment, closeInvestiments, openRedeem);
 
         assertTrue(fundId >= 0);
     
@@ -86,7 +86,7 @@ contract WhaleFinanceTest is Test {
         uint256 closeInvestiments = block.timestamp + 7 days;
         uint256 openRedeem = block.timestamp + 14 days;
         vm.prank(owner);
-        uint256 fundId = whaleFinance.createFund(symbol, owner, allowedTokens, admFee, perfFee, openInvestiment, closeInvestiments, openRedeem);
+        uint256 fundId = whaleFinance.createFund(symbol,symbol, owner, allowedTokens, admFee, perfFee, openInvestiment, closeInvestiments, openRedeem);
 
         vm.prank(investor);
         stablecoin.approve(address(whaleFinance), amount);

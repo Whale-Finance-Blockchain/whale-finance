@@ -4,6 +4,10 @@ import { get, ref } from "firebase/database";
 import { Link } from 'react-router-dom';
 import { AiOutlineArrowUp, AiOutlineArrowDown } from "react-icons/ai";
 import Footer from '../../components/Footer/Footer';
+import { getMetamaskProvider } from '../../utils/connectMetamask';
+import { ethers } from 'ethers';
+import { WhaleFinanceAbi } from '../../contracts/WhaleFinance';
+import { WhaleFinanceAddress } from '../../utils/addresses';
 
 type DataPoint = {
     id: number;
@@ -30,11 +34,26 @@ export default function FundsList() {
             console.error("Error reading data:", error);
           }
         };
+
+        const getFunds = async () => {
+            try{
+                const provider = getMetamaskProvider() as ethers.providers.Web3Provider;
+                const whaleFinanceContract = new ethers.Contract(WhaleFinanceAddress, WhaleFinanceAbi, provider);
+                const numberFundsBigNumber = await whaleFinanceContract.functions._fundIdCounter() as ethers.BigNumber[];
+                const numberFunds = parseInt(numberFundsBigNumber[0]._hex);
+                console.log(numberFunds);
+                              
+
+            } catch(err){
+                console.log("Error");
+                console.log(err);
+            }
+        }
       
-        fetchData();
+        getFunds();
     }, []);
 
-    function formatToUSD(number) {
+    function formatToUSD(number: number) {
         const formattedNumber = new Intl.NumberFormat('en-US', { 
           style: 'currency', 
           currency: 'USD',

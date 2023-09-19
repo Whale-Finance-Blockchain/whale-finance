@@ -4,6 +4,7 @@ import Footer from '../../components/Footer/Footer';
 import { useNavigate } from 'react-router-dom';
 import { ethers } from 'ethers';
 import { WhaleFinanceAbi } from '../../contracts/WhaleFinance';
+import { WhaleFinanceAddress } from '../../utils/addresses';
 
 export default function CreateFund({ isMetamaskInstalled, connectWallet, account, provider, signer }: 
     { isMetamaskInstalled: boolean; connectWallet: any; account: string | null; provider: any; signer: any;}) {
@@ -56,8 +57,7 @@ export default function CreateFund({ isMetamaskInstalled, connectWallet, account
         const perfFeeBps = perfFee * 100;
 
         try{
-            console.log(import.meta.env.WHALE_FINANCE_ADDRESS)
-            const whaleFinanceContract = new ethers.Contract("0x7cB896C28Ca5188B42B51b45Bba717348f95CF90", WhaleFinanceAbi, signer);
+            const whaleFinanceContract = new ethers.Contract(WhaleFinanceAddress, WhaleFinanceAbi, signer);
             const txNewFund = await whaleFinanceContract.createFund(
                 ticker, 
                 account, 
@@ -70,17 +70,16 @@ export default function CreateFund({ isMetamaskInstalled, connectWallet, account
             );
 
             await txNewFund.wait();
+            history('/successfund');
 
         } catch(err){
             console.log(err);
             alert("Something went wrong! Try again");
-            history('/successfund');
+            
 
         }finally{
             setLoading(false);
         }   
-
-
     }
 
     const handleClick = async () => {
