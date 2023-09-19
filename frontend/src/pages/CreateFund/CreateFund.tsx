@@ -23,14 +23,14 @@ export default function CreateFund() {
 
     return (
         <>
-            <div className='w-[100vw] text-gray-700 bg-[#f6f6f6] overflow-y-auto'>
-                <section className="h-screen bg-gradient-to-r from-primary-color to-[rgb(162,141,32)]">
-                    <div className="container mx-auto px-6 text-center py-10">
-                        <h2 className="text-4xl font-bold text-center text-white">
+            <div className='h-screen w-[100vw] text-gray-700 bg-[#f6f6f6] overflow-y-auto'>
+                <section className="">
+                    <div className="container mx-auto px-6 text-center py-12 mb-12 bg-white">
+                        <h2 className="text-4xl font-bold text-center text-secondary-color">
                         Fund Creation Page
                         </h2>
                         <div className='flex flex-row justify-center mt-10 mb-10'>
-                            <div className='w-[100%] mx-6 px-10 pb-6 shadow-lg bg-[rgb(162,141,32)] text-white rounded-[20px]'>
+                            <div className='w-[100%] mx-6 px-10 pb-6 shadow-lg text-secondary-color rounded-[20px]'>
                                 <FormManager    name={name}
                                                 setName={setName}
                                                 ticker={ticker}
@@ -43,7 +43,7 @@ export default function CreateFund() {
                                                 setToken2={setToken2}
                                 />
                                 <button
-                                className="bg-white text-black font-bold rounded-full border-2 border-transparent py-2 px-20 shadow-lg uppercase tracking-wider hover:bg-primary-color hover:text-[white] hover:border-white transition duration-1000 ease-in-out" onClick={handleSubmit}
+                                className="bg-white text-black font-bold rounded-full border-2 border-transparent py-4 px-8 shadow-lg uppercase tracking-wider hover:bg-secondary-color hover:text-[white] hover:border-white transition duration-1000 ease-in-out" onClick={handleSubmit}
                                 >
                                 Create
                                 </button>

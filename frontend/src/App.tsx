@@ -3,10 +3,11 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home/Home'
 import { connectMetamask } from './utils/connectMetamask'
 import Layout from './pages/Layout/Layout';
-import Investor from './pages/Investor/Investor';
 import Manager from './pages/Manager/Manager';
 import FundId from './pages/FundId/FundId';
 import CreateFund from './pages/CreateFund/CreateFund';
+import DashboardId from './pages/DashboardId/DashboardId';
+import FundsList from './pages/FundsList/FundsList';
 
 function App() {
 
@@ -45,9 +46,10 @@ function App() {
             />
           }>
             <Route path="/home" element={<Home />} />
-            <Route path="/investor" element={<Investor />} />
+            <Route path="/investor" element={<FundsList />} />
             <Route path="/investor/:id" element={<FundId />} />
             <Route path="/manager" element={<Manager />} />
+            <Route path="/manager/:id" element={<DashboardId />} />
             <Route path="/create-fund" element={<CreateFund />} />
           </Route>
         </Routes>

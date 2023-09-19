@@ -15,7 +15,7 @@ type DataPoint = {
     benchmarkValue: number; 
 };
 
-export default function FundId() {
+export default function DashboardId() {
 
     const { id } = useParams<{ id: string }>();
 
@@ -114,7 +114,7 @@ export default function FundId() {
                 <section className="">
                     <div className="container mx-auto px-6 text-center py-8">
                         <h2 className="flex justify-center items-center bg-white h-[12vh] mx-6 text-4xl font-bold text-center text-secondary-color shadow-lg rounded-[20px]">
-                        {fund.name}
+                        {fund.name} <span style={{ fontStyle: 'italic', fontWeight: 'normal' }}>&nbsp;(Manager Dashboard)</span>
                         </h2>
                         <div className='flex flex-row justify-center h-[70vh] my-10 mx-6 mb-12 shadow-lg bg-white text-secondary-color rounded-[20px]'>
                             <div className='basis-2/3 mx-6 px-10'>
@@ -125,8 +125,9 @@ export default function FundId() {
                                 </div>
                             </div>
                             <div className='basis-1/3 mx-6 px-10'>
-                                <h1 className='font-bold text-2xl mt-6 mb-1 text-left'>Invest</h1>
+                                <h1 className='font-bold text-2xl mt-6 mb-1 text-left'>Swap</h1>
                                 <div className='h-[2px] w-16 mb-8 bg-secondary-color'></div>
+                                {/* PRECISO MUDAR AQUI */}
                                 <FormInvestor   invest={invest}
                                                 setInvest={setInvest}
                                 />

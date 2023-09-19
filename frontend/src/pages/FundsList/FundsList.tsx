@@ -10,9 +10,7 @@ type DataPoint = {
     description: string;
 };
 
-export default function Manager() {
-
-    const [manager, setManager] = useState<number>(0);
+export default function FundsList() {
 
     const [funds, setFunds] = useState<DataPoint[]>([]);
 
@@ -33,9 +31,9 @@ export default function Manager() {
         };
       
         fetchData();
-      }, []);
+    }, []);
 
-      function formatToUSD(number) {
+    function formatToUSD(number) {
         const formattedNumber = new Intl.NumberFormat('en-US', { 
           style: 'currency', 
           currency: 'USD',
@@ -50,7 +48,7 @@ export default function Manager() {
     const formattedRent = new Intl.NumberFormat('en-US', { style: 'percent', minimumFractionDigits: 1, maximumFractionDigits: 1 }).format(rentValue);
 
     const fundsElements = funds.map(fund => (
-        <Link to={`/manager/${fund.id}`}>
+        <Link to={`/investor/${fund.id}`}>
             <div key={fund.id} className="bg-gradient-to-r from-white to-[#fcfcfc] h-[180px] flex flex-col items-center justify-center text-gray-500 rounded-lg shadow-lg m-[2vh] hover:bg-gradient-to-r hover:from-white hover:to-gray-100 hover:text-secondary-color transition duration-600 ease-in-out">
                 <h2 className="text-xl font-bold text-secondary-color">{fund.name}</h2>
                 <p className="text-fs mt-2">{fund.description}</p>
@@ -82,41 +80,16 @@ export default function Manager() {
         </div>
     ))
 
-    const nullElements = Array(3).fill(null).map((_, index) => (
-      <div key={index} className="mt-6 bg-gradient-to-r from-white to-[#f6f6f6] h-[180px] opacity-80 flex items-center justify-center text-gray-500 rounded-lg shadow-lg m-[2vh]">
-        <p className='italic'>Connect your manager wallet to see your funds <br></br> or start creating a new one</p>
-      </div>
-    ))
-
     return (
         <>
             <div className='w-[100vw] h-screen text-gray-700 bg-[#fcfcfc] overflow-y-auto'>
                 <section className="">
                     <div className="container mx-auto px-6 text-center py-12">
-                        <h2 className="mb-16 text-4xl font-bold text-center text-secondary-color">
-                        Manager's Area
+                        <h2 className="mb-2 text-4xl font-bold text-center text-secondary-color">
+                        Funds List
                         </h2>
-                        <Link
-                        className="bg-white text-black font-bold rounded-full border-2 border-transparent py-4 px-8 shadow-lg uppercase tracking-wider hover:bg-secondary-color hover:text-[white] hover:border-white transition duration-1000 ease-in-out" to="/create-fund"
-                        >
-                        Create Fund Now
-                        </Link>
-                        {!manager ? 
-                          <div className='grid grid-cols-3 justify-center mb-12 mt-6'>
-                              {nullElements}
-                          </div>
-                          : 
-                          <div>
-                            <p className='text-xm mt-16 italic'>Please choose a hedge fund to manage and see stats</p>
-                            <div className='grid grid-cols-3 justify-center mb-12 mt-6 cursor-pointer'>
-                                {funds.length ? fundsElements : loadingElements }
-                            </div>
-                          </div>
-                        }
-                        <div className='mb-24 mt-12 flex justify-center'>
-                          <div className="w-96 px-20 py-3 text-xm font-bold bg-blue-color text-white hover:bg-slate-200 hover:text-secondary-color transition duration-1000 ease-in-out rounded-full uppercase cursor-pointer" onClick={() => setManager(1)}>
-                          Connect Wallet
-                          </div>
+                        <div className='grid grid-cols-3 justify-center my-12 cursor-pointer'>
+                            {funds.length ? fundsElements : loadingElements }
                         </div>
                     </div>
                 </section>
