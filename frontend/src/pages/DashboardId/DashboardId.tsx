@@ -6,6 +6,7 @@ import LineChartComponent from '../../components/LineChartComponent/LineChartCom
 import PieChartComponent from '../../components/PieChartComponent/PieChartComponent';
 import { useParams } from 'react-router-dom';
 import DataDiv from '../../components/DataDiv/DataDiv';
+import Footer from '../../components/Footer/Footer';
 
 type DataPoint = {
     date: string;
@@ -104,6 +105,7 @@ export default function DashboardId() {
                         </div>
                     </div>
                 </section>
+                <Footer />
             </div> 
         )
     }
@@ -154,6 +156,7 @@ export default function DashboardId() {
                         </div>
                     </div>
                 </section>
+                <Footer />
             </div>
         </>
     )

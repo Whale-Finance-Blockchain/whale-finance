@@ -10,7 +10,7 @@ export default function Header({ isMetamaskInstalled, connectWallet, account, pr
     return (
         <header className="sticky top-0 z-30 w-full bg-gradient-to-r from-blue-color to-secondary-color text-white border-b-2 border-gray-200">
             <div className="container mx-auto px-10 py-2 flex justify-between items-center cursor-pointer">
-                <img className="h-[7vh] p-[5px]" src={Logo} alt={"whale finance"} onClick={() => history('/home')}/>
+                <img className="h-[7vh] p-[5px]" src={Logo} alt={"whale finance"} onClick={() => history('/')}/>
 
                 {/* responsivo */}
 

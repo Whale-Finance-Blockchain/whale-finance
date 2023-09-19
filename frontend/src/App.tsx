@@ -9,6 +9,8 @@ import CreateFund from './pages/CreateFund/CreateFund';
 import DashboardId from './pages/DashboardId/DashboardId';
 import FundsList from './pages/FundsList/FundsList';
 import Investor from './pages/Investor/Investor';
+import SuccessInvestment from './pages/SuccessInvestment/SuccessInvestment';
+import SuccessFund from './pages/SuccessFund/SuccessFund';
 
 function App() {
 
@@ -46,11 +48,13 @@ function App() {
               signer={signer}
             />
           }>
-            <Route path="/home" element={<Home />} />
+            <Route path="/" element={<Home />} />
             <Route path="/fundslist" element={<FundsList />} />
             <Route path="/fundslist/:id" element={<FundId />} />
+            <Route path="/successinvestment" element={<SuccessInvestment />} />
             <Route path="/manager" element={<Manager />} />
             <Route path="/manager/:id" element={<DashboardId />} />
+            <Route path="/successfund" element={<SuccessFund />} />
             <Route path="/investor" element={<Investor />} />
             <Route path="/create-fund" element={<CreateFund />} />
           </Route>

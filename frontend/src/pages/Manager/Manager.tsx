@@ -3,6 +3,7 @@ import { db } from '../../firebase/firebase';
 import { get, ref } from "firebase/database";
 import { Link } from 'react-router-dom';
 import { AiOutlineArrowUp, AiOutlineArrowDown } from "react-icons/ai";
+import Footer from '../../components/Footer/Footer';
 
 type DataPoint = {
     id: number;
@@ -120,6 +121,7 @@ export default function Manager() {
                         </div>
                     </div>
                 </section>
+                <Footer />
             </div>
         </>
     )
