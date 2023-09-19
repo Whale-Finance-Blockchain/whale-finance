@@ -42,6 +42,21 @@ export default function FundsList() {
                 const numberFundsBigNumber = await whaleFinanceContract.functions._fundIdCounter() as ethers.BigNumber[];
                 const numberFunds = parseInt(numberFundsBigNumber[0]._hex);
                 console.log(numberFunds);
+
+                const fundsList: DataPoint[] = [];
+
+                await Promise.all(Array(numberFunds).fill(null).map(async (_, index) => {
+                    const fundName = await whaleFinanceContract.functions.fundsNames(index);
+                    console.log(fundName);
+                    const oneFund: DataPoint = {
+                        id: index,
+                        name: fundName,
+                        description: ""
+                    };
+                    fundsList.push(oneFund);
+                                       
+            }));
+            setFunds([...fundsList]);
                               
 
             } catch(err){
