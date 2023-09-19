@@ -48,7 +48,7 @@ export default function FundsList() {
     const formattedRent = new Intl.NumberFormat('en-US', { style: 'percent', minimumFractionDigits: 1, maximumFractionDigits: 1 }).format(rentValue);
 
     const fundsElements = funds.map(fund => (
-        <Link to={`/investor/${fund.id}`}>
+        <Link to={`/fundslist/${fund.id}`}>
             <div key={fund.id} className="bg-gradient-to-r from-white to-[#fcfcfc] h-[180px] flex flex-col items-center justify-center text-gray-500 rounded-lg shadow-lg m-[2vh] hover:bg-gradient-to-r hover:from-white hover:to-gray-100 hover:text-secondary-color transition duration-600 ease-in-out">
                 <h2 className="text-xl font-bold text-secondary-color">{fund.name}</h2>
                 <p className="text-fs mt-2">{fund.description}</p>
