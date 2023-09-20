@@ -102,6 +102,9 @@ export default function FormSwap(props: any) {
                     <label className="block font-medium italic text-sm text-gray-400 mb-8" htmlFor="invest">
                         Choose your tokens to swap
                     </label>
+                    <div className="flex flex-row text-center text-sm text-blue-color italic font-bold mt-4 ml-8">
+                        <h3>Balance: {Number(tokenABalance).toFixed(3)} {props.tokenA} </h3>
+                    </div>
                     <div className="flex flex-row bg-[white] border-[2px] border-secondary-color text-center text-xl text-black mt-4 shadow-lg rounded-[15px]">
                         <input
                             type="number"
@@ -125,17 +128,16 @@ export default function FormSwap(props: any) {
                                     <option 
                                         key={key}
                                         value={key}
-                                        className="bg-white md:text-xl lg:text-xl text-center text-black p-2 mt-4 rounded-[10px] border-blue-color border-2 outline-0 shadow-lg focus:bg-secondary-color focus:text-white hover:bg-gray-100 transition duration-1000 ease-in-out"
+                                        className="bg-white lg:text-xl text-center text-black p-2 mt-4 rounded-[10px] border-blue-color border-2 outline-0 shadow-lg focus:bg-secondary-color focus:text-white hover:bg-gray-100 transition duration-1000 ease-in-out"
                                     >{key}</option>
                                 )
                             })}
                         </select>
                     </div>
                     <div className="flex flex-row bg-[white] border-[2px] border-secondary-color text-center text-xl text-black mt-4 shadow-lg rounded-[15px]">
-                        <h3>Balance: {Number(tokenABalance).toFixed(3)} {props.tokenA} </h3>
-                    </div>
-                    <div className="flex flex-row bg-[white] border-[2px] border-secondary-color text-center text-xl text-black mt-4 shadow-lg rounded-[15px]">
-
+                        <div className="basis-2/3 bg-transparent text-center lg:text-xl text-black p-2 outline-0 rounded-l-[15px] ">
+                            <h3>Balance:  {Number(tokenBBalance).toFixed(3)} {props.tokenB}</h3>
+                        </div>
                         <select 
                             className="basis-1/3 bg-transparent text-center lg:text-xl font-bold text-black p-2 outline-0 rounded-r-[15px] hover:bg-slate-100 transition duration-1000 ease-in-out"
                             id="tokens"
@@ -149,14 +151,11 @@ export default function FormSwap(props: any) {
                                     <option 
                                         key={key}
                                         value={key}
-                                        className="bg-white md:text-xl lg:text-xl text-center text-black p-2 mt-4 rounded-[10px] border-blue-color border-2 outline-0 shadow-lg focus:bg-secondary-color focus:text-white hover:bg-gray-100 transition duration-1000 ease-in-out"
+                                        className="bg-white lg:text-xl text-center text-black p-2 mt-4 rounded-[10px] border-blue-color border-2 outline-0 shadow-lg focus:bg-secondary-color focus:text-white hover:bg-gray-100 transition duration-1000 ease-in-out"
                                     >{key}</option>
                                 )
                             })}
                         </select>
-                    </div>
-                    <div className="flex flex-row bg-[white] border-[2px] border-secondary-color text-center text-xl text-black mt-4 shadow-lg rounded-[15px]">
-                        <h3>Balance:  {Number(tokenBBalance).toFixed(3)} {props.tokenB}</h3>
                     </div>
                 </div>
             </div>

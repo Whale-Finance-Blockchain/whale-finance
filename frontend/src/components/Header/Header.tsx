@@ -40,15 +40,15 @@ export default function Header({ isMetamaskInstalled, connectWallet, account, pr
                             </div>
                             <div className="flex-1 h-0 pt-5 pb-4 overflow-y-auto">
                                 <nav className="mt-5 flex-1 px-2 space-y-1">
-                                    <a href="/investor" className="group flex items-center px-4 py-3 text-xl font-medium rounded-md text-white hover:text-secondary-color hover:bg-gray-100">
-                                        Investor
-                                    </a>
-                                    <a href="/manager" className="group flex items-center px-4 py-3 text-xl font-medium rounded-md text-white hover:text-secondary-color hover:bg-gray-100">
+                                    <div className="group flex items-center px-4 py-3 text-xl font-medium rounded-md text-white hover:text-secondary-color hover:bg-gray-100" onClick={() => history('/investor')}>
+                                        Dashboard
+                                    </div>
+                                    <div href="/manager" className="group flex items-center px-4 py-3 text-xl font-medium rounded-md text-white hover:text-secondary-color hover:bg-gray-100" onClick={() => history('/manager')}>
                                         Manager
-                                    </a>
-                                    <a href="/fundslist" className="group flex items-center px-4 py-3 text-xl font-medium rounded-md text-white hover:text-secondary-color hover:bg-gray-100">
+                                    </div>
+                                    <div href="/fundslist" className="group flex items-center px-4 py-3 text-xl font-medium rounded-md text-white hover:text-secondary-color hover:bg-gray-100" onClick={() => history('/fundslist')}>
                                         Funds List
-                                    </a>
+                                    </div>
                                 </nav>
                             </div>
                             <div className="flex-shrink-0 flex border-t border-gray-200 p-4">
@@ -69,7 +69,7 @@ export default function Header({ isMetamaskInstalled, connectWallet, account, pr
                 <div className="hidden lg:block">
                 <ul className="inline-flex items-center space-x-10">
                 <li><div className="px-6 lg:px-6 py-2 text-[1.23vw] hover:bg-[rgb(14,42,98)] transition duration-1000 ease-in-out"
-                        onClick={() => history('/investor')}>Investor</div></li>
+                        onClick={() => history('/investor')}>Dashboard</div></li>
                     <li><div className="px-6 lg:px-6 py-2 text-[1.25vw] hover:bg-[rgb(14,42,98)] transition duration-1000 ease-in-out"
                     onClick={() => history("/manager")}>Manager</div></li>
                     <li><div className="px-6 lg:px-6 py-2 text-[1.25vw] hover:bg-[rgb(14,42,98)] transition duration-1000 ease-in-out" 
