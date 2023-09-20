@@ -1,1 +1,1 @@
-forge script ./Whitelist.s.sol --rpc-url $SEPOLIA_RPC_URL  --broadcast --legacy
+forge script ./Whitelist.s.sol --rpc-url https://smart.zeniq.network:9545  --broadcast --legacy
