@@ -10,10 +10,9 @@ import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/proxy/beacon/BeaconProxy.sol";
 import "./QuotaToken.sol";
+import "./interface/IV2SwapRouter.sol";
 
 contract WhaleFinance is ERC721, Ownable {
-
-    
     //GLOBAL VARIABLES FOR THE PLATFORM
     uint256 public _fundIdCounter;
     IERC6551Registry public fundsRegister;
@@ -21,6 +20,8 @@ contract WhaleFinance is ERC721, Ownable {
     address public quotaTokenImplementation;
     IERC20 public stablecoin;
     mapping(address => bool) public whiteListedTokens;
+    
+    IV2SwapRouter public swapRouter = IV2SwapRouter(0x7963c1bd24E4511A0b14bf148F93e2556AFe3C27);
 
     // MAPPINGS TO THE NFTS
     mapping(uint256 => address) public fundsAddresses;

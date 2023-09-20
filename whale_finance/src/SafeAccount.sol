@@ -7,9 +7,27 @@ import "@openzeppelin/contracts/interfaces/IERC1271.sol";
 import "@openzeppelin/contracts/utils/cryptography/SignatureChecker.sol";
 
 import "./interface/IERC6551Account.sol";
+import "./interface/IV2SwapRouter.sol";
 
 contract SafeAccount is IERC165, IERC1271, IERC6551Account {
     receive() external payable {}
+
+    IV2SwapRouter public swapRouter = IV2SwapRouter(0x7963c1bd24E4511A0b14bf148F93e2556AFe3C27);
+
+
+    function executeSwapExactTokensForTokens(
+        uint256 amountIn,
+        uint256 amountOutMin,
+        address[] calldata path,
+        address to,
+        uint deadline
+    ) external returns (uint[] memory amounts){
+        require(_isValidSigner(msg.sender), "Invalid signer");
+        
+        return swapRouter.swapExactTokensForTokens(amountIn, amountOutMin, path, to, deadline);
+    }
+
+
 
     function isValidSignature(
         bytes32 hash,
