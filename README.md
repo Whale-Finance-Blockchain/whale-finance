@@ -187,7 +187,7 @@ Whale Finance: 0xE7fB04eA857F9F96939fc98bD17Ff88ce8b0AdF0
 
 ### Demo
 
-[Demo Link]([https://www.example.com](https://www.loom.com/share/cad27e748c9c4903b825ee925ddb98c0?sid=90f8fc2a-5443-4537-b984-cc3059837f82 )
+[Demo Link](https://www.loom.com/share/cad27e748c9c4903b825ee925ddb98c0?sid=90f8fc2a-5443-4537-b984-cc3059837f82)
 
 ### Running steps
 
