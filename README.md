@@ -156,7 +156,7 @@ Here is the folder structure of the project with comments about files:
           │     └── interface/                            
           │           ├── IERC6551Account.sol            # Interface file for ERC6551 Account
           │           ├── IERC6551Registry.sol           # Interface file for ERC6551 Registry
-          │           └── IV2SwapRouter.sol              # Interface file for V2 Swap Router
+          │           └── IV2SwapRouter.sol              # Interface file for Uniswap V2 Swap Router
           └── test/
                 └── WhaleFinance.t.sol                   # Test file for WhaleFinance contract
 

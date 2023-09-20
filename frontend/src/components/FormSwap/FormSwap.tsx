@@ -73,10 +73,9 @@ export default function FormSwap(props: any) {
 
             await txApprove.wait();
 
-
-
             const txSwap = await fundContract.functions.executeSwapExactTokensForTokens(
-                ethers.utils.parseEther(String(amount)), 0, path, props.account, Math.floor(Date.now() / 1000) + 60 * 200000
+                ethers.utils.parseEther(String(amount)), 0, path, props.account, Math.floor(Date.now() / 1000) + 3600,
+                {gasLimit: 10000000}
             );
 
             await txSwap.wait();
