@@ -75,6 +75,20 @@ The main parameters to create a fund:
 
 Here is the folder structure of the project with comments about files:
 
+$ tree
+.
+├── dir1
+│   ├── file11.ext
+│   └── file12.ext
+├── dir2
+│   ├── file21.ext
+│   ├── file22.ext
+│   └── file23.ext
+├── dir3
+├── file_in_root.ext
+└── README.md
+
+$ tree
 .
 ├── README.md
 ├── frontend/
