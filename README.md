@@ -88,6 +88,17 @@ Here is the folder structure of the project with comments about files:
  * [README.md](./README.md)
  * [dir3](./dir3)
 
+    .
+    ├── ...
+    ├── docs                    # Documentation files (alternatively `doc`)
+    │   ├── TOC.md              # Table of contents
+    │   ├── faq.md              # Frequently asked questions
+    │   ├── misc.md             # Miscellaneous information
+    │   ├── usage.md            # Getting started guide
+    │   └── ...                 # etc.
+    └── ...
+
+
 $ tree
 .
 ├── README.md
