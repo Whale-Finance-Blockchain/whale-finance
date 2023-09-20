@@ -43,29 +43,25 @@ This project uses ERC 6551 to allow managers to hold assets from investors. In t
 - Frontend: We used typescrit + tailwind css + vite.js to deploy more fast and be adjusted to our web3 project, that does not have backend
 - Contracts: We use  ERC 6551 to allow managers to hold assets from investor, and control them. 
 
-project-name/
+whale-finance/
+├──README.md 
+├─ frontend/ 
+    └── src/ 
+        ├── main.py
+        └── utilities.py
 
-├── README.md 
+├─ whale-finance/ 
+    └── src/
+        └── Counter.sol
+        └── ERC6551Registry.sol
+        └── MockERC20.sol
+        └── QuotaBeacon.sol
+        └── QuotaToken.sol
+        └── SafeAccount.sol
+        └── WhaleFinance.sol
 
-├── src/ 
 
-│ ├── main.py
 
-│ └── utilities.py
-
-├── tests/
-
-│ └── test_main.py
-
-├── docs/
-
-│ └── documentation.md
-
-└── data/
-
-├── input/
-
-└── output/
 
 
 ## Getting Started
