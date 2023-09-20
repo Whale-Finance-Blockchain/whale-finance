@@ -136,20 +136,22 @@ export default function DashboardId() {
                                     <LineChartComponent data={data} />
                                 </div>
                             </div>
-                            <div className='flex-1 md:basis-1/3 lg:basis-1/3 mx-2 px-10 '>
-                                <h1 className='font-bold text-2xl mt-6 mb-1 md:text-left lg:text-left'>Invest</h1>
+                            <div className='flex-1 md:basis-1/3 lg:basis-1/3 mx-2 px-10'>
+                                <h1 className='font-bold text-2xl mt-6 mb-1 md:text-left lg:text-left'>Swap</h1>
                                 <div className='flex justify-center sm:block sm:justify-start lg:block lg:justify-start'>
                                     <div className='h-[2px] w-16 md:mb-8 lg:mb-8 bg-secondary-color'></div>
                                 </div>
-                                {/* PRECISO MUDAR AQUI */}
-                                <FormSwap   invest={invest}
-                                                setInvest={setInvest}
-                                />
-                                <button
-                                className="my-4 bg-gradient-to-r from-blue-color to-secondary-color text-white font-bold rounded-full border-2 border-transparent py-2 px-20 shadow-lg uppercase tracking-wider hover:from-white hover:to-white hover:text-secondary-color hover:border-secondary-color transition duration-1000 ease-in-out" onClick={handleClick}
-                                >
-                                Invest
-                                </button>
+                                <div className='bg-slate-100 py-4 px-2 shadow-lg rounded-[20px]'>
+                                    {/* PRECISO MUDAR AQUI */}
+                                    <FormSwap   invest={invest}
+                                                    setInvest={setInvest}
+                                    />
+                                    <button
+                                    className="my-4 bg-gradient-to-r from-blue-color to-secondary-color text-white font-bold rounded-full border-2 border-transparent py-2 px-20 shadow-lg uppercase tracking-wider hover:from-white hover:to-white hover:text-secondary-color hover:border-secondary-color transition duration-1000 ease-in-out" onClick={handleClick}
+                                    >
+                                    Swap
+                                    </button>
+                                </div>
                             </div>
                         </div>
                         <div className='flex flex-col md:flex-row lg:flex-row justify-center md:h-[70vh] lg:h-[70vh] my-12 mb-24'>
