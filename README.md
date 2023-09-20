@@ -61,11 +61,15 @@ The main parameters to create a fund:
 
 ### Investors
 
+Features:
+
 - **Funds List:** Can choose a fund in a list of funds to make an investment _(/fundslist route)_
 - **Invest:** Can see stats about the fund chosen, like a performance chart, and then invest in the favorite ones _(/funds/id route)_
 - **Dashboard:** Can see stats and metrics about your investments _(/investor route)_
 
 ### Managers
+
+Features:
 
 - **Create a fund:** Can create a fund based on the parameters listed above  _(/ route)_
 - **Funds List:** Can choose a fund in a list of funds to see stats about the managed fund _(/manager route)_
