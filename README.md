@@ -2,7 +2,7 @@
 
 ## Decentralized Asset Management
 
-Decentralized Asset Management with ERC 6551. We want to give the opportunity to investors sees their money been managed with full security and auditability.
+whale.finance basically implements Decentralized Asset Management with ERC 6551. We want to give the opportunity to investors sees their money been managed with full security and auditability.
 
 ## The Idea
 
@@ -11,6 +11,10 @@ This project uses ERC 6551 to allow managers to hold assets from investors. In t
 - Overview of the project with a focus on the decentralization aspect and the role of ERC 6551.
 - Importance and benefits of decentralized asset management.
 - Insights on security and auditability features of the platform.
+
+![Project Logo](./frontend/src/assets/traditional_am.png)
+
+![Project Logo](./frontend/src/assets/descentralized_am.png)
 
 ## Features
 ### Security
