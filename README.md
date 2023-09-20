@@ -34,7 +34,7 @@ These bullet points below describes the flow over a fund invesment in the tradit
 
 - **Custodian & Fund:** Custodians play a pivotal role in safeguarding the assets of the fund, ensuring that they are held securely and are not susceptible to theft or loss. Apart from asset safekeeping, they also assist in transaction settlements and administrative services, thus ensuring smooth operational flow and compliance with regulatory requirements.
 
-![Project Logo](./frontend/src/assets/traditional_am.png)
+![Project Photo](./frontend/src/assets/traditional_am.png)
 
 ___
 
@@ -58,7 +58,7 @@ Benefits to descentralize the asset management industry and differences from the
 
 - **Integration and Potential:** The whale.finance is integrated with **Zeniq Swap**, and can be integrated in the future with other products, like Zeniq Pass. Besides that, there is a lot of potential to explore 
 
-![Project Logo](./frontend/src/assets/descentralized_am.png)
+![Project Photo](./frontend/src/assets/descentralized_am.png)
 
 ## User Roles
 
@@ -96,6 +96,10 @@ The main parameters to create a fund:
 
 - A concise overview of the technical workings of the platform.
 - The role of ERC 6551 and EVM in facilitating decentralized asset management.
+
+![Project Photo](./frontend/src/assets/fund_creation.jgp)
+![Project Photo](./frontend/src/assets/investment.jgp)
+![Project Photo](./frontend/src/assets/indirect_swap.jgp)
 
 ### Technology
 
