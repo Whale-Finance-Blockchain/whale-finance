@@ -12,7 +12,15 @@ This project uses ERC 6551 to allow managers to hold assets from investors. In t
 - Importance and benefits of decentralized asset management.
 - Insights on security and auditability features of the platform.
 
+### Traditional
+
 ![Project Logo](./frontend/src/assets/traditional_am.png)
+
+- **Distributor & Fund:** The distributor acts as a bridge between the fund and potential investors, marketing and selling the fund's financial products. Through collaborations and agreements, distributors help expand the fund's reach and increase its assets under management, enhancing the fund's visibility and accessibility.
+
+- **Exchange & Fund:** Exchanges serve as vital platforms where funds can actively participate in trading activities, acquiring or disposing of assets as per their investment strategies. They facilitate a transparent environment where funds can execute trades based on real-time market conditions, thus helping in the price discovery process and achieving investment objectives.
+
+- **Custodian & Fund:** Custodians play a pivotal role in safeguarding the assets of the fund, ensuring that they are held securely and are not susceptible to theft or loss. Apart from asset safekeeping, they also assist in transaction settlements and administrative services, thus ensuring smooth operational flow and compliance with regulatory requirements.
 
 ![Project Logo](./frontend/src/assets/descentralized_am.png)
 
@@ -41,44 +49,31 @@ This project uses ERC 6551 to allow managers to hold assets from investors. In t
 ### Technology
 
 - Frontend: We used typescrit + tailwind css + vite.js to deploy more fast and be adjusted to our web3 project, that does not have backend
-- Contracts: We use  ERC 6551 to allow managers to hold assets from investor, and control them. 
+- Contracts: We use ERC 6551 to allow managers to hold assets from investor, and control them.
 
-whale-finance/
+### Folder Structure
 
-├──README.md 
-
-├─ frontend/ 
-
-    └── src/ 
-    
-        ├── main.py
-        
-        └── utilities.py
-        
-
-├─ whale-finance/ 
-
-    └── src/
-    
-        └── Counter.sol
-        
-        └── ERC6551Registry.sol
-        
-        └── MockERC20.sol
-        
-        └── QuotaBeacon.sol
-        
-        └── QuotaToken.sol
-        
-        └── SafeAccount.sol
-        
-        └── WhaleFinance.sol
+├── README.md
+│
+├── frontend/
+│ └── src/
+│ ├── main.py
+│ └── utilities.py
+│
+├── whale-finance/
+└── src/
+└── Counter.sol
+└── ERC6551Registry.sol
+└── MockERC20.sol
+└── QuotaBeacon.sol
+└── QuotaToken.sol
+└── SafeAccount.sol
+└── WhaleFinance.sol
 
 
 
 
-
-## Getting Started
+## Usage
 ### Prerequisites
 - List of prerequisites necessary to get started with the project.
 
