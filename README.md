@@ -10,6 +10,16 @@ This project uses ERC 6551 to allow managers to hold assets from investors. In t
 
 ### Traditional
 
+Before that, to give some context, the stakeholders of the financial market explained:
+
+- Distributor: Markets and sells financial products to investors.
+
+- Exchange: Platform for buying and selling financial assets.
+
+- Custodian: Safeguards and manages financial assets.
+
+- Fund: Pooled investment vehicle managed professionally.
+
 These bullet points below describes the flow over a fund invesment in the traditional financial market, with 6 main stakeholders:
 
 - **Investor & Fund:** To have a share in the fund, the investor must pay a management fee to the manager, and a performance fee equivalent to a percentage above the market benchmark. In this way, the manager aligns with the investment by earning these fees for managing the fund.
@@ -26,7 +36,21 @@ These bullet points below describes the flow over a fund invesment in the tradit
 
 Benefits to descentralize the asset management industry and differences from the traditional flow:
 
+- **Innovation:** There are no solutions (or few) that implements a full descentralized flow in the asset management industry (only crypto funds represents more than 1 billion dollars, but the solution can be extended to other markets), primordialy because the recent creation of ERC 6551 that can allow better the action of hold assets
 
+- **Autonomy and Control:** Investors and managers have more control over their assets and investments, without the influence or interference of centralized entities (that is one of the strongest principles to buy crypto today).
+
+- **Cost-Effectiveness:** By eliminating intermediaries (like the custodian), the platform can potentially reduce the costs associated with asset management, including fees that would normally be paid to distributors and custodians.
+
+- **Transparency:** Utilizing a decentralized platform ensures that all transactions and fund performances are recorded on a transparent and immutable ledger, which can increase trust among investors.
+
+- **Security:** Our main idead behind whale.finance, the use of ERC 6551 secures the way that manager can hold and manage assets from investors.
+
+- **Profit Opportunities for Managers:** The platform creates opportunities for managers to profit by offering their expertise to a wider audience, the performance is transparent and the mechanism to hold assets is secure.
+
+- **Regulatory Compliance:** The use of smart contracts can automate compliance with regulatory requirements.
+
+- **Integration and Potential:** The whale.finance is integrated with **Zeniq Swap**, and can be integrated in the future with other products, like Zeniq Pass. Besides that, there is a lot of potential to explore 
 
 ![Project Logo](./frontend/src/assets/descentralized_am.png)
 
@@ -63,6 +87,7 @@ The main parameters to create a fund:
 - **Maturation Time:** The projected time frame for the fund to reach its investment goals, guiding investors on expected returns.
 
 ## How it Works
+
 - A concise overview of the technical workings of the platform.
 - The role of ERC 6551 and EVM in facilitating decentralized asset management.
 
