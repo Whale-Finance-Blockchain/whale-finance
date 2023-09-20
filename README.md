@@ -45,27 +45,27 @@ This project uses ERC 6551 to allow managers to hold assets from investors. In t
 
 project-name/
 
-├── README.md # Project documentation
+├── README.md 
 
-├── src/ # Source code files
+├── src/ 
 
-│ ├── main.py # Main application file
+│ ├── main.py
 
-│ └── utilities.py # Utility functions
+│ └── utilities.py
 
-├── tests/ # Test files
+├── tests/
 
-│ └── test_main.py # Main tests
+│ └── test_main.py
 
-├── docs/ # Documentation files
+├── docs/
 
-│ └── documentation.md # Main documentation file
+│ └── documentation.md
 
-└── data/ # Data files
+└── data/
 
-├── input/ # Input data files
+├── input/
 
-└── output/ # Output data files
+└── output/
 
 
 ## Getting Started
