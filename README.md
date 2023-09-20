@@ -68,7 +68,7 @@ Features:
 
 - **Funds List:** Can choose a fund in a list of funds to make an investment _(/fundslist route)_
 - **Invest:** Can see stats about the fund chosen, like a performance chart, and then invest in the favorite ones _(/funds/id route)_
-- **Dashboard:** Can see stats and metrics about your investments _(/investor route)_
+- **Dashboard:** Can see stats and metrics about your investments _(/investor route)_ + _(pivoted: not implement in the hackathon)_
 
 ### Managers
 
@@ -128,6 +128,7 @@ Here is the folder structure of the project with comments about files:
     │          │      ├── SafeAccount.ts                 # Safe account contract file
     │          │      └── WhaleFinance.ts                # WhaleFinance contract file
     │          ├── firebase/                             
+    │          │      ├── test_database.json             # json with mock data to test database in firebase
     │          ├── pages/                                
     │          │      ├── CreateFund/                    # Manager: Page for creating a fund
     │          │      ├── DashboardId/                   # Manager: Dashboard of specific fund, here the manager can **swap tokens**
