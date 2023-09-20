@@ -98,14 +98,14 @@ Here is the folder structure of the project with comments about files:
     │          │      └── WhaleFinance.ts                # WhaleFinance contract file
     │          ├── firebase/                             
     │          ├── pages/                                
-    │          │      ├── CreateFund/                    # Page component for creating a fund
-    │          │      ├── DashboardId/                   # Dashboard page component with ID
-    │          │      ├── FundId/                        # Fund page component with ID
-    │          │      ├── FundsList/                     # Page component to list all funds
-    │          │      ├── Home/                          # Home page component
-    │          │      ├── Investor/                      # Investor page component
-    │          │      ├── Layout/                        # Layout page component
-    │          │      ├── Manager/                       # Manager page component
+    │          │      ├── CreateFund/                    # Manager: Page for creating a fund
+    │          │      ├── DashboardId/                   # Manager: Dashboard of specific fund, here the manager can **swap tokens**
+    │          │      ├── FundId/                        # Investor: Fund page with stats and **invest action**
+    │          │      ├── FundsList/                     # Investor: List of funds presented in the platform
+    │          │      ├── Home/                          # Home page
+    │          │      ├── Investor/                      # Investor: Dashboard showing investments and stats
+    │          │      ├── Layout/                        # Layout page to incorporate header in the app
+    │          │      ├── Manager/                       # Manager: Funds list of funds managed by the manager
     │          │      ├── SuccessFund/                   # Page component to display fund creation success
     │          │      └── SuccessInvestment/             # Page component to display investment success
     │          └── utils/                                
