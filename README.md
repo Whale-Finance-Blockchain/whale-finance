@@ -69,74 +69,64 @@ The main parameters to create a fund:
 ### Technology
 
 - Frontend: We used typescrit + tailwind css + vite.js to deploy more fast and be adjusted to our web3 project, that does not have backend
-- Contracts: We use ERC 6551 to allow managers to hold assets from investor, and control them.
+- Contracts: We use ERC 6551 to allow managers to hold assets from investor and control them.
 
 ### Folder Structure
 
 Here is the folder structure of the project with comments about files:
 
-
     .
-    ├── ...
-    ├── docs                    # Documentation files (alternatively `doc`)
-    │   ├── TOC.md              # Table of contents
-    │   ├── faq.md              # Frequently asked questions
-    │   ├── misc.md             # Miscellaneous information
-    │   ├── usage.md            # Getting started guide
-    │   └── ...                 # etc.
-    └── ...
-
-    .
-    ├── README.md
-    ├── frontend/
-    │     └── src/
-    │          ├── App.tsx
-    │          ├── assets/
-    │          ├── components/
-    │          │      ├── ConnectWallet/        
-    │          │      ├── DataDiv/           
-    │          │      ├── Footer/              
-    │          │      ├── FormInvestor/           
-    │          │      ├── FormManager/          
-    │          │      ├── FormSwap/              
-    │          │      ├── Header/                 
-    │          │      ├── LineChartComponent/   
-    │          │      └── PieChartComponent/    
-    │          ├── contracts/
-    │          │      ├── QuotaToken.ts
-    │          │      ├── SafeAccount.ts
-    │          │      └── WhaleFinance.ts
-    │          ├── firebase/
-    │          ├── pages/
-    │          │      ├── CreateFund/
-    │          │      ├── DashboardId/
-    │          │      ├── FundId/
-    │          │      ├── FundsList/
-    │          │      ├── Home/
-    │          │      ├── Investor/
-    │          │      ├── Layout/
-    │          │      ├── Manager/
-    │          │      ├── SuccessFund/
-    │          │      └── SuccessInvestment/
-    │          └── utils/
-    │                ├── addresses.ts
-    │                └── connectMetamask.ts
+    ├── README.md                                        
     │
-    └── whale-finance/
+    ├── frontend/                                        # Directory for frontend using Typescript + Tailwind CSS + Vite JS
+    │     └── src/                                       
+    │          ├── App.tsx                               # Main application component
+    │          ├── assets/                               
+    │          ├── components/                          
+    │          │      ├── ConnectWallet/                 # Component to facilitate wallet connection
+    │          │      ├── DataDiv/                       # Component for data about fund
+    │          │      ├── Footer/                        
+    │          │      ├── FormInvestor/                  # Form component for investor details
+    │          │      ├── FormManager/                   # Form component for manager details
+    │          │      ├── FormSwap/                      # Component for swap functionality
+    │          │      ├── Header/                        
+    │          │      ├── LineChartComponent/            # Component to display line charts
+    │          │      └── PieChartComponent/             # Component to display pie charts
+    │          ├── contracts/                            
+    │          │      ├── QuotaToken.ts                  # Quota token contract file
+    │          │      ├── SafeAccount.ts                 # Safe account contract file
+    │          │      └── WhaleFinance.ts                # WhaleFinance contract file
+    │          ├── firebase/                             
+    │          ├── pages/                                
+    │          │      ├── CreateFund/                    # Page component for creating a fund
+    │          │      ├── DashboardId/                   # Dashboard page component with ID
+    │          │      ├── FundId/                        # Fund page component with ID
+    │          │      ├── FundsList/                     # Page component to list all funds
+    │          │      ├── Home/                          # Home page component
+    │          │      ├── Investor/                      # Investor page component
+    │          │      ├── Layout/                        # Layout page component
+    │          │      ├── Manager/                       # Manager page component
+    │          │      ├── SuccessFund/                   # Page component to display fund creation success
+    │          │      └── SuccessInvestment/             # Page component to display investment success
+    │          └── utils/                                
+    │                ├── addresses.ts                    # File containing contract addresses
+    │                └── connectMetamask.ts              # Utility file to facilitate Metamask connection
+    │
+    └── whale-finance/                                   # Directory for smart contracts
           └── src/
-               ├── Counter.sol
-               ├── ERC6551Registry.sol
-               ├── MockERC20.sol
-               ├── QuotaBeacon.sol
-               ├── QuotaToken.sol
-               ├── SafeAccount.sol
-               ├── WhaleFinance.sol
-               └── interface/
-                     ├── IERC6551Account.sol
-                     ├── IERC6551Registry.sol
-                     └── IV2SwapRouter.sol
+          │     ├── Counter.sol                          # Counter smart contract file
+          │     ├── ERC6551Registry.sol                  # ERC6551 Registry contract file
+          │     ├── MockERC20.sol                        # Mock ERC20 contract file for testing
+          │     ├── QuotaBeacon.sol                      # Quota Beacon contract file
+          │     ├── QuotaToken.sol                       # Quota Token contract file
+          │     ├── SafeAccount.sol                      # Safe Account contract file
+          │     ├── WhaleFinance.sol                     # Main WhaleFinance contract file
+          │     └── interface/                            
+          │           ├── IERC6551Account.sol            # Interface file for ERC6551 Account
+          │           ├── IERC6551Registry.sol           # Interface file for ERC6551 Registry
+          │           └── IV2SwapRouter.sol              # Interface file for V2 Swap Router
           └── test/
-                └── WhaleFinance.t.sol
+                └── WhaleFinance.t.sol                   # Test file for WhaleFinance contract
 
 And the main codes developed are:
 
@@ -149,7 +139,4 @@ And the main codes developed are:
 
 ### Installation
 - Step-by-step installation guide or links to relevant documentation.
-
-### Usage
-- Basic usage guidelines with examples, if possible.
 
