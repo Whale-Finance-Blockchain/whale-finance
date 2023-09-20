@@ -9,7 +9,7 @@ import { useParams } from 'react-router-dom';
 import DataDiv from '../../components/DataDiv/DataDiv';
 import Footer from '../../components/Footer/Footer';
 import { ethers } from 'ethers';
-import { WhaleFinanceAddress, ZusdAddress } from '../../utils/addresses';
+import { WhaleFinanceAddress, ZusdAddress, scanUrl } from '../../utils/addresses';
 import { QuotaTokenAbi } from '../../contracts/QuotaToken';
 import { WhaleFinanceAbi } from '../../contracts/WhaleFinance';
 
@@ -38,6 +38,7 @@ export default function FundId({ isMetamaskInstalled, connectWallet, account, pr
     const [quotaBalance, setQuotaBalance] = useState(0);
     const [quotaPrice, setQuotaPrice] = useState(1);
     const [totalQuotas, setTotalQuotas] = useState(0);
+    const [quotaAddress, setQuotaAddress] = useState("--");
 
     function handleSubmit() {
 
@@ -80,6 +81,32 @@ export default function FundId({ isMetamaskInstalled, connectWallet, account, pr
         }
     }
 
+    async function getTotalQuotas(){
+        try{
+            const whaleFinanceContract = new ethers.Contract(WhaleFinanceAddress, WhaleFinanceAbi, signer);
+
+            const totalNumberOfQuotas = await whaleFinanceContract.functions.initialAmounts(id);
+
+            setTotalQuotas(parseFloat(ethers.utils.formatEther(totalNumberOfQuotas[0])));
+
+        }catch(err){
+            console.log(err);
+        }
+    }
+
+    async function getQuotaAddress(){
+        try{
+            const whaleFinanceContract = new ethers.Contract(WhaleFinanceAddress, WhaleFinanceAbi, signer);
+
+            const quotaAddressses = await whaleFinanceContract.functions.quotasAddresses(id);
+
+            setQuotaAddress(quotaAddressses[0]);
+
+        } catch(err){
+            console.log(err);
+        }
+    }
+
     async function makeInvestment(){
         try{
             if(invest <= 0 || invest > zusdBalance){
@@ -118,6 +145,15 @@ export default function FundId({ isMetamaskInstalled, connectWallet, account, pr
 
         getQuotaBalance();
     }, [signer]);
+
+    useEffect(() =>{
+        getTotalQuotas();
+
+    },[signer]);
+
+    useEffect(() => {
+        getQuotaAddress();
+    },[signer]);
 
     useEffect(() => {
 
@@ -249,6 +285,12 @@ export default function FundId({ isMetamaskInstalled, connectWallet, account, pr
                                         <h3>Your quotas Balance: {Number(quotaBalance).toFixed(2)}</h3>
                                         <h3>Quota Price: {Number(quotaPrice).toFixed(2)} USD/quota</h3>
                                         <h3>Total number of quotas: {Number(totalQuotas).toFixed(2)}</h3>
+                                        <h3
+                                        onClick={() => window.open(`${scanUrl}/address/${quotaAddress}`)}
+                                        style={{
+                                            cursor: "pointer"
+                                        }}
+                                        >See the quota on-chain: {quotaAddress}</h3>
 
                                 </div>
 

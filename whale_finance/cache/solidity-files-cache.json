@@ -2327,8 +2327,8 @@
       }
     },
     "script/Deploy2.s.sol": {
-      "lastModificationDate": 1695167125439,
-      "contentHash": "d318f4cdac1a099769e3df4c516212a6",
+      "lastModificationDate": 1695180283791,
+      "contentHash": "7111be30fa8065959ff1aa67a51f8d35",
       "sourceName": "script/Deploy2.s.sol",
       "solcConfig": {
         "settings": {
