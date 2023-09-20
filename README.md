@@ -44,17 +44,27 @@ This project uses ERC 6551 to allow managers to hold assets from investors. In t
 - Contracts: We use  ERC 6551 to allow managers to hold assets from investor, and control them. 
 
 project-name/
+
 ├── README.md # Project documentation
 
 ├── src/ # Source code files
+
 │ ├── main.py # Main application file
+
 │ └── utilities.py # Utility functions
+
 ├── tests/ # Test files
+
 │ └── test_main.py # Main tests
+
 ├── docs/ # Documentation files
+
 │ └── documentation.md # Main documentation file
+
 └── data/ # Data files
+
 ├── input/ # Input data files
+
 └── output/ # Output data files
 
 
