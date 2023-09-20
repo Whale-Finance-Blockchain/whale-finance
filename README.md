@@ -91,12 +91,12 @@ Here is the folder structure of the project with comments about files:
 │          │      └── Header/                 
 │          │      └── LineChartComponent/   
 │          │      └── PieChartComponent/    
-│          └── contracts/
+│          ├── contracts/
 │          │      └── QuotaToken.ts
 │          │      └── SafeAccount.ts
 │          │      └── WhaleFinance.ts
-│          └── firebase/
-│          └── pages/
+│          ├── firebase/
+│          ├── pages/
 │          │      └── CreateFund/
 │          │      └── DashboardId/
 │          │      └── FundId/
