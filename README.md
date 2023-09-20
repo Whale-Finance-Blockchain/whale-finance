@@ -86,59 +86,57 @@ Here is the folder structure of the project with comments about files:
     │   └── ...                 # etc.
     └── ...
 
-
-$ tree
-.
-├── README.md
-├── frontend/
-│     └── src/
-│          ├── App.tsx
-│          ├── assets/
-│          ├── components/
-│          │      ├── ConnectWallet/        
-│          │      ├── DataDiv/           
-│          │      ├── Footer/              
-│          │      ├── FormInvestor/           
-│          │      ├── FormManager/          
-│          │      ├── FormSwap/              
-│          │      ├── Header/                 
-│          │      ├── LineChartComponent/   
-│          │      └── PieChartComponent/    
-│          ├── contracts/
-│          │      ├── QuotaToken.ts
-│          │      ├── SafeAccount.ts
-│          │      └── WhaleFinance.ts
-│          ├── firebase/
-│          ├── pages/
-│          │      ├── CreateFund/
-│          │      ├── DashboardId/
-│          │      ├── FundId/
-│          │      ├── FundsList/
-│          │      ├── Home/
-│          │      ├── Investor/
-│          │      ├── Layout/
-│          │      ├── Manager/
-│          │      ├── SuccessFund/
-│          │      └── SuccessInvestment/
-│          └── utils/
-│                ├── addresses.ts
-│                └── connectMetamask.ts
-│
-└── whale-finance/
-      └── src/
-           ├── Counter.sol
-           ├── ERC6551Registry.sol
-           ├── MockERC20.sol
-           ├── QuotaBeacon.sol
-           ├── QuotaToken.sol
-           ├── SafeAccount.sol
-           ├── WhaleFinance.sol
-           └── interface/
-                 ├── IERC6551Account.sol
-                 ├── IERC6551Registry.sol
-                 └── IV2SwapRouter.sol
-      └── test/
-            └── WhaleFinance.t.sol
+    .
+    ├── README.md
+    ├── frontend/
+    │     └── src/
+    │          ├── App.tsx
+    │          ├── assets/
+    │          ├── components/
+    │          │      ├── ConnectWallet/        
+    │          │      ├── DataDiv/           
+    │          │      ├── Footer/              
+    │          │      ├── FormInvestor/           
+    │          │      ├── FormManager/          
+    │          │      ├── FormSwap/              
+    │          │      ├── Header/                 
+    │          │      ├── LineChartComponent/   
+    │          │      └── PieChartComponent/    
+    │          ├── contracts/
+    │          │      ├── QuotaToken.ts
+    │          │      ├── SafeAccount.ts
+    │          │      └── WhaleFinance.ts
+    │          ├── firebase/
+    │          ├── pages/
+    │          │      ├── CreateFund/
+    │          │      ├── DashboardId/
+    │          │      ├── FundId/
+    │          │      ├── FundsList/
+    │          │      ├── Home/
+    │          │      ├── Investor/
+    │          │      ├── Layout/
+    │          │      ├── Manager/
+    │          │      ├── SuccessFund/
+    │          │      └── SuccessInvestment/
+    │          └── utils/
+    │                ├── addresses.ts
+    │                └── connectMetamask.ts
+    │
+    └── whale-finance/
+          └── src/
+               ├── Counter.sol
+               ├── ERC6551Registry.sol
+               ├── MockERC20.sol
+               ├── QuotaBeacon.sol
+               ├── QuotaToken.sol
+               ├── SafeAccount.sol
+               ├── WhaleFinance.sol
+               └── interface/
+                     ├── IERC6551Account.sol
+                     ├── IERC6551Registry.sol
+                     └── IV2SwapRouter.sol
+          └── test/
+                └── WhaleFinance.t.sol
 
 And the main codes developed are:
 
