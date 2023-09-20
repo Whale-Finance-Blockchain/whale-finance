@@ -15,7 +15,6 @@ contract Deploy is Script {
     ERC6551Registry public registry;
 
     QuotaToken public quotaTokenImplementation;
-    MockERC20 public stablecoin;
 
 
     function setUp() public {}
@@ -27,10 +26,6 @@ contract Deploy is Script {
 
         console.log("QuotaToken address: %s", address(quotaTokenImplementation));
         console.log("Registry address: %s", address(registry));
-        console.log("Stablecoin address: %s", address(stablecoin));
-
-
-        
 
         vm.stopBroadcast();
         

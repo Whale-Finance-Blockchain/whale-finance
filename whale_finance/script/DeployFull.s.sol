@@ -29,7 +29,6 @@ contract Deploy is Script {
         registry = new ERC6551Registry();
 
         stablecoin = new MockERC20("ZUSD", "ZUSD");
-        stablecoin.mint(msg.sender, 4 ether);
 
         safeAccount = new SafeAccount();
         beacon = new BeaconERC20(address(quotaTokenImplementation)); //quota

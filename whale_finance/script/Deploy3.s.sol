@@ -22,11 +22,11 @@ contract Deploy is Script {
     function run() external {
         vm.startBroadcast(vm.envUint("PRIVATE_KEY"));
 
-        address stablecoin = 0x1b43c277CC56e6D2D775f9850E5F2D8Dfe4Cb5f9;
+        address stablecoin = 0xA3f156324feCc5ED3A8495C2399666a598A73ee4;
 
-        address registry = 0x47dB071001e5033aa112C073525f682275e225a5;
-        address beacon = 0x3E8D3319CbB430685CA1b100f83E4C882e65D635;
-        address safeAccount = 0xC5b8517F9a08b4EEB51bf9c639Eb0D9bF6a8fb38;
+        address registry = 0x16C71580A4D79d6bE3413F5226125Efb5630D669;
+        address beacon = 0xcBb864E7Af870F000F7b88eeD508Bc0392E2BE94;
+        address safeAccount = 0x8cde00A7aC6c100d1747771f3A3E65D03309D8A2;
 
         whaleFinance = new WhaleFinance(address(registry), address(safeAccount), address(beacon), address(stablecoin));
 
