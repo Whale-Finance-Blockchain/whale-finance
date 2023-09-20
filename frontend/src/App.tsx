@@ -60,7 +60,14 @@ function App() {
             />} 
             />
             <Route path="/successinvestment" element={<SuccessInvestment />} />
-            <Route path="/manager" element={<Manager />} />
+            <Route path="/manager" element={
+              <Manager 
+              connectWallet={connectWallet}
+              account={account}
+              provider={provider}
+              signer={signer}
+              />} 
+              />
             <Route path="/manager/:id" element={<DashboardId />} />
             <Route path="/successfund" element={<SuccessFund />} />
             <Route path="/investor" element={<Investor />} />

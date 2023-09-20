@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { db } from '../../firebase/firebase';
 import { get, ref } from "firebase/database";
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { AiOutlineArrowUp, AiOutlineArrowDown } from "react-icons/ai";
 import Footer from '../../components/Footer/Footer';
+import { ethers } from 'ethers';
+import { WhaleFinanceAddress } from '../../utils/addresses';
+import { WhaleFinanceAbi } from '../../contracts/WhaleFinance';
 
 type DataPoint = {
     id: number;
@@ -11,11 +14,52 @@ type DataPoint = {
     description: string;
 };
 
-export default function Manager() {
+export default function Manager({ isMetamaskInstalled, connectWallet, account, provider, signer }: 
+  { isMetamaskInstalled: boolean; connectWallet: any; account: string | null; provider: any; signer: any;}) {
+
+  const {id} = useParams<{id: string}>();
 
     const [manager, setManager] = useState<number>(0);
 
     const [funds, setFunds] = useState<DataPoint[]>([]);
+
+    async function getFundsForManager(){
+      try{
+        const whaleFinanceContract = new ethers.Contract(WhaleFinanceAddress, WhaleFinanceAbi, provider);
+        const totalSupplies: ethers.BigNumber[] = await whaleFinanceContract.functions._fundIdCounter();
+        const totalSupply = parseInt(totalSupplies[0]._hex);
+
+        console.log(totalSupply); 
+
+        const fundsList: DataPoint[] = [];
+
+        await Promise.all(Array(totalSupply).fill(null).map(async (_, index) => {
+          const ownerNft = await whaleFinanceContract.functions.ownerOf(index);
+          if(String(ownerNft[0]).toLowerCase() == String(account).toLowerCase()){
+            const fundName = await whaleFinanceContract.functions.fundsNames(index);
+            const fundToShow: DataPoint = {
+              id: index,
+              name: fundName[0],
+              description: ""
+            }
+            fundsList.push(fundToShow);
+          }
+        }));
+
+        if(fundsList.length > 0){
+          setManager(1);
+        }
+
+        setFunds([...fundsList]);
+
+      } catch(err){
+        console.log(err);
+      }
+    }
+
+    useEffect(() => {
+      getFundsForManager();
+    },[signer]);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -33,7 +77,7 @@ export default function Manager() {
           }
         };
       
-        fetchData();
+        // fetchData();
       }, []);
 
       function formatToUSD(number) {
@@ -114,11 +158,11 @@ export default function Manager() {
                             </div>
                           </div>
                         }
-                        <div className='mb-24 mt-12 flex justify-center'>
+                        {/* <div className='mb-24 mt-12 flex justify-center'>
                           <div className="w-96 px-20 py-3 text-xm font-bold bg-blue-color text-white hover:bg-slate-200 hover:text-secondary-color transition duration-1000 ease-in-out rounded-full uppercase cursor-pointer" onClick={() => setManager(1)}>
                           Connect Wallet
                           </div>
-                        </div>
+                        </div> */}
                     </div>
                 </section>
                 <Footer />
