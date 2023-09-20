@@ -5,6 +5,7 @@ import "@openzeppelin/contracts/utils/introspection/IERC165.sol";
 import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
 import "@openzeppelin/contracts/interfaces/IERC1271.sol";
 import "@openzeppelin/contracts/utils/cryptography/SignatureChecker.sol";
+import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
 import "./interface/IERC6551Account.sol";
 import "./interface/IV2SwapRouter.sol";
@@ -23,8 +24,14 @@ contract SafeAccount is IERC165, IERC1271, IERC6551Account {
         uint deadline
     ) external returns (uint[] memory amounts){
         require(_isValidSigner(msg.sender), "Invalid signer");
-        
+
         return swapRouter.swapExactTokensForTokens(amountIn, amountOutMin, path, to, deadline);
+    }
+
+    function executeApprove(address tokenErc20, address spender, uint256 amount) external returns (bool){
+        require(_isValidSigner(msg.sender), "Invalid signer");
+        
+        return IERC20(tokenErc20).approve(spender, amount);
     }
 
 

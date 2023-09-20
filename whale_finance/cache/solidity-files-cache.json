@@ -2213,8 +2213,8 @@
       }
     },
     "script/Deploy2.s.sol": {
-      "lastModificationDate": 1695191614591,
-      "contentHash": "54edaa2f476b41beef59fb2db22e0f49",
+      "lastModificationDate": 1695201602508,
+      "contentHash": "d82b87b8fde4d72884e0bda61af5e402",
       "sourceName": "script/Deploy2.s.sol",
       "solcConfig": {
         "settings": {
@@ -2305,8 +2305,8 @@
       }
     },
     "script/Deploy3.s.sol": {
-      "lastModificationDate": 1695191723333,
-      "contentHash": "eb48283356ae88d524c7107b29b18ef5",
+      "lastModificationDate": 1695201663505,
+      "contentHash": "545f17e7b4381ba1b61f7225741b52ee",
       "sourceName": "script/Deploy3.s.sol",
       "solcConfig": {
         "settings": {
@@ -2492,6 +2492,59 @@
         }
       }
     },
+    "script/DepositWZENIQ.s.sol": {
+      "lastModificationDate": 1695203812686,
+      "contentHash": "eb161d7640777649b81e01d71c19c870",
+      "sourceName": "script/DepositWZENIQ.s.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 20000
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "paris",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/openzeppelin-contracts/lib/forge-std/src/Base.sol",
+        "lib/openzeppelin-contracts/lib/forge-std/src/Script.sol",
+        "lib/openzeppelin-contracts/lib/forge-std/src/StdChains.sol",
+        "lib/openzeppelin-contracts/lib/forge-std/src/StdCheats.sol",
+        "lib/openzeppelin-contracts/lib/forge-std/src/StdJson.sol",
+        "lib/openzeppelin-contracts/lib/forge-std/src/StdMath.sol",
+        "lib/openzeppelin-contracts/lib/forge-std/src/StdStorage.sol",
+        "lib/openzeppelin-contracts/lib/forge-std/src/StdUtils.sol",
+        "lib/openzeppelin-contracts/lib/forge-std/src/Vm.sol",
+        "lib/openzeppelin-contracts/lib/forge-std/src/console.sol",
+        "lib/openzeppelin-contracts/lib/forge-std/src/console2.sol",
+        "script/interface/WETH.sol"
+      ],
+      "versionRequirement": "^0.8.13",
+      "artifacts": {
+        "Deposit": {
+          "0.8.20+commit.a1b79de6.Linux.gcc": "DepositWZENIQ.s.sol/Deposit.json"
+        }
+      }
+    },
     "script/Mint.s.sol": {
       "lastModificationDate": 1695192089045,
       "contentHash": "599c942b1a690faf604cbf7fd46031ca",
@@ -2587,8 +2640,8 @@
       }
     },
     "script/Swap.s.sol": {
-      "lastModificationDate": 1695189575430,
-      "contentHash": "e3084be4f09a3d0cda37026a96140dbf",
+      "lastModificationDate": 1695204579123,
+      "contentHash": "1d99207f069c30a545f604e2ec2470cc",
       "sourceName": "script/Swap.s.sol",
       "solcConfig": {
         "settings": {
@@ -2640,8 +2693,8 @@
       }
     },
     "script/Whitelist.s.sol": {
-      "lastModificationDate": 1695192359659,
-      "contentHash": "3de4293e2734ca870cccc9ed6a68b261",
+      "lastModificationDate": 1695201927732,
+      "contentHash": "2e7294ea66e14ebacace8cd956fff1d6",
       "sourceName": "script/Whitelist.s.sol",
       "solcConfig": {
         "settings": {
@@ -2730,6 +2783,46 @@
       "artifacts": {
         "Deploy": {
           "0.8.20+commit.a1b79de6.Linux.gcc": "Whitelist.s.sol/Deploy.json"
+        }
+      }
+    },
+    "script/interface/WETH.sol": {
+      "lastModificationDate": 1695203843231,
+      "contentHash": "fa88ab578f8fe480662e8f58f0caf95c",
+      "sourceName": "script/interface/WETH.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 20000
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs",
+            "appendCBOR": true
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "paris",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": "^0.8.13",
+      "artifacts": {
+        "IWETH9": {
+          "0.8.20+commit.a1b79de6.Linux.gcc": "WETH.sol/IWETH9.json"
         }
       }
     },
@@ -2961,8 +3054,8 @@
       }
     },
     "src/SafeAccount.sol": {
-      "lastModificationDate": 1695190269660,
-      "contentHash": "60a85541f730e31a1817b9b329080ebc",
+      "lastModificationDate": 1695205195793,
+      "contentHash": "3d9d7abbaef981889ed12780a13bb13f",
       "sourceName": "src/SafeAccount.sol",
       "solcConfig": {
         "settings": {
@@ -2994,6 +3087,7 @@
       },
       "imports": [
         "lib/openzeppelin-contracts/contracts/interfaces/IERC1271.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
         "lib/openzeppelin-contracts/contracts/token/ERC721/IERC721.sol",
         "lib/openzeppelin-contracts/contracts/utils/cryptography/ECDSA.sol",
         "lib/openzeppelin-contracts/contracts/utils/cryptography/SignatureChecker.sol",

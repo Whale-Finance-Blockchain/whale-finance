@@ -12,7 +12,7 @@ contract Swap is Script {
 
     address public wzeniq = 0x74DC1C4ec10abE9F5C8A3EabF1A90b97cDc3Ead8;
 
-    address public tokenA = 0xa17A9837DAD5A9C9946978A59032E01e37c49F9D; //zusd
+    address public tokenA = 0xA3f156324feCc5ED3A8495C2399666a598A73ee4; //zusd
     address public tokenB = 0x982EBDD03487622fDa5FD33D1486A5082F281Efd; //weth 
     address public zeniqSwapRouter = 0x7963c1bd24E4511A0b14bf148F93e2556AFe3C27;
 

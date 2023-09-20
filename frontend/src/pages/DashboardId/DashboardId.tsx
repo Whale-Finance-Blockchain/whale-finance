@@ -17,7 +17,8 @@ type DataPoint = {
     benchmarkValue: number; 
 };
 
-export default function DashboardId() {
+export default function DashboardId({ isMetamaskInstalled, connectWallet, account, provider, signer }: 
+    { isMetamaskInstalled: boolean; connectWallet: any; account: string | null; provider: any; signer: any;}) {
 
     const { id } = useParams<{ id: string }>();
 
@@ -29,19 +30,10 @@ export default function DashboardId() {
 
     const [data, setData] = useState<DataPoint[]>([]);
 
-    function handleSubmit() {
+    const [tokenA, setTokenA] = useState("ZUSD");
+    const [tokenB, setTokenB] = useState("ZUSD");
 
-        const body = {
-            "value_invested": invest
-        }
 
-        console.log(body);
-    }
-
-    const handleClick = () => {
-        handleSubmit();
-        history('/successinvestment');
-    };
 
     useEffect(() => {
         const fetchData = async () => {
@@ -143,14 +135,16 @@ export default function DashboardId() {
                                 </div>
                                 <div className='bg-slate-100 py-4 px-2 shadow-lg rounded-[20px]'>
                                     {/* PRECISO MUDAR AQUI */}
-                                    <FormSwap   invest={invest}
-                                                    setInvest={setInvest}
+                                    <FormSwap   
+                                        tokenA={tokenA}
+                                        tokenB={tokenB}
+                                        setTokenA={setTokenA}
+                                        setTokenB={setTokenB}
+                                        signer={signer}
+                                        account={account}
+                                        fundId={id}
                                     />
-                                    <button
-                                    className="my-4 bg-gradient-to-r from-blue-color to-secondary-color text-white font-bold rounded-full border-2 border-transparent py-2 px-20 shadow-lg uppercase tracking-wider hover:from-white hover:to-white hover:text-secondary-color hover:border-secondary-color transition duration-1000 ease-in-out" onClick={handleClick}
-                                    >
-                                    Swap
-                                    </button>
+                                    
                                 </div>
                             </div>
                         </div>

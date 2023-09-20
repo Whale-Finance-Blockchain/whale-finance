@@ -22,10 +22,10 @@ contract Deploy is Script {
     function run() external {
         vm.startBroadcast(vm.envUint("PRIVATE_KEY"));
 
-        address stablecoin = 0xA3f156324feCc5ED3A8495C2399666a598A73ee4;
+        address token = 0x74DC1C4ec10abE9F5C8A3EabF1A90b97cDc3Ead8;
 
-        whaleFinance = WhaleFinance(0x6C3d90238Fb8387218AE795F42a4979ae2E6C8c1);
-        whaleFinance.setWhiteListedToken(address(stablecoin));
+        whaleFinance = WhaleFinance(0xE7fB04eA857F9F96939fc98bD17Ff88ce8b0AdF0);
+        whaleFinance.setWhiteListedToken(address(token));
 
         vm.stopBroadcast();
         

@@ -68,7 +68,14 @@ function App() {
               signer={signer}
               />} 
               />
-            <Route path="/manager/:id" element={<DashboardId />} />
+            <Route path="/manager/:id" element={
+              <DashboardId 
+              connectWallet={connectWallet}
+              account={account}
+              provider={provider}
+              signer={signer}
+              />} 
+            />
             <Route path="/successfund" element={<SuccessFund />} />
             <Route path="/investor" element={<Investor />} />
             <Route path="/create-fund" element={

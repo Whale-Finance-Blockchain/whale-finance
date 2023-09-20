@@ -26,7 +26,7 @@ contract Deploy is Script {
 
         address registry = 0x16C71580A4D79d6bE3413F5226125Efb5630D669;
         address beacon = 0xcBb864E7Af870F000F7b88eeD508Bc0392E2BE94;
-        address safeAccount = 0x8cde00A7aC6c100d1747771f3A3E65D03309D8A2;
+        address safeAccount = 0x83988Eb399460dD07f9e37628bC61a47dc094113;
 
         whaleFinance = new WhaleFinance(address(registry), address(safeAccount), address(beacon), address(stablecoin));
 

@@ -1,12 +1,6 @@
-import { ZusdAddress } from "../../utils/addresses";
+import { allowedTokens } from "../../utils/addresses";
 
 export default function FormInvestor(props: any) {
-
-    const allowedTokens = {
-        "ZUSD": ZusdAddress
-    } as {
-        [key: string]: string;
-    }
 
     return (
         <div className='my-12'>
