@@ -43,6 +43,20 @@ This project uses ERC 6551 to allow managers to hold assets from investors. In t
 - Frontend: We used typescrit + tailwind css + vite.js to deploy more fast and be adjusted to our web3 project, that does not have backend
 - Contracts: We use  ERC 6551 to allow managers to hold assets from investor, and control them. 
 
+MyProject/
+├── README.md               # Project documentation
+├── src/                    # Source code files
+│   ├── main.py             # Main application file
+│   └── utilities.py        # Utility functions
+├── tests/                  # Test files
+│   └── test_main.py        # Main tests
+├── docs/                   # Documentation files
+│   └── documentation.md    # Main documentation file
+└── data/                   # Data files
+    ├── input/             # Input data files
+    └── output/            # Output data files
+
+
 ## Getting Started
 ### Prerequisites
 - List of prerequisites necessary to get started with the project.
