@@ -79,53 +79,53 @@ Here is the folder structure of the project with comments about files:
 │
 ├── frontend/
 │     └── src/
-│          └── App.tsx
-│          └── assets/
-│          └── components/
-│          │      └── ConnectWallet/        
-│          │      └── DataDiv/           
-│          │      └── Footer/              
-│          │      └── FormInvestor/           
-│          │      └── FormManager/          
-│          │      └── FormSwap/              
-│          │      └── Header/                 
-│          │      └── LineChartComponent/   
+│          ├── App.tsx
+│          ├── assets/
+│          ├── components/
+│          │      ├── ConnectWallet/        
+│          │      ├── DataDiv/           
+│          │      ├── Footer/              
+│          │      ├── FormInvestor/           
+│          │      ├── FormManager/          
+│          │      ├── FormSwap/              
+│          │      ├── Header/                 
+│          │      ├── LineChartComponent/   
 │          │      └── PieChartComponent/    
 │          ├── contracts/
-│          │      └── QuotaToken.ts
-│          │      └── SafeAccount.ts
+│          │      ├── QuotaToken.ts
+│          │      ├── SafeAccount.ts
 │          │      └── WhaleFinance.ts
 │          ├── firebase/
 │          ├── pages/
-│          │      └── CreateFund/
-│          │      └── DashboardId/
-│          │      └── FundId/
-│          │      └── FundsList/
-│          │      └── Home/
-│          │      └── Investor/
-│          │      └── Layout/
-│          │      └── Manager/
-│          │      └── SuccessFund/
+│          │      ├── CreateFund/
+│          │      ├── DashboardId/
+│          │      ├── FundId/
+│          │      ├── FundsList/
+│          │      ├── Home/
+│          │      ├── Investor/
+│          │      ├── Layout/
+│          │      ├── Manager/
+│          │      ├── SuccessFund/
 │          │      └── SuccessInvestment/
 │          └── utils/
-│                └── addresses.ts
+│                ├── addresses.ts
 │                └── connectMetamask.ts
 │
 └── whale-finance/
-│     └── src/
-│     │     └── Counter.sol
-│     │     └── ERC6551Registry.sol
-│     │     └── MockERC20.sol
-│     │     └── QuotaBeacon.sol
-│     │     └── QuotaToken.sol
-│     │     └── SafeAccount.sol
-│     │     └── WhaleFinance.sol
-│     │     └── interface/
-│     │           └── IERC6551Account.sol
-│     │           └── IERC6551Registry.sol
-│     │           └── IV2SwapRouter.sol
-│     └── test/
-│          └── WhaleFinance.t.sol
+      └── src/
+           ├── Counter.sol
+           ├── ERC6551Registry.sol
+           ├── MockERC20.sol
+           ├── QuotaBeacon.sol
+           ├── QuotaToken.sol
+           ├── SafeAccount.sol
+           ├── WhaleFinance.sol
+           └── interface/
+                 ├── IERC6551Account.sol
+                 ├── IERC6551Registry.sol
+                 └── IV2SwapRouter.sol
+      └── test/
+            └── WhaleFinance.t.sol
 
 And the main codes developed are:
 
