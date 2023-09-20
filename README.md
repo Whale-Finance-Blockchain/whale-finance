@@ -75,8 +75,8 @@ The main parameters to create a fund:
 
 Here is the folder structure of the project with comments about files:
 
+.
 ├── README.md
-│
 ├── frontend/
 │     └── src/
 │          ├── App.tsx
