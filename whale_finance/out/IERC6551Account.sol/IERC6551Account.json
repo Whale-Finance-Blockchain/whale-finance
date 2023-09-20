@@ -266,17 +266,17 @@
   },
   "ast": {
     "absolutePath": "src/interface/IERC6551Account.sol",
-    "id": 50767,
+    "id": 50785,
     "exportedSymbols": {
       "IERC6551Account": [
-        50766
+        50784
       ]
     },
     "nodeType": "SourceUnit",
     "src": "32:2252:64",
     "nodes": [
       {
-        "id": 50726,
+        "id": 50744,
         "nodeType": "PragmaDirective",
         "src": "32:24:64",
         "nodes": [],
@@ -288,17 +288,17 @@
         ]
       },
       {
-        "id": 50766,
+        "id": 50784,
         "nodeType": "ContractDefinition",
         "src": "125:2159:64",
         "nodes": [
           {
-            "id": 50731,
+            "id": 50749,
             "nodeType": "FunctionDefinition",
             "src": "359:27:64",
             "nodes": [],
             "documentation": {
-              "id": 50728,
+              "id": 50746,
               "nodeType": "StructuredDocumentation",
               "src": "157:197:64",
               "text": "@dev Token bound accounts MUST implement a `receive` function.\n Token bound accounts MAY perform arbitrary logic to restrict conditions\n under which Ether can be received."
@@ -309,29 +309,29 @@
             "name": "",
             "nameLocation": "-1:-1:-1",
             "parameters": {
-              "id": 50729,
+              "id": 50747,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "366:2:64"
             },
             "returnParameters": {
-              "id": 50730,
+              "id": 50748,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "385:0:64"
             },
-            "scope": 50766,
+            "scope": 50784,
             "stateMutability": "payable",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 50743,
+            "id": 50761,
             "nodeType": "FunctionDefinition",
             "src": "1085:139:64",
             "nodes": [],
             "documentation": {
-              "id": 50732,
+              "id": 50750,
               "nodeType": "StructuredDocumentation",
               "src": "392:688:64",
               "text": "@dev Executes `call` on address `to`, with value `value` and calldata\n `data`.\n MUST revert and bubble up errors if call fails.\n By default, token bound accounts MUST allow the owner of the ERC-721 token\n which owns the account to execute arbitrary calls using `executeCall`.\n Token bound accounts MAY implement additional authorization mechanisms\n which limit the ability of the ERC-721 token holder to execute calls.\n Token bound accounts MAY implement additional execution functions which\n grant execution permissions to other non-owner accounts.\n @return The result of the call"
@@ -343,17 +343,17 @@
             "name": "executeCall",
             "nameLocation": "1094:11:64",
             "parameters": {
-              "id": 50739,
+              "id": 50757,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 50734,
+                  "id": 50752,
                   "mutability": "mutable",
                   "name": "to",
                   "nameLocation": "1123:2:64",
                   "nodeType": "VariableDeclaration",
-                  "scope": 50743,
+                  "scope": 50761,
                   "src": "1115:10:64",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -362,7 +362,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 50733,
+                    "id": 50751,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1115:7:64",
@@ -376,12 +376,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 50736,
+                  "id": 50754,
                   "mutability": "mutable",
                   "name": "value",
                   "nameLocation": "1143:5:64",
                   "nodeType": "VariableDeclaration",
-                  "scope": 50743,
+                  "scope": 50761,
                   "src": "1135:13:64",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -390,7 +390,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 50735,
+                    "id": 50753,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "1135:7:64",
@@ -403,12 +403,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 50738,
+                  "id": 50756,
                   "mutability": "mutable",
                   "name": "data",
                   "nameLocation": "1173:4:64",
                   "nodeType": "VariableDeclaration",
-                  "scope": 50743,
+                  "scope": 50761,
                   "src": "1158:19:64",
                   "stateVariable": false,
                   "storageLocation": "calldata",
@@ -417,7 +417,7 @@
                     "typeString": "bytes"
                   },
                   "typeName": {
-                    "id": 50737,
+                    "id": 50755,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
                     "src": "1158:5:64",
@@ -432,17 +432,17 @@
               "src": "1105:78:64"
             },
             "returnParameters": {
-              "id": 50742,
+              "id": 50760,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 50741,
+                  "id": 50759,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 50743,
+                  "scope": 50761,
                   "src": "1210:12:64",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -451,7 +451,7 @@
                     "typeString": "bytes"
                   },
                   "typeName": {
-                    "id": 50740,
+                    "id": 50758,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
                     "src": "1210:5:64",
@@ -465,18 +465,18 @@
               ],
               "src": "1209:14:64"
             },
-            "scope": 50766,
+            "scope": 50784,
             "stateMutability": "payable",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 50753,
+            "id": 50771,
             "nodeType": "FunctionDefinition",
             "src": "1633:121:64",
             "nodes": [],
             "documentation": {
-              "id": 50744,
+              "id": 50762,
               "nodeType": "StructuredDocumentation",
               "src": "1230:398:64",
               "text": "@dev Returns identifier of the ERC-721 token which owns the\n account\n The return value of this function MUST be constant - it MUST NOT change\n over time.\n @return chainId The EIP-155 ID of the chain the ERC-721 token exists on\n @return tokenContract The contract address of the ERC-721 token\n @return tokenId The ID of the ERC-721 token"
@@ -488,23 +488,23 @@
             "name": "token",
             "nameLocation": "1642:5:64",
             "parameters": {
-              "id": 50745,
+              "id": 50763,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "1647:2:64"
             },
             "returnParameters": {
-              "id": 50752,
+              "id": 50770,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 50747,
+                  "id": 50765,
                   "mutability": "mutable",
                   "name": "chainId",
                   "nameLocation": "1705:7:64",
                   "nodeType": "VariableDeclaration",
-                  "scope": 50753,
+                  "scope": 50771,
                   "src": "1697:15:64",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -513,7 +513,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 50746,
+                    "id": 50764,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "1697:7:64",
@@ -526,12 +526,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 50749,
+                  "id": 50767,
                   "mutability": "mutable",
                   "name": "tokenContract",
                   "nameLocation": "1722:13:64",
                   "nodeType": "VariableDeclaration",
-                  "scope": 50753,
+                  "scope": 50771,
                   "src": "1714:21:64",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -540,7 +540,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 50748,
+                    "id": 50766,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1714:7:64",
@@ -554,12 +554,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 50751,
+                  "id": 50769,
                   "mutability": "mutable",
                   "name": "tokenId",
                   "nameLocation": "1745:7:64",
                   "nodeType": "VariableDeclaration",
-                  "scope": 50753,
+                  "scope": 50771,
                   "src": "1737:15:64",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -568,7 +568,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 50750,
+                    "id": 50768,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "1737:7:64",
@@ -582,18 +582,18 @@
               ],
               "src": "1696:57:64"
             },
-            "scope": 50766,
+            "scope": 50784,
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 50759,
+            "id": 50777,
             "nodeType": "FunctionDefinition",
             "src": "2045:49:64",
             "nodes": [],
             "documentation": {
-              "id": 50754,
+              "id": 50772,
               "nodeType": "StructuredDocumentation",
               "src": "1760:280:64",
               "text": "@dev Returns the owner of the ERC-721 token which controls the account\n if the token exists.\n This is value is obtained by calling `ownerOf` on the ERC-721 contract.\n @return Address of the owner of the ERC-721 token which owns the account"
@@ -605,23 +605,23 @@
             "name": "owner",
             "nameLocation": "2054:5:64",
             "parameters": {
-              "id": 50755,
+              "id": 50773,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "2059:2:64"
             },
             "returnParameters": {
-              "id": 50758,
+              "id": 50776,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 50757,
+                  "id": 50775,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 50759,
+                  "scope": 50777,
                   "src": "2085:7:64",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -630,7 +630,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 50756,
+                    "id": 50774,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "2085:7:64",
@@ -645,18 +645,18 @@
               ],
               "src": "2084:9:64"
             },
-            "scope": 50766,
+            "scope": 50784,
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 50765,
+            "id": 50783,
             "nodeType": "FunctionDefinition",
             "src": "2233:49:64",
             "nodes": [],
             "documentation": {
-              "id": 50760,
+              "id": 50778,
               "nodeType": "StructuredDocumentation",
               "src": "2100:128:64",
               "text": "@dev Returns a nonce value that is updated on every successful transaction\n @return The current account nonce"
@@ -668,23 +668,23 @@
             "name": "nonce",
             "nameLocation": "2242:5:64",
             "parameters": {
-              "id": 50761,
+              "id": 50779,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "2247:2:64"
             },
             "returnParameters": {
-              "id": 50764,
+              "id": 50782,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 50763,
+                  "id": 50781,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 50765,
+                  "scope": 50783,
                   "src": "2273:7:64",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -693,7 +693,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 50762,
+                    "id": 50780,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "2273:7:64",
@@ -707,7 +707,7 @@
               ],
               "src": "2272:9:64"
             },
-            "scope": 50766,
+            "scope": 50784,
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
@@ -719,18 +719,18 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "documentation": {
-          "id": 50727,
+          "id": 50745,
           "nodeType": "StructuredDocumentation",
           "src": "58:67:64",
           "text": "@dev the ERC-165 identifier for this interface is `0x400a0398`"
         },
         "fullyImplemented": false,
         "linearizedBaseContracts": [
-          50766
+          50784
         ],
         "name": "IERC6551Account",
         "nameLocation": "135:15:64",
-        "scope": 50767,
+        "scope": 50785,
         "usedErrors": [],
         "usedEvents": []
       }

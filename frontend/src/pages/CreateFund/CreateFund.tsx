@@ -25,7 +25,7 @@ export default function CreateFund({ isMetamaskInstalled, connectWallet, account
 
     function handleDateTimestamp(date: string) {
         const dateObj = new Date(date);
-        const timestamp = dateObj.getTime() / 1000;
+        const timestamp = dateObj.getTime()/1000;
         return timestamp;
     }
 

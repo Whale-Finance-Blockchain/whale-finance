@@ -34,7 +34,6 @@ export default function Investor() {
             "value_invested": invest
         }
 
-        console.log(body);
     }
 
     const handleClick = () => {

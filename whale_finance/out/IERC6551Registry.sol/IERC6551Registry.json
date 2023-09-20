@@ -337,17 +337,17 @@
   },
   "ast": {
     "absolutePath": "src/interface/IERC6551Registry.sol",
-    "id": 50819,
+    "id": 50837,
     "exportedSymbols": {
       "IERC6551Registry": [
-        50818
+        50836
       ]
     },
     "nodeType": "SourceUnit",
     "src": "32:1302:65",
     "nodes": [
       {
-        "id": 50768,
+        "id": 50786,
         "nodeType": "PragmaDirective",
         "src": "32:24:65",
         "nodes": [],
@@ -359,18 +359,18 @@
         ]
       },
       {
-        "id": 50818,
+        "id": 50836,
         "nodeType": "ContractDefinition",
         "src": "58:1276:65",
         "nodes": [
           {
-            "id": 50783,
+            "id": 50801,
             "nodeType": "EventDefinition",
             "src": "186:187:65",
             "nodes": [],
             "anonymous": false,
             "documentation": {
-              "id": 50769,
+              "id": 50787,
               "nodeType": "StructuredDocumentation",
               "src": "91:90:65",
               "text": "@dev The registry SHALL emit the AccountCreated event upon successful account creation"
@@ -379,18 +379,18 @@
             "name": "AccountCreated",
             "nameLocation": "192:14:65",
             "parameters": {
-              "id": 50782,
+              "id": 50800,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 50771,
+                  "id": 50789,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "account",
                   "nameLocation": "224:7:65",
                   "nodeType": "VariableDeclaration",
-                  "scope": 50783,
+                  "scope": 50801,
                   "src": "216:15:65",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -399,7 +399,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 50770,
+                    "id": 50788,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "216:7:65",
@@ -413,13 +413,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 50773,
+                  "id": 50791,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "implementation",
                   "nameLocation": "249:14:65",
                   "nodeType": "VariableDeclaration",
-                  "scope": 50783,
+                  "scope": 50801,
                   "src": "241:22:65",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -428,7 +428,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 50772,
+                    "id": 50790,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "241:7:65",
@@ -442,13 +442,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 50775,
+                  "id": 50793,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "chainId",
                   "nameLocation": "281:7:65",
                   "nodeType": "VariableDeclaration",
-                  "scope": 50783,
+                  "scope": 50801,
                   "src": "273:15:65",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -457,7 +457,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 50774,
+                    "id": 50792,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "273:7:65",
@@ -470,13 +470,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 50777,
+                  "id": 50795,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "tokenContract",
                   "nameLocation": "306:13:65",
                   "nodeType": "VariableDeclaration",
-                  "scope": 50783,
+                  "scope": 50801,
                   "src": "298:21:65",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -485,7 +485,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 50776,
+                    "id": 50794,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "298:7:65",
@@ -499,13 +499,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 50779,
+                  "id": 50797,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "tokenId",
                   "nameLocation": "337:7:65",
                   "nodeType": "VariableDeclaration",
-                  "scope": 50783,
+                  "scope": 50801,
                   "src": "329:15:65",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -514,7 +514,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 50778,
+                    "id": 50796,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "329:7:65",
@@ -527,13 +527,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 50781,
+                  "id": 50799,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "salt",
                   "nameLocation": "362:4:65",
                   "nodeType": "VariableDeclaration",
-                  "scope": 50783,
+                  "scope": 50801,
                   "src": "354:12:65",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -542,7 +542,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 50780,
+                    "id": 50798,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "354:7:65",
@@ -558,12 +558,12 @@
             }
           },
           {
-            "id": 50801,
+            "id": 50819,
             "nodeType": "FunctionDefinition",
             "src": "785:224:65",
             "nodes": [],
             "documentation": {
-              "id": 50784,
+              "id": 50802,
               "nodeType": "StructuredDocumentation",
               "src": "379:401:65",
               "text": "@dev Creates a token bound account for an ERC-721 token.\n If account has already been created, returns the account address without calling create2.\n If initData is not empty and account has not yet been created, calls account with\n provided initData after creation.\n Emits AccountCreated event.\n @return the address of the account"
@@ -575,17 +575,17 @@
             "name": "createAccount",
             "nameLocation": "794:13:65",
             "parameters": {
-              "id": 50797,
+              "id": 50815,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 50786,
+                  "id": 50804,
                   "mutability": "mutable",
                   "name": "implementation",
                   "nameLocation": "825:14:65",
                   "nodeType": "VariableDeclaration",
-                  "scope": 50801,
+                  "scope": 50819,
                   "src": "817:22:65",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -594,7 +594,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 50785,
+                    "id": 50803,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "817:7:65",
@@ -608,12 +608,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 50788,
+                  "id": 50806,
                   "mutability": "mutable",
                   "name": "chainId",
                   "nameLocation": "857:7:65",
                   "nodeType": "VariableDeclaration",
-                  "scope": 50801,
+                  "scope": 50819,
                   "src": "849:15:65",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -622,7 +622,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 50787,
+                    "id": 50805,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "849:7:65",
@@ -635,12 +635,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 50790,
+                  "id": 50808,
                   "mutability": "mutable",
                   "name": "tokenContract",
                   "nameLocation": "882:13:65",
                   "nodeType": "VariableDeclaration",
-                  "scope": 50801,
+                  "scope": 50819,
                   "src": "874:21:65",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -649,7 +649,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 50789,
+                    "id": 50807,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "874:7:65",
@@ -663,12 +663,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 50792,
+                  "id": 50810,
                   "mutability": "mutable",
                   "name": "tokenId",
                   "nameLocation": "913:7:65",
                   "nodeType": "VariableDeclaration",
-                  "scope": 50801,
+                  "scope": 50819,
                   "src": "905:15:65",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -677,7 +677,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 50791,
+                    "id": 50809,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "905:7:65",
@@ -690,12 +690,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 50794,
+                  "id": 50812,
                   "mutability": "mutable",
                   "name": "salt",
                   "nameLocation": "938:4:65",
                   "nodeType": "VariableDeclaration",
-                  "scope": 50801,
+                  "scope": 50819,
                   "src": "930:12:65",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -704,7 +704,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 50793,
+                    "id": 50811,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "930:7:65",
@@ -717,12 +717,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 50796,
+                  "id": 50814,
                   "mutability": "mutable",
                   "name": "initData",
                   "nameLocation": "967:8:65",
                   "nodeType": "VariableDeclaration",
-                  "scope": 50801,
+                  "scope": 50819,
                   "src": "952:23:65",
                   "stateVariable": false,
                   "storageLocation": "calldata",
@@ -731,7 +731,7 @@
                     "typeString": "bytes"
                   },
                   "typeName": {
-                    "id": 50795,
+                    "id": 50813,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
                     "src": "952:5:65",
@@ -746,17 +746,17 @@
               "src": "807:174:65"
             },
             "returnParameters": {
-              "id": 50800,
+              "id": 50818,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 50799,
+                  "id": 50817,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 50801,
+                  "scope": 50819,
                   "src": "1000:7:65",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -765,7 +765,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 50798,
+                    "id": 50816,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1000:7:65",
@@ -780,18 +780,18 @@
               ],
               "src": "999:9:65"
             },
-            "scope": 50818,
+            "scope": 50836,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 50817,
+            "id": 50835,
             "nodeType": "FunctionDefinition",
             "src": "1142:190:65",
             "nodes": [],
             "documentation": {
-              "id": 50802,
+              "id": 50820,
               "nodeType": "StructuredDocumentation",
               "src": "1015:122:65",
               "text": "@dev Returns the computed address of a token bound account\n @return The computed address of the account"
@@ -803,17 +803,17 @@
             "name": "account",
             "nameLocation": "1151:7:65",
             "parameters": {
-              "id": 50813,
+              "id": 50831,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 50804,
+                  "id": 50822,
                   "mutability": "mutable",
                   "name": "implementation",
                   "nameLocation": "1176:14:65",
                   "nodeType": "VariableDeclaration",
-                  "scope": 50817,
+                  "scope": 50835,
                   "src": "1168:22:65",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -822,7 +822,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 50803,
+                    "id": 50821,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1168:7:65",
@@ -836,12 +836,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 50806,
+                  "id": 50824,
                   "mutability": "mutable",
                   "name": "chainId",
                   "nameLocation": "1208:7:65",
                   "nodeType": "VariableDeclaration",
-                  "scope": 50817,
+                  "scope": 50835,
                   "src": "1200:15:65",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -850,7 +850,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 50805,
+                    "id": 50823,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "1200:7:65",
@@ -863,12 +863,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 50808,
+                  "id": 50826,
                   "mutability": "mutable",
                   "name": "tokenContract",
                   "nameLocation": "1233:13:65",
                   "nodeType": "VariableDeclaration",
-                  "scope": 50817,
+                  "scope": 50835,
                   "src": "1225:21:65",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -877,7 +877,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 50807,
+                    "id": 50825,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1225:7:65",
@@ -891,12 +891,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 50810,
+                  "id": 50828,
                   "mutability": "mutable",
                   "name": "tokenId",
                   "nameLocation": "1264:7:65",
                   "nodeType": "VariableDeclaration",
-                  "scope": 50817,
+                  "scope": 50835,
                   "src": "1256:15:65",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -905,7 +905,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 50809,
+                    "id": 50827,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "1256:7:65",
@@ -918,12 +918,12 @@
                 },
                 {
                   "constant": false,
-                  "id": 50812,
+                  "id": 50830,
                   "mutability": "mutable",
                   "name": "salt",
                   "nameLocation": "1289:4:65",
                   "nodeType": "VariableDeclaration",
-                  "scope": 50817,
+                  "scope": 50835,
                   "src": "1281:12:65",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -932,7 +932,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 50811,
+                    "id": 50829,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "1281:7:65",
@@ -947,17 +947,17 @@
               "src": "1158:141:65"
             },
             "returnParameters": {
-              "id": 50816,
+              "id": 50834,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 50815,
+                  "id": 50833,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 50817,
+                  "scope": 50835,
                   "src": "1323:7:65",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -966,7 +966,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 50814,
+                    "id": 50832,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "1323:7:65",
@@ -981,7 +981,7 @@
               ],
               "src": "1322:9:65"
             },
-            "scope": 50818,
+            "scope": 50836,
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
@@ -994,14 +994,14 @@
         "contractKind": "interface",
         "fullyImplemented": false,
         "linearizedBaseContracts": [
-          50818
+          50836
         ],
         "name": "IERC6551Registry",
         "nameLocation": "68:16:65",
-        "scope": 50819,
+        "scope": 50837,
         "usedErrors": [],
         "usedEvents": [
-          50783
+          50801
         ]
       }
     ],

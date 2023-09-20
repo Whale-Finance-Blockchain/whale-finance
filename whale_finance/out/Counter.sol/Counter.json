@@ -164,17 +164,17 @@
   },
   "ast": {
     "absolutePath": "src/Counter.sol",
-    "id": 49726,
+    "id": 49738,
     "exportedSymbols": {
       "Counter": [
-        49725
+        49737
       ]
     },
     "nodeType": "SourceUnit",
     "src": "39:304:57",
     "nodes": [
       {
-        "id": 49697,
+        "id": 49709,
         "nodeType": "PragmaDirective",
         "src": "39:24:57",
         "nodes": [],
@@ -186,12 +186,12 @@
         ]
       },
       {
-        "id": 49725,
+        "id": 49737,
         "nodeType": "ContractDefinition",
         "src": "65:277:57",
         "nodes": [
           {
-            "id": 49699,
+            "id": 49711,
             "nodeType": "VariableDeclaration",
             "src": "88:21:57",
             "nodes": [],
@@ -200,7 +200,7 @@
             "mutability": "mutable",
             "name": "number",
             "nameLocation": "103:6:57",
-            "scope": 49725,
+            "scope": 49737,
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -208,7 +208,7 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 49698,
+              "id": 49710,
               "name": "uint256",
               "nodeType": "ElementaryTypeName",
               "src": "88:7:57",
@@ -220,29 +220,29 @@
             "visibility": "public"
           },
           {
-            "id": 49709,
+            "id": 49721,
             "nodeType": "FunctionDefinition",
             "src": "116:80:57",
             "nodes": [],
             "body": {
-              "id": 49708,
+              "id": 49720,
               "nodeType": "Block",
               "src": "161:35:57",
               "nodes": [],
               "statements": [
                 {
                   "expression": {
-                    "id": 49706,
+                    "id": 49718,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
-                      "id": 49704,
+                      "id": 49716,
                       "name": "number",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 49699,
+                      "referencedDeclaration": 49711,
                       "src": "171:6:57",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -252,11 +252,11 @@
                     "nodeType": "Assignment",
                     "operator": "=",
                     "rightHandSide": {
-                      "id": 49705,
+                      "id": 49717,
                       "name": "newNumber",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 49701,
+                      "referencedDeclaration": 49713,
                       "src": "180:9:57",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -269,7 +269,7 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 49707,
+                  "id": 49719,
                   "nodeType": "ExpressionStatement",
                   "src": "171:18:57"
                 }
@@ -282,17 +282,17 @@
             "name": "setNumber",
             "nameLocation": "125:9:57",
             "parameters": {
-              "id": 49702,
+              "id": 49714,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 49701,
+                  "id": 49713,
                   "mutability": "mutable",
                   "name": "newNumber",
                   "nameLocation": "143:9:57",
                   "nodeType": "VariableDeclaration",
-                  "scope": 49709,
+                  "scope": 49721,
                   "src": "135:17:57",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -301,7 +301,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 49700,
+                    "id": 49712,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "135:7:57",
@@ -316,30 +316,30 @@
               "src": "134:19:57"
             },
             "returnParameters": {
-              "id": 49703,
+              "id": 49715,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "161:0:57"
             },
-            "scope": 49725,
+            "scope": 49737,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "public"
           },
           {
-            "id": 49716,
+            "id": 49728,
             "nodeType": "FunctionDefinition",
             "src": "202:53:57",
             "nodes": [],
             "body": {
-              "id": 49715,
+              "id": 49727,
               "nodeType": "Block",
               "src": "230:25:57",
               "nodes": [],
               "statements": [
                 {
                   "expression": {
-                    "id": 49713,
+                    "id": 49725,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -349,11 +349,11 @@
                     "prefix": false,
                     "src": "240:8:57",
                     "subExpression": {
-                      "id": 49712,
+                      "id": 49724,
                       "name": "number",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 49699,
+                      "referencedDeclaration": 49711,
                       "src": "240:6:57",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -365,7 +365,7 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 49714,
+                  "id": 49726,
                   "nodeType": "ExpressionStatement",
                   "src": "240:8:57"
                 }
@@ -378,48 +378,48 @@
             "name": "increment",
             "nameLocation": "211:9:57",
             "parameters": {
-              "id": 49710,
+              "id": 49722,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "220:2:57"
             },
             "returnParameters": {
-              "id": 49711,
+              "id": 49723,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "230:0:57"
             },
-            "scope": 49725,
+            "scope": 49737,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "public"
           },
           {
-            "id": 49724,
+            "id": 49736,
             "nodeType": "FunctionDefinition",
             "src": "261:79:57",
             "nodes": [],
             "body": {
-              "id": 49723,
+              "id": 49735,
               "nodeType": "Block",
               "src": "310:30:57",
               "nodes": [],
               "statements": [
                 {
                   "expression": {
-                    "id": 49721,
+                    "id": 49733,
                     "name": "number",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
-                    "referencedDeclaration": 49699,
+                    "referencedDeclaration": 49711,
                     "src": "327:6:57",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "functionReturnParameters": 49720,
-                  "id": 49722,
+                  "functionReturnParameters": 49732,
+                  "id": 49734,
                   "nodeType": "Return",
                   "src": "320:13:57"
                 }
@@ -432,23 +432,23 @@
             "name": "current",
             "nameLocation": "270:7:57",
             "parameters": {
-              "id": 49717,
+              "id": 49729,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "277:2:57"
             },
             "returnParameters": {
-              "id": 49720,
+              "id": 49732,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 49719,
+                  "id": 49731,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 49724,
+                  "scope": 49736,
                   "src": "301:7:57",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -457,7 +457,7 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 49718,
+                    "id": 49730,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
                     "src": "301:7:57",
@@ -471,7 +471,7 @@
               ],
               "src": "300:9:57"
             },
-            "scope": 49725,
+            "scope": 49737,
             "stateMutability": "view",
             "virtual": false,
             "visibility": "public"
@@ -484,11 +484,11 @@
         "contractKind": "contract",
         "fullyImplemented": true,
         "linearizedBaseContracts": [
-          49725
+          49737
         ],
         "name": "Counter",
         "nameLocation": "74:7:57",
-        "scope": 49726,
+        "scope": 49738,
         "usedErrors": [],
         "usedEvents": []
       }

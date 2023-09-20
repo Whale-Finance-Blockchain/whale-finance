@@ -50,7 +50,15 @@ function App() {
           }>
             <Route path="/" element={<Home />} />
             <Route path="/fundslist" element={<FundsList />} />
-            <Route path="/fundslist/:id" element={<FundId />} />
+            <Route path="/fundslist/:id" element={
+            <FundId
+              connectWallet={connectWallet}
+              account={account}
+              provider={provider}
+              signer={signer}
+            
+            />} 
+            />
             <Route path="/successinvestment" element={<SuccessInvestment />} />
             <Route path="/manager" element={<Manager />} />
             <Route path="/manager/:id" element={<DashboardId />} />

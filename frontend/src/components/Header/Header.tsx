@@ -68,9 +68,12 @@ export default function Header({ isMetamaskInstalled, connectWallet, account, pr
 
                 <div className="hidden lg:block">
                 <ul className="inline-flex items-center space-x-10">
-                <li><a className="px-6 lg:px-6 py-2 text-[1.23vw] hover:bg-[rgb(14,42,98)] transition duration-1000 ease-in-out" href="/investor">Investor</a></li>
-                    <li><a className="px-6 lg:px-6 py-2 text-[1.25vw] hover:bg-[rgb(14,42,98)] transition duration-1000 ease-in-out" href="/manager">Manager</a></li>
-                    <li><a className="px-6 lg:px-6 py-2 text-[1.25vw] hover:bg-[rgb(14,42,98)] transition duration-1000 ease-in-out" href="/fundslist">Funds List</a></li>
+                <li><div className="px-6 lg:px-6 py-2 text-[1.23vw] hover:bg-[rgb(14,42,98)] transition duration-1000 ease-in-out"
+                        onClick={() => history('/investor')}>Investor</div></li>
+                    <li><div className="px-6 lg:px-6 py-2 text-[1.25vw] hover:bg-[rgb(14,42,98)] transition duration-1000 ease-in-out"
+                    onClick={() => history("/manager")}>Manager</div></li>
+                    <li><div className="px-6 lg:px-6 py-2 text-[1.25vw] hover:bg-[rgb(14,42,98)] transition duration-1000 ease-in-out" 
+                    onClick={()  => history("/fundslist")} >Funds List</div></li>
                     <ConnectWalletBtn
                         isMetamaskInstalled={isMetamaskInstalled}
                         connectWallet={connectWallet}

@@ -8,6 +8,10 @@ import PieChartComponent from '../../components/PieChartComponent/PieChartCompon
 import { useParams } from 'react-router-dom';
 import DataDiv from '../../components/DataDiv/DataDiv';
 import Footer from '../../components/Footer/Footer';
+import { ethers } from 'ethers';
+import { WhaleFinanceAddress, ZusdAddress } from '../../utils/addresses';
+import { QuotaTokenAbi } from '../../contracts/QuotaToken';
+import { WhaleFinanceAbi } from '../../contracts/WhaleFinance';
 
 type DataPoint = {
     date: string;
@@ -17,17 +21,23 @@ type DataPoint = {
     benchmarkValue: number; 
 };
 
-export default function FundId() {
+export default function FundId({ isMetamaskInstalled, connectWallet, account, provider, signer }: 
+    { isMetamaskInstalled: boolean; connectWallet: any; account: string | null; provider: any; signer: any;}) {
 
     const { id } = useParams<{ id: string }>();
 
     const history = useNavigate();
 
-    const [invest, setInvest] = React.useState('');
+    const [invest, setInvest] = React.useState(0);
 
     const [fund, setFund] = useState(null);
 
     const [data, setData] = useState<DataPoint[]>([]);
+
+    const [zusdBalance, setZusdBalance] = useState(0);
+    const [quotaBalance, setQuotaBalance] = useState(0);
+    const [quotaPrice, setQuotaPrice] = useState(1);
+    const [totalQuotas, setTotalQuotas] = useState(0);
 
     function handleSubmit() {
 
@@ -35,15 +45,82 @@ export default function FundId() {
             "value_invested": invest
         }
 
-        console.log(body);
     }
 
-    const handleClick = () => {
-        handleSubmit();
-        history('/successinvestment');
-    };
+
+    async function getZusdBalance() {
+        try{
+
+            const zusdContract = new ethers.Contract(ZusdAddress, QuotaTokenAbi, signer);
+
+            const balance = await zusdContract.functions.balanceOf(account);
+            setZusdBalance(parseFloat(ethers.utils.formatEther(balance[0])));
+
+        } catch(err){
+            console.log(err);
+        }
+    }
+
+    async function getQuotaBalance(){
+        try{
+            const whaleFinanceContract = new ethers.Contract(WhaleFinanceAddress, WhaleFinanceAbi, signer);
+
+
+            const quotaAddressses = await whaleFinanceContract.functions.quotasAddresses(id);
+            console.log("quota", quotaAddressses);
+
+            const quotaContract = new ethers.Contract(quotaAddressses[0], QuotaTokenAbi, signer);
+
+            const balance = await quotaContract.functions.balanceOf(account);
+
+            setQuotaBalance(parseFloat(ethers.utils.formatEther(balance[0])));
+
+        }catch(err){
+            console.log(err);
+        }
+    }
+
+    async function makeInvestment(){
+        try{
+            if(invest <= 0 || invest > zusdBalance){
+                alert("Please enter a valid amount to invest");
+                return;
+            }
+
+            const whaleFinanceContract = new ethers.Contract(WhaleFinanceAddress, WhaleFinanceAbi, signer);
+
+            const zusdContract = new ethers.Contract(ZusdAddress, QuotaTokenAbi, signer);
+
+            const txApprove = await zusdContract.functions.approve(WhaleFinanceAddress, ethers.utils.parseEther(String(invest)));
+
+            console.log(txApprove);
+
+            await txApprove.wait();
+
+            const txInvest = await whaleFinanceContract.functions.invest(ethers.utils.parseEther(String(invest)), id);
+
+            await txInvest.wait();
+
+            console.log(txInvest);
+            history("/successinvestment");
+
+        }catch(err){
+            console.log(err);
+        }
+    }
+
+    useEffect(() =>{
+        getZusdBalance();
+
+    },[signer]);
 
     useEffect(() => {
+
+        getQuotaBalance();
+    }, [signer]);
+
+    useEffect(() => {
+
         const fetchData = async () => {
           try {            
             // Fetching data from the Performance database
@@ -68,7 +145,7 @@ export default function FundId() {
                 console.log("Fund not found");
             }
                 
-            const combinedData = [];
+            const combinedData:any[] = [];
 
             performanceData.forEach((pItem) => {
                 benchmarkData.forEach((bItem) => {
@@ -84,16 +161,37 @@ export default function FundId() {
                 });
             });
 
-            console.log(combinedData);
 
-            setData(combinedData);
+            setData( [...combinedData] );
 
             } catch (error) {
             console.error("Error reading data:", error);
             }
         };
 
-        fetchData();
+        // fetchData();
+
+        function mockData(){
+            const fundx = {
+                id: 1,
+                name: "Bridgewater Associates",
+                description: "Macro"
+            };
+
+            setFund(fundx);
+            
+            setData([...[
+                { date: "09-09", fundId: 1, performanceValue: 95, bmId: 300001, benchmarkValue: 90 },
+                { date: "09-10", fundId: 1, performanceValue: 98, bmId: 300001, benchmarkValue: 91 },
+                { date: "09-11", fundId: 1, performanceValue: 97, bmId: 300001, benchmarkValue: 92 },
+                { date: "09-12", fundId: 1, performanceValue: 99, bmId: 300001, benchmarkValue: 93 },
+                { date: "09-13", fundId: 1, performanceValue: 100, bmId: 300001, benchmarkValue: 94 },
+                { date: "09-14", fundId: 1, performanceValue: 97, bmId: 300001, benchmarkValue: 95 },
+                { date: "09-15", fundId: 1, performanceValue: 101, bmId: 300001, benchmarkValue: 95 },
+                { date: "09-16", fundId: 1, performanceValue: 104, bmId: 300001, benchmarkValue: 96 },
+            ]])
+        }
+        mockData();
     }, []);
 
     if (!fund) {
@@ -138,14 +236,29 @@ export default function FundId() {
                             </div>
                             <div className='flex-1 md:basis-1/3 lg:basis-1/3 mx-2 px-10 '>
                                 <h1 className='font-bold text-2xl mt-6 mb-1 md:text-left lg:text-left'>Invest</h1>
+
+
                                 <div className='flex justify-center sm:block sm:justify-start lg:block lg:justify-start'>
                                     <div className='h-[2px] w-16 md:mb-8 lg:mb-8 bg-secondary-color'></div>
                                 </div>
-                                <FormInvestor   invest={invest}
-                                                setInvest={setInvest}
+
+                                {/* put some data here */}
+
+                                <div className='flex justify-center sm:block sm:justify-start lg:block lg:justify-start'>
+                                        <h3>Your ZUSD Balance: {Number(zusdBalance).toFixed(2)}</h3>
+                                        <h3>Your quotas Balance: {Number(quotaBalance).toFixed(2)}</h3>
+                                        <h3>Quota Price: {Number(quotaPrice).toFixed(2)} USD/quota</h3>
+                                        <h3>Total number of quotas: {Number(totalQuotas).toFixed(2)}</h3>
+
+                                </div>
+
+
+                                <FormInvestor   
+                                    invest={invest}
+                                    setInvest={setInvest}
                                 />
                                 <button
-                                className="my-4 bg-gradient-to-r from-blue-color to-secondary-color text-white font-bold rounded-full border-2 border-transparent py-2 px-20 shadow-lg uppercase tracking-wider hover:from-white hover:to-white hover:text-secondary-color hover:border-secondary-color transition duration-1000 ease-in-out" onClick={handleClick}
+                                className="my-4 bg-gradient-to-r from-blue-color to-secondary-color text-white font-bold rounded-full border-2 border-transparent py-2 px-20 shadow-lg uppercase tracking-wider hover:from-white hover:to-white hover:text-secondary-color hover:border-secondary-color transition duration-1000 ease-in-out" onClick={makeInvestment}
                                 >
                                 Invest
                                 </button>
