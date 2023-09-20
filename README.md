@@ -14,13 +14,23 @@ This project uses ERC 6551 to allow managers to hold assets from investors. In t
 
 ### Traditional
 
-![Project Logo](./frontend/src/assets/traditional_am.png)
+These bullet points below describes the flow over a fund invesment in the traditional financial market, with 6 main stakeholders:
+
+- **Investor & Fund:** To have a share in the fund, the investor must pay a management fee to the manager, and a performance fee equivalent to a percentage above the market benchmark. In this way, the manager aligns with the investment by earning these fees for managing the fund.
 
 - **Distributor & Fund:** The distributor acts as a bridge between the fund and potential investors, marketing and selling the fund's financial products. Through collaborations and agreements, distributors help expand the fund's reach and increase its assets under management, enhancing the fund's visibility and accessibility.
 
 - **Exchange & Fund:** Exchanges serve as vital platforms where funds can actively participate in trading activities, acquiring or disposing of assets as per their investment strategies. They facilitate a transparent environment where funds can execute trades based on real-time market conditions, thus helping in the price discovery process and achieving investment objectives.
 
 - **Custodian & Fund:** Custodians play a pivotal role in safeguarding the assets of the fund, ensuring that they are held securely and are not susceptible to theft or loss. Apart from asset safekeeping, they also assist in transaction settlements and administrative services, thus ensuring smooth operational flow and compliance with regulatory requirements.
+
+![Project Logo](./frontend/src/assets/traditional_am.png)
+
+### Descentralized
+
+Benefits to descentralize the asset management industry and differences from the traditional flow:
+
+
 
 ![Project Logo](./frontend/src/assets/descentralized_am.png)
 
@@ -33,14 +43,33 @@ This project uses ERC 6551 to allow managers to hold assets from investors. In t
 - Information on the transparency and auditability aspects of the project.
 - How it promotes trust and reliability in asset management.
 
-### User Roles
-#### Investors
-- Features and benefits available for investors.
-- How they can invest in global funds securely.
+## User Roles
 
-#### Managers
-- Functionalities accessible to managers.
-- How they can manage and hold investor tokens profitably.
+### Fund
+
+The main parameters to create a fund:
+
+- **Name:** The official title of the fund, used for recognition and branding.
+- **Ticker:** A unique series of letters representing the fund in the stock market, used for quick identification.
+- **Account:** The designated account for managing the fund's financial transactions and maintaining records.
+- **Tokens:** Digital assets within the fund that can represent shares or other assets, facilitating flexible transactions.
+- **Administration Fee:** A charge levied to cover the fund's operational costs, maintaining its viability.
+- **Performance Fee:** A fee charged based on the fund's performance, serving as an incentive for fund managers.
+- **Open Investment:** The time frame during which investments can be made into the fund, helping to manage the inflow of capital.
+- **Close Investment:** The period indicating when the fund stops accepting new investments, assisting in portfolio stability.
+- **Maturation Time:** The projected time frame for the fund to reach its investment goals, guiding investors on expected returns.
+
+### Investors
+
+- **Funds List:** Can choose a fund in a list of funds to make an investment _(/fundslist route)_
+- **Invest:** Can see stats about the fund chosen, like a performance chart, and then invest in the favorite ones _(/funds/id route)_
+- **Dashboard:** Can see stats and metrics about your investments _(/investor route)_
+
+### Managers
+
+- **Create a fund:** Can create a fund based on the parameters listed above  _(/ route)_
+- **Funds List:** Can choose a fund in a list of funds to see stats about the managed fund _(/manager route)_
+- **Dashboard:** Can see stats about the fund chosen and then swap tokens to operate the fund _(/manager/id route)_
 
 ## How it Works
 - A concise overview of the technical workings of the platform.
