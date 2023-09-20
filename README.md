@@ -82,15 +82,15 @@ Here is the folder structure of the project with comments about files:
 │          └── App.tsx
 │          └── assets/
 │          └── components/
-│          │      └── ConnectWallet/           - This folder contains scripts and files related to the wallet connection feature.
-│          │      └── DataDiv/                - This folder hosts the data division components, almost fully optimized for mobile.
-│          │      └── Footer/                 - This folder contains the frontend files for the footer section of the website.
-│          │      └── FormInvestor/           - Here, you'll find files related to the investor form, which is nearing completion and needs integration with Firebase.
-│          │      └── FormManager/            - This folder contains the manager form components, with recent updates to the loading feature.
-│          │      └── FormSwap/               - This contains components for the swap function, which has been completed recently.
-│          │      └── Header/                 - This folder houses files for the header section, currently functional and working with investment features.
-│          │      └── LineChartComponent/     - Here, you'll find components for line charts, an integral part of the investment feature.
-│          │      └── PieChartComponent/      - This folder contains components for pie charts, utilized in various sections of the platform.
+│          │      └── ConnectWallet/        
+│          │      └── DataDiv/           
+│          │      └── Footer/              
+│          │      └── FormInvestor/           
+│          │      └── FormManager/          
+│          │      └── FormSwap/              
+│          │      └── Header/                 
+│          │      └── LineChartComponent/   
+│          │      └── PieChartComponent/    
 │          └── contracts/
 │          │      └── QuotaToken.ts
 │          │      └── SafeAccount.ts
