@@ -165,3 +165,8 @@ And the main codes developed are:
 ### Installation
 - Step-by-step installation guide or links to relevant documentation.
 
+## Team
+
+Bryan Borck (developr/designer)
+Luiz Vasconcelos (blockchain developer)
+
