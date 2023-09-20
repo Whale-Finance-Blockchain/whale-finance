@@ -102,7 +102,7 @@ Here is the folder structure of the project with comments about files:
 
     .
     ├── README.md                                        
-    │
+    ├── presentation/                                    # Directory where the presentation is
     ├── frontend/                                        # Directory for frontend using Typescript + Tailwind CSS + Vite JS
     │     └── src/                                       
     │          ├── App.tsx                               # Main application component
@@ -158,9 +158,12 @@ And the main codes developed are:
 - List of prerequisites necessary to get started with the project.
 
 
-## Usage
+## Running example and usage
 ### Prerequisites
 - List of prerequisites necessary to get started with the project.
+
+### Running example
+- aaaa
 
 ### Installation
 - Step-by-step installation guide or links to relevant documentation.
