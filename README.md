@@ -115,8 +115,8 @@ Here is the folder structure of the project with comments about files:
     │          │      ├── FormManager/                   # Form component for manager details
     │          │      ├── FormSwap/                      # Component for swap functionality
     │          │      ├── Header/                        
-    │          │      ├── LineChartComponent/            # Component to display line charts
-    │          │      └── PieChartComponent/             # Component to display pie charts
+    │          │      ├── LineChartComponent/            # Component to display line charts (lib Recharts)
+    │          │      └── PieChartComponent/             # Component to display pie charts (lib Recharts)
     │          ├── contracts/                            
     │          │      ├── QuotaToken.ts                  # Quota token contract file
     │          │      ├── SafeAccount.ts                 # Safe account contract file
