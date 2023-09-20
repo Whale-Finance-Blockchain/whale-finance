@@ -176,6 +176,7 @@ And the main codes developed are:
 
 ## Team
 
-Bryan Borck (developr/designer)
+Bryan Borck (developer/designer)
+
 Luiz Vasconcelos (blockchain developer)
 
