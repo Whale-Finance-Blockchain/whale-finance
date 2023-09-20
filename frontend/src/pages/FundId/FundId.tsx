@@ -30,9 +30,7 @@ export default function FundId({ isMetamaskInstalled, connectWallet, account, pr
     const history = useNavigate();
 
     const [invest, setInvest] = React.useState(0);
-
     const [fund, setFund] = useState(null);
-
     const [data, setData] = useState<DataPoint[]>([]);
 
     const [zusdBalance, setZusdBalance] = useState(0);
@@ -40,6 +38,8 @@ export default function FundId({ isMetamaskInstalled, connectWallet, account, pr
     const [quotaPrice, setQuotaPrice] = useState(1);
     const [totalQuotas, setTotalQuotas] = useState(0);
     const [quotaAddress, setQuotaAddress] = useState("--");
+
+    const [loading, setLoading] = React.useState(false);
 
     function handleSubmit() {
 
@@ -123,11 +123,15 @@ export default function FundId({ isMetamaskInstalled, connectWallet, account, pr
 
             console.log(txApprove);
 
+            setLoading(true);
             await txApprove.wait();
+            setLoading(false);
 
             const txInvest = await whaleFinanceContract.functions.invest(ethers.utils.parseEther(String(invest)), id);
 
+            setLoading(true);
             await txInvest.wait();
+            setLoading(false);
 
             console.log(txInvest);
             history("/successinvestment");
@@ -314,7 +318,7 @@ export default function FundId({ isMetamaskInstalled, connectWallet, account, pr
                                 <button
                                 className="mb-4 bg-gradient-to-r from-blue-color to-secondary-color text-white font-bold rounded-full border-2 border-transparent py-2 px-20 shadow-lg uppercase tracking-wider hover:from-white hover:to-white hover:text-secondary-color hover:border-secondary-color transition duration-1000 ease-in-out" onClick={makeInvestment}
                                 >
-                                Invest
+                                {loading ? 'Loading...' : 'Aprovar'}
                                 </button>
                             </div>
                         </div>
