@@ -100,7 +100,11 @@ The main parameters to create a fund:
 ### Technology
 
 - Frontend: We used typescrit + tailwind css + vite.js to deploy more fast and be adjusted to our web3 project, that does not have backend
-- Contracts: We use ERC 6551 to allow managers to control assets from investor at the same time that the assets are safe in a different address. This ERC allows an nft owner to have control over an account, but with customizable features, such as limitations to the possible transactions made. The WhaleFinance contract implements the ERC721 tokens (NFT) and creates the controllable addresses, which we call Safe Accounts. Also, every fund has a quota (or share), which is an ERC20 token, also deployed when the NFT is created. With these features, the investors are able to invest with a stablecoin (say ZUSD) and get 1:1 quotas in exchange. When the fund is open to trades, the manager can interact with Zeniq Swap to make profits, using the assets available in the Safe Account. After maturation time, the investor can redeem their yields, with profits or loss. 
+- Contracts: We use ERC 6551 to allow managers to control assets from investor at the same time that the assets are safe in a different address.
+  
+This ERC allows an nft owner to have control over an account, but with customizable features, such as limitations to the possible transactions made. The WhaleFinance contract implements the ERC721 tokens (NFT) and creates the controllable addresses, which we call Safe Accounts. Also, every fund has a quota (or share), which is an ERC20 token, also deployed when the NFT is created. With these features, the investors are able to invest with a stablecoin (say ZUSD) and get 1:1 quotas in exchange.
+
+When the fund is open to trades, the manager can interact with Zeniq Swap to make profits, using the assets available in the Safe Account. After maturation time, the investor can redeem their yields, with profits or loss. 
 
 ### Folder Structure
 
@@ -160,20 +164,11 @@ Here is the folder structure of the project with comments about files:
           └── test/
                 └── WhaleFinance.t.sol                   # Test file for WhaleFinance contract
 
-And the main codes developed are:
-
-- List of prerequisites necessary to get started with the project.
-
 
 ## Running example and usage
-### Prerequisites
-- List of prerequisites necessary to get started with the project.
 
 ### Running example
 - aaaa
-
-### Installation
-- Step-by-step installation guide or links to relevant documentation.
 
 ## Team
 
