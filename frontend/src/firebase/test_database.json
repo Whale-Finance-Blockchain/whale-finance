@@ -10,7 +10,17 @@
         {"id": 7, "name": "Bit Holdings", "description": "Crypto", "TVL": 46000000, "Performance": -0.14, "Number of Investors": 54},
         {"id": 8, "name": "Ledger Partners", "description": "Crypto", "TVL": 48000000, "Performance": 0.18, "Number of Investors": 96},
         {"id": 9, "name": "Ether Solutions", "description": "Crypto", "TVL": 86000000, "Performance": -0.0, "Number of Investors": 68},
-        {"id": 10, "name": "Decentral Fund", "description": "Crypto", "TVL": 57000000, "Performance": 0.03, "Number of Investors": 61}
+        {"id": 10, "name": "Decentral Fund", "description": "Crypto", "TVL": 57000000, "Performance": 0.03, "Number of Investors": 61},
+        {"id": 11, "name": "Crypto Assets", "description": "Crypto", "TVL": 85000000, "Performance": -0.02, "Number of Investors": 36},
+        {"id": 12, "name": "Coin Fund", "description": "Crypto", "TVL": 62000000, "Performance": -0.12, "Number of Investors": 57},
+        {"id": 13, "name": "BlockChain Ventures", "description": "Crypto", "TVL": 76000000, "Performance": 0.06, "Number of Investors": 29},
+        {"id": 14, "name": "Satoshi Investments", "description": "Crypto", "TVL": 87000000, "Performance": 0.2, "Number of Investors": 83},
+        {"id": 15, "name": "Satoshi Trust", "description": "Crypto", "TVL": 10000000, "Performance": 0.15, "Number of Investors": 92},
+        {"id": 16, "name": "BlockChain Holdings", "description": "Crypto", "TVL": 49000000, "Performance": 0.18, "Number of Investors": 23},
+        {"id": 17, "name": "Coin Investments", "description": "Crypto", "TVL": 59000000, "Performance": 0.2, "Number of Investors": 52},
+        {"id": 18, "name": "Token Management", "description": "Crypto", "TVL": 39000000, "Performance": -0.18, "Number of Investors": 67},
+        {"id": 19, "name": "Chain Investments", "description": "Crypto", "TVL": 4000000, "Performance": 0.14, "Number of Investors": 93},
+        {"id": 20, "name": "Bit Fund", "description": "Crypto", "TVL": 15000000, "Performance": 0.18, "Number of Investors": 81}
     ],
     "Performance": [
         {"fundId": 0, "value": 100, "date": "10-20"},

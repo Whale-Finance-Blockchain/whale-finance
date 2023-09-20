@@ -34,7 +34,7 @@ These bullet points below describes the flow over a fund invesment in the tradit
 
 - **Custodian & Fund:** Custodians play a pivotal role in safeguarding the assets of the fund, ensuring that they are held securely and are not susceptible to theft or loss. Apart from asset safekeeping, they also assist in transaction settlements and administrative services, thus ensuring smooth operational flow and compliance with regulatory requirements.
 
-![Project Logo](./frontend/src/assets/traditional_am.png)
+![Project Photo](./frontend/src/assets/traditional_am.png)
 
 ___
 
@@ -58,7 +58,7 @@ Benefits to descentralize the asset management industry and differences from the
 
 - **Integration and Potential:** The whale.finance is integrated with **Zeniq Swap**, and can be integrated in the future with other products, like Zeniq Pass. Besides that, there is a lot of potential to explore 
 
-![Project Logo](./frontend/src/assets/descentralized_am.png)
+![Project Photo](./frontend/src/assets/descentralized_am.png)
 
 ## User Roles
 
@@ -97,10 +97,18 @@ The main parameters to create a fund:
 - A concise overview of the technical workings of the platform.
 - The role of ERC 6551 and EVM in facilitating decentralized asset management.
 
+![Project Photo](./frontend/src/assets/fund_creation.jpg)
+![Project Photo](./frontend/src/assets/investment.jpg)
+![Project Photo](./frontend/src/assets/indirect_swap.jpg)
+
 ### Technology
 
 - Frontend: We used typescrit + tailwind css + vite.js to deploy more fast and be adjusted to our web3 project, that does not have backend
-- Contracts: We use ERC 6551 to allow managers to hold assets from investor and control them.
+- Contracts: We use ERC 6551 to allow managers to control assets from investor at the same time that the assets are safe in a different address.
+  
+This ERC allows an nft owner to have control over an account, but with customizable features, such as limitations to the possible transactions made. The WhaleFinance contract implements the ERC721 tokens (NFT) and creates the controllable addresses, which we call Safe Accounts. Also, every fund has a quota (or share), which is an ERC20 token, also deployed when the NFT is created. With these features, the investors are able to invest with a stablecoin (say ZUSD) and get 1:1 quotas in exchange.
+
+When the fund is open to trades, the manager can interact with Zeniq Swap to make profits, using the assets available in the Safe Account. After maturation time, the investor can redeem their yields, with profits or loss. 
 
 ### Folder Structure
 
@@ -160,20 +168,11 @@ Here is the folder structure of the project with comments about files:
           └── test/
                 └── WhaleFinance.t.sol                   # Test file for WhaleFinance contract
 
-And the main codes developed are:
-
-- List of prerequisites necessary to get started with the project.
-
 
 ## Running example and usage
-### Prerequisites
-- List of prerequisites necessary to get started with the project.
 
 ### Running example
 - aaaa
-
-### Installation
-- Step-by-step installation guide or links to relevant documentation.
 
 ## Team
 
