@@ -141,7 +141,7 @@ export default function FormInvestor(props: any) {
                                     props.setTokens([...newTokens]);
 
                                 }}
-                                className=" bg-white md:text-xl lg:text-xl text-center text-black p-2 mt-4 rounded-[10px] outline-0 shadow-lg"
+                                className=" bg-white md:text-xl lg:text-xl text-center text-black p-2 mt-4 rounded-[10px] outline-0 shadow-lg "
                                 multiple={true}
                             >
                                 {Object.keys(allowedTokens).map((tokenName: string, idx: number) => {

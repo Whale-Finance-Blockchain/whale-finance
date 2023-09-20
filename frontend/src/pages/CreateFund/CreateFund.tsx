@@ -1,6 +1,8 @@
 import React from 'react';
 import FormManager from '../../components/FormManager/FormManager';
 import Footer from '../../components/Footer/Footer';
+import { Player } from '@lottiefiles/react-lottie-player';
+import LoadingAnim from '../../assets/loading.json';
 import { useNavigate } from 'react-router-dom';
 import { ethers } from 'ethers';
 import { WhaleFinanceAbi } from '../../contracts/WhaleFinance';
@@ -117,8 +119,20 @@ export default function CreateFund({ isMetamaskInstalled, connectWallet, account
                                 <button
                                 className="bg-gradient-to-r from-blue-color to-secondary-color text-white font-bold rounded-full border-2 border-transparent py-2 px-20 shadow-lg uppercase tracking-wider hover:from-white hover:to-white hover:text-secondary-color hover:border-secondary-color transition duration-1000 ease-in-out" onClick={handleClick}
                                 >
-                                Create
+                                {loading ? 'Loading...' : 'Create'}
                                 </button>
+                                <div className='w-full flex justify-center items-center'>
+                                    <div className='w-[100px] h-[25px] my-4'>
+                                        {loading ? 
+                                        <Player
+                                            src={LoadingAnim}
+                                            className="player"
+                                            loop
+                                            autoplay
+                                        />
+                                        : <></>}  
+                                    </div>
+                                </div>                                                              
                             </div>
                         </div>
                     </div>
