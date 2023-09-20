@@ -1,6 +1,6 @@
 # whale.finance - ZenCon 2023
 
-# Decentralized Asset Management
+## Decentralized Asset Management
 
 Decentralized Asset Management with ERC 6551. We want to give the opportunity to investors sees their money been managed with full security and auditability.
 
