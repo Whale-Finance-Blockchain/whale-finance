@@ -8,10 +8,6 @@ whale.finance basically implements Decentralized Asset Management with ERC 6551.
 
 This project uses ERC 6551 to allow managers to hold assets from investors. In this way, we can basically make a descentralized asset management using EVM. The platform is designed for the two publics: The investors, who will be able to invest their tokens in really great funds around the work in a safe way, and the managers, who will be able to manage and hold investor tokens and can have a profit to themselves.
 
-- Overview of the project with a focus on the decentralization aspect and the role of ERC 6551.
-- Importance and benefits of decentralized asset management.
-- Insights on security and auditability features of the platform.
-
 ### Traditional
 
 These bullet points below describes the flow over a fund invesment in the traditional financial market, with 6 main stakeholders:
@@ -34,16 +30,23 @@ Benefits to descentralize the asset management industry and differences from the
 
 ![Project Logo](./frontend/src/assets/descentralized_am.png)
 
-## Features
-### Security
-- Explanation of the security protocols in place to safeguard investments.
-- Details on how ERC 6551 contributes to the secure environment.
-
-### Auditability
-- Information on the transparency and auditability aspects of the project.
-- How it promotes trust and reliability in asset management.
-
 ## User Roles
+
+### Investors
+
+Features:
+
+- **Funds List:** Can choose a fund in a list of funds to make an investment _(/fundslist route)_
+- **Invest:** Can see stats about the fund chosen, like a performance chart, and then invest in the favorite ones _(/funds/id route)_
+- **Dashboard:** Can see stats and metrics about your investments _(/investor route)_
+
+### Managers
+
+Features:
+
+- **Create a fund:** Can create a fund based on the parameters listed below in the Fund section  _(/ route)_
+- **Funds List:** Can choose a fund in a list of funds to see stats about the managed fund _(/manager route)_
+- **Dashboard:** Can see stats about the fund chosen and then swap tokens to operate the fund _(/manager/id route)_
 
 ### Fund
 
@@ -59,22 +62,6 @@ The main parameters to create a fund:
 - **Close Investment:** The period indicating when the fund stops accepting new investments, assisting in portfolio stability.
 - **Maturation Time:** The projected time frame for the fund to reach its investment goals, guiding investors on expected returns.
 
-### Investors
-
-Features:
-
-- **Funds List:** Can choose a fund in a list of funds to make an investment _(/fundslist route)_
-- **Invest:** Can see stats about the fund chosen, like a performance chart, and then invest in the favorite ones _(/funds/id route)_
-- **Dashboard:** Can see stats and metrics about your investments _(/investor route)_
-
-### Managers
-
-Features:
-
-- **Create a fund:** Can create a fund based on the parameters listed above  _(/ route)_
-- **Funds List:** Can choose a fund in a list of funds to see stats about the managed fund _(/manager route)_
-- **Dashboard:** Can see stats about the fund chosen and then swap tokens to operate the fund _(/manager/id route)_
-
 ## How it Works
 - A concise overview of the technical workings of the platform.
 - The role of ERC 6551 and EVM in facilitating decentralized asset management.
@@ -86,24 +73,63 @@ Features:
 
 ### Folder Structure
 
+Here is the folder structure of the project with comments about files:
+
 ├── README.md
 │
 ├── frontend/
-│ └── src/
-│ ├── main.py
-│ └── utilities.py
+│     └── src/
+│          └── App.tsx
+│          └── assets/
+│          └── components/
+│                └── ConnectWallet/           - This folder contains scripts and files related to the wallet connection feature.
+│                └── DataDiv/                - This folder hosts the data division components, almost fully optimized for mobile.
+│                └── Footer/                 - This folder contains the frontend files for the footer section of the website.
+│                └── FormInvestor/           - Here, you'll find files related to the investor form, which is nearing completion and needs integration with Firebase.
+│                └── FormManager/            - This folder contains the manager form components, with recent updates to the loading feature.
+│                └── FormSwap/               - This contains components for the swap function, which has been completed recently.
+│                └── Header/                 - This folder houses files for the header section, currently functional and working with investment features.
+│                └── LineChartComponent/     - Here, you'll find components for line charts, an integral part of the investment feature.
+│                └── PieChartComponent/      - This folder contains components for pie charts, utilized in various sections of the platform.
+│          └── contracts/
+│                └── QuotaToken.ts
+│                └── SafeAccount.ts
+│                └── WhaleFinance.ts
+│          └── firebase/
+│          └── pages/
+│                └── CreateFund/
+│                └── DashboardId/
+│                └── FundId/
+│                └── FundsList/
+│                └── Home/
+│                └── Investor/
+│                └── Layout/
+│                └── Manager/
+│                └── SuccessFund/
+│                └── SuccessInvestment/
+│          └── utils/
+│                └── addresses.ts
+│                └── connectMetamask.ts
 │
-├── whale-finance/
-└── src/
-└── Counter.sol
-└── ERC6551Registry.sol
-└── MockERC20.sol
-└── QuotaBeacon.sol
-└── QuotaToken.sol
-└── SafeAccount.sol
-└── WhaleFinance.sol
+└── whale-finance/
+     └── src/
+     │     └── Counter.sol
+     │     └── ERC6551Registry.sol
+     │     └── MockERC20.sol
+     │     └── QuotaBeacon.sol
+     │     └── QuotaToken.sol
+     │     └── SafeAccount.sol
+     │     └── WhaleFinance.sol
+     │     └── interface/
+     │           └── IERC6551Account.sol
+     │           └── IERC6551Registry.sol
+     │           └── IV2SwapRouter.sol
+     └── test/
+          └── WhaleFinance.t.sol
 
+And the main codes developed are:
 
+- List of prerequisites necessary to get started with the project.
 
 
 ## Usage
