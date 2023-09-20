@@ -97,9 +97,9 @@ The main parameters to create a fund:
 - A concise overview of the technical workings of the platform.
 - The role of ERC 6551 and EVM in facilitating decentralized asset management.
 
-![Project Photo](./frontend/src/assets/fund_creation.jgp)
-![Project Photo](./frontend/src/assets/investment.jgp)
-![Project Photo](./frontend/src/assets/indirect_swap.jgp)
+![Project Photo](./frontend/src/assets/fund_creation.jpg)
+![Project Photo](./frontend/src/assets/investment.jpg)
+![Project Photo](./frontend/src/assets/indirect_swap.jpg)
 
 ### Technology
 
