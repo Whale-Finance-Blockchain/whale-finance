@@ -58,6 +58,10 @@ const renderActiveShape = (props) => {
 
 export default class PieChartComponent extends Component {
 
+  // get input from user
+
+
+
   state = {
     activeIndex: 0,
   };

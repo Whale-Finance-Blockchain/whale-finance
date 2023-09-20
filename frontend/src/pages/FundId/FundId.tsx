@@ -141,6 +141,29 @@ export default function FundId({ isMetamaskInstalled, connectWallet, account, pr
         }
     }
 
+    async function getFund(){
+        try{
+            const whaleFinanceContract = new ethers.Contract(WhaleFinanceAddress, WhaleFinanceAbi, provider);
+            
+            const fundName = await whaleFinanceContract.functions.fundsNames(id);
+            console.log(fundName);
+
+            const fundx = {
+                id: id,
+                name: fundName[0],
+                description: "Macro"
+            }
+            setFund(fundx);
+
+        } catch(err){
+            console.log(err);
+        }
+    }
+
+    useEffect(() => {
+        getFund();
+    },[provider])
+
     useEffect(() =>{
         getZusdBalance();
 
@@ -160,6 +183,9 @@ export default function FundId({ isMetamaskInstalled, connectWallet, account, pr
         getQuotaAddress();
     },[signer]);
 
+    
+
+
     useEffect(() => {
 
         const fetchData = async () => {
@@ -175,16 +201,16 @@ export default function FundId({ isMetamaskInstalled, connectWallet, account, pr
             const benchmarkData = benchmarkSnapshot.exists() ? benchmarkSnapshot.val() : [];
 
             // Fetching data from the Performance database
-            const fundsRef = ref(db, 'Funds');
-            const fundsSnapshot = await get(fundsRef);
-            const fundsData = fundsSnapshot.exists() ? fundsSnapshot.val() : [];
+            // const fundsRef = ref(db, 'Funds');
+            // const fundsSnapshot = await get(fundsRef);
+            // const fundsData = fundsSnapshot.exists() ? fundsSnapshot.val() : [];
 
-            const matchedFund = fundsData.find(fund => fund.id === parseInt(id));
-            if (matchedFund) {
-                setFund(matchedFund);
-            } else {
-                console.log("Fund not found");
-            }
+            // const matchedFund = fundsData.find(fund => fund.id === parseInt(id));
+            // if (matchedFund) {
+            //     setFund(matchedFund);
+            // } else {
+            //     console.log("Fund not found");
+            // }
                 
             const combinedData:any[] = [];
 
@@ -210,16 +236,10 @@ export default function FundId({ isMetamaskInstalled, connectWallet, account, pr
             }
         };
 
-        // fetchData();
+        fetchData();
 
         function mockData(){
-            const fundx = {
-                id: 1,
-                name: "Bridgewater Associates",
-                description: "Macro"
-            };
 
-            setFund(fundx);
             
             setData([...[
                 { date: "09-09", fundId: 1, performanceValue: 95, bmId: 300001, benchmarkValue: 90 },
@@ -232,7 +252,7 @@ export default function FundId({ isMetamaskInstalled, connectWallet, account, pr
                 { date: "09-16", fundId: 1, performanceValue: 104, bmId: 300001, benchmarkValue: 96 },
             ]])
         }
-        mockData();
+        // mockData();
     }, []);
 
     if (!fund) {
@@ -308,7 +328,11 @@ export default function FundId({ isMetamaskInstalled, connectWallet, account, pr
                                                 cursor: "pointer"
                                             }}
                                             >See the quota on-chain:</h3>
-                                            <p className='font-bold text-blue-color'>{quotaAddress}</p>
+                                            <p 
+                                            style={{
+                                                cursor: "pointer"
+                                            }}
+                                            className='font-bold text-blue-color truncate'>{quotaAddress}</p>
                                         </div>
                                 </div>
                                 <FormInvestor   
@@ -318,7 +342,7 @@ export default function FundId({ isMetamaskInstalled, connectWallet, account, pr
                                 <button
                                 className="mb-4 bg-gradient-to-r from-blue-color to-secondary-color text-white font-bold rounded-full border-2 border-transparent py-2 px-20 shadow-lg uppercase tracking-wider hover:from-white hover:to-white hover:text-secondary-color hover:border-secondary-color transition duration-1000 ease-in-out" onClick={makeInvestment}
                                 >
-                                {loading ? 'Loading...' : 'Aprovar'}
+                                {loading ? 'Loading...' : 'Invest'}
                                 </button>
                             </div>
                         </div>

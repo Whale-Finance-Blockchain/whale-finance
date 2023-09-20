@@ -18,6 +18,7 @@ type DataPoint = {
 export default function FundsList() {
 
     const [funds, setFunds] = useState<DataPoint[]>([]);
+    const [fundsData, setFundsData] = useState<any[]>([]);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -26,7 +27,7 @@ export default function FundsList() {
             const snapshot = await get(dbRef);
             if (snapshot.exists()) {
               const fbData = snapshot.val();
-              setFunds(fbData);
+              setFundsData(fbData);
             } else {
               console.log("No data available");
             }
@@ -37,6 +38,7 @@ export default function FundsList() {
 
         const getFunds = async () => {
             try{
+                await fetchData();
                 const provider = getMetamaskProvider() as ethers.providers.Web3Provider;
                 const whaleFinanceContract = new ethers.Contract(WhaleFinanceAddress, WhaleFinanceAbi, provider);
                 const numberFundsBigNumber = await whaleFinanceContract.functions._fundIdCounter() as ethers.BigNumber[];
@@ -55,9 +57,10 @@ export default function FundsList() {
                     };
                     fundsList.push(oneFund);
                                        
-            }));
-            setFunds([...fundsList]);
-                              
+                }));
+
+                setFunds([...fundsList]);
+                //make the size of fundsData equal to the size of funds
 
             } catch(err){
                 console.log("Error");
@@ -79,17 +82,30 @@ export default function FundsList() {
         return `${formattedNumber} mi`;
     }
 
-    const rentValue = 0.10;
-    const formattedRent = new Intl.NumberFormat('en-US', { style: 'percent', minimumFractionDigits: 1, maximumFractionDigits: 1 }).format(rentValue);
 
-    const fundsElements = funds.map(fund => (
-        <Link to={`/fundslist/${fund.id}`}>
+    const rentValue = (num: number) => num;
+    
+
+    const fundsElements = funds.map((fund, idx) => 
+    {   
+        
+        console.log("data", fundsData);
+        let apy = 0.10;
+        let tvl = 100000000;
+        if(fundsData[idx]){
+            apy = rentValue(fundsData[idx].Performance);
+            tvl = fundsData[idx].TVL;
+            
+        }
+        const formattedRent = new Intl.NumberFormat('en-US', { style: 'percent', minimumFractionDigits: 1, maximumFractionDigits: 1 }).format(apy);
+
+        return(<Link to={`/fundslist/${fund.id}`}>
             <div key={fund.id} className="bg-gradient-to-r from-white to-[#fcfcfc] h-[180px] flex flex-col items-center justify-center text-gray-500 rounded-lg shadow-lg m-[2vh] hover:bg-gradient-to-r hover:from-white hover:to-gray-100 hover:text-secondary-color transition duration-600 ease-in-out">
                 <h2 className="text-xl font-bold text-secondary-color">{fund.name}</h2>
                 <p className="text-fs mt-2">{fund.description}</p>
                 <div className="grid grid-cols-3 space-x-4 mt-4 w-[80%]">
                     <div className="">
-                        <p className='text-xl text-black font-bold'>{formatToUSD(113355678)}</p>
+                        <p className='text-xl text-black font-bold'>{formatToUSD(tvl)}</p>
                         <p>TVL</p>
                     </div>
                     <div className="">
@@ -98,17 +114,17 @@ export default function FundsList() {
                     </div>
                     <div className="fl">
                         <div className='flex flex-row items-center justify-center space-x-1'>
-                            <p className={`text-xl font-bold ${rentValue > 0 ? 'text-green-500' : rentValue < 0 ? 'text-red-500' : 'text-black'}`}>
+                            <p className={`text-xl font-bold ${apy > 0 ? 'text-green-500' : apy < 0 ? 'text-red-500' : 'text-black'}`}>
                                 {formattedRent} 
                             </p>
-                            {rentValue > 0 ? <AiOutlineArrowUp color="rgb(34 197 94)" size={20}/> : rentValue < 0 ? <AiOutlineArrowDown color="rgb(249 115 22)" size={20}/> : ''}
+                            {apy > 0 ? <AiOutlineArrowUp color="rgb(34 197 94)" size={20}/> : apy < 0 ? <AiOutlineArrowDown color="rgb(249 115 22)" size={20}/> : ''}
                         </div>
-                        <p>Rent. 12m</p>
+                        <p>APY</p>
                     </div>
                 </div>
             </div>
         </Link>
-    ))
+    )});
 
     const loadingElements = Array(4).fill(null).map((_, index) => (
         <div key={index} className="bg-gradient-to-r from-white to-[#f6f6f6] h-[180px] opacity-80 flex items-center justify-center text-gray-500 rounded-lg shadow-lg m-[2vh]">

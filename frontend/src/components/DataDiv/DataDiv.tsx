@@ -18,13 +18,13 @@ export default function DataDiv({ fund }: { fund: any}) {
         <>
             <div className='flex flex-col text-left mx-0 md:mx-12 lg:mx-12 mt-12 w-[100%] h-[100%]'>
                 <div className="text-xl"><span style={{ fontWeight: 'bold' }}>Description:</span> {fund.description}</div>
-                <div className="text-xl mt-8"><span style={{ fontWeight: 'bold' }}>TPV:</span> {formatToUSD(113355678)}</div>
+                <div className="text-xl mt-8"><span style={{ fontWeight: 'bold' }}>TVL:</span> {formatToUSD(113355678)}</div>
                 <div className="text-xl"><span style={{ fontWeight: 'bold' }}>Performance 12m:</span> {formattedRent}</div>
                 <div className="text-xl"><span style={{ fontWeight: 'bold' }}>Benchmark 12m:</span> {formattedRent}</div>
-                <div className="text-xl mt-8"><span style={{ fontWeight: 'bold' }}>Abertura:</span> fund.openDate</div>
-                <div className="text-xl"><span style={{ fontWeight: 'bold' }}>Maturação:</span> fund.maturationDate</div>
-                <div className="text-xl mt-8"><span style={{ fontWeight: 'bold' }}>Investors:</span> fund.investors</div>
-                <div className="text-xl"><span style={{ fontWeight: 'bold' }}>Quota:</span>  fund.price</div>
+                <div className="text-xl mt-8"><span style={{ fontWeight: 'bold' }}>Open Investiments:</span> 10-10-2023</div>
+                <div className="text-xl"><span style={{ fontWeight: 'bold' }}>Maturation:</span> 10-05-2024</div>
+                <div className="text-xl mt-8"><span style={{ fontWeight: 'bold' }}>Investors:</span> 100</div>
+                <div className="text-xl"><span style={{ fontWeight: 'bold' }}>Quota Price:</span>  1.20 USD/quota</div>
             </div>
         </>
     )
