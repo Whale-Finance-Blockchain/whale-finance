@@ -44,20 +44,34 @@ This project uses ERC 6551 to allow managers to hold assets from investors. In t
 - Contracts: We use  ERC 6551 to allow managers to hold assets from investor, and control them. 
 
 whale-finance/
+
 ├──README.md 
+
 ├─ frontend/ 
+
     └── src/ 
+    
         ├── main.py
+        
         └── utilities.py
+        
 
 ├─ whale-finance/ 
+
     └── src/
+    
         └── Counter.sol
+        
         └── ERC6551Registry.sol
+        
         └── MockERC20.sol
+        
         └── QuotaBeacon.sol
+        
         └── QuotaToken.sol
+        
         └── SafeAccount.sol
+        
         └── WhaleFinance.sol
 
 
