@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import { db } from '../../firebase/firebase';
-import { get, push, ref } from "firebase/database";
+import { get, ref } from "firebase/database";
 import LineChartComponent from '../../components/LineChartComponent/LineChartComponent';
 import PieChartComponent from '../../components/PieChartComponent/PieChartComponent';
 import { useParams } from 'react-router-dom';
@@ -9,26 +8,40 @@ import DataDiv from '../../components/DataDiv/DataDiv';
 import Footer from '../../components/Footer/Footer';
 import FormSwap from '../../components/FormSwap/FormSwap';
 
-type DataPoint = {
+interface PerformanceItem {
     date: string;
-    fundId: number;
+    fundId: string;
+    value: number;
+}
+
+interface BenchmarkItem {
+    date: string;
+    bmId: string;
+    value: number;
+}
+
+interface CombinedDataItem {
+    date: string;
+    fundId: string;
     performanceValue: number;
-    bmId: number;
-    benchmarkValue: number; 
-};
+    bmId: string;
+    benchmarkValue: number;
+}
+
+interface FundData {
+    id: string | undefined;
+    // DIFFERENCE FROM FUNDID PAGE
+    name: string;  
+    description: string;
+}
 
 export default function DashboardId({ isMetamaskInstalled, connectWallet, account, provider, signer }: 
     { isMetamaskInstalled: boolean; connectWallet: any; account: string | null; provider: any; signer: any;}) {
 
     const { id } = useParams<{ id: string }>();
 
-    const history = useNavigate();
-
-    const [invest, setInvest] = React.useState('');
-
-    const [fund, setFund] = useState(null);
-
-    const [data, setData] = useState<DataPoint[]>([]);
+    const [fund, setFund] = useState<FundData | null>(null);
+    const [data, setData] = useState<CombinedDataItem[]>([]);
 
     const [tokenA, setTokenA] = useState("ZUSD");
     const [tokenB, setTokenB] = useState("ZUSD");
@@ -53,26 +66,30 @@ export default function DashboardId({ isMetamaskInstalled, connectWallet, accoun
             const fundsSnapshot = await get(fundsRef);
             const fundsData = fundsSnapshot.exists() ? fundsSnapshot.val() : [];
 
-            const matchedFund = fundsData.find(fund => fund.id === parseInt(id));
-            if (matchedFund) {
-                setFund(matchedFund);
+            if (id) {
+                const matchedFund = fundsData.find((fund: FundData) => fund.id === id);
+                if (matchedFund) {
+                    setFund(matchedFund);
+                } else {
+                    console.log("Fund not found");
+                }
             } else {
-                console.log("Fund not found");
+                console.log("ID is undefined");
             }
                 
-            const combinedData = [];
+            const combinedData: CombinedDataItem[] = [];
 
-            performanceData.forEach((pItem) => {
-                benchmarkData.forEach((bItem) => {
-                if (pItem.date === bItem.date && pItem.fundId === parseInt(id)) {
-                    combinedData.push({
-                    date: pItem.date,
-                    fundId: pItem.fundId,
-                    performanceValue: pItem.value,
-                    bmId: bItem.bmId,
-                    benchmarkValue: bItem.value,
-                    });
-                }
+            performanceData.forEach((pItem: PerformanceItem) => {
+                benchmarkData.forEach((bItem: BenchmarkItem) => {
+                    if (pItem.date === bItem.date && pItem.fundId === id) { // assuming `id` is string
+                        combinedData.push({
+                            date: pItem.date,
+                            fundId: pItem.fundId,
+                            performanceValue: pItem.value,
+                            bmId: bItem.bmId,
+                            benchmarkValue: bItem.value,
+                        });
+                    }
                 });
             });
 

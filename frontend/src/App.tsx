@@ -52,6 +52,7 @@ function App() {
             <Route path="/fundslist" element={<FundsList />} />
             <Route path="/fundslist/:id" element={
             <FundId
+              isMetamaskInstalled={isMetamaskInstalled}
               connectWallet={connectWallet}
               account={account}
               provider={provider}
@@ -62,18 +63,20 @@ function App() {
             <Route path="/successinvestment" element={<SuccessInvestment />} />
             <Route path="/manager" element={
               <Manager 
-              connectWallet={connectWallet}
-              account={account}
-              provider={provider}
-              signer={signer}
+                isMetamaskInstalled={isMetamaskInstalled}
+                connectWallet={connectWallet}
+                account={account}
+                provider={provider}
+                signer={signer}
               />} 
               />
             <Route path="/manager/:id" element={
               <DashboardId 
-              connectWallet={connectWallet}
-              account={account}
-              provider={provider}
-              signer={signer}
+                isMetamaskInstalled={isMetamaskInstalled}
+                connectWallet={connectWallet}
+                account={account}
+                provider={provider}
+                signer={signer}
               />} 
             />
             <Route path="/successfund" element={<SuccessFund />} />

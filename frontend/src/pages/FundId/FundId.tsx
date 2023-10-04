@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { db } from '../../firebase/firebase';
-import { get, push, ref } from "firebase/database";
+import { get, ref } from "firebase/database";
 import FormInvestor from '../../components/FormInvestor/FormInvestor';
 import LineChartComponent from '../../components/LineChartComponent/LineChartComponent';
 import PieChartComponent from '../../components/PieChartComponent/PieChartComponent';
@@ -14,24 +14,49 @@ import { QuotaTokenAbi } from '../../contracts/QuotaToken';
 import { WhaleFinanceAbi } from '../../contracts/WhaleFinance';
 import Zusd from '../../assets/zusd.png';
 
-type DataPoint = {
+interface PerformanceItem {
     date: string;
-    fundId: number;
-    performanceValue: number;
-    bmId: number;
-    benchmarkValue: number; 
-};
+    fundId: string;
+    value: number;
+}
 
-export default function FundId({ isMetamaskInstalled, connectWallet, account, provider, signer }: 
-    { isMetamaskInstalled: boolean; connectWallet: any; account: string | null; provider: any; signer: any;}) {
+interface BenchmarkItem {
+    date: string;
+    bmId: string;
+    value: number;
+}
+
+interface CombinedDataItem {
+    date: string;
+    fundId: string;
+    performanceValue: number;
+    bmId: string;
+    benchmarkValue: number;
+}
+
+interface FundData {
+    id: string | undefined;
+    name: any;
+    description: string;
+}
+
+interface FundIdProps {
+    isMetamaskInstalled: boolean; 
+    connectWallet: any; 
+    account: string | null; 
+    provider: any; 
+    signer: any;
+}
+
+export default function FundId({ isMetamaskInstalled, connectWallet, account, provider, signer }: FundIdProps) {
 
     const { id } = useParams<{ id: string }>();
 
     const history = useNavigate();
 
     const [invest, setInvest] = React.useState(0);
-    const [fund, setFund] = useState(null);
-    const [data, setData] = useState<DataPoint[]>([]);
+    const [fund, setFund] = useState<FundData | null>(null);
+    const [data, setData] = useState<CombinedDataItem[]>([]);
 
     const [zusdBalance, setZusdBalance] = useState(0);
     const [quotaBalance, setQuotaBalance] = useState(0);
@@ -41,14 +66,11 @@ export default function FundId({ isMetamaskInstalled, connectWallet, account, pr
 
     const [loading, setLoading] = React.useState(false);
 
-    function handleSubmit() {
-
-        const body = {
-            "value_invested": invest
-        }
-
-    }
-
+    // function handleSubmit() {
+    //     const body = {
+    //         "value_invested": invest
+    //     }
+    // }
 
     async function getZusdBalance() {
         try{
@@ -153,6 +175,7 @@ export default function FundId({ isMetamaskInstalled, connectWallet, account, pr
                 name: fundName[0],
                 description: "Macro"
             }
+
             setFund(fundx);
 
         } catch(err){
@@ -184,76 +207,58 @@ export default function FundId({ isMetamaskInstalled, connectWallet, account, pr
     },[signer]);
 
     
-
-
     useEffect(() => {
-
         const fetchData = async () => {
-          try {            
-            // Fetching data from the Performance database
-            const performanceRef = ref(db, 'Performance');
-            const performanceSnapshot = await get(performanceRef);
-            const performanceData = performanceSnapshot.exists() ? performanceSnapshot.val() : [];
+            try {
+                // Fetching data from the Performance database
+                const performanceRef = ref(db, 'Performance');
+                const performanceSnapshot = await get(performanceRef);
+                const performanceData: PerformanceItem[] = performanceSnapshot.exists() ? performanceSnapshot.val() : [];
 
-            // Fetching data from the Benchmark database
-            const benchmarkRef = ref(db, 'BenchmarkValue');
-            const benchmarkSnapshot = await get(benchmarkRef);
-            const benchmarkData = benchmarkSnapshot.exists() ? benchmarkSnapshot.val() : [];
+                // Fetching data from the Benchmark database
+                const benchmarkRef = ref(db, 'BenchmarkValue');
+                const benchmarkSnapshot = await get(benchmarkRef);
+                const benchmarkData: BenchmarkItem[] = benchmarkSnapshot.exists() ? benchmarkSnapshot.val() : [];
+    
+                const combinedData: CombinedDataItem[] = [];
 
-            // Fetching data from the Performance database
-            // const fundsRef = ref(db, 'Funds');
-            // const fundsSnapshot = await get(fundsRef);
-            // const fundsData = fundsSnapshot.exists() ? fundsSnapshot.val() : [];
-
-            // const matchedFund = fundsData.find(fund => fund.id === parseInt(id));
-            // if (matchedFund) {
-            //     setFund(matchedFund);
-            // } else {
-            //     console.log("Fund not found");
-            // }
-                
-            const combinedData:any[] = [];
-
-            performanceData.forEach((pItem) => {
-                benchmarkData.forEach((bItem) => {
-                if (pItem.date === bItem.date && pItem.fundId === parseInt(id)) {
-                    combinedData.push({
-                    date: pItem.date,
-                    fundId: pItem.fundId,
-                    performanceValue: pItem.value,
-                    bmId: bItem.bmId,
-                    benchmarkValue: bItem.value,
+                performanceData.forEach((pItem: PerformanceItem) => {
+                    benchmarkData.forEach((bItem: BenchmarkItem) => {
+                        if (pItem.date === bItem.date) {
+                            combinedData.push({
+                                date: pItem.date,
+                                fundId: pItem.fundId,
+                                performanceValue: pItem.value,
+                                bmId: bItem.bmId,
+                                benchmarkValue: bItem.value,
+                            });
+                        }
                     });
-                }
                 });
-            });
 
-
-            setData( [...combinedData] );
-
+                setData(combinedData);
             } catch (error) {
-            console.error("Error reading data:", error);
+                console.error("Error reading data:", error);
             }
         };
 
         fetchData();
-
-        function mockData(){
-
-            
-            setData([...[
-                { date: "09-09", fundId: 1, performanceValue: 95, bmId: 300001, benchmarkValue: 90 },
-                { date: "09-10", fundId: 1, performanceValue: 98, bmId: 300001, benchmarkValue: 91 },
-                { date: "09-11", fundId: 1, performanceValue: 97, bmId: 300001, benchmarkValue: 92 },
-                { date: "09-12", fundId: 1, performanceValue: 99, bmId: 300001, benchmarkValue: 93 },
-                { date: "09-13", fundId: 1, performanceValue: 100, bmId: 300001, benchmarkValue: 94 },
-                { date: "09-14", fundId: 1, performanceValue: 97, bmId: 300001, benchmarkValue: 95 },
-                { date: "09-15", fundId: 1, performanceValue: 101, bmId: 300001, benchmarkValue: 95 },
-                { date: "09-16", fundId: 1, performanceValue: 104, bmId: 300001, benchmarkValue: 96 },
-            ]])
-        }
-        // mockData();
     }, []);
+
+    // function mockData(){            
+    //     setData([...[
+    //         { date: "09-09", fundId: 1, performanceValue: 95, bmId: 300001, benchmarkValue: 90 },
+    //         { date: "09-10", fundId: 1, performanceValue: 98, bmId: 300001, benchmarkValue: 91 },
+    //         { date: "09-11", fundId: 1, performanceValue: 97, bmId: 300001, benchmarkValue: 92 },
+    //         { date: "09-12", fundId: 1, performanceValue: 99, bmId: 300001, benchmarkValue: 93 },
+    //         { date: "09-13", fundId: 1, performanceValue: 100, bmId: 300001, benchmarkValue: 94 },
+    //         { date: "09-14", fundId: 1, performanceValue: 97, bmId: 300001, benchmarkValue: 95 },
+    //         { date: "09-15", fundId: 1, performanceValue: 101, bmId: 300001, benchmarkValue: 95 },
+    //         { date: "09-16", fundId: 1, performanceValue: 104, bmId: 300001, benchmarkValue: 96 },
+    //     ]])
+    // }
+    // mockData();
+
 
     if (!fund) {
         return (

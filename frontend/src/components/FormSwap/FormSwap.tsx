@@ -111,7 +111,7 @@ export default function FormSwap(props: any) {
                             name="invest"
                             placeholder={`Qty of ${props.tokenA}`}
                             value={amount}
-                            onChange={(e) => setAmount(e.target.value)}
+                            onChange={(e) => setAmount(parseFloat(e.target.value))}
                             className="basis-2/3 bg-transparent text-center lg:text-xl text-black p-2 outline-0 rounded-l-[15px] hover:bg-slate-100 transition duration-600 ease-in-out"
                         />
                         <select 

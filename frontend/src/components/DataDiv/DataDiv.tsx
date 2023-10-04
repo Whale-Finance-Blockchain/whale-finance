@@ -1,6 +1,6 @@
 export default function DataDiv({ fund }: { fund: any}) {
 
-    function formatToUSD(number) {
+    function formatToUSD(number: number): string {
         const formattedNumber = new Intl.NumberFormat('en-US', { 
           style: 'currency', 
           currency: 'USD',

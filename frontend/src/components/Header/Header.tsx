@@ -43,10 +43,10 @@ export default function Header({ isMetamaskInstalled, connectWallet, account, pr
                                     <div className="group flex items-center px-4 py-3 text-xl font-medium rounded-md text-white hover:text-secondary-color hover:bg-gray-100" onClick={() => history('/investor')}>
                                         Dashboard
                                     </div>
-                                    <div href="/manager" className="group flex items-center px-4 py-3 text-xl font-medium rounded-md text-white hover:text-secondary-color hover:bg-gray-100" onClick={() => history('/manager')}>
+                                    <div className="group flex items-center px-4 py-3 text-xl font-medium rounded-md text-white hover:text-secondary-color hover:bg-gray-100" onClick={() => history('/manager')}>
                                         Manager
                                     </div>
-                                    <div href="/fundslist" className="group flex items-center px-4 py-3 text-xl font-medium rounded-md text-white hover:text-secondary-color hover:bg-gray-100" onClick={() => history('/fundslist')}>
+                                    <div className="group flex items-center px-4 py-3 text-xl font-medium rounded-md text-white hover:text-secondary-color hover:bg-gray-100" onClick={() => history('/fundslist')}>
                                         Funds List
                                     </div>
                                 </nav>

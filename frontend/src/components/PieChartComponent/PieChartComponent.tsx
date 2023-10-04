@@ -8,9 +8,32 @@ const data = [
   { name: 'Group D', value: 200 },
 ];
 
-const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
+interface DataItem {
+  name: string;
+  value: number;
+}
 
-const renderActiveShape = (props) => {
+interface ActiveShapeProps {
+  cx: number;
+  cy: number;
+  midAngle: number;
+  innerRadius: number;
+  outerRadius: number;
+  startAngle: number;
+  endAngle: number;
+  fill: string;
+  payload: DataItem;
+  percent: number;
+  value: number;
+}
+
+interface PieChartComponentState {
+  activeIndex: number;
+}
+
+// const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
+
+const renderActiveShape = (props: ActiveShapeProps) => {
   const RADIAN = Math.PI / 180;
   const { cx, cy, midAngle, innerRadius, outerRadius, startAngle, endAngle, fill, payload, percent, value } = props;
   const sin = Math.sin(-RADIAN * midAngle);
@@ -56,17 +79,15 @@ const renderActiveShape = (props) => {
   );
 };
 
-export default class PieChartComponent extends Component {
+export default class PieChartComponent extends Component<{}, PieChartComponentState> {
 
   // get input from user
-
-
 
   state = {
     activeIndex: 0,
   };
 
-  onPieEnter = (_, index) => {
+  onPieEnter = (_: React.MouseEvent, index: number) => {
     this.setState({
       activeIndex: index,
     });

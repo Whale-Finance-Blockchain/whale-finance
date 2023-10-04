@@ -17,7 +17,7 @@ type DataPoint = {
 export default function Manager({ isMetamaskInstalled, connectWallet, account, provider, signer }: 
   { isMetamaskInstalled: boolean; connectWallet: any; account: string | null; provider: any; signer: any;}) {
 
-  const {id} = useParams<{id: string}>();
+    // const {id} = useParams<{id: string}>();
 
     const [manager, setManager] = useState<number>(0);
 
@@ -80,7 +80,7 @@ export default function Manager({ isMetamaskInstalled, connectWallet, account, p
         // fetchData();
       }, []);
 
-      function formatToUSD(number) {
+      function formatToUSD(number: number): string {
         const formattedNumber = new Intl.NumberFormat('en-US', { 
           style: 'currency', 
           currency: 'USD',
