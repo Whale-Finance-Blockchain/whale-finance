@@ -183,6 +183,29 @@ Safe Account (implements ERC6551): 0x83988Eb399460dD07f9e37628bC61a47dc094113
 
 Whale Finance: 0xE7fB04eA857F9F96939fc98bD17Ff88ce8b0AdF0
 
+## Implemented Solution
+
+### Demo
+
+[Demo Link](https://www.loom.com/share/6913cf323b4644cfbcb3133377d3ca2c?sid=17cfc3fb-4d68-4b81-a225-4d8d25e18772)
+
+### How to run locally steps
+
+You need to run in the frontend:
+
+```
+npm install
+```
+
+The second step is to use the json file with keys and the .env keys of firebase to run and integrate with firebase the project:
+
+json file in frontend/src/firebase and the .end in the root folder of frontend/ to connect with my firebase access
+
+Then run the project with:
+
+```
+npm run dev
+```
 
 
 ## Team
