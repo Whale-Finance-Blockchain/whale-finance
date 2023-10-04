@@ -11,7 +11,7 @@ export default function FormSwap(props: any) {
     const [tokenBBalance, setTokenBBalance] = useState(0);
 
     const [amount, setAmount] = useState(0);
-    const [loading, setLoading] = useState(false);
+    // const [loading, setLoading] = useState(false);
 
     async function getBalances() {
         try{
@@ -50,7 +50,7 @@ export default function FormSwap(props: any) {
             return;
         }
 
-        setLoading(true)
+        // setLoading(true)
 
         try{
             const tokenAAddress = allowedTokens[props.tokenA];
@@ -85,7 +85,7 @@ export default function FormSwap(props: any) {
         } catch(err){
             console.log(err);
         } finally{
-            setLoading(false);
+            // setLoading(false);
         }
     }
 

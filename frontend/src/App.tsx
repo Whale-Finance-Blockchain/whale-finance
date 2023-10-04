@@ -44,7 +44,6 @@ function App() {
               isMetamaskInstalled={isMetamaskInstalled}
               connectWallet={connectWallet}
               account={account}
-              provider={provider}
               signer={signer}
             />
           }>
@@ -52,8 +51,6 @@ function App() {
             <Route path="/fundslist" element={<FundsList />} />
             <Route path="/fundslist/:id" element={
             <FundId
-              isMetamaskInstalled={isMetamaskInstalled}
-              connectWallet={connectWallet}
               account={account}
               provider={provider}
               signer={signer}
@@ -63,8 +60,6 @@ function App() {
             <Route path="/successinvestment" element={<SuccessInvestment />} />
             <Route path="/manager" element={
               <Manager 
-                isMetamaskInstalled={isMetamaskInstalled}
-                connectWallet={connectWallet}
                 account={account}
                 provider={provider}
                 signer={signer}
@@ -72,10 +67,7 @@ function App() {
               />
             <Route path="/manager/:id" element={
               <DashboardId 
-                isMetamaskInstalled={isMetamaskInstalled}
-                connectWallet={connectWallet}
                 account={account}
-                provider={provider}
                 signer={signer}
               />} 
             />
@@ -84,9 +76,7 @@ function App() {
             <Route path="/create-fund" element={
               <CreateFund
               isMetamaskInstalled={isMetamaskInstalled}
-              connectWallet={connectWallet}
               account={account}
-              provider={provider}
               signer={signer}
               />}
             />

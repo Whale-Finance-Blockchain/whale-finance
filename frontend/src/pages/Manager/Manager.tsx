@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { db } from '../../firebase/firebase';
-import { get, ref } from "firebase/database";
-import { Link, useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+// import { db } from '../../firebase/firebase';
+// import { get, ref } from "firebase/database";
+import { Link } from 'react-router-dom';
 import { AiOutlineArrowUp, AiOutlineArrowDown } from "react-icons/ai";
 import Footer from '../../components/Footer/Footer';
 import { ethers } from 'ethers';
@@ -14,8 +14,8 @@ type DataPoint = {
     description: string;
 };
 
-export default function Manager({ isMetamaskInstalled, connectWallet, account, provider, signer }: 
-  { isMetamaskInstalled: boolean; connectWallet: any; account: string | null; provider: any; signer: any;}) {
+export default function Manager({ account, provider, signer }: 
+  { account: string | null; provider: any; signer: any;}) {
 
     // const {id} = useParams<{id: string}>();
 
@@ -62,20 +62,20 @@ export default function Manager({ isMetamaskInstalled, connectWallet, account, p
     },[signer]);
 
     useEffect(() => {
-        const fetchData = async () => {
-          try {
-            const dbRef = ref(db, 'Funds');
-            const snapshot = await get(dbRef);
-            if (snapshot.exists()) {
-              const fbData = snapshot.val();
-              setFunds(fbData);
-            } else {
-              console.log("No data available");
-            }
-          } catch (error) {
-            console.error("Error reading data:", error);
-          }
-        };
+        // const fetchData = async () => {
+        //   try {
+        //     const dbRef = ref(db, 'Funds');
+        //     const snapshot = await get(dbRef);
+        //     if (snapshot.exists()) {
+        //       const fbData = snapshot.val();
+        //       setFunds(fbData);
+        //     } else {
+        //       console.log("No data available");
+        //     }
+        //   } catch (error) {
+        //     console.error("Error reading data:", error);
+        //   }
+        // };
       
         // fetchData();
       }, []);

@@ -1,4 +1,4 @@
-export default function ConnectWalletBtn({ isMetamaskInstalled, connectWallet, account, provider, signer }: { isMetamaskInstalled: boolean; connectWallet: any; account: string | null; provider: any; signer: any}) {
+export default function ConnectWalletBtn({ isMetamaskInstalled, connectWallet, account, signer }: { isMetamaskInstalled: boolean; connectWallet: any; account: string | null; signer: any}) {
 
     return (
         <>

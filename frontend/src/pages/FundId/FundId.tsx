@@ -41,14 +41,12 @@ interface FundData {
 }
 
 interface FundIdProps {
-    isMetamaskInstalled: boolean; 
-    connectWallet: any; 
     account: string | null; 
     provider: any; 
     signer: any;
 }
 
-export default function FundId({ isMetamaskInstalled, connectWallet, account, provider, signer }: FundIdProps) {
+export default function FundId({ account, provider, signer }: FundIdProps) {
 
     const { id } = useParams<{ id: string }>();
 
@@ -61,6 +59,7 @@ export default function FundId({ isMetamaskInstalled, connectWallet, account, pr
     const [zusdBalance, setZusdBalance] = useState(0);
     const [quotaBalance, setQuotaBalance] = useState(0);
     const [quotaPrice, setQuotaPrice] = useState(1);
+    setQuotaPrice(1);
     const [totalQuotas, setTotalQuotas] = useState(0);
     const [quotaAddress, setQuotaAddress] = useState("--");
 

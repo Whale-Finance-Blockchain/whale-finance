@@ -35,8 +35,8 @@ interface FundData {
     description: string;
 }
 
-export default function DashboardId({ isMetamaskInstalled, connectWallet, account, provider, signer }: 
-    { isMetamaskInstalled: boolean; connectWallet: any; account: string | null; provider: any; signer: any;}) {
+export default function DashboardId({ account, signer }: 
+    { account: string | null; signer: any;}) {
 
     const { id } = useParams<{ id: string }>();
 

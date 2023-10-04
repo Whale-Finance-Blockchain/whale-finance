@@ -8,8 +8,8 @@ import { ethers } from 'ethers';
 import { WhaleFinanceAbi } from '../../contracts/WhaleFinance';
 import { WhaleFinanceAddress } from '../../utils/addresses';
 
-export default function CreateFund({ isMetamaskInstalled, connectWallet, account, provider, signer }: 
-    { isMetamaskInstalled: boolean; connectWallet: any; account: string | null; provider: any; signer: any;}) {
+export default function CreateFund({ isMetamaskInstalled, account, signer }: 
+    { isMetamaskInstalled: boolean; account: string | null; signer: any;}) {
 
     const history = useNavigate();
 

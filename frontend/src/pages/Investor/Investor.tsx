@@ -47,9 +47,9 @@ export default function Investor() {
 
     function handleSubmit() {
 
-        const body = {
-            "value_invested": invest
-        }
+        // const body = {
+        //     "value_invested": invest
+        // }
 
     }
 
