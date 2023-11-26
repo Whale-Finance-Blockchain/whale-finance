@@ -11,6 +11,7 @@ import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/proxy/beacon/BeaconProxy.sol";
 import "./QuotaToken.sol";
 import "./interface/IV2SwapRouter.sol";
+import "./VotingContract.sol";
 
 contract WhaleFinance is ERC721, Ownable {
     //GLOBAL VARIABLES FOR THE PLATFORM
@@ -128,6 +129,16 @@ contract WhaleFinance is ERC721, Ownable {
 
     function removeWhiteListedToken(address _token) public onlyOwner {
         whiteListedTokens[_token] = false;
+    }
+
+    function changeOpenRedeemTimestamp(uint256 _newTimestamp, uint256 _fundId) public onlyOwner {
+        require(_newTimestamp > block.timestamp, "You need to set a timestamp in the future");
+        require(_newTimestamp > closeInvestimentTimestamps[_fundId], "You need to set a timestamp after the close investiment timestamp");
+        require(_fundId < _fundIdCounter, "Fund not found");
+    
+
+
+        openRedeemTimestamps[_fundId] = _newTimestamp;
     }
 
     
