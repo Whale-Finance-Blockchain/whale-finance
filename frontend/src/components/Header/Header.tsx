@@ -41,7 +41,7 @@ export default function Header({ isMetamaskInstalled, connectWallet, account, si
                             <div className="flex-1 h-0 pt-5 pb-4 overflow-y-auto">
                                 <nav className="mt-5 flex-1 px-2 space-y-1">
                                     <div className="group flex items-center px-4 py-3 text-xl font-medium rounded-md text-white hover:text-secondary-color hover:bg-gray-100" onClick={() => history('/proposals')}>
-                                        Proposals
+                                        Proposals Panel
                                     </div>
                                     <div className="group flex items-center px-4 py-3 text-xl font-medium rounded-md text-white hover:text-secondary-color hover:bg-gray-100" onClick={() => history('/create-proposal')}>
                                         Create Proposal
@@ -77,7 +77,7 @@ export default function Header({ isMetamaskInstalled, connectWallet, account, si
                         <div className="px-6 lg:px-10 py-2 text-[1.2vw] hover:bg-[rgb(14,42,98)] transition duration-1000 ease-in-out"
                             onClick={() => history('/proposals')}>Proposals</div>
                         <div className="invisible absolute z-50 flex w-full flex-col bg-gray-100 py-1 my-1 px-4 text-gray-800 shadow-xl group-hover:visible">
-                            <div className="my-2 text-[1vw] block border-b border-gray-100 py-1 font-semibold text-gray-500 hover:text-black md:mx-2" onClick={() => history('/proposals')}>My Proposals</div>                
+                            <div className="my-2 text-[1vw] block border-b border-gray-100 py-1 font-semibold text-gray-500 hover:text-black md:mx-2" onClick={() => history('/proposals')}>Proposals Panel</div>                
                             <div className="my-2 text-[1vw] block border-b border-gray-100 py-1 font-semibold text-gray-500 hover:text-black md:mx-2" onClick={() => history('/create-proposal')}>Create Proposal</div>
                         </div>
                     </div></li>
