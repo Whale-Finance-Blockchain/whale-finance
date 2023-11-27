@@ -11,7 +11,14 @@ import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/proxy/beacon/BeaconProxy.sol";
 import "./QuotaToken.sol";
 import "./interface/IV2SwapRouter.sol";
-import "./VotingContract.sol";
+
+struct OpenRedeemProposal {
+    uint256 fundId;
+    uint256 newTimestamp;
+    uint256 deadline;
+    bool accepted;
+    string name;        
+}
 
 contract WhaleFinance is ERC721, Ownable {
     //GLOBAL VARIABLES FOR THE PLATFORM
@@ -21,7 +28,22 @@ contract WhaleFinance is ERC721, Ownable {
     address public quotaTokenImplementation;
     IERC20 public stablecoin;
     mapping(address => bool) public whiteListedTokens;
-    
+
+    //VOTING FEATURES
+    uint256 public proposalIdCounter;
+
+    uint256 public percentageToWin = 5000; // in bps, 5000 = 50.00%
+
+    mapping(uint256 => OpenRedeemProposal) public openRedeemProposals; // proposalId => OpenRedeemProposal
+    mapping(uint256 => uint256) public proposalsVotes; // proposalId => proposalsVotes
+    mapping(uint256 => mapping(address => uint256)) public votes; // proposalId => (voter => voted)
+
+    event NewOpenRedeemProposal(uint256 indexed proposalId, uint256 indexed fundId, uint256 newTimestamp, string name);
+    event Voted(uint256 indexed proposalId, address indexed voter, uint256 amount);
+    event VotingTokensWithdrawn(uint256 indexed proposalId, address indexed voter, uint256 amount);
+    event ProposalAccepted(uint256 indexed proposalId, uint256 indexed fundId, uint256 newTimestamp, string name);
+
+    // SWAP ROUTER
     IV2SwapRouter public swapRouter = IV2SwapRouter(0x7963c1bd24E4511A0b14bf148F93e2556AFe3C27);
 
     // MAPPINGS TO THE NFTS
@@ -40,6 +62,8 @@ contract WhaleFinance is ERC721, Ownable {
     event FundCreated(address indexed fundAddress, address indexed quotaTokenAddress);
     event InvestimentMade(address indexed fundAddress, address indexed investor, uint256 amount);
     event RedeemMade(address indexed fundAddress, address indexed investor, uint256 amount);
+    event OpenRedeemTimestampChanged(address indexed fundId, uint256 newTimestamp);
+
 
     constructor(address _fundsRegister, address _erc6551Implementation, address _erc20Implementation, address _stablecoin) Ownable(_msgSender()) ERC721("WhaleFinance", "WFI")  {
         fundsRegister = IERC6551Registry(_fundsRegister);
@@ -131,15 +155,89 @@ contract WhaleFinance is ERC721, Ownable {
         whiteListedTokens[_token] = false;
     }
 
-    function changeOpenRedeemTimestamp(uint256 _newTimestamp, uint256 _fundId) public onlyOwner {
-        require(_newTimestamp > block.timestamp, "You need to set a timestamp in the future");
-        require(_newTimestamp > closeInvestimentTimestamps[_fundId], "You need to set a timestamp after the close investiment timestamp");
-        require(_fundId < _fundIdCounter, "Fund not found");
-    
 
+    //VOTING OPEN REDEEM TIMESTAMP FUNCTIONS
 
-        openRedeemTimestamps[_fundId] = _newTimestamp;
+    function changeOpenRedeemTimestamp(uint256 _proposalId) public {
+        uint256 fundId = openRedeemProposals[_proposalId].fundId;
+        uint256 newTimestamp = openRedeemProposals[_proposalId].newTimestamp;
+        uint256 deadline = openRedeemProposals[_proposalId].deadline;
+        require(newTimestamp > block.timestamp, "You need to set a timestamp in the future");
+        require(newTimestamp > closeInvestimentTimestamps[fundId], "You need to set a timestamp after the close investiment timestamp");
+        require(block.timestamp < deadline, "The voting period is over");
+        require(fundId < _fundIdCounter, "Fund not found");
+
+        uint256 totalVotingTokens = IERC20(quotasAddresses[fundId]).totalSupply();
+        uint256 totalVotes = proposalsVotes[_proposalId];
+
+        if(totalVotes > totalVotingTokens * percentageToWin / 10000) {
+            openRedeemProposals[_proposalId].accepted = true;
+        } else{
+            revert("The proposal was not accepted yet");
+        } 
+        emit ProposalAccepted(_proposalId, fundId, newTimestamp, openRedeemProposals[_proposalId].name);
+   
+        openRedeemTimestamps[fundId] = newTimestamp;
+        emit OpenRedeemTimestampChanged(fundsAddresses[fundId], newTimestamp);
+
     }
 
+    function proposeNewOpenRedeemTimestamp(uint256 _fundId, uint256 _newTimestamp, uint256 _deadline, string memory _name) public returns(uint256) {
+                
+        openRedeemProposals[proposalIdCounter] = OpenRedeemProposal({
+            fundId: _fundId,
+            newTimestamp: _newTimestamp,
+            deadline: _deadline,
+            accepted: false,
+            name: _name
+        });
+        proposalIdCounter++;
+
+        emit NewOpenRedeemProposal(_fundId, _newTimestamp, _newTimestamp, _name);
+        return proposalIdCounter;
+    }
+
+
+    function vote(uint256 _proposalId, uint256 _amount) public {
+        require(_proposalId <= proposalIdCounter, "Proposal not found");
+        require(block.timestamp < openRedeemProposals[_proposalId].deadline, "The voting period is over");
+        require(!openRedeemProposals[_proposalId].accepted, "The proposal was already accepted");
+
+        uint256 fundId = openRedeemProposals[_proposalId].fundId;
+        require(fundId < _fundIdCounter, "Fund not found");
+
+        require(IERC20(quotasAddresses[fundId]).allowance(msg.sender, address(this)) >= _amount, "Not enough allowance");
+
+        IERC20(quotasAddresses[fundId]).transferFrom(msg.sender, address(this), _amount);
+
+        votes[_proposalId][msg.sender] += _amount;
+        proposalsVotes[_proposalId] += _amount;
+
+        emit Voted(_proposalId, msg.sender, _amount);
+    }
+
+    function getVoterBalance(uint256 _proposalId, address _voter) public view returns(uint256) {
+        return votes[_proposalId][_voter];
+    }
+
+    function getTotalProposalVotes(uint256 _proposalId) public view returns(uint256) {
+        return proposalsVotes[_proposalId];
+    }
+
+    function withdrawVotingTokens(uint256 _proposalId) public {
+        require(block.timestamp > openRedeemProposals[_proposalId].deadline || openRedeemProposals[_proposalId].accepted, "The voting period is not over yet");
+        
+        uint256 fundId = openRedeemProposals[_proposalId].fundId;
+        require(fundId < _fundIdCounter, "Fund not found");
+
+        uint256 amount = votes[_proposalId][msg.sender];
+        require(amount > 0, "You don't have any voting tokens");
+
+        IERC20(quotasAddresses[fundId]).transfer(msg.sender, amount);
+        votes[_proposalId][msg.sender] = 0;
+
+        emit VotingTokensWithdrawn(_proposalId, msg.sender, amount);
+        
+    }
     
 }

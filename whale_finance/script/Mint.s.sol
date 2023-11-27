@@ -14,8 +14,6 @@ import "../src/MockERC20.sol";
 contract Mint is Script {
 
 
-
-
     function setUp() public {}
 
     function run() external {
