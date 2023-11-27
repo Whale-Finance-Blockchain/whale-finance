@@ -146,18 +146,15 @@ contract WhaleFinanceTest is Test {
         uint256 newOpenRedeemTimestamp = whaleFinance.openRedeemTimestamps(fundId) - 5 days;
         uint256 deadline = block.timestamp + 8 days;
 
-        console.log("newOpenRedeemTimestamp: %s", newOpenRedeemTimestamp);
-        console.log("deadline: %s", deadline);
         
         uint256 proposalId = whaleFinance.proposeNewOpenRedeemTimestamp(fundId, newOpenRedeemTimestamp, deadline, "New Open Redeem Timestamp");
 
-        (uint256 _fundId, uint256 _new, uint256 deadline1, bool suc, string memory a) = whaleFinance.openRedeemProposals(proposalId);
 
-        console.log("deadline1: %s", deadline1);
-
-
+        
+        amountInvestor1 = quotaToken.balanceOf(investor1);
         vm.prank(investor1);
         quotaToken.approve(address(whaleFinance), amountInvestor1);
+
         vm.prank(investor1);
         whaleFinance.vote(proposalId, amountInvestor1);
         assertTrue(whaleFinance.getVoterBalance(proposalId, investor1) == amountInvestor1);
@@ -165,76 +162,77 @@ contract WhaleFinanceTest is Test {
         try whaleFinance.changeOpenRedeemTimestamp(proposalId) {
             assertTrue(false);
         } catch Error(string memory reason) {
-            assertEq(reason, "The proposal was not accepted yet");
+            assertEq(reason, 'The proposal was not accepted yet');
         }
     }
 
-    // function testOpenRedeemProposalAccepted() public {
-    //     vm.prank(investor1);
-    //     stablecoin.mint(investor1, amountInvestor1);
-    //     assertTrue(stablecoin.balanceOf(investor1) == amountInvestor1);
-    //     vm.prank(investor2);
-    //     stablecoin.mint(investor2, amountInvestor2);
-    //     assertTrue(stablecoin.balanceOf(investor2) == amountInvestor2);
+    function testOpenRedeemProposalAccepted() public {
 
-    //     string memory symbol = "WFI";
-    //     vm.prank(owner);
-    //     whaleFinance.setWhiteListedToken(address(stablecoin));
+        stablecoin.mint(investor1, amountInvestor1);
+        assertTrue(stablecoin.balanceOf(investor1) == amountInvestor1);
+
+        stablecoin.mint(investor2, amountInvestor2);
+        assertTrue(stablecoin.balanceOf(investor2) == amountInvestor2);
+
+        string memory symbol = "WFI";
+        vm.prank(owner);
+        whaleFinance.setWhiteListedToken(address(stablecoin));  
         
-    //     address[] memory allowedTokens = new address[](1);
-    //     allowedTokens[0] = (address(stablecoin));
-    //     uint256 admFee = 50; // 0.5%
-    //     uint256 perfFee = 100; // 1%
-    //     uint256 openInvestiment = block.timestamp;
-    //     uint256 closeInvestiments = block.timestamp + 7 days;
-    //     uint256 openRedeem = block.timestamp + 14 days;
-    //     vm.prank(owner);
-    //     uint256 fundId = whaleFinance.createFund(symbol,symbol, owner, allowedTokens, admFee, perfFee, openInvestiment, closeInvestiments, openRedeem);
+        address[] memory allowedTokens = new address[](1);
+        allowedTokens[0] = (address(stablecoin));
+        uint256 admFee = 50; // 0.5%
+        uint256 perfFee = 100; // 1%
+        uint256 openInvestiment = block.timestamp;
+        uint256 closeInvestiments = block.timestamp + 7 days;
+        uint256 openRedeem = block.timestamp + 14 days;
+        vm.prank(owner);
+        uint256 fundId = whaleFinance.createFund(symbol,symbol, owner, allowedTokens, admFee, perfFee, openInvestiment, closeInvestiments, openRedeem);
 
-    //     vm.prank(investor1);
-    //     stablecoin.approve(address(whaleFinance), amountInvestor1);
-    //     vm.prank(investor1);
-    //     whaleFinance.invest(amountInvestor1, fundId);
+        vm.prank(investor1);
+        stablecoin.approve(address(whaleFinance), amountInvestor1);
+        vm.prank(investor1);
+        whaleFinance.invest(amountInvestor1, fundId);
 
-    //     vm.prank(investor2);
-    //     stablecoin.approve(address(whaleFinance), amountInvestor2);
-    //     vm.prank(investor2);
-    //     whaleFinance.invest(amountInvestor2, fundId);
+        vm.prank(investor2);
+        stablecoin.approve(address(whaleFinance), amountInvestor2);
+        vm.prank(investor2);
+        whaleFinance.invest(amountInvestor2, fundId);
 
-    //     QuotaToken quotaToken = QuotaToken(whaleFinance.quotasAddresses(fundId));
+        QuotaToken quotaToken = QuotaToken(whaleFinance.quotasAddresses(fundId));
 
-    //     uint256 newOpenRedeemTimestamp = whaleFinance.openRedeemTimestamps(fundId) + 7 days;
-    //     uint256 deadline = block.timestamp + 2 days;
+        uint256 newOpenRedeemTimestamp = whaleFinance.openRedeemTimestamps(fundId) - 5 days;
+        uint256 deadline = block.timestamp + 8 days;
+
         
-    //     uint256 proposalId = whaleFinance.proposeNewOpenRedeemTimestamp(fundId, newOpenRedeemTimestamp, deadline, "New Open Redeem Timestamp");
+        uint256 proposalId = whaleFinance.proposeNewOpenRedeemTimestamp(fundId, newOpenRedeemTimestamp, deadline, "New Open Redeem Timestamp");
 
-    //     vm.prank(investor1);
-    //     quotaToken.approve(address(whaleFinance), amountInvestor1);
-    //     vm.prank(investor1);
 
-    //     (uint256 _fundId, uint256 _new, uint256 deadline1, bool suc, string memory a) = whaleFinance.openRedeemProposals(proposalId);
-
-    //     console.log(deadline1);
         
-    //     whaleFinance.vote(proposalId, amountInvestor1);
-    //     assertTrue(whaleFinance.getVoterBalance(proposalId, investor1) == amountInvestor1);
+        amountInvestor1 = quotaToken.balanceOf(investor1);
+        vm.prank(investor1);
+        quotaToken.approve(address(whaleFinance), amountInvestor1);
+        vm.prank(investor1);
+        whaleFinance.vote(proposalId, amountInvestor1);
+        assertTrue(whaleFinance.getVoterBalance(proposalId, investor1) == amountInvestor1);
+
         
-    //     vm.prank(investor2);
-    //     quotaToken.approve(address(whaleFinance), amountInvestor2);
-    //     vm.prank(investor2);
-    //     whaleFinance.vote(proposalId, amountInvestor2);
-    //     assertTrue(whaleFinance.getVoterBalance(proposalId, investor2) == amountInvestor2);
+        amountInvestor2 = quotaToken.balanceOf(investor2);
+        vm.prank(investor2);
+        quotaToken.approve(address(whaleFinance), amountInvestor2);
+        vm.prank(investor2);
+        whaleFinance.vote(proposalId, amountInvestor2);
+        assertTrue(whaleFinance.getVoterBalance(proposalId, investor2) == amountInvestor2);
 
 
-    //     try whaleFinance.changeOpenRedeemTimestamp(proposalId) {
-    //         assertTrue(true);
-    //     } catch  {
-    //         assertTrue(false);
-    //     }
+        try whaleFinance.changeOpenRedeemTimestamp(proposalId) {
+            assertTrue(true);
+        } catch  {
+            assertTrue(false);
+        }
 
-    //     assertTrue(whaleFinance.openRedeemTimestamps(fundId) == newOpenRedeemTimestamp);
+        assertTrue(whaleFinance.openRedeemTimestamps(fundId) == newOpenRedeemTimestamp);
 
-    // }
+    }
 
 
 }

@@ -194,7 +194,7 @@ contract WhaleFinance is ERC721, Ownable {
         proposalIdCounter++;
 
         emit NewOpenRedeemProposal(_fundId, _newTimestamp, _newTimestamp, _name);
-        return proposalIdCounter;
+        return proposalIdCounter-1;
     }
 
 
