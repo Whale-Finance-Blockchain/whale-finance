@@ -11,6 +11,8 @@ import FundsList from './pages/FundsList/FundsList';
 import Investor from './pages/Investor/Investor';
 import SuccessInvestment from './pages/SuccessInvestment/SuccessInvestment';
 import SuccessFund from './pages/SuccessFund/SuccessFund';
+import Proposals from './pages/Proposals/Proposals';
+import CreateProposal from './pages/CreateProposal/CreateProposal';
 
 function App() {
 
@@ -72,6 +74,8 @@ function App() {
               />} 
             />
             <Route path="/successfund" element={<SuccessFund />} />
+            <Route path="/proposals" element={<Proposals />} />
+            <Route path="/create-proposal" element={<CreateProposal />} />
             <Route path="/investor" element={<Investor />} />
             <Route path="/create-fund" element={
               <CreateFund
