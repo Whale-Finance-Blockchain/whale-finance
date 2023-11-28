@@ -1,17 +1,24 @@
-export const WhaleFinanceAddress = "0xE7fB04eA857F9F96939fc98bD17Ff88ce8b0AdF0";
-export const ZusdAddress = "0xA3f156324feCc5ED3A8495C2399666a598A73ee4";
+export const WhaleFinanceAddress = "0x586b6d11CB546057f87898Dd3FdC8D4cE91F29Bc";
+export const ZusdAddress = "0xBb25487c9a14FD31AF4f60F39d97568693da5f2b";
 
 export const WEthAddress = "0x982EBDD03487622fDa5FD33D1486A5082F281Efd";
 export const WZeniq = "0x74DC1C4ec10abE9F5C8A3EabF1A90b97cDc3Ead8";
 
-export const SwapRouter = "0x7963c1bd24E4511A0b14bf148F93e2556AFe3C27";
+export const SwapRouter = "0xcbC9ce7898517049175280288f3838593Adcc660";
 
-export const scanUrl = "https://smart.zeniq.net";
+export const BRY = "0x0a4cc877dAb8DDC00ed9EaDCF964930C1cB2Cf2c";
+export const OLAF = "0xF687Fe7Ea931B4256981F7948BFBC89289Adfd4D";
+export const RYU = "0x083C06f4191e5350ba7Ce70a9Ab86c601b17cCFf";
+export const TWOK = "0x3E8D3319CbB430685CA1b100f83E4C882e65D635";
+
+export const scanUrl = "https://sepolia.etherscan.io";
 
 export const allowedTokens = {
     "ZUSD": ZusdAddress,
-    "WETH": WEthAddress,
-    "WZENIQ": WZeniq
+    "BRY": BRY,
+    "OLAF": OLAF,
+    "RYU": RYU,
+    "2K": TWOK,
 } as {
     [key: string]: string;
 }
