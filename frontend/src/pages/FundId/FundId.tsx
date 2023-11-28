@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { db } from '../../firebase/firebase';
-import { get, ref } from "firebase/database";
+// import { db } from '../../firebase/firebase';
+// import { get, ref } from "firebase/database";
 import FormInvestor from '../../components/FormInvestor/FormInvestor';
 import LineChartComponent from '../../components/LineChartComponent/LineChartComponent';
 import PieChartComponent from '../../components/PieChartComponent/PieChartComponent';
@@ -14,17 +14,17 @@ import { QuotaTokenAbi } from '../../contracts/QuotaToken';
 import { WhaleFinanceAbi } from '../../contracts/WhaleFinance';
 import Zusd from '../../assets/zusd.png';
 
-interface PerformanceItem {
-    date: string;
-    fundId: string;
-    value: number;
-}
+// interface PerformanceItem {
+//     date: string;
+//     fundId: string;
+//     value: number;
+// }
 
-interface BenchmarkItem {
-    date: string;
-    bmId: string;
-    value: number;
-}
+// interface BenchmarkItem {
+//     date: string;
+//     bmId: string;
+//     value: number;
+// }
 
 interface CombinedDataItem {
     date: string;
@@ -50,6 +50,8 @@ export default function FundId({ account, provider, signer }: FundIdProps) {
 
     const { id } = useParams<{ id: string }>();
 
+    // const id = '0';
+
     const history = useNavigate();
 
     const [invest, setInvest] = React.useState(0);
@@ -59,17 +61,17 @@ export default function FundId({ account, provider, signer }: FundIdProps) {
     const [zusdBalance, setZusdBalance] = useState(0);
     const [quotaBalance, setQuotaBalance] = useState(0);
     const [quotaPrice, setQuotaPrice] = useState(1);
-    setQuotaPrice(1);
+    
     const [totalQuotas, setTotalQuotas] = useState(0);
     const [quotaAddress, setQuotaAddress] = useState("--");
 
     const [loading, setLoading] = React.useState(false);
 
-    // function handleSubmit() {
-    //     const body = {
-    //         "value_invested": invest
-    //     }
-    // }
+    // // function handleSubmit() {
+    // //     const body = {
+    // //         "value_invested": invest
+    // //     }
+    // // }
 
     async function getZusdBalance() {
         try{
@@ -192,13 +194,11 @@ export default function FundId({ account, provider, signer }: FundIdProps) {
     },[signer]);
 
     useEffect(() => {
-
         getQuotaBalance();
-    }, [signer]);
+    },[signer]);
 
     useEffect(() =>{
         getTotalQuotas();
-
     },[signer]);
 
     useEffect(() => {
@@ -206,56 +206,81 @@ export default function FundId({ account, provider, signer }: FundIdProps) {
     },[signer]);
 
     
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                // Fetching data from the Performance database
-                const performanceRef = ref(db, 'Performance');
-                const performanceSnapshot = await get(performanceRef);
-                const performanceData: PerformanceItem[] = performanceSnapshot.exists() ? performanceSnapshot.val() : [];
+    // useEffect(() => {
+    //     const fetchData = async () => {
+    //         try {
+    //             // Fetching data from the Performance database
+    //             const performanceRef = ref(db, 'Performance');
+    //             const performanceSnapshot = await get(performanceRef);
+    //             const performanceData: PerformanceItem[] = performanceSnapshot.exists() ? performanceSnapshot.val() : [];
 
-                // Fetching data from the Benchmark database
-                const benchmarkRef = ref(db, 'BenchmarkValue');
-                const benchmarkSnapshot = await get(benchmarkRef);
-                const benchmarkData: BenchmarkItem[] = benchmarkSnapshot.exists() ? benchmarkSnapshot.val() : [];
+    //             // Fetching data from the Benchmark database
+    //             const benchmarkRef = ref(db, 'BenchmarkValue');
+    //             const benchmarkSnapshot = await get(benchmarkRef);
+    //             const benchmarkData: BenchmarkItem[] = benchmarkSnapshot.exists() ? benchmarkSnapshot.val() : [];
     
-                const combinedData: CombinedDataItem[] = [];
+    //             const combinedData: CombinedDataItem[] = [];
 
-                performanceData.forEach((pItem: PerformanceItem) => {
-                    benchmarkData.forEach((bItem: BenchmarkItem) => {
-                        if (pItem.date === bItem.date) {
-                            combinedData.push({
-                                date: pItem.date,
-                                fundId: pItem.fundId,
-                                performanceValue: pItem.value,
-                                bmId: bItem.bmId,
-                                benchmarkValue: bItem.value,
-                            });
-                        }
-                    });
-                });
+    //             performanceData.forEach((pItem: PerformanceItem) => {
+    //                 benchmarkData.forEach((bItem: BenchmarkItem) => {
+    //                     if (pItem.date === bItem.date) {
+    //                         combinedData.push({
+    //                             date: pItem.date,
+    //                             fundId: pItem.fundId,
+    //                             performanceValue: pItem.value,
+    //                             bmId: bItem.bmId,
+    //                             benchmarkValue: bItem.value,
+    //                         });
+    //                     }
+    //                 });
+    //             });
 
-                setData(combinedData);
-            } catch (error) {
-                console.error("Error reading data:", error);
-            }
-        };
+    //             setData(combinedData);
+    //         } catch (error) {
+    //             console.error("Error reading data:", error);
+    //         }
+    //     };
 
-        fetchData();
+    //     fetchData();
+    // }, []);
+
+    useEffect(() => {
+        function mockData() {            
+            setData([
+                { date: "10-20", fundId: "0", performanceValue: 100, bmId: "0", benchmarkValue: 90 },
+                { date: "11-20", fundId: "0", performanceValue: 101, bmId: "0", benchmarkValue: 91 },
+                { date: "12-20", fundId: "0", performanceValue: 104, bmId: "0", benchmarkValue: 92 },
+                { date: "01-20", fundId: "0", performanceValue: 97, bmId: "0", benchmarkValue: 93 },
+                { date: "02-20", fundId: "0", performanceValue: 94, bmId: "0", benchmarkValue: 94 },
+                { date: "03-20", fundId: "0", performanceValue: 95, bmId: "0", benchmarkValue: 95 },
+                { date: "04-20", fundId: "0", performanceValue: 97, bmId: "0", benchmarkValue: 95 },
+                { date: "05-20", fundId: "0", performanceValue: 93, bmId: "0", benchmarkValue: 96 },
+                { date: "06-20", fundId: "0", performanceValue: 88, bmId: "0", benchmarkValue: 96 },
+                { date: "07-20", fundId: "0", performanceValue: 91, bmId: "0", benchmarkValue: 97 },
+                { date: "08-20", fundId: "0", performanceValue: 92, bmId: "0", benchmarkValue: 97 },
+                { date: "09-20", fundId: "0", performanceValue: 89, bmId: "0", benchmarkValue: 98 },
+            ])
+        }
+        mockData();
     }, []);
 
     // function mockData(){            
-    //     setData([...[
-    //         { date: "09-09", fundId: 1, performanceValue: 95, bmId: 300001, benchmarkValue: 90 },
-    //         { date: "09-10", fundId: 1, performanceValue: 98, bmId: 300001, benchmarkValue: 91 },
-    //         { date: "09-11", fundId: 1, performanceValue: 97, bmId: 300001, benchmarkValue: 92 },
-    //         { date: "09-12", fundId: 1, performanceValue: 99, bmId: 300001, benchmarkValue: 93 },
-    //         { date: "09-13", fundId: 1, performanceValue: 100, bmId: 300001, benchmarkValue: 94 },
-    //         { date: "09-14", fundId: 1, performanceValue: 97, bmId: 300001, benchmarkValue: 95 },
-    //         { date: "09-15", fundId: 1, performanceValue: 101, bmId: 300001, benchmarkValue: 95 },
-    //         { date: "09-16", fundId: 1, performanceValue: 104, bmId: 300001, benchmarkValue: 96 },
-    //     ]])
+    //     setData([{ date: "10-20", fundId: "0", performanceValue: 100, bmId: "0", benchmarkValue: 90 },
+    //             { date: "11-20", fundId: "0", performanceValue: 101, bmId: "0", benchmarkValue: 91 },
+    //             { date: "12-20", fundId: "0", performanceValue: 104, bmId: "0", benchmarkValue: 92 },
+    //             { date: "01-20", fundId: "0", performanceValue: 97, bmId: "0", benchmarkValue: 93 },
+    //             { date: "02-20", fundId: "0", performanceValue: 94, bmId: "0", benchmarkValue: 94 },
+    //             { date: "03-20", fundId: "0", performanceValue: 95, bmId: "0", benchmarkValue: 95 },
+    //             { date: "04-20", fundId: "0", performanceValue: 97, bmId: "0", benchmarkValue: 95 },
+    //             { date: "05-20", fundId: "0", performanceValue: 93, bmId: "0", benchmarkValue: 96 },
+    //             { date: "06-20", fundId: "0", performanceValue: 88, bmId: "0", benchmarkValue: 96 },
+    //             { date: "07-20", fundId: "0", performanceValue: 91, bmId: "0", benchmarkValue: 97 },
+    //             { date: "08-20", fundId: "0", performanceValue: 92, bmId: "0", benchmarkValue: 97 },
+    //             { date: "09-20", fundId: "0", performanceValue: 89, bmId: "0", benchmarkValue: 98 },
+    //     ])
+    //     setFund({id: "0", name: "Fund 1", description: "Fund 1 description"} as FundData)
     // }
+
     // mockData();
 
 
@@ -289,6 +314,7 @@ export default function FundId({ account, provider, signer }: FundIdProps) {
                         <h2 className="flex justify-center items-center bg-white h-[12vh] mx-6 text-4xl font-bold text-center text-secondary-color shadow-lg rounded-[20px]">
                         {fund.name}
                         </h2>
+                        
                         <div className='flex flex-col lg:flex-row justify-center lg:h-[70vh] my-10 mx-6 mb-12 shadow-lg bg-white text-secondary-color rounded-[20px]'>
                             <div className='flex-1 lg:basis-2/3 lg:mx-2 lg:px-10'>
                                 <h1 className='font-bold text-2xl mt-6 mb-1 lg:text-left lg:ml-12'>Performance</h1>
@@ -320,6 +346,7 @@ export default function FundId({ account, provider, signer }: FundIdProps) {
                                             <h3 className='italic'>Quota Price:</h3>
                                             <p className='font-bold text-blue-color'>{Number(quotaPrice).toFixed(2)} USD/quota</p>
                                         </div>
+                                        
                                         <div className='grid grid-cols-2'>
                                             <h3 className='italic'>Total number of quotas:</h3>
                                             <p className='font-bold text-blue-color'>{Number(totalQuotas).toFixed(2)}</p>

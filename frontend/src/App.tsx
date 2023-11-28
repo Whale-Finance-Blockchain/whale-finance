@@ -52,12 +52,11 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/fundslist" element={<FundsList />} />
             <Route path="/fundslist/:id" element={
-            <FundId
-              account={account}
-              provider={provider}
-              signer={signer}
-            
-            />} 
+              <FundId
+                account={account}
+                provider={provider}
+                signer={signer}
+              />} 
             />
             <Route path="/successinvestment" element={<SuccessInvestment />} />
             <Route path="/manager" element={
