@@ -1,24 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { db } from '../../firebase/firebase';
-import { get, ref } from "firebase/database";
+// import { db } from '../../firebase/firebase';
+// import { get, ref } from "firebase/database";
 import FormInvestor from '../../components/FormInvestor/FormInvestor';
 import LineChartComponent from '../../components/LineChartComponent/LineChartComponent';
 import PieChartComponent from '../../components/PieChartComponent/PieChartComponent';
 import DataDiv from '../../components/DataDiv/DataDiv';
 import Footer from '../../components/Footer/Footer';
 
-interface PerformanceItem {
-    date: string;
-    fundId: string;
-    value: number;
-}
+// interface PerformanceItem {
+//     date: string;
+//     fundId: string;
+//     value: number;
+// }
 
-interface BenchmarkItem {
-    date: string;
-    bmId: string;
-    value: number;
-}
+// interface BenchmarkItem {
+//     date: string;
+//     bmId: string;
+//     value: number;
+// }
 
 interface CombinedDataItem {
     date: string;
@@ -36,7 +36,7 @@ interface FundData {
 
 export default function Investor() {
 
-    const id = '1';
+    // const id = '1';
 
     const history = useNavigate();
 
@@ -55,64 +55,86 @@ export default function Investor() {
 
     const handleClick = () => {
         handleSubmit();
-        history('/successinvestment');
+        history('/fundslist');
     };
 
-    useEffect(() => {
-        const fetchData = async () => {
-          try {            
-            // Fetching data from the Performance database
-            const performanceRef = ref(db, 'Performance');
-            const performanceSnapshot = await get(performanceRef);
-            const performanceData = performanceSnapshot.exists() ? performanceSnapshot.val() : [];
+    // useEffect(() => {
+    //     const fetchData = async () => {
+    //       try {            
+    //         // Fetching data from the Performance database
+    //         const performanceRef = ref(db, 'Performance');
+    //         const performanceSnapshot = await get(performanceRef);
+    //         const performanceData = performanceSnapshot.exists() ? performanceSnapshot.val() : [];
 
-            // Fetching data from the Benchmark database
-            const benchmarkRef = ref(db, 'BenchmarkValue');
-            const benchmarkSnapshot = await get(benchmarkRef);
-            const benchmarkData = benchmarkSnapshot.exists() ? benchmarkSnapshot.val() : [];
+    //         // Fetching data from the Benchmark database
+    //         const benchmarkRef = ref(db, 'BenchmarkValue');
+    //         const benchmarkSnapshot = await get(benchmarkRef);
+    //         const benchmarkData = benchmarkSnapshot.exists() ? benchmarkSnapshot.val() : [];
 
-            // Fetching data from the Performance database
-            const fundsRef = ref(db, 'Funds');
-            const fundsSnapshot = await get(fundsRef);
-            const fundsData = fundsSnapshot.exists() ? fundsSnapshot.val() : [];
+    //         // Fetching data from the Performance database
+    //         const fundsRef = ref(db, 'Funds');
+    //         const fundsSnapshot = await get(fundsRef);
+    //         const fundsData = fundsSnapshot.exists() ? fundsSnapshot.val() : [];
 
-            if (id) {
-                const matchedFund = fundsData.find((fund: FundData) => fund.id === id);
-                if (matchedFund) {
-                    setFund(matchedFund);
-                } else {
-                    console.log("Fund not found");
-                }
-            } else {
-                console.log("ID is undefined");
-            }
+    //         if (id) {
+    //             const matchedFund = fundsData.find((fund: FundData) => fund.id === id);
+    //             if (matchedFund) {
+    //                 setFund(matchedFund);
+    //             } else {
+    //                 console.log("Fund not found");
+    //             }
+    //         } else {
+    //             console.log("ID is undefined");
+    //         }
                 
-            const combinedData: CombinedDataItem[] = [];
+    //         const combinedData: CombinedDataItem[] = [];
 
-            performanceData.forEach((pItem: PerformanceItem) => {
-                benchmarkData.forEach((bItem: BenchmarkItem) => {
-                    if (pItem.date === bItem.date) {
-                        combinedData.push({
-                            date: pItem.date,
-                            fundId: pItem.fundId,
-                            performanceValue: pItem.value,
-                            bmId: bItem.bmId,
-                            benchmarkValue: bItem.value,
-                        });
-                    }
-                });
-            });
+    //         performanceData.forEach((pItem: PerformanceItem) => {
+    //             benchmarkData.forEach((bItem: BenchmarkItem) => {
+    //                 if (pItem.date === bItem.date) {
+    //                     combinedData.push({
+    //                         date: pItem.date,
+    //                         fundId: pItem.fundId,
+    //                         performanceValue: pItem.value,
+    //                         bmId: bItem.bmId,
+    //                         benchmarkValue: bItem.value,
+    //                     });
+    //                 }
+    //             });
+    //         });
 
-            console.log(combinedData);
+    //         console.log(combinedData);
 
-            setData(combinedData);
+    //         setData(combinedData);
 
-            } catch (error) {
-            console.error("Error reading data:", error);
-            }
-        };
+    //         } catch (error) {
+    //         console.error("Error reading data:", error);
+    //         }
+    //     };
 
-        fetchData();
+    //     fetchData();
+    // }, []);
+
+    useEffect(() => {
+        function mockData() {            
+            setData([
+                { date: "10-20", fundId: "0", performanceValue: 100, bmId: "0", benchmarkValue: 90 },
+                { date: "11-20", fundId: "0", performanceValue: 101, bmId: "0", benchmarkValue: 91 },
+                { date: "12-20", fundId: "0", performanceValue: 104, bmId: "0", benchmarkValue: 92 },
+                { date: "01-20", fundId: "0", performanceValue: 97, bmId: "0", benchmarkValue: 93 },
+                { date: "02-20", fundId: "0", performanceValue: 94, bmId: "0", benchmarkValue: 94 },
+                { date: "03-20", fundId: "0", performanceValue: 95, bmId: "0", benchmarkValue: 95 },
+                { date: "04-20", fundId: "0", performanceValue: 97, bmId: "0", benchmarkValue: 95 },
+                { date: "05-20", fundId: "0", performanceValue: 93, bmId: "0", benchmarkValue: 96 },
+                { date: "06-20", fundId: "0", performanceValue: 88, bmId: "0", benchmarkValue: 96 },
+                { date: "07-20", fundId: "0", performanceValue: 91, bmId: "0", benchmarkValue: 97 },
+                { date: "08-20", fundId: "0", performanceValue: 92, bmId: "0", benchmarkValue: 97 },
+                { date: "09-20", fundId: "0", performanceValue: 89, bmId: "0", benchmarkValue: 98 },
+            ])
+            setFund({id: "0", name: "Fund 1", description: "Fund 1 description"} as FundData)
+        }
+
+        mockData();
     }, []);
 
     if (!fund) {
