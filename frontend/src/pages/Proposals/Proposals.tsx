@@ -1,52 +1,73 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Footer from '../../components/Footer/Footer';
+import { ethers } from 'ethers';
+import { WhaleFinanceAbi } from '../../contracts/WhaleFinance';
+import { WhaleFinanceAddress } from '../../utils/addresses';
 
-export default function Proposals() {
+export default function Proposals({ isMetamaskInstalled, signer }: 
+    { isMetamaskInstalled: boolean; signer: any;}) {
         
     const history = useNavigate();
 
-    const [tempValue, setTempValue] = useState();
+    interface ProposalValues {
+        [key: number]: number;
+    }
+
+    const [proposalValues, setProposalValues] = useState<ProposalValues>({});
+
+    const handleInputChange = (proposalId: number, newValue: string) => {
+        setProposalValues(prevValues => ({
+            ...prevValues,
+            [proposalId]: Number(newValue)
+        }));
+    };
 
     const [myproposals, setMyproposals] = useState([
         // TESTE
         {
-            id: 1,
+            proposal_id: 1,
+            fund_id: 1,
             name: `Fund Name 1`,
             option: "A",
             value: 0,
             status: "pending",
         },
         {
-            id: 2,
+            proposal_id: 2,
+            fund_id: 2,
             name: `Fund Name 2`,
             option: "A",
             value: 0,
             status: "rejected",
         },
         {
-            id: 3,
+            proposal_id: 3,
+            fund_id: 3,
             name: `Fund Name 3`,
             option: "A",
             value: 0,
             status: "pending",
         },
         {
-            id: 4,
+            proposal_id: 4,
+            fund_id: 4,
             name: `Fund Name 4`,
             option: "B",
             value: 0,
             status: "awaiting result",
         },
         {
-            id: 5,
+            proposal_id: 5,
+            fund_id: 5,
             name: `Fund Name 5`,
             option: "A",
             value: 0,
             status: "awaiting result",
         },
         {
-            id: 6,
+            proposal_id: 6,
+            fund_id: 6,
             option: "B",
             name: `Fund Name 6`,
             value: 0,
@@ -54,14 +75,33 @@ export default function Proposals() {
         },
     ]);
     
-    async function sendResponse(id, tempValue){
+    async function sendVote(_id: number){
         // send the response to the smart contract
         // update the row line to awaiting result
         // set the tempValue to the number of tokens in the smart contract
+
+        try{
+            const whaleFinanceContract = new ethers.Contract(WhaleFinanceAddress, WhaleFinanceAbi, signer);
+            const transactionVote = await whaleFinanceContract.vote(_id, proposalValues[_id]);
+
+            await transactionVote.wait();
+        
+        }catch(err){
+            console.log(err);
+        }
     }
 
-    async function sendWithdraw(){
-        // delete the row line and withdraw the tokens
+    async function sendWithdraw(_id: number){
+        try{
+            const whaleFinanceContract = new ethers.Contract(WhaleFinanceAddress, WhaleFinanceAbi, signer);
+            const transactionWithdraw = await whaleFinanceContract.withdrawVotingTokens(_id);
+
+            await transactionWithdraw.wait();
+
+
+        }catch(err){
+            console.log(err);
+        }
     }
 
     return (
@@ -84,8 +124,8 @@ export default function Proposals() {
                             </div>
                             <div className="text-gray-800 text-[0.6rem] md:text-sm lg:text-sm font-light">
                                 {myproposals.map((proposal) => (
-                                    <div key={proposal.id} className="border-b h-14 items-center  flex hover:bg-gray-100 hover:bg-opacity-50">
-                                        <div className="py-3 px-6 text-center flex-1">{proposal.id}</div>
+                                    <div key={proposal.proposal_id} className="border-b h-14 items-center  flex hover:bg-gray-100 hover:bg-opacity-50">
+                                        <div className="py-3 px-6 text-center flex-1">{proposal.proposal_id}</div>
                                         <div className="py-3 px-6 text-center flex-1">{proposal.name}</div>
                                         <div className="py-3 px-6 text-center flex-1 relative">
                                             <div className={`h-4 w-4 rounded-full absolute center-[-10px] top-1/2 transform -translate-y-1/2 ${proposal.status === "accepted" ? "bg-green-500" : proposal.status === "rejected" ? "bg-red-500" : proposal.status === "pending" ? "bg-yellow-500" : "bg-blue-500"}`}></div>
@@ -95,11 +135,11 @@ export default function Proposals() {
                                             {proposal.status === 'pending' && 
                                                 <input
                                                     type="number"
-                                                    id="value"
-                                                    name="value"
+                                                    id={`value-${proposal.proposal_id}`}
+                                                    name={`value-${proposal.proposal_id}`}
                                                     placeholder='Num of Tokens'
-                                                    value={tempValue}
-                                                    onChange={(e) => setTempValue(e.target.value)}
+                                                    value={proposalValues[proposal.proposal_id] || ''}
+                                                    onChange={(e) => handleInputChange(proposal.proposal_id, e.target.value)}
                                                     className="bg-white text-black text-center w-full pl-4 outline-0 shadow-lg py-2 hover:bg-gray-100 transition duration-1000 ease-in-out"
                                                 />
                                             }
@@ -110,13 +150,13 @@ export default function Proposals() {
                                         <div className="py-3 px-6 text-left flex-1">
                                             {proposal.status === 'pending' && 
                                                 <button className="w-full bg-transparent hover:bg-blue-color text-clue-color font-bold hover:text-white py-2 px-4 border-2 border-blue-color hover:border-transparent rounded"
-                                                        onClick={() => sendResponse(proposal.id, tempValue)}>
+                                                        onClick={() => sendVote(proposal.proposal_id)}>
                                                     Vote YES for the Proposal
                                                 </button>
                                             }
                                             {(proposal.status === 'accepted' || proposal.status === 'rejected') && 
                                                 <button className="w-full bg-transparent hover:bg-blue-color text-clue-color font-bold hover:text-white py-2 px-4 border-2 border-blue-color hover:border-transparent rounded"
-                                                        onClick={() => sendWithdraw()}>
+                                                        onClick={() => sendWithdraw(proposal.proposal_id)}>
                                                     Withdraw Tokens
                                                 </button>
                                             }

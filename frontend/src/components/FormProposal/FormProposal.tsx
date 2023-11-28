@@ -10,11 +10,11 @@ export default function FormProposal(props: any) {
                                 What will be the fund id related to your proposal?
                             </label>
                             <input
-                                type="text"
+                                type="number"
                                 id="id"
                                 name="id"
                                 placeholder='Fund ID'
-                                value={props.name}
+                                value={props.id}
                                 onChange={(e) => props.setId(e.target.value)}
                                 className=" bg-white md:text-xl lg:text-xl text-center text-black p-2 mt-4 rounded-full outline-0 shadow-lg hover:bg-gray-100 transition duration-1000 ease-in-out"
                             />
