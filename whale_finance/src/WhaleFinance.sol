@@ -11,6 +11,7 @@ import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/proxy/beacon/BeaconProxy.sol";
 import "./QuotaToken.sol";
 import "./interface/IV2SwapRouter.sol";
+import "./SafeAccount.sol";
 
 struct OpenRedeemProposal {
     uint256 fundId;
@@ -18,6 +19,18 @@ struct OpenRedeemProposal {
     uint256 deadline;
     bool accepted;
     string name;        
+}
+
+struct SwapProposal {
+    uint256 fundId;
+    uint256 amountIn;
+    uint256 amountOutMin;
+    address[] path;
+    address to;
+    uint256 deadlineSwap;
+    uint256 deadlineVote;
+    bool accepted;
+    string name;
 }
 
 contract WhaleFinance is ERC721, Ownable {
@@ -36,7 +49,11 @@ contract WhaleFinance is ERC721, Ownable {
 
     mapping(uint256 => OpenRedeemProposal) public openRedeemProposals; // proposalId => OpenRedeemProposal
     mapping(uint256 => uint256) public proposalsVotes; // proposalId => proposalsVotes
-    mapping(uint256 => mapping(address => uint256)) public votes; // proposalId => (voter => voted)
+    mapping(uint256 => mapping(address => uint256)) public redemmVotes; // proposalId => (voter => voted)
+
+    mapping(uint256 => SwapProposal) public swapProposals; // proposalId => SwapProposal
+    mapping(uint256 => mapping(address => uint256)) public swapVotes; // proposalId => (voter => voted)
+    mapping(uint256 => uint256) public swapProposalsVotes; // proposalId => proposalsVotes
 
     event NewOpenRedeemProposal(uint256 indexed proposalId, uint256 indexed fundId, uint256 newTimestamp, string name);
     event Voted(uint256 indexed proposalId, address indexed voter, uint256 amount);
@@ -78,7 +95,7 @@ contract WhaleFinance is ERC721, Ownable {
         
         uint256 fundId = _fundIdCounter;
         _fundIdCounter++;
-        _mint(_to, fundId);
+        
 
         for(uint256 i = 0; i < _allowedTokens.length; i++) {
             if(!whiteListedTokens[_allowedTokens[i]]){
@@ -88,6 +105,7 @@ contract WhaleFinance is ERC721, Ownable {
             fundsAllowedTokens[fundId].push(_allowedTokens[i]);
         }
 
+        _mint(address(this), fundId); // minting to Whale Finance at first
         address createdFundAddress = fundsRegister.createAccount(
             address(erc6551Implementation),
             block.chainid,
@@ -96,6 +114,11 @@ contract WhaleFinance is ERC721, Ownable {
             0,
             ""
         );
+
+        SafeAccount(payable(createdFundAddress)).setWhaleFinance(address(this)); // setting whale Finance for delegated swaps 
+        _transfer(address(this), _to, fundId); //transfering to real owner
+
+
         fundsAddresses[fundId] = createdFundAddress;
         fundsNames[fundId] = _name;
         admFees[fundId] = _admFee; // the fee is in bps, if admFee = 100, the fee is 1%
@@ -210,17 +233,17 @@ contract WhaleFinance is ERC721, Ownable {
 
         IERC20(quotasAddresses[fundId]).transferFrom(msg.sender, address(this), _amount);
 
-        votes[_proposalId][msg.sender] += _amount;
+        redemmVotes[_proposalId][msg.sender] += _amount;
         proposalsVotes[_proposalId] += _amount;
 
         emit Voted(_proposalId, msg.sender, _amount);
     }
 
-    function getVoterBalance(uint256 _proposalId, address _voter) public view returns(uint256) {
-        return votes[_proposalId][_voter];
+    function getVoterRedeemBalance(uint256 _proposalId, address _voter) public view returns(uint256) {
+        return redemmVotes[_proposalId][_voter];
     }
 
-    function getTotalProposalVotes(uint256 _proposalId) public view returns(uint256) {
+    function getTotalRedeemProposalVotes(uint256 _proposalId) public view returns(uint256) {
         return proposalsVotes[_proposalId];
     }
 
@@ -230,11 +253,11 @@ contract WhaleFinance is ERC721, Ownable {
         uint256 fundId = openRedeemProposals[_proposalId].fundId;
         require(fundId < _fundIdCounter, "Fund not found");
 
-        uint256 amount = votes[_proposalId][msg.sender];
+        uint256 amount = redemmVotes[_proposalId][msg.sender];
         require(amount > 0, "You don't have any voting tokens");
 
         IERC20(quotasAddresses[fundId]).transfer(msg.sender, amount);
-        votes[_proposalId][msg.sender] = 0;
+        redemmVotes[_proposalId][msg.sender] = 0;
 
         emit VotingTokensWithdrawn(_proposalId, msg.sender, amount);
         

@@ -11,6 +11,7 @@ import "../src/interface/IERC6551Registry.sol";
 import "../src/QuotaToken.sol";
 import "../src/WhaleFinance.sol";
 import "../src/QuotaBeacon.sol";
+import "../src/SafeAccount.sol";
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "./mocks/mockERC20.sol";
@@ -72,6 +73,9 @@ contract WhaleFinanceTest is Test {
         );
 
         assertEq(predictedERC6551, whaleFinance.fundsAddresses(fundId));
+        address whaleFinanceAddress = address(SafeAccount(payable(whaleFinance.fundsAddresses(fundId))).whaleFinance());
+
+        assertEq(whaleFinanceAddress, address(whaleFinance));
     }
 
     function testInvestiment() public {
@@ -157,7 +161,7 @@ contract WhaleFinanceTest is Test {
 
         vm.prank(investor1);
         whaleFinance.vote(proposalId, amountInvestor1);
-        assertTrue(whaleFinance.getVoterBalance(proposalId, investor1) == amountInvestor1);
+        assertTrue(whaleFinance.getVoterRedeemBalance(proposalId, investor1) == amountInvestor1);
 
         try whaleFinance.changeOpenRedeemTimestamp(proposalId) {
             assertTrue(false);
@@ -213,7 +217,7 @@ contract WhaleFinanceTest is Test {
         quotaToken.approve(address(whaleFinance), amountInvestor1);
         vm.prank(investor1);
         whaleFinance.vote(proposalId, amountInvestor1);
-        assertTrue(whaleFinance.getVoterBalance(proposalId, investor1) == amountInvestor1);
+        assertTrue(whaleFinance.getVoterRedeemBalance(proposalId, investor1) == amountInvestor1);
 
         
         amountInvestor2 = quotaToken.balanceOf(investor2);
@@ -221,7 +225,7 @@ contract WhaleFinanceTest is Test {
         quotaToken.approve(address(whaleFinance), amountInvestor2);
         vm.prank(investor2);
         whaleFinance.vote(proposalId, amountInvestor2);
-        assertTrue(whaleFinance.getVoterBalance(proposalId, investor2) == amountInvestor2);
+        assertTrue(whaleFinance.getVoterRedeemBalance(proposalId, investor2) == amountInvestor2);
 
 
         try whaleFinance.changeOpenRedeemTimestamp(proposalId) {

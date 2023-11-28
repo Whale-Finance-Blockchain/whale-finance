@@ -9,11 +9,13 @@ import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
 import "./interface/IERC6551Account.sol";
 import "./interface/IV2SwapRouter.sol";
+import "./WhaleFinance.sol";
 
 contract SafeAccount is IERC165, IERC1271, IERC6551Account {
     receive() external payable {}
 
-    IV2SwapRouter public swapRouter = IV2SwapRouter(0x7963c1bd24E4511A0b14bf148F93e2556AFe3C27);
+    IV2SwapRouter public swapRouter = IV2SwapRouter(0xcbC9ce7898517049175280288f3838593Adcc660);
+    WhaleFinance public whaleFinance;
 
 
     function executeSwapExactTokensForTokens(
@@ -32,6 +34,25 @@ contract SafeAccount is IERC165, IERC1271, IERC6551Account {
         require(_isValidSigner(msg.sender), "Invalid signer");
         
         return IERC20(tokenErc20).approve(spender, amount);
+    }
+
+    //Delegated Swaps Logic
+    function setWhaleFinance(address _whaleFinance) external {
+        require(msg.sender == _whaleFinance, "Invalid signer");
+        whaleFinance = WhaleFinance(_whaleFinance);
+    }
+
+    function executeProposedSwap(
+        uint256 amountIn,
+        uint256 amountOutMin,
+        address[] calldata path,
+        address to,
+        uint deadline
+    ) external returns (uint[] memory amounts){
+        require(address(whaleFinance) != address(0), "Whale Finance not set");
+        require(msg.sender == address(whaleFinance), "Invalid signer");
+
+        return swapRouter.swapExactTokensForTokens(amountIn, amountOutMin, path, to, deadline);
     }
 
 
