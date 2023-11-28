@@ -27,7 +27,7 @@ contract Deploy is Script {
         address token3 = 0x083C06f4191e5350ba7Ce70a9Ab86c601b17cCFf;
         address token4 = 0x3E8D3319CbB430685CA1b100f83E4C882e65D635;
 
-        whaleFinance = WhaleFinance(0x586b6d11CB546057f87898Dd3FdC8D4cE91F29Bc);
+        whaleFinance = WhaleFinance(0x9e40f546EeC71cBE34F079B0Bb8fBf4a7529BcD8);
         whaleFinance.setWhiteListedToken(address(token1));
         whaleFinance.setWhiteListedToken(address(token2));
         whaleFinance.setWhiteListedToken(address(token3));

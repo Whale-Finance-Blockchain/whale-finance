@@ -14,7 +14,8 @@ export default function Proposals({ isMetamaskInstalled, signer }:
         [key: number]: number;
     }
 
-    const [proposalValues, setProposalValues] = useState<ProposalValues>({});
+    const [proposalValues, setProposalValues] = useState<any>([]);
+    const [proposalIds, setProposalIds] = useState<any>([]);
 
     const handleInputChange = (proposalId: number, newValue: string) => {
         setProposalValues(prevValues => ({
@@ -23,57 +24,75 @@ export default function Proposals({ isMetamaskInstalled, signer }:
         }));
     };
 
-    const [myproposals, setMyproposals] = useState([
-        // TESTE
-        {
-            proposal_id: 1,
-            fund_id: 1,
-            name: `Fund Name 1`,
-            option: "A",
-            value: 0,
-            status: "pending",
-        },
-        {
-            proposal_id: 2,
-            fund_id: 2,
-            name: `Fund Name 2`,
-            option: "A",
-            value: 0,
-            status: "rejected",
-        },
-        {
-            proposal_id: 3,
-            fund_id: 3,
-            name: `Fund Name 3`,
-            option: "A",
-            value: 0,
-            status: "pending",
-        },
-        {
-            proposal_id: 4,
-            fund_id: 4,
-            name: `Fund Name 4`,
-            option: "B",
-            value: 0,
-            status: "awaiting result",
-        },
-        {
-            proposal_id: 5,
-            fund_id: 5,
-            name: `Fund Name 5`,
-            option: "A",
-            value: 0,
-            status: "awaiting result",
-        },
-        {
-            proposal_id: 6,
-            fund_id: 6,
-            option: "B",
-            name: `Fund Name 6`,
-            value: 0,
-            status: "accepted",
-        },
-    ]);
+    // const [myproposals, setMyproposals] = useState([
+    //     {
+    //         proposal_id: 0,
+    //         fund_id: 0,
+    //         name: `Fund Name 0`,
+    //         option: "G",
+    //         value: 0,
+    //         status: "pending",
+    //     },
+    //     // TESTE
+    //     {
+    //         proposal_id: 1,
+    //         fund_id: 1,
+    //         name: `Fund Name 1`,
+    //         option: "A",
+    //         value: 0,
+    //         status: "pending",
+    //     },
+    //     {
+    //         proposal_id: 2,
+    //         fund_id: 2,
+    //         name: `Fund Name 2`,
+    //         option: "A",
+    //         value: 0,
+    //         status: "rejected",
+    //     },
+    //     {
+    //         proposal_id: 3,
+    //         fund_id: 3,
+    //         name: `Fund Name 3`,
+    //         option: "A",
+    //         value: 0,
+    //         status: "pending",
+    //     },
+    //     {
+    //         proposal_id: 4,
+    //         fund_id: 4,
+    //         name: `Fund Name 4`,
+    //         option: "B",
+    //         value: 0,
+    //         status: "awaiting result",
+    //     },
+    //     {
+    //         proposal_id: 5,
+    //         fund_id: 5,
+    //         name: `Fund Name 5`,
+    //         option: "A",
+    //         value: 0,
+    //         status: "awaiting result",
+    //     },
+    //     {
+    //         proposal_id: 6,
+    //         fund_id: 6,
+    //         option: "B",
+    //         name: `Fund Name 6`,
+    //         value: 0,
+    //         status: "accepted",
+    //     },
+    // ]);
+
+    function timesTampToString(timestamp: string){
+        console.log(timestamp)
+        const date = new Date(Number(timestamp)*1000);
+
+        const strDate = date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear();
+        return strDate;
+    } 
+
+    const [myproposals, setMyproposals] = useState<any>([]);
     
     async function sendVote(_id: number){
         // send the response to the smart contract
@@ -82,7 +101,18 @@ export default function Proposals({ isMetamaskInstalled, signer }:
 
         try{
             const whaleFinanceContract = new ethers.Contract(WhaleFinanceAddress, WhaleFinanceAbi, signer);
-            const transactionVote = await whaleFinanceContract.vote(_id, proposalValues[_id]);
+            
+            const quotaAddress = await whaleFinanceContract.functions.quotasAddresses(_id);
+
+            const quotaContract = new ethers.Contract(quotaAddress[0], WhaleFinanceAbi, signer);
+
+            const amount = ethers.utils.parseEther(String(proposalValues[_id]));
+
+            const txApprove = await quotaContract.functions.approve(WhaleFinanceAddress, amount);
+            
+            await txApprove.wait();
+
+            const transactionVote = await whaleFinanceContract.voteForChangingOpenRedeem(_id, amount);
 
             await transactionVote.wait();
         
@@ -104,6 +134,72 @@ export default function Proposals({ isMetamaskInstalled, signer }:
         }
     }
 
+    async function getProposals(){
+        try{
+            const whaleFinanceContract = new ethers.Contract(WhaleFinanceAddress, WhaleFinanceAbi, signer);
+
+            const numberProposalsBigNumber = await whaleFinanceContract.functions.proposalIdCounter();
+            const numberProposals = ethers.utils.formatUnits(numberProposalsBigNumber[0]._hex, 0);
+            console.log(numberProposals)
+
+            //make Array from 0 to numberProposals
+            const ids = Array.from(Array(Number(numberProposals)), (_,x) => x);
+
+            setProposalIds(ids);
+
+            console.log(ids);
+
+            const proposals = await Promise.all(ids.map( async id => {
+                const prop = await whaleFinanceContract.functions.openRedeemProposals(id);
+
+                const fundId = prop[0];
+                const fundName = await whaleFinanceContract.functions.fundsNames(fundId);
+
+                const newTimestamp = prop[1];
+                const deadline = prop[2];
+                const accepted = prop[3];
+
+                console.log(signer)
+
+                const votesBigNumber = await whaleFinanceContract.functions.getVoterRedeemBalance(id, signer._address);
+
+                const votes = ethers.utils.formatEther(votesBigNumber[0]._hex)
+
+
+
+                
+
+                return {
+                    proposal_id: id,
+                    fund_id: ethers.utils.formatEther(fundId._hex),
+                    name: fundName[0],
+                    status: "pending",
+                    newTimestamp: ethers.utils.formatUnits(newTimestamp._hex, 0),
+                    deadline: ethers.utils.formatUnits(deadline._hex, 0),
+                    accepted: accepted,
+                    votes: votes
+                }
+                
+            }));
+
+            console.log(proposals);
+
+
+
+            setMyproposals(proposals);
+
+
+
+        } catch(err){
+            console.log(err);
+        }
+
+    }
+
+    useEffect(() => {
+        getProposals();
+    },[]);
+
     return (
         <div className='w-[100vw] h-screen text-gray-700 bg-[#f6f6f6] overflow-y-auto'>
             <section className="">
@@ -116,10 +212,12 @@ export default function Proposals({ isMetamaskInstalled, signer }:
                         {myproposals.length ? (
                             <div className="flex flex-col w-[90%] my-12 shadow-lg rounded-lg overflow-hidden">
                             <div className="flex border-blue-color bg-gray-100 text-secondary-color font-bold uppercase text-[0.5rem] md:text-sm lg:text-sm leading-normal">
-                                <div className="py-3 px-6 text-center flex-1">Fund Id</div>
+                                <div className="py-3 px-6 text-center flex-1">Proposal Id</div>
                                 <div className="py-3 px-6 text-center flex-1">Fund Name</div>
                                 <div className="py-3 px-6 text-center flex-1">Status</div>
                                 <div className="py-3 px-6 text-center flex-1">Num of Tokens</div>
+                                <div className="py-3 px-6 text-center flex-1">New Proposed Date</div>
+                                <div className="py-3 px-6 text-center flex-1">Your votes</div>
                                 <div className="py-3 px-6 text-center flex-1">Action</div>
                             </div>
                             <div className="text-gray-800 text-[0.6rem] md:text-sm lg:text-sm font-light">
@@ -146,6 +244,12 @@ export default function Proposals({ isMetamaskInstalled, signer }:
                                             {proposal.status != 'pending' && 
                                                 <div className="text-center">{proposal.value}</div>
                                             }
+                                        </div>
+                                        <div className="py-3 px-6 text-center flex-1 relative">
+                                            {timesTampToString(proposal.newTimestamp)}
+                                        </div>
+                                        <div className="py-3 px-6 text-center flex-1 relative">
+                                            {Number(proposal.votes).toFixed(2)}
                                         </div>
                                         <div className="py-3 px-6 text-left flex-1">
                                             {proposal.status === 'pending' && 

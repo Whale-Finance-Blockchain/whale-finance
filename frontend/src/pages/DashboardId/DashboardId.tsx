@@ -43,8 +43,8 @@ export default function DashboardId({ account, signer }:
     const [fund, setFund] = useState<FundData | null>(null);
     const [data, setData] = useState<CombinedDataItem[]>([]);
 
-    const [tokenA, setTokenA] = useState("ZUSD");
-    const [tokenB, setTokenB] = useState("ZUSD");
+    const [tokenA, setTokenA] = useState("WUSD");
+    const [tokenB, setTokenB] = useState("WUSD");
 
     // useEffect(() => {
     //     const fetchData = async () => {

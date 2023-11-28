@@ -9,7 +9,7 @@ import { useParams } from 'react-router-dom';
 import DataDiv from '../../components/DataDiv/DataDiv';
 import Footer from '../../components/Footer/Footer';
 import { ethers } from 'ethers';
-import { WhaleFinanceAddress, ZusdAddress, scanUrl } from '../../utils/addresses';
+import { WhaleFinanceAddress, WusdAddress, scanUrl } from '../../utils/addresses';
 import { QuotaTokenAbi } from '../../contracts/QuotaToken';
 import { WhaleFinanceAbi } from '../../contracts/WhaleFinance';
 import Zusd from '../../assets/zusd.png';
@@ -64,6 +64,7 @@ export default function FundId({ account, provider, signer }: FundIdProps) {
     
     const [totalQuotas, setTotalQuotas] = useState(0);
     const [quotaAddress, setQuotaAddress] = useState("--");
+    const [openRedeem, setOpenRedeem] = useState(0);
 
     const [loading, setLoading] = React.useState(false);
 
@@ -76,7 +77,7 @@ export default function FundId({ account, provider, signer }: FundIdProps) {
     async function getZusdBalance() {
         try{
 
-            const zusdContract = new ethers.Contract(ZusdAddress, QuotaTokenAbi, signer);
+            const zusdContract = new ethers.Contract(WusdAddress, QuotaTokenAbi, signer);
 
             const balance = await zusdContract.functions.balanceOf(account);
             setZusdBalance(parseFloat(ethers.utils.formatEther(balance[0])));
@@ -131,6 +132,19 @@ export default function FundId({ account, provider, signer }: FundIdProps) {
         }
     }
 
+    async function getOpenRedeem(){
+        try{
+            const whaleFinanceContract = new ethers.Contract(WhaleFinanceAddress, WhaleFinanceAbi, signer);
+
+            const openRedeems = await whaleFinanceContract.functions.openRedeemTimestamps(id);
+
+            setOpenRedeem(parseFloat(ethers.utils.formatUnits(openRedeems[0], 0)));
+
+        } catch(err){
+            console.log(err);
+        }
+    }
+
     async function makeInvestment(){
         try{
             if(invest <= 0 || invest > zusdBalance){
@@ -140,7 +154,7 @@ export default function FundId({ account, provider, signer }: FundIdProps) {
 
             const whaleFinanceContract = new ethers.Contract(WhaleFinanceAddress, WhaleFinanceAbi, signer);
 
-            const zusdContract = new ethers.Contract(ZusdAddress, QuotaTokenAbi, signer);
+            const zusdContract = new ethers.Contract(WusdAddress, QuotaTokenAbi, signer);
 
             const txApprove = await zusdContract.functions.approve(WhaleFinanceAddress, ethers.utils.parseEther(String(invest)));
 
@@ -204,6 +218,11 @@ export default function FundId({ account, provider, signer }: FundIdProps) {
     useEffect(() => {
         getQuotaAddress();
     },[signer]);
+
+    useEffect(() => {
+        getOpenRedeem();
+    },[signer]);
+
 
     
     // useEffect(() => {
@@ -283,6 +302,14 @@ export default function FundId({ account, provider, signer }: FundIdProps) {
 
     // mockData();
 
+    function timesTampToString(timestamp: string){
+        console.log(timestamp)
+        const date = new Date(Number(timestamp)*1000);
+
+        const strDate = date.getDate() + "/" + date.getMonth() + "/" + date.getFullYear();
+        return strDate;
+    }
+
 
     if (!fund) {
         return (
@@ -332,7 +359,7 @@ export default function FundId({ account, provider, signer }: FundIdProps) {
                                 </div>
                                 <div className='flex flex-col bg-slate-100 p-4 mb-8 rounded-[10px] space-y-1'>
                                         <div className='grid grid-cols-2'>
-                                            <h3 className='italic'>Your ZUSD Balance:</h3>
+                                            <h3 className='italic'>Your WUSD Balance:</h3>
                                             <div className='flex flex-row items-center justify-center'>
                                                 <p className='font-bold text-blue-color'>{Number(zusdBalance).toFixed(2)}</p>
                                                 <img src={Zusd} alt="zusd" className='w-6 h-6 ml-2' />
@@ -351,6 +378,12 @@ export default function FundId({ account, provider, signer }: FundIdProps) {
                                             <h3 className='italic'>Total number of quotas:</h3>
                                             <p className='font-bold text-blue-color'>{Number(totalQuotas).toFixed(2)}</p>
                                         </div>
+
+                                        <div className='grid grid-cols-2'>
+                                            <h3 className='italic'>Maturation Date</h3>
+                                            <p className='font-bold text-blue-color'>{timesTampToString(openRedeem)}</p>
+                                        </div>
+                                        
                                         <div className='grid grid-cols-2'>
                                             <h3
                                             className='italic'
