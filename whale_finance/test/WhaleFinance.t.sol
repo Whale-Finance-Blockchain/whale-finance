@@ -160,7 +160,7 @@ contract WhaleFinanceTest is Test {
         quotaToken.approve(address(whaleFinance), amountInvestor1);
 
         vm.prank(investor1);
-        whaleFinance.vote(proposalId, amountInvestor1);
+        whaleFinance.voteForChangingOpenRedeem(proposalId, amountInvestor1);
         assertTrue(whaleFinance.getVoterRedeemBalance(proposalId, investor1) == amountInvestor1);
 
         try whaleFinance.changeOpenRedeemTimestamp(proposalId) {
@@ -216,7 +216,7 @@ contract WhaleFinanceTest is Test {
         vm.prank(investor1);
         quotaToken.approve(address(whaleFinance), amountInvestor1);
         vm.prank(investor1);
-        whaleFinance.vote(proposalId, amountInvestor1);
+        whaleFinance.voteForChangingOpenRedeem(proposalId, amountInvestor1);
         assertTrue(whaleFinance.getVoterRedeemBalance(proposalId, investor1) == amountInvestor1);
 
         
@@ -224,7 +224,7 @@ contract WhaleFinanceTest is Test {
         vm.prank(investor2);
         quotaToken.approve(address(whaleFinance), amountInvestor2);
         vm.prank(investor2);
-        whaleFinance.vote(proposalId, amountInvestor2);
+        whaleFinance.voteForChangingOpenRedeem(proposalId, amountInvestor2);
         assertTrue(whaleFinance.getVoterRedeemBalance(proposalId, investor2) == amountInvestor2);
 
 

@@ -56,9 +56,11 @@ contract WhaleFinance is ERC721, Ownable {
     mapping(uint256 => uint256) public swapProposalsVotes; // proposalId => proposalsVotes
 
     event NewOpenRedeemProposal(uint256 indexed proposalId, uint256 indexed fundId, uint256 newTimestamp, string name);
-    event Voted(uint256 indexed proposalId, address indexed voter, uint256 amount);
+    event Voted(uint256 indexed proposalId, address indexed voter, uint256 amount, string votingType);
     event VotingTokensWithdrawn(uint256 indexed proposalId, address indexed voter, uint256 amount);
-    event ProposalAccepted(uint256 indexed proposalId, uint256 indexed fundId, uint256 newTimestamp, string name);
+    event OpenRedeemProposalAccepted(uint256 indexed proposalId, uint256 indexed fundId, uint256 newTimestamp, string name);
+    event NewDelegatedSwapProposal(uint256 indexed proposalId, uint256 indexed fundId, uint256 amountIn, uint256 amountOutMin, string name);
+    event DelegatedSwapProposalAccepted(uint256 indexed proposalId, uint256 indexed fundId, uint256 amountIn, uint256 amountOutMin, string name);
 
     // SWAP ROUTER
     IV2SwapRouter public swapRouter = IV2SwapRouter(0xcbC9ce7898517049175280288f3838593Adcc660);
@@ -198,7 +200,7 @@ contract WhaleFinance is ERC721, Ownable {
         } else{
             revert("The proposal was not accepted yet");
         } 
-        emit ProposalAccepted(_proposalId, fundId, newTimestamp, openRedeemProposals[_proposalId].name);
+        emit OpenRedeemProposalAccepted(_proposalId, fundId, newTimestamp, openRedeemProposals[_proposalId].name);
    
         openRedeemTimestamps[fundId] = newTimestamp;
         emit OpenRedeemTimestampChanged(fundsAddresses[fundId], newTimestamp);
@@ -216,12 +218,12 @@ contract WhaleFinance is ERC721, Ownable {
         });
         proposalIdCounter++;
 
-        emit NewOpenRedeemProposal(_fundId, _newTimestamp, _newTimestamp, _name);
+        emit NewOpenRedeemProposal(proposalIdCounter -1, _fundId, _newTimestamp, _name);
         return proposalIdCounter-1;
     }
 
 
-    function vote(uint256 _proposalId, uint256 _amount) public {
+    function voteForChangingOpenRedeem(uint256 _proposalId, uint256 _amount) public {
         require(_proposalId <= proposalIdCounter, "Proposal not found");
         require(block.timestamp < openRedeemProposals[_proposalId].deadline, "The voting period is over");
         require(!openRedeemProposals[_proposalId].accepted, "The proposal was already accepted");
@@ -236,7 +238,7 @@ contract WhaleFinance is ERC721, Ownable {
         redemmVotes[_proposalId][msg.sender] += _amount;
         proposalsVotes[_proposalId] += _amount;
 
-        emit Voted(_proposalId, msg.sender, _amount);
+        emit Voted(_proposalId, msg.sender, _amount, "openRedeem");
     }
 
     function getVoterRedeemBalance(uint256 _proposalId, address _voter) public view returns(uint256) {
@@ -247,7 +249,7 @@ contract WhaleFinance is ERC721, Ownable {
         return proposalsVotes[_proposalId];
     }
 
-    function withdrawVotingTokens(uint256 _proposalId) public {
+    function withdrawVotingTokensFromOpenRedeemProposal(uint256 _proposalId) public {
         require(block.timestamp > openRedeemProposals[_proposalId].deadline || openRedeemProposals[_proposalId].accepted, "The voting period is not over yet");
         
         uint256 fundId = openRedeemProposals[_proposalId].fundId;
@@ -261,6 +263,94 @@ contract WhaleFinance is ERC721, Ownable {
 
         emit VotingTokensWithdrawn(_proposalId, msg.sender, amount);
         
+    }
+
+    //VOTING DELEGATED SWAPS FUNCTIONS
+
+    function executeProposedSwap(uint256 _proposalId) public {
+        uint256 fundId = swapProposals[_proposalId].fundId;
+        uint256 amountIn = swapProposals[_proposalId].amountIn;
+        uint256 amountOutMin = swapProposals[_proposalId].amountOutMin;
+        address[] memory path = swapProposals[_proposalId].path;
+        address to = swapProposals[_proposalId].to;
+        require(block.timestamp < swapProposals[_proposalId].deadlineVote, "The voting period is over");
+        require(!swapProposals[_proposalId].accepted, "The proposal was already accepted");
+        require(fundId < _fundIdCounter, "Fund not found");
+
+        uint256 totalVotingTokens = IERC20(quotasAddresses[fundId]).totalSupply();
+        uint256 totalVotes = swapProposalsVotes[_proposalId];
+
+        if(totalVotes > totalVotingTokens * percentageToWin / 10000) {
+            swapProposals[_proposalId].accepted = true;
+        } else{
+            revert("The proposal was not accepted yet");
+        } 
+        emit DelegatedSwapProposalAccepted(_proposalId, fundId, amountIn, amountOutMin, swapProposals[_proposalId].name);
+
+        SafeAccount(payable(fundsAddresses[fundId])).executeProposedSwap(amountIn, amountOutMin, path, to, swapProposals[_proposalId].deadlineSwap);
+
+    }
+
+
+    function proposeNewDelegatedSwap(uint256 _fundId, uint256 _amountIn, uint256 _amountOutMin, address[] memory _path, 
+                    address _to, uint256 _deadlineSwap, uint256 _deadlineVote, string memory _name) public returns(uint256) {
+                
+        swapProposals[proposalIdCounter] = SwapProposal({
+            fundId: _fundId,
+            amountIn: _amountIn,
+            amountOutMin: _amountOutMin,
+            path: _path,
+            to: _to,
+            deadlineSwap: _deadlineSwap,
+            deadlineVote: _deadlineVote,
+            accepted: false,
+            name: _name
+        });
+        proposalIdCounter++;
+
+        emit NewDelegatedSwapProposal(proposalIdCounter -1, _fundId, _amountIn, _amountOutMin,  _name);
+        return proposalIdCounter-1;
+    }
+
+    function voteForDelegatedSwap(uint256 _proposalId, uint256 _amount) public {
+        require(_proposalId <= proposalIdCounter, "Proposal not found");
+        require(block.timestamp < swapProposals[_proposalId].deadlineVote, "The voting period is over");
+        require(!swapProposals[_proposalId].accepted, "The proposal was already accepted");
+
+        uint256 fundId = swapProposals[_proposalId].fundId;
+        require(fundId < _fundIdCounter, "Fund not found");
+
+        require(IERC20(quotasAddresses[fundId]).allowance(msg.sender, address(this)) >= _amount, "Not enough allowance");
+
+        IERC20(quotasAddresses[fundId]).transferFrom(msg.sender, address(this), _amount);
+
+        swapVotes[_proposalId][msg.sender] += _amount;
+        swapProposalsVotes[_proposalId] += _amount;
+
+        emit Voted(_proposalId, msg.sender, _amount, "delegatedSwap");
+    }
+
+    function getVoterDelegatedSwapBalance(uint256 _proposalId, address _voter) public view returns(uint256) {
+        return swapVotes[_proposalId][_voter];
+    }
+
+    function getTotalDelegatedSwapProposalVotes(uint256 _proposalId) public view returns(uint256) {
+        return swapProposalsVotes[_proposalId];
+    }
+
+    function withdrawVotingTokensFromDelegatedSwapProposal(uint256 _proposalId) public {
+        require(block.timestamp > swapProposals[_proposalId].deadlineVote || swapProposals[_proposalId].accepted, "The voting period is not over yet");
+        
+        uint256 fundId = swapProposals[_proposalId].fundId;
+        require(fundId < _fundIdCounter, "Fund not found");
+
+        uint256 amount = swapVotes[_proposalId][msg.sender];
+        require(amount > 0, "You don't have any voting tokens");
+
+        IERC20(quotasAddresses[fundId]).transfer(msg.sender, amount);
+        swapVotes[_proposalId][msg.sender] = 0;
+
+        emit VotingTokensWithdrawn(_proposalId, msg.sender, amount);    
     }
     
 }
