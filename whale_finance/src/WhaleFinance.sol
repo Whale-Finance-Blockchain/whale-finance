@@ -44,7 +44,7 @@ contract WhaleFinance is ERC721, Ownable {
     event ProposalAccepted(uint256 indexed proposalId, uint256 indexed fundId, uint256 newTimestamp, string name);
 
     // SWAP ROUTER
-    IV2SwapRouter public swapRouter = IV2SwapRouter(0x7963c1bd24E4511A0b14bf148F93e2556AFe3C27);
+    IV2SwapRouter public swapRouter = IV2SwapRouter(0xcbC9ce7898517049175280288f3838593Adcc660);
 
     // MAPPINGS TO THE NFTS
     mapping(uint256 => address) public fundsAddresses;

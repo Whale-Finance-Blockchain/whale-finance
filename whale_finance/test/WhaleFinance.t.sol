@@ -233,6 +233,4 @@ contract WhaleFinanceTest is Test {
         assertTrue(whaleFinance.openRedeemTimestamps(fundId) == newOpenRedeemTimestamp);
 
     }
-
-
 }

@@ -19,7 +19,7 @@ contract Mint is Script {
     function run() external {
         vm.startBroadcast(vm.envUint("PRIVATE_KEY"));
 
-        MockERC20 stablecoin = MockERC20(0xA3f156324feCc5ED3A8495C2399666a598A73ee4);
+        MockERC20 stablecoin = MockERC20(0xBb25487c9a14FD31AF4f60F39d97568693da5f2b);
 
         stablecoin.mint(0x0CCfc28Ce76f48726C59Fc2a598b6eAac8bd3Ab4, 200 ether);
 
