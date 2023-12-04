@@ -31,7 +31,6 @@ export default function CreateFund({ isMetamaskInstalled, account, signer }:
         return timestamp;
     }
 
-
     async function handleSubmit() {
         if(openInvestment === "" || closeInvestiment === "" || maturationTime === "") {
             alert("Please fill all the fields");

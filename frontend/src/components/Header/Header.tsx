@@ -12,7 +12,7 @@ export default function Header({ isMetamaskInstalled, connectWallet, account, si
     return (
         <header className="sticky top-0 z-30 w-full bg-gradient-to-r from-blue-color to-secondary-color text-white border-b-2 border-gray-200">
             <div className="container mx-auto px-10 py-2 flex justify-between items-center cursor-pointer">
-                <img className="h-[5vh] p-[5px] md:h-[5vh] lg:h-[7vh]" src={Logo} alt={"whale finance"} onClick={() => history('/')}/>
+                <img className="h-[5vh] p-[2px] md:h-[5vh] lg:h-[7vh]" src={Logo} alt={"whale finance"} onClick={() => history('/')}/>
 
                 {/* responsivo */}
 
@@ -40,6 +40,12 @@ export default function Header({ isMetamaskInstalled, connectWallet, account, si
                             </div>
                             <div className="flex-1 h-0 pt-5 pb-4 overflow-y-auto">
                                 <nav className="mt-5 flex-1 px-2 space-y-1">
+                                    <div className="group flex items-center px-4 py-3 text-xl font-medium rounded-md text-white hover:text-secondary-color hover:bg-gray-100" onClick={() => history('/proposals')}>
+                                        Proposals Panel
+                                    </div>
+                                    <div className="group flex items-center px-4 py-3 text-xl font-medium rounded-md text-white hover:text-secondary-color hover:bg-gray-100" onClick={() => history('/create-proposal')}>
+                                        Create Proposal
+                                    </div>
                                     <div className="group flex items-center px-4 py-3 text-xl font-medium rounded-md text-white hover:text-secondary-color hover:bg-gray-100" onClick={() => history('/investor')}>
                                         Dashboard
                                     </div>
@@ -66,12 +72,20 @@ export default function Header({ isMetamaskInstalled, connectWallet, account, si
                 {/* menu */}
 
                 <div className="hidden lg:block">
-                <ul className="inline-flex items-center space-x-10">
-                <li><div className="px-6 lg:px-6 py-2 text-[1.23vw] hover:bg-[rgb(14,42,98)] transition duration-1000 ease-in-out"
+                <ul className="inline-flex items-center space-x-5">
+                    <li><div className="group relative cursor-pointer py-2">
+                        <div className="px-6 lg:px-10 py-2 text-[1.2vw] hover:bg-[rgb(14,42,98)] transition duration-1000 ease-in-out"
+                            onClick={() => history('/proposals')}>Proposals</div>
+                        <div className="invisible absolute z-50 flex w-full flex-col bg-gray-100 py-1 my-1 px-4 text-gray-800 shadow-xl group-hover:visible">
+                            <div className="my-2 text-[1vw] block border-b border-gray-100 py-1 font-semibold text-gray-500 hover:text-black md:mx-2" onClick={() => history('/proposals')}>Proposals Panel</div>                
+                            <div className="my-2 text-[1vw] block border-b border-gray-100 py-1 font-semibold text-gray-500 hover:text-black md:mx-2" onClick={() => history('/create-proposal')}>Create Proposal</div>
+                        </div>
+                    </div></li>
+                    <li><div className="px-6 lg:px-10 py-2 text-[1.2vw] hover:bg-[rgb(14,42,98)] transition duration-1000 ease-in-out"
                         onClick={() => history('/investor')}>Dashboard</div></li>
-                    <li><div className="px-6 lg:px-6 py-2 text-[1.25vw] hover:bg-[rgb(14,42,98)] transition duration-1000 ease-in-out"
+                    <li><div className="px-6 lg:px-10 py-2 text-[1.2vw] hover:bg-[rgb(14,42,98)] transition duration-1000 ease-in-out"
                     onClick={() => history("/manager")}>Manager</div></li>
-                    <li><div className="px-6 lg:px-6 py-2 text-[1.25vw] hover:bg-[rgb(14,42,98)] transition duration-1000 ease-in-out" 
+                    <li><div className="px-6 lg:px-10 py-2 text-[1.2vw] hover:bg-[rgb(14,42,98)] transition duration-1000 ease-in-out" 
                     onClick={()  => history("/fundslist")} >Funds List</div></li>
                     <ConnectWalletBtn
                         isMetamaskInstalled={isMetamaskInstalled}

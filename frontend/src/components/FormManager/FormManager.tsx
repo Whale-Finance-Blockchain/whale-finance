@@ -120,6 +120,9 @@ export default function FormInvestor(props: any) {
                                 name="tokens"
                                 placeholder='Tokens'
                                 value={props.tokens}
+                                style={{
+                                    height: '300px',
+                                }}
                                 // I have multiple tokens, so I need to set multiple to true
 
                                 onChange={(e) =>{

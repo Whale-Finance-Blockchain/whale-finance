@@ -59,24 +59,25 @@ export default function FormSwap(props: any) {
             const whaleFinanceContract = new ethers.Contract(WhaleFinanceAddress, WhaleFinanceAbi, props.signer);
             const fundAddress = await whaleFinanceContract.functions.fundsAddresses(props.fundId);
 
+
             let path: any[] = [];
 
-            if(tokenAAddress == allowedTokens["WZENIQ"] || tokenBAddress == allowedTokens["WZENIQ"]){
-                path = [tokenAAddress, tokenBAddress];
-            } else {
-                path = [tokenAAddress, allowedTokens["WZENIQ"], tokenBAddress];
-            }
+            path = [tokenAAddress, tokenBAddress];
+
+            const routerContract = new ethers.Contract(SwapRouter, ["function getAmountsOut(uint amountIn, address[] memory path) public view returns (uint[] memory amounts)"], props.signer);
+
+
 
             const fundContract = new ethers.Contract(fundAddress[0], SafeAccountAbi, props.signer);
 
-            const txApprove = await fundContract.functions.executeApprove(tokenAAddress, SwapRouter, ethers.utils.parseEther(String(100000000000000000000*amount)));
+
+            const txApprove = await fundContract.functions.executeApprove(tokenAAddress, SwapRouter, ethers.utils.parseEther(String(amount)));
 
             await txApprove.wait();
 
             const txSwap = await fundContract.functions.executeSwapExactTokensForTokens(
-                ethers.utils.parseEther(String(amount)), 0, path, props.account, Math.floor(Date.now() / 1000) + 3600,
-                {gasLimit: 10000000}
-            );
+                ethers.utils.parseEther(String(amount)), 0, path, props.account, Math.floor(Date.now() / 1000) + 3600
+            , {value: ethers.BigNumber.from(0)});
 
             await txSwap.wait();
 
