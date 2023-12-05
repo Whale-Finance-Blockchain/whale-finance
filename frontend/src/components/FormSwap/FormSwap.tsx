@@ -4,6 +4,7 @@ import { ethers } from "ethers";
 import { QuotaTokenAbi } from "../../contracts/QuotaToken";
 import { WhaleFinanceAbi } from "../../contracts/WhaleFinance";
 import { SafeAccountAbi } from "../../contracts/SafeAccount";
+import { Trade } from "@uniswap/sdk";
 
 export default function FormSwap(props: any) {
 
@@ -59,12 +60,18 @@ export default function FormSwap(props: any) {
             const whaleFinanceContract = new ethers.Contract(WhaleFinanceAddress, WhaleFinanceAbi, props.signer);
             const fundAddress = await whaleFinanceContract.functions.fundsAddresses(props.fundId);
 
-
+            Trade
             let path: any[] = [];
 
             path = [tokenAAddress, tokenBAddress];
 
-            const routerContract = new ethers.Contract(SwapRouter, ["function getAmountsOut(uint amountIn, address[] memory path) public view returns (uint[] memory amounts)"], props.signer);
+            // const routerContract = new ethers.Contract(SwapRouter, ["function getAmountsOut(uint amountIn, address[] memory path) public view returns (uint[] memory amounts)"], props.signer);
+
+            const deadline = Math.floor(Date.now() / 1000) + 3600;
+            const rawAmount = ethers.utils.parseEther(String(amount));
+            const hexAmount = ethers.BigNumber.from(rawAmount).toHexString();
+
+            const tokenAContract = new ethers.Contract(tokenAAddress, QuotaTokenAbi, props.signer);
 
 
 
@@ -75,12 +82,18 @@ export default function FormSwap(props: any) {
 
             await txApprove.wait();
 
+            // const txSwap = await fundContract.functions.executeSwapExactTokensForTokens(
+            //     hexAmount, 0, path, props.account, deadline);
+
+            // await txSwap.wait();
+            const routerAddress = "0xcbC9ce7898517049175280288f3838593Adcc660";
+            const routerContract = new ethers.Contract(routerAddress, ["function swapExactTokensForTokens(uint256 amountIn,uint256 amountOutMin,address[] calldata path, address to, uint deadline) external returns (uint[] memory amounts)"], props.signer);
+            
+            // const txApprove = await tokenAContract.functions.approve(routerAddress, ethers.utils.parseEther(String(amount)));
+            // await txApprove.wait();
+
             const txSwap = await fundContract.functions.executeSwapExactTokensForTokens(
-                ethers.utils.parseEther(String(amount)), 0, path, props.account, Math.floor(Date.now() / 1000) + 3600
-            , {value: ethers.BigNumber.from(0)});
-
-            await txSwap.wait();
-
+                hexAmount, 0, path, props.account, deadline);
             console.log(txSwap);
 
         } catch(err){
