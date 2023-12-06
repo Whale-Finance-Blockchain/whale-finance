@@ -9,7 +9,7 @@ import { useParams } from 'react-router-dom';
 import DataDiv from '../../components/DataDiv/DataDiv';
 import Footer from '../../components/Footer/Footer';
 import { ethers } from 'ethers';
-import { WhaleFinanceAddress, WusdAddress, scanUrl } from '../../utils/addresses';
+import { WhaleFinanceAddress, DrexAddress, scanUrl } from '../../utils/addresses';
 import { QuotaTokenAbi } from '../../contracts/QuotaToken';
 import { WhaleFinanceAbi } from '../../contracts/WhaleFinance';
 import Zusd from '../../assets/zusd.png';
@@ -77,7 +77,7 @@ export default function FundId({ account, provider, signer }: FundIdProps) {
     async function getZusdBalance() {
         try{
 
-            const zusdContract = new ethers.Contract(WusdAddress, QuotaTokenAbi, signer);
+            const zusdContract = new ethers.Contract(DrexAddress, QuotaTokenAbi, signer);
 
             const balance = await zusdContract.functions.balanceOf(account);
             setZusdBalance(parseFloat(ethers.utils.formatEther(balance[0])));
@@ -154,7 +154,7 @@ export default function FundId({ account, provider, signer }: FundIdProps) {
 
             const whaleFinanceContract = new ethers.Contract(WhaleFinanceAddress, WhaleFinanceAbi, signer);
 
-            const zusdContract = new ethers.Contract(WusdAddress, QuotaTokenAbi, signer);
+            const zusdContract = new ethers.Contract(DrexAddress, QuotaTokenAbi, signer);
 
             const txApprove = await zusdContract.functions.approve(WhaleFinanceAddress, ethers.utils.parseEther(String(invest)));
 
@@ -359,7 +359,7 @@ export default function FundId({ account, provider, signer }: FundIdProps) {
                                 </div>
                                 <div className='flex flex-col bg-slate-100 p-4 mb-8 rounded-[10px] space-y-1'>
                                         <div className='grid grid-cols-2'>
-                                            <h3 className='italic'>Your WUSD Balance:</h3>
+                                            <h3 className='italic'>Your DREX Balance:</h3>
                                             <div className='flex flex-row items-center justify-center'>
                                                 <p className='font-bold text-blue-color'>{Number(zusdBalance).toFixed(2)}</p>
                                                 <img src={Zusd} alt="zusd" className='w-6 h-6 ml-2' />
