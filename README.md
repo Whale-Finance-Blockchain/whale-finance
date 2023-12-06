@@ -1,4 +1,4 @@
-# whale.finance - ZenCon 2023
+# whale.finance
 
 ## Decentralized Asset Management
 
@@ -56,7 +56,7 @@ Benefits to descentralize the asset management industry and differences from the
 
 - **Regulatory Compliance:** The use of smart contracts can automate compliance with regulatory requirements.
 
-- **Integration and Potential:** The whale.finance is integrated with **Zeniq Swap**, and can be integrated in the future with other products, like Zeniq Pass. Besides that, there is a lot of potential to explore 
+- **Integration and Potential:** The whale.finance is integrated with **Unis Swap**, and can be integrated in the future with other products, like Aave. Besides that, there is a lot of potential to explore 
 
 ![Project Photo](./frontend/src/assets/descentralized_am.png)
 
@@ -108,7 +108,7 @@ The main parameters to create a fund:
   
 This ERC allows an nft owner to have control over an account, but with customizable features, such as limitations to the possible transactions made. The WhaleFinance contract implements the ERC721 tokens (NFT) and creates the controllable addresses, which we call Safe Accounts. Also, every fund has a quota (or share), which is an ERC20 token, also deployed when the NFT is created. With these features, the investors are able to invest with a stablecoin (say ZUSD) and get 1:1 quotas in exchange.
 
-When the fund is open to trades, the manager can interact with Zeniq Swap to make profits, using the assets available in the Safe Account. After maturation time, the investor can redeem their yields, with profits or loss. 
+When the fund is open to trades, the manager can interact with UniSwap to make profits, using the assets available in the Safe Account. After maturation time, the investor can redeem their yields, with profits or loss. 
 
 ### Folder Structure
 
@@ -169,25 +169,12 @@ Here is the folder structure of the project with comments about files:
                 └── WhaleFinance.t.sol                   # Test file for WhaleFinance contract
 
 
-Deployed Contracts (in Zeniq):
-
-Beacon Quota Implementation: 0xB6e2Fb3360F76a51a0AF8A4F86aE5194ae145c6b
-
-ZUSD: 0xA3f156324feCc5ED3A8495C2399666a598A73ee4
-
-Registry ERC6551: 0x16C71580A4D79d6bE3413F5226125Efb5630D669
-
-Beacon Proxy: 0xcBb864E7Af870F000F7b88eeD508Bc0392E2BE94
-
-Safe Account (implements ERC6551): 0x83988Eb399460dD07f9e37628bC61a47dc094113
-
-Whale Finance: 0xE7fB04eA857F9F96939fc98bD17Ff88ce8b0AdF0
 
 ## Implemented Solution
 
 ### Demo
 
-[Demo Link](https://www.loom.com/share/6913cf323b4644cfbcb3133377d3ca2c?sid=17cfc3fb-4d68-4b81-a225-4d8d25e18772)
+[Demo Link](https://youtu.be/H7Q9_1fzTEo)
 
 ### How to run locally steps
 
