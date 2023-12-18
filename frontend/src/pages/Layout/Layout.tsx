@@ -5,7 +5,7 @@ export default function Layout({ isMetamaskInstalled, connectWallet, account, si
     { isMetamaskInstalled: boolean; connectWallet: any; account: string | null; signer: any;}) {
 
     return (
-        <div className='w-[100vw] h-[100vh] bg-[#f6f6f6] overflow-hidden'>
+        <div className='w-[100vw] md:h-[100vh] md:flex md:flex-row lg:h-[100vh] lg:flex lg:flex-row bg-[#f6f6f6] overflow-hidden'>
             <Header
                 isMetamaskInstalled={isMetamaskInstalled}
                 connectWallet={connectWallet}

@@ -1,0 +1,11 @@
+/* Custom CSS for transition delay */
+.sidebar-transition {
+    transition-property: width;
+    transition-duration: 50ms; 
+    transition-timing-function: ease-in-out;
+  }
+  
+  /* Custom CSS for transition delay when hovering */
+  .sidebar-hover\:delay-150:hover {
+    transition-delay: 100ms; 
+  }

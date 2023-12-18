@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 // import { db } from '../../firebase/firebase';
 // import { get, ref } from "firebase/database";
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { AiOutlineArrowUp, AiOutlineArrowDown } from "react-icons/ai";
 import Footer from '../../components/Footer/Footer';
 import { ethers } from 'ethers';
@@ -22,6 +22,8 @@ export default function Manager({ account, provider, signer }:
     const [manager, setManager] = useState<number>(0);
 
     const [funds, setFunds] = useState<DataPoint[]>([]);
+
+    const history = useNavigate();
 
     async function getFundsForManager(){
       try{
@@ -95,7 +97,7 @@ export default function Manager({ account, provider, signer }:
     const formattedRent = new Intl.NumberFormat('en-US', { style: 'percent', minimumFractionDigits: 1, maximumFractionDigits: 1 }).format(rentValue);
 
     const fundsElements = funds.map(fund => (
-        <Link to={`/manager/${fund.id}`}>
+        <div onClick={() => history(`/manager/${fund.id}`)}>
             <div key={fund.id} className="bg-gradient-to-r from-white to-[#fcfcfc] h-[180px] flex flex-col items-center justify-center text-gray-500 rounded-lg shadow-lg m-[2vh] hover:bg-gradient-to-r hover:from-white hover:to-gray-100 hover:text-secondary-color transition duration-600 ease-in-out">
                 <h2 className="text-xl font-bold text-secondary-color">{fund.name}</h2>
                 <p className="text-fs mt-2">{fund.description}</p>
@@ -119,7 +121,7 @@ export default function Manager({ account, provider, signer }:
                     </div>
                 </div>
             </div>
-        </Link>
+        </div>
     ))
 
     const loadingElements = Array(4).fill(null).map((_, index) => (
@@ -141,11 +143,14 @@ export default function Manager({ account, provider, signer }:
                         <h2 className="mb-16 text-4xl font-bold text-center text-secondary-color">
                         Manager's Area
                         </h2>
-                        <Link
-                        className="bg-white text-black font-bold rounded-full border-2 border-transparent py-4 px-8 shadow-lg uppercase tracking-wider hover:bg-secondary-color hover:text-[white] hover:border-white transition duration-1000 ease-in-out" to="/create-fund"
-                        >
-                        Create Fund Now
-                        </Link>
+                        <div className='flex flex-col items-center w-full'>
+                          <div
+                          className="bg-white text-black font-bold rounded-full border-2 border-transparent cursor-pointer py-4 px-8 w-96 shadow-lg uppercase tracking-wider hover:bg-secondary-color hover:text-[white] hover:border-white transition duration-1000 ease-in-out"
+                          onClick={() => history("/create-fund")}
+                          >
+                          Create Fund Now
+                          </div>
+                        </div>
                         {!manager ? 
                           <div className='grid grid-cols-1 justify-center mb-12 mt-6 md:grid-cols-2 lg:grid-cols-3'>
                               {nullElements}
