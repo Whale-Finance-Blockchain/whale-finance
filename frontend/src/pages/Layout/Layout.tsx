@@ -10,7 +10,7 @@ export default function Layout({ isMetamaskInstalled, connectWallet, account, si
     // const hiddenClass = (scrollDirection === 'down') ? 'opacity-0' : '';
 
     return (
-        <div className='w-[100vw] md:h-[100vh] md:flex md:flex-row lg:h-[100vh] lg:flex lg:flex-row bg-[#fcfcfc] overflow-hidden relative'>
+        <div className='w-[100vw] md:h-[100vh] md:flex md:flex-row lg:h-[100vh] lg:flex lg:flex-row bg-gradient-to-r from-light2-color to-light-color dark:from-dark2-color dark:to-dark-color overflow-hidden relative'>
             <Header
                 isMetamaskInstalled={isMetamaskInstalled}
                 connectWallet={connectWallet}

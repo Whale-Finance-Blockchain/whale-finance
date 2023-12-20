@@ -1,4 +1,5 @@
 import React from 'react'
+import { useEffect } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home/Home'
 import { connectMetamask } from './utils/connectMetamask'
@@ -14,8 +15,16 @@ import SuccessFund from './pages/SuccessFund/SuccessFund';
 import Proposals from './pages/Proposals/Proposals';
 import CreateProposal from './pages/CreateProposal/CreateProposal';
 import Test from './pages/Test/Test';
+import useLocalStorage from './hooks/useLocalStorage';
 
 function App() {
+
+  const [theme] = useLocalStorage('theme', 'light');
+
+  useEffect(() => {
+    // Apply the saved theme
+    document.documentElement.classList.toggle('dark', theme === 'dark');
+  }, [theme]);
 
   //handle Metamask wallet connection
   const [isMetamaskInstalled, setIsMetamaskInstalled] = React.useState<boolean>(false);

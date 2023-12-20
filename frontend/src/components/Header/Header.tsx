@@ -1,9 +1,11 @@
 import ConnectWalletBtn from '../../components/ConnectWallet/ConnectWallet';
 // import Logo from '../../assets/whale_logo.png';
-import LogoApp from "../../assets/whale_logo_white.png";
-import { AiOutlineHome } from "react-icons/ai";
+import LogoApp from "../../assets/whale_logo_green.png";
+import { AiOutlineHome, AiOutlineUser, AiOutlineMenu, AiOutlineTransaction, AiOutlineLineChart, AiOutlineFileDone } from "react-icons/ai";
+import { RxMoon } from "react-icons/rx";
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import useLocalStorage from '../../hooks/useLocalStorage';
 
 export default function Header({ isMetamaskInstalled, connectWallet, account, signer }: 
     { isMetamaskInstalled: boolean; connectWallet: any; account: string | null; signer: any;}) {
@@ -12,15 +14,27 @@ export default function Header({ isMetamaskInstalled, connectWallet, account, si
     const [isSidebarExtended, setIsSidebarExtended] = useState(false);
 
     const history = useNavigate();
+
+    const [theme, setTheme] = useLocalStorage<string>('theme', 'light');
+
+    const toggleTheme = () => {
+        const newTheme = theme === 'light' ? 'dark' : 'light';
+        setTheme(newTheme);
+
+        // Update the class on document element
+        const root = document.documentElement;
+        root.classList.toggle('dark', newTheme === 'dark');
+    };
     
     return (
         <header 
-            className={`md:h-screen lg:h-screen p-3 text-fl text-white bg-[#fcfcfc]  ${
+            className={`md:h-screen lg:h-screen p-3 text-fl text-white dark:text-black bg-light-color dark:bg-dark-color  ${
                 isSidebarExtended ? 'md:w-[20vw] lg:w-[20vw]' : 'md:w-[10vw] lg:w-[10vw]'}`}
         >
-            <div className="w-[100%] h-[100%] px-4 py-8 rounded-[16px] shadow-xl flex justify-between bg-secondary-color">
+            <div className="w-[100%] h-[100%] px-4 py-8 rounded-[16px] flex justify-between">
                 <div className="w-[100%] h-[100%] flex flex-row md:flex-col lg:flex-col items-center">
-                    <img className="w-[3vw] pb-[6vh]" src={LogoApp} alt="Whale Finance"/>
+                    <img className="w-[5vw] pb-[4vh]" src={LogoApp} alt="Whale Finance"/>
+                    {/* <h1 className='pb-[6vh] text-center text-secondary-color text-xl'>whale <br></br> finance</h1> */}
 
                     {/* responsivo */}
 
@@ -71,6 +85,8 @@ export default function Header({ isMetamaskInstalled, connectWallet, account, si
                                         connectWallet={connectWallet}
                                         account={account}
                                         signer={signer}
+                                        isSidebarExtended={isSidebarExtended}
+                                        setIsSidebarExtended={setIsSidebarExtended}
                                     />
                                 </div>
                             </div>
@@ -79,7 +95,7 @@ export default function Header({ isMetamaskInstalled, connectWallet, account, si
 
                     {/* menu */}
 
-                    <div className="hidden lg:block space-y-4 w-full h-full"
+                    <div className="hidden lg:block bg-secondary-color py-4 mt-8 mb-[8vh] rounded-xl space-y-4 w-full"
                         onMouseOver={() => setIsSidebarExtended(true)}
                         onMouseOut={() => setIsSidebarExtended(false)}
                     >
@@ -106,34 +122,55 @@ export default function Header({ isMetamaskInstalled, connectWallet, account, si
                         />
                     </ul> */}
                         <button
-                            className="flex flex-row justify-start w-full px-8 py-4 items-center text-sm font-bold text-white transition-all duration-150 ease-linear bg-transparent rounded outline-none active:bg-white focus:outline-none hover:bg-white hover:text-secondary-color hover:cursor-pointer"
+                            className={`flex flex-row w-full px-8 py-4 items-center text-sm font-bold text-white dark:text-black transition-all duration-150 ease-linear bg-transparent rounded outline-none active:bg-white focus:outline-none hover:bg-white hover:text-secondary-color hover:cursor-pointer
+                                      ${isSidebarExtended ? 'justify-start' : 'justify-center'}`}
                             onClick={() => history("/fundslist")}
                         >
-                            <AiOutlineHome className="text-2xl" />
+                            <AiOutlineMenu className="text-2xl" />
                             {isSidebarExtended && <span className="ml-4">Funds List</span>}
                         </button>
                         <button
-                            className="flex flex-row justify-start w-full px-8 py-4 items-center text-sm font-bold text-white transition-all duration-150 ease-linear bg-transparent rounded outline-none active:bg-white focus:outline-none hover:bg-white hover:text-secondary-color hover:cursor-pointer"
+                            className={`flex flex-row w-full px-8 py-4 items-center text-sm font-bold text-white dark:text-black transition-all duration-150 ease-linear bg-transparent rounded outline-none active:bg-white focus:outline-none hover:bg-white hover:text-secondary-color hover:cursor-pointer
+                                      ${isSidebarExtended ? 'justify-start' : 'justify-center'}`}
                             onClick={() => history("/manager")}
                         >
-                            <AiOutlineHome className="text-2xl" />
+                            <AiOutlineTransaction className="text-2xl" />
                             {isSidebarExtended && <span className="ml-4">Manager</span>}
                         </button>   
                         <button
-                            className="flex flex-row justify-start w-full px-8 py-4 items-center text-sm font-bold text-white transition-all duration-150 ease-linear bg-transparent rounded outline-none active:bg-white focus:outline-none hover:bg-white hover:text-secondary-color hover:cursor-pointer"
+                            className={`flex flex-row w-full px-8 py-4 items-center text-sm font-bold text-white dark:text-black transition-all duration-150 ease-linear bg-transparent rounded outline-none active:bg-white focus:outline-none hover:bg-white hover:text-secondary-color hover:cursor-pointer
+                                      ${isSidebarExtended ? 'justify-start' : 'justify-center'}`}
                             onClick={() => history("/investor")}
                         >
-                            <AiOutlineHome className="text-2xl" />
+                            <AiOutlineUser className="text-2xl" />
                             {isSidebarExtended && <span className="ml-4">Investor</span>}
                         </button>   
                         <button
-                            className="flex flex-row justify-start w-full px-8 py-4 items-center text-sm font-bold text-white transition-all duration-150 ease-linear bg-transparent rounded outline-none active:bg-white focus:outline-none hover:bg-white hover:text-secondary-color hover:cursor-pointer"
+                            className={`flex flex-row w-full px-8 py-4 items-center text-sm font-bold text-white dark:text-black transition-all duration-150 ease-linear bg-transparent rounded outline-none active:bg-white focus:outline-none hover:bg-white hover:text-secondary-color hover:cursor-pointer
+                                      ${isSidebarExtended ? 'justify-start' : 'justify-center'}`}
                             onClick={() => history("/proposals")}
                         >
-                            <AiOutlineHome className="text-2xl" />
+                            <AiOutlineFileDone className="text-2xl" />
                             {isSidebarExtended && <span className="ml-4">Proposals</span>}
                         </button> 
+                        <button
+                            className={`flex flex-row w-full px-8 py-4 items-center text-sm font-bold text-white dark:text-black transition-all duration-150 ease-linear bg-transparent rounded outline-none active:bg-white focus:outline-none hover:bg-white hover:text-secondary-color hover:cursor-pointer
+                                      ${isSidebarExtended ? 'justify-start' : 'justify-center'}`}
+                            onClick={toggleTheme}
+                        >
+                            <RxMoon className="text-2xl" />
+                            {isSidebarExtended && <span className="ml-4">Theme</span>}
+                        </button> 
                     </div>
+
+                    <ConnectWalletBtn
+                        isMetamaskInstalled={isMetamaskInstalled}
+                        connectWallet={connectWallet}
+                        account={account}
+                        signer={signer}
+                        isSidebarExtended={isSidebarExtended}
+                        setIsSidebarExtended={setIsSidebarExtended}
+                    />
                 </div>
             </div>
         </header>

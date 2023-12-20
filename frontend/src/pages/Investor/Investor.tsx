@@ -138,7 +138,7 @@ export default function Investor() {
 
     if (!fund) {
         return (
-        <div className='w-[100vw] mt-16 min-h-[100vh] text-gray-700 overflow-y-auto'>
+        <div className='w-[100vw] ml-6 mt-6 rounded-md bg-light-color dark:bg-dark-color min-h-[100vh] text-gray-700 overflow-y-auto'>
                 <section className="">
                     <div className="container mx-auto px-6 text-center py-8 opacity-60">
                         <h2 className="flex justify-center items-center bg-white h-[12vh] text-4xl font-bold text-center text-secondary-color rounded-[20px]">
@@ -159,7 +159,7 @@ export default function Investor() {
 
     return (
         <>
-            <div className='w-[100vw] mt-16 h-screen text-gray-700 overflow-y-auto'>
+            <div className='w-[100vw] ml-6 mt-6 rounded-md bg-light-color dark:bg-dark-color h-screen text-gray-700 overflow-y-auto'>
                 <section className="">
                     <div className="container mx-auto px-0 text-center py-8 md:px-6 lg:px-6">
                         <h2 className="flex justify-center items-center bg-white h-[12vh] mx-6 text-4xl font-bold text-center text-secondary-color shadow-lg rounded-[20px]">

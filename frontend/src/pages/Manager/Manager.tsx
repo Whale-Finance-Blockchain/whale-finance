@@ -136,7 +136,7 @@ export default function Manager({ account, provider, signer }:
 
     return (
         <>
-            <div className='w-[100vw] h-screen mt-16 text-gray-700 overflow-y-auto'>
+            <div className='w-[100vw] h-screen ml-6 mt-6 rounded-md bg-light-color dark:bg-dark-color text-gray-700 overflow-y-auto'>
                 <section className="">
                     <div className="container mx-auto px-0 text-center py-12 md:px-6 lg:px-6">
                         <h2 className="mb-16 text-4xl font-bold text-center text-secondary-color">

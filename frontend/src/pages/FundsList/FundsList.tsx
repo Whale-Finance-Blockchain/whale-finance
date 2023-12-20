@@ -101,21 +101,21 @@ export default function FundsList() {
         const formattedRent = new Intl.NumberFormat('en-US', { style: 'percent', minimumFractionDigits: 1, maximumFractionDigits: 1 }).format(apy);
 
         return(<div onClick={() => history(`/fundslist/${fund.id}`)}>
-            <div key={fund.id} className="bg-gradient-to-r from-white to-[#fcfcfc] h-[180px] flex flex-col items-center justify-center text-gray-500 rounded-lg shadow-lg m-[2vh] hover:bg-gradient-to-r hover:from-white hover:to-gray-100 hover:text-secondary-color transition duration-600 ease-in-out">
+            <div key={fund.id} className="bg-gradient-to-r from-light-color to-light2-color dark:from-dark-color dark:to-dark2-color h-[180px] flex flex-col items-center justify-center text-gray-500 dark:text-white rounded-lg shadow-lg m-[2vh] hover:bg-gradient-to-r hover:from-white hover:to-gray-100 hover:text-secondary-color hover:dark:from-dark-color hover:dark:to-dark2-color hover:dark:text-secondary-color transition duration-600 ease-in-out">
                 <h2 className="text-xl font-bold text-secondary-color">{fund.name}</h2>
                 <p className="text-fs mt-2">{fund.description}</p>
                 <div className="grid grid-cols-3 space-x-4 mt-4 w-[80%]">
                     <div className="">
-                        <p className='text-xl text-black font-bold'>{formatToUSD(tvl)}</p>
+                        <p className='text-xl text-black dark:text-white font-bold'>{formatToUSD(tvl)}</p>
                         <p>TVL</p>
                     </div>
                     <div className="">
-                        <p className='text-xl text-black font-bold'>100</p>
+                        <p className='text-xl text-black dark:text-white font-bold'>100</p>
                         <p>Investors</p>
                     </div>
                     <div className="fl">
                         <div className='flex flex-row items-center justify-center space-x-1'>
-                            <p className={`text-xl font-bold ${apy > 0 ? 'text-green-500' : apy < 0 ? 'text-red-500' : 'text-black'}`}>
+                            <p className={`text-xl font-bold ${apy > 0 ? 'text-green-500' : apy < 0 ? 'text-red-500' : 'text-black dark:text-white'}`}>
                                 {formattedRent} 
                             </p>
                             {apy > 0 ? <AiOutlineArrowUp color="rgb(34 197 94)" size={20}/> : apy < 0 ? <AiOutlineArrowDown color="rgb(249 115 22)" size={20}/> : ''}
@@ -134,7 +134,7 @@ export default function FundsList() {
 
     return (
         <>
-            <div className='w-[100vw] h-[100vh] mt-16 text-gray-700 bg-[#fcfcfc] overflow-y-auto'>
+            <div className='w-[100vw] h-[100vh] text-gray-700 ml-6 mt-6 rounded-md bg-light-color dark:bg-dark-color overflow-y-auto'>
                 <section className="">
                     <div className="container mx-auto px-0 text-center py-12 md:px-6 lg:px-6">
                         <h2 className="mb-2 text-4xl font-bold text-center text-secondary-color">

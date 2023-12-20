@@ -4,7 +4,7 @@ export default function Home() {
 
     return (
         <>
-            <div className='w-[100vw] h-screen text-gray-700 bg-[#fcfcfc] overflow-y-auto'>
+            <div className='w-[100vw] h-screen text-gray-700 ml-6 mt-6 rounded-md bg-light-color dark:bg-dark-color overflow-y-auto'>
                 <section className='w-full flex flex-col items-center'>
                     <div className="w-full h-[90vh] flex flex-col justify-center items-center bg-cover bg-[url('././assets/burj_khalifa_blue.png')]">
                         <img className='w-[40vw] lg:w-[20vw] lg:mt-36' src={LogoApp} />

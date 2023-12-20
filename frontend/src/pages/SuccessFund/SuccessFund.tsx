@@ -1,6 +1,5 @@
 import { Player } from '@lottiefiles/react-lottie-player';
 import Animation from '../../assets/congrats_animation.json';
-import Footer from '../../components/Footer/Footer';
 import { useNavigate } from 'react-router-dom';
 
 export default function SuccessInvestment() {
@@ -9,7 +8,7 @@ export default function SuccessInvestment() {
       
     return (
         <>
-            <div className='w-[100vw] mt-16 h-screen text-gray-700 overflow-y-auto'>
+            <div className='w-[100vw] ml-6 mt-6 rounded-md bg-light-color dark:bg-dark-color h-screen text-gray-700 overflow-y-auto'>
                 <section className="mb-6">
                     <div className="container mx-auto px-6 text-center py-8">
                         <div className='flex flex-col justify-center items-center my-10 mx-6 mb-12 shadow-lg bg-white text-secondary-color rounded-[20px]'>
@@ -40,7 +39,6 @@ export default function SuccessInvestment() {
                         </div>
                     </div>
                 </section>
-                <Footer />
             </div>
         </>
     )
