@@ -9,7 +9,7 @@ export default function SuccessProposal() {
       
     return (
         <>
-            <div className='w-[100vw] h-screen text-gray-700 bg-[#f6f6f6] overflow-y-auto'>
+            <div className='w-[100vw] h-screen mt-16 text-gray-700 overflow-y-auto'>
                 <section className="mb-6">
                     <div className="container mx-auto px-0 text-center py-8 md:px-6 lg:px-6">
                         <div className='flex flex-col justify-center items-center my-10 mx-6 mb-12 shadow-lg bg-white text-secondary-color rounded-[20px]'>

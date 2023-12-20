@@ -5,7 +5,6 @@ import LineChartComponent from '../../components/LineChartComponent/LineChartCom
 import PieChartComponent from '../../components/PieChartComponent/PieChartComponent';
 import { useParams } from 'react-router-dom';
 import DataDiv from '../../components/DataDiv/DataDiv';
-import Footer from '../../components/Footer/Footer';
 import FormSwap from '../../components/FormSwap/FormSwap';
 
 // interface PerformanceItem {
@@ -127,7 +126,7 @@ export default function DashboardId({ account, signer }:
 
     if (!fund) {
         return (
-        <div className='w-[100vw] h-screen text-gray-700 bg-[#f6f6f6] overflow-y-auto'>
+        <div className='w-[100vw] h-screen mt-16 text-gray-700 overflow-y-auto'>
                 <section className="">
                     <div className="container mx-auto px-6 text-center py-8 opacity-60">
                         <h2 className="flex justify-center items-center bg-white h-[12vh] text-4xl font-bold text-center text-secondary-color rounded-[20px]">
@@ -142,14 +141,13 @@ export default function DashboardId({ account, signer }:
                         </div>
                     </div>
                 </section>
-                <Footer />
             </div> 
         )
     }
 
     return (
         <>
-            <div className='w-[100vw] h-screen text-gray-700 bg-[#f6f6f6] overflow-y-auto'>
+            <div className='w-[100vw] h-screen mt-16 text-gray-700 overflow-y-auto'>
                 <section className="">
                     <div className="container mx-auto px-0 text-center py-8 lg:px-6">
                         <h2 className="flex justify-center items-center bg-white h-[12vh] mx-6 text-2xl md:text-4xl lg:text-4xl font-bold text-center text-secondary-color shadow-lg rounded-[20px]">
@@ -201,7 +199,6 @@ export default function DashboardId({ account, signer }:
                         </div>
                     </div>
                 </section>
-                <Footer />
             </div>
         </>
     )

@@ -1,6 +1,5 @@
 import React from 'react';
 import FormManager from '../../components/FormManager/FormManager';
-import Footer from '../../components/Footer/Footer';
 import { Player } from '@lottiefiles/react-lottie-player';
 import LoadingAnim from '../../assets/loading.json';
 import { useNavigate } from 'react-router-dom';
@@ -90,7 +89,7 @@ export default function CreateFund({ isMetamaskInstalled, account, signer }:
 
     return (
         <>
-            <div className='h-screen w-[100vw] text-gray-700 bg-[#f6f6f6] overflow-y-auto'>
+            <div className='h-screen w-[100vw] mt-16 text-gray-700 overflow-y-auto'>
                 <section className="">
                     <div className="container mx-auto px-0 text-center py-12 mb-2 md:px-6 lg:px-6">
                         <h2 className="text-4xl font-bold text-center text-secondary-color">
@@ -136,7 +135,6 @@ export default function CreateFund({ isMetamaskInstalled, account, signer }:
                         </div>
                     </div>
                 </section>
-                <Footer />
             </div>
         </>
     )

@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react';
 // import { get, ref } from "firebase/database";
 import { useNavigate } from 'react-router-dom';
 import { AiOutlineArrowUp, AiOutlineArrowDown } from "react-icons/ai";
-import Footer from '../../components/Footer/Footer';
 import { ethers } from 'ethers';
 import { WhaleFinanceAddress } from '../../utils/addresses';
 import { WhaleFinanceAbi } from '../../contracts/WhaleFinance';
@@ -137,7 +136,7 @@ export default function Manager({ account, provider, signer }:
 
     return (
         <>
-            <div className='w-[100vw] h-screen text-gray-700 bg-[#fcfcfc] overflow-y-auto'>
+            <div className='w-[100vw] h-screen mt-16 text-gray-700 overflow-y-auto'>
                 <section className="">
                     <div className="container mx-auto px-0 text-center py-12 md:px-6 lg:px-6">
                         <h2 className="mb-16 text-4xl font-bold text-center text-secondary-color">
@@ -170,7 +169,6 @@ export default function Manager({ account, provider, signer }:
                         </div> */}
                     </div>
                 </section>
-                <Footer />
             </div>
         </>
     )

@@ -1,5 +1,4 @@
 import LogoApp from '../../assets/whale_app_logo.png';
-import Footer from '../../components/Footer/Footer';
 
 export default function Home() {
 
@@ -16,7 +15,6 @@ export default function Home() {
                         </div>
                     </div>
                 </section>
-                <Footer />
             </div>
         </>
     )

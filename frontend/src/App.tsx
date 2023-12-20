@@ -13,6 +13,7 @@ import SuccessInvestment from './pages/SuccessInvestment/SuccessInvestment';
 import SuccessFund from './pages/SuccessFund/SuccessFund';
 import Proposals from './pages/Proposals/Proposals';
 import CreateProposal from './pages/CreateProposal/CreateProposal';
+import Test from './pages/Test/Test';
 
 function App() {
 
@@ -84,6 +85,7 @@ function App() {
               signer={signer}
               />} />
             <Route path="/investor" element={<Investor />} />
+            <Route path="/test" element={<Test />} />
             <Route path="/create-fund" element={
               <CreateFund
               isMetamaskInstalled={isMetamaskInstalled}

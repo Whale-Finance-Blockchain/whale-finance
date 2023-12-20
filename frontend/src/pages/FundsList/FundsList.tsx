@@ -3,7 +3,6 @@ import { db } from '../../firebase/firebase';
 import { get, ref } from "firebase/database";
 import { useNavigate } from 'react-router-dom';
 import { AiOutlineArrowUp, AiOutlineArrowDown } from "react-icons/ai";
-import Footer from '../../components/Footer/Footer';
 import { getMetamaskProvider } from '../../utils/connectMetamask';
 import { ethers } from 'ethers';
 import { WhaleFinanceAbi } from '../../contracts/WhaleFinance';
@@ -135,7 +134,7 @@ export default function FundsList() {
 
     return (
         <>
-            <div className='w-[100vw] h-[100vh] text-gray-700 bg-[#fcfcfc] overflow-y-auto'>
+            <div className='w-[100vw] h-[100vh] mt-16 text-gray-700 bg-[#fcfcfc] overflow-y-auto'>
                 <section className="">
                     <div className="container mx-auto px-0 text-center py-12 md:px-6 lg:px-6">
                         <h2 className="mb-2 text-4xl font-bold text-center text-secondary-color">
@@ -146,7 +145,6 @@ export default function FundsList() {
                         </div>
                     </div>
                 </section>
-                <Footer />
             </div>
         </>
     )

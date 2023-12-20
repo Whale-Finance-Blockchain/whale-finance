@@ -201,7 +201,7 @@ export default function Proposals({ isMetamaskInstalled, signer }:
     },[]);
 
     return (
-        <div className='w-[100vw] h-screen text-gray-700 bg-[#f6f6f6] overflow-y-auto'>
+        <div className='w-[100vw] h-screen text-gray-700 mt-16 overflow-y-auto'>
             <section className="">
                 <div className="container mx-auto px-0 text-center py-8 md:px-6 lg:px-6">
                     <h2 className="flex justify-center items-center bg-white h-[12vh] mx-6 text-4xl font-bold text-center text-secondary-color shadow-lg rounded-[20px]">

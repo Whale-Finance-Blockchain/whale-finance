@@ -1,5 +1,4 @@
 import React from 'react';
-import Footer from '../../components/Footer/Footer';
 import { Player } from '@lottiefiles/react-lottie-player';
 import LoadingAnim from '../../assets/loading.json';
 import { useNavigate } from 'react-router-dom';
@@ -77,7 +76,7 @@ export default function CreateProposal({ isMetamaskInstalled, signer }:
 
     return (
         <>
-            <div className='w-[100vw] h-screen text-gray-700 bg-[#f6f6f6] overflow-y-auto'>
+            <div className='w-[100vw] h-screen mt-16 text-gray-700 overflow-y-auto'>
                 <section className="">
                     <div className="container mx-auto px-0 text-center py-8 md:px-6 lg:px-6">
                         <h2 className="flex justify-center items-center bg-white h-[12vh] mx-6 text-4xl font-bold text-center text-secondary-color shadow-lg rounded-[20px]">
@@ -116,7 +115,6 @@ export default function CreateProposal({ isMetamaskInstalled, signer }:
                         </div>
                     </div>
                 </section>
-                <Footer />
             </div>
         </>
     )

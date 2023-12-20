@@ -7,7 +7,6 @@ import LineChartComponent from '../../components/LineChartComponent/LineChartCom
 import PieChartComponent from '../../components/PieChartComponent/PieChartComponent';
 import { useParams } from 'react-router-dom';
 import DataDiv from '../../components/DataDiv/DataDiv';
-import Footer from '../../components/Footer/Footer';
 import { ethers } from 'ethers';
 import { WhaleFinanceAddress, DrexAddress, scanUrl } from '../../utils/addresses';
 import { QuotaTokenAbi } from '../../contracts/QuotaToken';
@@ -328,7 +327,6 @@ export default function FundId({ account, provider, signer }: FundIdProps) {
                         </div>
                     </div>
                 </section>
-                <Footer />
             </div> 
         )
     }
@@ -426,7 +424,6 @@ export default function FundId({ account, provider, signer }: FundIdProps) {
                         </div>
                     </div>
                 </section>
-                <Footer />
             </div>
         </>
     )
