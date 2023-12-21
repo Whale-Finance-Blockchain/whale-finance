@@ -1,4 +1,5 @@
 import React from 'react'
+import { useEffect } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home/Home'
 import { connectMetamask } from './utils/connectMetamask'
@@ -13,8 +14,17 @@ import SuccessInvestment from './pages/SuccessInvestment/SuccessInvestment';
 import SuccessFund from './pages/SuccessFund/SuccessFund';
 import Proposals from './pages/Proposals/Proposals';
 import CreateProposal from './pages/CreateProposal/CreateProposal';
+import Test from './pages/Test/Test';
+import useLocalStorage from './hooks/useLocalStorage';
 
 function App() {
+
+  const [theme] = useLocalStorage('theme', 'light');
+
+  useEffect(() => {
+    // Apply the saved theme
+    document.documentElement.classList.toggle('dark', theme === 'dark');
+  }, [theme]);
 
   //handle Metamask wallet connection
   const [isMetamaskInstalled, setIsMetamaskInstalled] = React.useState<boolean>(false);
@@ -50,7 +60,9 @@ function App() {
             />
           }>
             <Route path="/" element={<Home />} />
-            <Route path="/fundslist" element={<FundsList />} />
+            <Route path="/fundslist" element={<FundsList
+              signer={signer}
+            />} />
             <Route path="/fundslist/:id" element={
               <FundId
                 account={account}
@@ -84,6 +96,7 @@ function App() {
               signer={signer}
               />} />
             <Route path="/investor" element={<Investor />} />
+            <Route path="/test" element={<Test />} />
             <Route path="/create-fund" element={
               <CreateFund
               isMetamaskInstalled={isMetamaskInstalled}

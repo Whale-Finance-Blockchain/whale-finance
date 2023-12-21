@@ -16,7 +16,7 @@ export default function DataDiv({ fund }: { fund: any}) {
 
     return (
         <>
-            <div className='flex flex-col text-left mx-0 md:mx-12 lg:mx-12 mt-12 w-[100%] h-[100%]'>
+            <div className='flex flex-col text-left mx-0 md:mx-12 lg:mx-12 w-[100%] h-[100%]'>
                 <div className="text-xl"><span style={{ fontWeight: 'bold' }}>Description:</span> {fund.description}</div>
                 <div className="text-xl mt-8"><span style={{ fontWeight: 'bold' }}>TVL:</span> {formatToUSD(113355678)}</div>
                 <div className="text-xl"><span style={{ fontWeight: 'bold' }}>Performance 12m:</span> {formattedRent}</div>
