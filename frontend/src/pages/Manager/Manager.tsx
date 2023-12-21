@@ -6,6 +6,7 @@ import { AiOutlineArrowUp, AiOutlineArrowDown } from "react-icons/ai";
 import { ethers } from 'ethers';
 import { WhaleFinanceAddress } from '../../utils/addresses';
 import { WhaleFinanceAbi } from '../../contracts/WhaleFinance';
+import Avatar from '../../assets/whale_avatar2.png';
 
 type DataPoint = {
     id: number;
@@ -97,21 +98,21 @@ export default function Manager({ account, provider, signer }:
 
     const fundsElements = funds.map(fund => (
         <div onClick={() => history(`/manager/${fund.id}`)}>
-            <div key={fund.id} className="bg-gradient-to-r from-white to-[#fcfcfc] h-[180px] flex flex-col items-center justify-center text-gray-500 rounded-lg shadow-lg m-[2vh] hover:bg-gradient-to-r hover:from-white hover:to-gray-100 hover:text-secondary-color transition duration-600 ease-in-out">
-                <h2 className="text-xl font-bold text-secondary-color">{fund.name}</h2>
+            <div key={fund.id} className="bg-gradient-to-r from-light-color to-light2-color dark:from-dark-color dark:to-dark2-color h-[180px] flex flex-col items-center justify-center text-gray-500 dark:text-white rounded-lg shadow-lg m-[2vh] hover:bg-gradient-to-r hover:from-white hover:to-gray-100 hover:text-secondary-color hover:dark:from-dark-color hover:dark:to-dark2-color hover:dark:text-secondary-color transition duration-600 ease-in-out">
+                <h2 className="text-xl font-bold text-secondary-color"><img src={Avatar} alt="Avatar" className="w-8 h-8 inline-block mx-2 rounded-full" /> {fund.name}</h2>
                 <p className="text-fs mt-2">{fund.description}</p>
                 <div className="grid grid-cols-3 space-x-4 mt-4 w-[80%]">
                     <div className="">
-                        <p className='text-xl text-black font-bold'>{formatToUSD(113355678)}</p>
+                        <p className='text-xl text-black dark:text-white font-bold'>{formatToUSD(113355678)}</p>
                         <p>TVL</p>
                     </div>
                     <div className="">
-                        <p className='text-xl text-black font-bold'>100</p>
+                        <p className='text-xl text-black dark:text-white font-bold'>100</p>
                         <p>Investors</p>
                     </div>
                     <div className="fl">
                         <div className='flex flex-row items-center justify-center space-x-1'>
-                            <p className={`text-xl font-bold ${rentValue > 0 ? 'text-green-500' : rentValue < 0 ? 'text-red-500' : 'text-black'}`}>
+                            <p className={`text-xl font-bold ${rentValue > 0 ? 'text-green-500' : rentValue < 0 ? 'text-red-500' : 'text-black dark:text-white'}`}>
                                 {formattedRent} 
                             </p>
                             {rentValue > 0 ? <AiOutlineArrowUp color="rgb(34 197 94)" size={20}/> : rentValue < 0 ? <AiOutlineArrowDown color="rgb(249 115 22)" size={20}/> : ''}

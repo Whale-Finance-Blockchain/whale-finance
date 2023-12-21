@@ -10,7 +10,7 @@ import { WhaleFinanceAddress } from '../../utils/addresses';
 export default function CreateProposal({ isMetamaskInstalled, signer }: 
     { isMetamaskInstalled: boolean; signer: any;}) {
 
-    const history = useNavigate();
+    // const history = useNavigate();
 
     const [loading, setLoading] = React.useState(false);
 
@@ -75,47 +75,39 @@ export default function CreateProposal({ isMetamaskInstalled, signer }:
     };
 
     return (
-        <>
-            <div className='w-[100vw] h-screen ml-6 mt-6 rounded-md bg-light-color dark:bg-dark-color text-gray-700 overflow-y-auto'>
-                <section className="">
-                    <div className="container mx-auto px-0 text-center py-8 md:px-6 lg:px-6">
-                        <h2 className="flex justify-center items-center bg-white h-[12vh] mx-6 text-4xl font-bold text-center text-secondary-color shadow-lg rounded-[20px]">
-                            Create Proposal
-                        </h2>
-                        <div className='flex flex-col md:flex-row lg:flex-row justify-center my-10 mx-6 mb-12 shadow-lg bg-white text-secondary-color rounded-[20px]'>
-                            <div className='w-[100%] mx-6 px-10 pb-6 text-secondary-color'>
-                                <FormProposal
-                                    id={id}
-                                    setId={setId}
-                                    proposalType={proposalType}
-                                    setProposalType={setProposalType}
-                                    newtimestamp={newtimestamp}
-                                    setNewtimestamp={setNewtimestamp}
-                                    deadline={deadline}
-                                    setDeadline={setDeadline}
-                                />
-                                <button
-                                className="bg-gradient-to-r from-secondary-color to-secondary-color text-white font-bold rounded-full border-2 border-transparent py-2 px-20 shadow-lg uppercase tracking-wider hover:from-white hover:to-white hover:text-secondary-color hover:border-secondary-color transition duration-1000 ease-in-out" onClick={handleClick}
-                                >
-                                {loading ? 'Loading...' : 'Create'}
-                                </button>
-                                <div className='w-full flex justify-center items-center'>
-                                    <div className='w-[100px] h-[25px] my-4'>
-                                        {loading ? 
-                                        <Player
-                                            src={LoadingAnim}
-                                            className="player"
-                                            loop
-                                            autoplay
-                                        />
-                                        : <></>}  
-                                    </div>
-                                </div>                                                              
-                            </div>
-                        </div>
+        <div className='w-[100vw] h-[100vh] text-gray-700 dark:text-gray-100 px-12 py-12 overflow-y-auto'>
+            <h2 className="mb-2 text-2xl font-bold text-start ml-4 text-gray-500 dark:text-gray-100">
+            Create Proposal Area
+            </h2>
+            <div className='border-[1px] px-8 border-gray-300 dark:border-gray-700 mt-6 rounded-md backdrop-blur-md bg-light-color/50 dark:bg-dark-color/50 '>
+                <FormProposal
+                    id={id}
+                    setId={setId}
+                    proposalType={proposalType}
+                    setProposalType={setProposalType}
+                    newtimestamp={newtimestamp}
+                    setNewtimestamp={setNewtimestamp}
+                    deadline={deadline}
+                    setDeadline={setDeadline}
+                />
+                <button
+                className="w-96 mt-4 self-center bg-secondary-color dark:bg-secondary-color text-light-color dark:text-dark-color font-bold rounded-full border-2 border-transparent py-2 px-20 shadow-lg uppercase tracking-wider hover:bg-light-color hover:dark:bg-dark-color hover:text-secondary-color hover:dark:text-secondary-color hover:border-secondary-color transition duration-1000 ease-in-out" onClick={handleClick}
+                >
+                {loading ? 'Loading...' : 'Create'}
+                </button>
+                <div className='w-full flex justify-center items-center'>
+                    <div className='w-[100px] h-[25px] my-4'>
+                        {loading ? 
+                        <Player
+                            src={LoadingAnim}
+                            className="player"
+                            loop
+                            autoplay
+                        />
+                        : <></>}  
                     </div>
-                </section>
+                </div> 
             </div>
-        </>
+        </div>
     )
 }
