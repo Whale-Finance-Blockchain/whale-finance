@@ -1,11 +1,12 @@
 import ConnectWalletBtn from '../../components/ConnectWallet/ConnectWallet';
 // import Logo from '../../assets/whale_logo.png';
 import LogoApp from "../../assets/whale_logo_green.png";
-import { AiOutlineHome, AiOutlineUser, AiOutlineMenu, AiOutlineTransaction, AiOutlineLineChart, AiOutlineFileDone } from "react-icons/ai";
+import { AiOutlineUser, AiOutlineMenu, AiOutlineTransaction, AiOutlineFileDone } from "react-icons/ai";
 import { RxMoon } from "react-icons/rx";
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import useLocalStorage from '../../hooks/useLocalStorage';
+import NavLinkButton from '../LinkButton/LinkButton';
 
 export default function Header({ isMetamaskInstalled, connectWallet, account, signer }: 
     { isMetamaskInstalled: boolean; connectWallet: any; account: string | null; signer: any;}) {
@@ -95,7 +96,7 @@ export default function Header({ isMetamaskInstalled, connectWallet, account, si
 
                     {/* menu */}
 
-                    <div className="hidden lg:block bg-secondary-color py-4 mt-8 mb-[8vh] rounded-xl space-y-4 w-full"
+                    <div className="hidden lg:block bg-light-color dark:bg-dark-color border-2 border-secondary-color shadow-xl py-4 mt-8 mb-[8vh] rounded-xl space-y-4 w-full"
                         onMouseOver={() => setIsSidebarExtended(true)}
                         onMouseOut={() => setIsSidebarExtended(false)}
                     >
@@ -121,40 +122,12 @@ export default function Header({ isMetamaskInstalled, connectWallet, account, si
                             signer={signer}
                         />
                     </ul> */}
+                        <NavLinkButton to="/fundslist" isSidebarExtended={isSidebarExtended} icon={<AiOutlineMenu />} iconClassName="text-2xl">Fundslist</NavLinkButton>
+                        <NavLinkButton to="/manager" isSidebarExtended={isSidebarExtended} icon={<AiOutlineTransaction />} iconClassName="text-2xl">Manager</NavLinkButton>
+                        <NavLinkButton to="/investor" isSidebarExtended={isSidebarExtended} icon={<AiOutlineUser />} iconClassName="text-2xl">Investor</NavLinkButton>
+                        <NavLinkButton to="/proposals" isSidebarExtended={isSidebarExtended} icon={<AiOutlineFileDone />} iconClassName="text-2xl">Proposals</NavLinkButton>
                         <button
-                            className={`flex flex-row w-full px-8 py-4 items-center text-sm font-bold text-white dark:text-black transition-all duration-150 ease-linear bg-transparent rounded outline-none active:bg-white focus:outline-none hover:bg-white hover:text-secondary-color hover:cursor-pointer
-                                      ${isSidebarExtended ? 'justify-start' : 'justify-center'}`}
-                            onClick={() => history("/fundslist")}
-                        >
-                            <AiOutlineMenu className="text-2xl" />
-                            {isSidebarExtended && <span className="ml-4">Funds List</span>}
-                        </button>
-                        <button
-                            className={`flex flex-row w-full px-8 py-4 items-center text-sm font-bold text-white dark:text-black transition-all duration-150 ease-linear bg-transparent rounded outline-none active:bg-white focus:outline-none hover:bg-white hover:text-secondary-color hover:cursor-pointer
-                                      ${isSidebarExtended ? 'justify-start' : 'justify-center'}`}
-                            onClick={() => history("/manager")}
-                        >
-                            <AiOutlineTransaction className="text-2xl" />
-                            {isSidebarExtended && <span className="ml-4">Manager</span>}
-                        </button>   
-                        <button
-                            className={`flex flex-row w-full px-8 py-4 items-center text-sm font-bold text-white dark:text-black transition-all duration-150 ease-linear bg-transparent rounded outline-none active:bg-white focus:outline-none hover:bg-white hover:text-secondary-color hover:cursor-pointer
-                                      ${isSidebarExtended ? 'justify-start' : 'justify-center'}`}
-                            onClick={() => history("/investor")}
-                        >
-                            <AiOutlineUser className="text-2xl" />
-                            {isSidebarExtended && <span className="ml-4">Investor</span>}
-                        </button>   
-                        <button
-                            className={`flex flex-row w-full px-8 py-4 items-center text-sm font-bold text-white dark:text-black transition-all duration-150 ease-linear bg-transparent rounded outline-none active:bg-white focus:outline-none hover:bg-white hover:text-secondary-color hover:cursor-pointer
-                                      ${isSidebarExtended ? 'justify-start' : 'justify-center'}`}
-                            onClick={() => history("/proposals")}
-                        >
-                            <AiOutlineFileDone className="text-2xl" />
-                            {isSidebarExtended && <span className="ml-4">Proposals</span>}
-                        </button> 
-                        <button
-                            className={`flex flex-row w-full px-8 py-4 items-center text-sm font-bold text-white dark:text-black transition-all duration-150 ease-linear bg-transparent rounded outline-none active:bg-white focus:outline-none hover:bg-white hover:text-secondary-color hover:cursor-pointer
+                            className={`flex flex-row w-full px-8 py-4 items-center text-sm font-bold text-gray-500 dark:text-gray-100 transition-all duration-150 ease-linear bg-transparent rounded outline-none active:bg-white focus:outline-none hover:bg-white-color hover:dark:bg-black-color hover:text-secondary-color hover:dark:text-secondary-color hover:cursor-pointer
                                       ${isSidebarExtended ? 'justify-start' : 'justify-center'}`}
                             onClick={toggleTheme}
                         >
