@@ -51,6 +51,10 @@ export default function DashboardId({ account, signer }:
     const [networkA, setNetworkA] = useState("A");
     const [networkB, setNetworkB] = useState("B");
 
+    async function makeBridge(){
+        console.log("Bridge");
+    }
+
     // const apiKey = import.meta.env.COINMARKET_API_KEY;
     // const [ethPrice, setEthPrice] = useState(null);
 
@@ -130,6 +134,7 @@ export default function DashboardId({ account, signer }:
             setFund({id: "0", name: "Fund 1", description: "Fund 1 description"} as FundData)
         }
 
+
         // const fetchData = async () => {
         //     try {
         //       const response = await axios.get('/v1/cryptocurrency/quotes/latest', {
@@ -204,8 +209,11 @@ export default function DashboardId({ account, signer }:
                     </label>
                     <div className="mx-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
                         <div className="flex flex-row border-[2px] border-secondary-color text-center text-xl text-black dark:text-white mt-4 shadow-lg rounded-[15px]">
+                            <p className="font-medium italic text-sm text-gray-400 ml-8 flex flex-col justify-center">
+                                From
+                            </p>
                             <select 
-                                className="basis-1/3 bg-transparent text-center lg:text-xl font-bold text-black dark:text-white p-2 outline-0 rounded-r-[15px] hover:bg-light-color hover:dark:bg-dark-color transition duration-1000 ease-in-out"
+                                className="w-full bg-transparent text-center lg:text-xl font-bold text-black dark:text-white p-2 outline-0 rounded-r-[15px] hover:bg-light-color hover:dark:bg-dark-color transition duration-1000 ease-in-out"
                                 id="networks"
                                 name="networks"
                                 placeholder='Networks'
@@ -227,8 +235,11 @@ export default function DashboardId({ account, signer }:
                             </select>
                         </div>
                         <div className="flex flex-row border-[2px] border-secondary-color text-center text-xl text-black dark:text-white mt-4 shadow-lg rounded-[15px]">
+                            <p className="font-medium italic text-sm text-gray-400 ml-8 flex flex-col justify-center">
+                                To
+                            </p>
                             <select 
-                                className="basis-1/3 bg-transparent text-center lg:text-xl font-bold text-black dark:text-white p-2 outline-0 rounded-r-[15px] hover:bg-light-color hover:dark:bg-dark-color transition duration-1000 ease-in-out"
+                                className="w-full bg-transparent text-center lg:text-xl font-bold text-black dark:text-white p-2 outline-0 rounded-r-[15px] hover:bg-light-color hover:dark:bg-dark-color transition duration-1000 ease-in-out"
                                 id="networks"
                                 name="networks"
                                 placeholder='Networks'
@@ -249,6 +260,14 @@ export default function DashboardId({ account, signer }:
                                 <option value="C">C</option>
                             </select>
                         </div>
+                    </div>
+                    <div className='w-full flex flex-col justify-center'>
+                        <button
+                            className="mb-4 mt-12 self-center bg-secondary-color text-light-color dark:text-dark-color font-bold rounded-full border-2 border-transparent py-2 px-36 shadow-lg uppercase tracking-wider hover:bg-light-color hover:dark:bg-dark-color hover:text-secondary-color hover:dark:text-secondary-color hover:border-secondary-color transition duration-1000 ease-in-out"
+                            onClick={makeBridge}
+                            >
+                            Bridge
+                        </button>
                     </div>
                 </div>
             </div>
