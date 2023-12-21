@@ -1,1 +1,1 @@
-forge script ./CreateTokens.s.sol --rpc-url $SEPOLIA_RPC_URL  --broadcast --legacy
+forge script ./CreateTokens.s.sol --rpc-url $DANCEBOX_RPC_URL  --broadcast --legacy
