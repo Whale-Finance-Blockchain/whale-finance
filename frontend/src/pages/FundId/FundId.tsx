@@ -4,14 +4,14 @@ import { useNavigate } from 'react-router-dom';
 // import { get, ref } from "firebase/database";
 import FormInvestor from '../../components/FormInvestor/FormInvestor';
 import LineChartComponent from '../../components/LineChartComponent/LineChartComponent';
-import PieChartComponent from '../../components/PieChartComponent/PieChartComponent';
+//import PieChartComponent from '../../components/PieChartComponent/PieChartComponent';
 import { useParams } from 'react-router-dom';
 import DataDiv from '../../components/DataDiv/DataDiv';
 import { ethers } from 'ethers';
 import { WhaleFinanceAddress, DrexAddress, scanUrl } from '../../utils/addresses';
 import { QuotaTokenAbi } from '../../contracts/QuotaToken';
 import { WhaleFinanceAbi } from '../../contracts/WhaleFinance';
-import Zusd from '../../assets/zusd.png';
+//import Zusd from '../../assets/zusd.png';
 import Avatar from '../../assets/whale_avatar2.png';
 import WhaleToken from '../../assets/whale_avatar1.png';
 import TokensTable from '../../components/TokensTable/TokensTable';
@@ -62,7 +62,7 @@ export default function FundId({ account, provider, signer }: FundIdProps) {
 
     const [zusdBalance, setZusdBalance] = useState(0);
     const [quotaBalance, setQuotaBalance] = useState(0);
-    const [quotaPrice, setQuotaPrice] = useState(1);
+    const [quotaPrice, _] = useState(1);
     
     const [totalQuotas, setTotalQuotas] = useState(0);
     const [quotaAddress, setQuotaAddress] = useState("--");
@@ -146,7 +146,7 @@ export default function FundId({ account, provider, signer }: FundIdProps) {
             console.log(err);
         }
     }
-
+    //@ts-ignore
     async function makeInvestment(){
         try{
             if(invest <= 0 || invest > zusdBalance){
@@ -304,7 +304,7 @@ export default function FundId({ account, provider, signer }: FundIdProps) {
 
     // mockData();
 
-    function timesTampToString(timestamp: string){
+    function timesTampToString(timestamp: number){
         console.log(timestamp)
         const date = new Date(Number(timestamp)*1000);
 
