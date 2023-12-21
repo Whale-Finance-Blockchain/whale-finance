@@ -126,11 +126,11 @@ export default function DashboardId({ account, signer }:
 
     if (!fund) {
         return (
-            <div className='w-[100vw] h-[100vh] text-gray-700 ml-12 py-12 overflow-y-auto'>
+            <div className='w-[100vw] h-[100vh] text-gray-700 px-12 py-12 overflow-y-auto'>
                 <h2 className="mb-2 text-2xl font-bold text-start ml-4 text-gray-500 dark:text-gray-100">
                     Funds List
                 </h2>
-                <div className='text-gray-700 mt-6 rounded-md backdrop-blur-md bg-light-color/50 dark:bg-dark-color/50 '>
+                <div className='border-[1px] border-gray-300 dark:border-gray-700 text-gray-700 mt-6 rounded-md backdrop-blur-md bg-light-color/50 dark:bg-dark-color/50 '>
                     <section className="">
                         <div className="container mx-auto px-6 text-center py-8 opacity-60">
                             <h2 className="flex justify-center items-center bg-white h-[12vh] text-4xl font-bold text-center text-secondary-color rounded-[20px]">
@@ -151,11 +151,11 @@ export default function DashboardId({ account, signer }:
     }
 
     return (
-        <div className='w-[100vw] h-[100vh] text-gray-700 ml-12 py-12 overflow-y-auto'>
+        <div className='w-[100vw] h-[100vh] text-gray-700 px-12 py-12 overflow-y-auto'>
             <h2 className="mb-2 text-2xl font-bold text-start ml-4 text-gray-500 dark:text-gray-100">
                 Manager Dashboard
             </h2>
-            <div className='text-gray-700 mt-6 rounded-md backdrop-blur-md bg-light-color/50 dark:bg-dark-color/50 '>
+            <div className='border-[1px] border-gray-300 dark:border-gray-700 text-gray-700 mt-6 rounded-md backdrop-blur-md bg-light-color/50 dark:bg-dark-color/50 '>
                 <section className="">
                     <div className="container mx-auto px-0 text-center py-8 lg:px-6">
                         <h2 className="flex justify-center items-center bg-white h-[12vh] mx-6 text-2xl md:text-4xl lg:text-4xl font-bold text-center text-secondary-color shadow-lg rounded-[20px]">
