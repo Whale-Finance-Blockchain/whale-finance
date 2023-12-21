@@ -34,7 +34,7 @@ export default function Header({ isMetamaskInstalled, connectWallet, account, si
         >
             <div className="w-[100%] h-[100%] px-4 py-8 rounded-[16px] flex justify-between">
                 <div className="w-[100%] h-[100%] flex flex-row md:flex-col lg:flex-col items-center">
-                    <img className="w-[5vw] pb-[4vh]" src={LogoApp} alt="Whale Finance"/>
+                    <img className="w-[5vw] pb-[4vh] cursor-pointer" src={LogoApp} alt="Whale Finance" onClick={() => history('/')}/>
                     {/* <h1 className='pb-[6vh] text-center text-secondary-color text-xl'>whale <br></br> finance</h1> */}
 
                     {/* responsivo */}

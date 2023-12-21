@@ -201,16 +201,16 @@ export default function Proposals({ isMetamaskInstalled, signer }:
 
     return (
         <div className='w-[100vw] h-[100vh] text-gray-700 px-12 py-12 overflow-y-auto'>
-            <h2 className="mb-2 text-2xl font-bold text-start ml-4 text-gray-500 dark:text-gray-100">
+            <h2 className="mb-2 text-2xl font-bold text-start ml-4 text-gray-500 dark:text-gray-100 ">
                 Proposals Panel
             </h2>
             <div className='border-[1px] border-gray-300 dark:border-gray-700 text-gray-700 mt-6 rounded-md backdrop-blur-md bg-light-color/50 dark:bg-dark-color/50 '>
-                <section className="">
-                    <div className='flex flex-col md:flex-row lg:flex-row justify-center my-10 mx-6 mb-12 text-secondary-color rounded-[20px]'>
+                <section className="flex flex-col items-center text-center mb-8">
+                    <div className='flex flex-col w-full md:flex-row lg:flex-row justify-center my-10 mx-6 mb-12 text-secondary-color rounded-[20px]'>
 
                         {myproposals.length ? (
-                            <div className="flex flex-col w-[90%] my-12 shadow-lg rounded-lg overflow-hidden">
-                            <div className="flex border-secondary-color bg-gray-100 text-secondary-color font-bold uppercase text-[0.5rem] md:text-sm lg:text-sm leading-normal">
+                            <div className="flex flex-col w-[96%] my-2 shadow-lg rounded-lg overflow-hidden">
+                            <div className="flex text-left bg-gradient-to-b from-transparent to-light2-color dark:to-dark2-color border-2 border-secondary-color rounded">
                                 <div className="py-3 px-6 text-center flex-1">Proposal Id</div>
                                 <div className="py-3 px-6 text-center flex-1">Fund Name</div>
                                 <div className="py-3 px-6 text-center flex-1">Status</div>
@@ -219,9 +219,9 @@ export default function Proposals({ isMetamaskInstalled, signer }:
                                 <div className="py-3 px-6 text-center flex-1">Your votes</div>
                                 <div className="py-3 px-6 text-center flex-1">Action</div>
                             </div>
-                            <div className="text-gray-800 text-[0.6rem] md:text-sm lg:text-sm font-light">
+                            <div className="text-gray-700 dark:text-gray-100 text-[0.6rem] md:text-sm lg:text-sm font-light">
                                 {myproposals.map((proposal) => (
-                                    <div key={proposal.proposal_id} className="border-b h-14 items-center  flex hover:bg-gray-100 hover:bg-opacity-50">
+                                    <div key={proposal.proposal_id} className="border-b h-14 items-center  flex hover:bg-gray-100 hover:dark:bg-dark2-color hover:bg-opacity-50">
                                         <div className="py-3 px-6 text-center flex-1">{proposal.proposal_id}</div>
                                         <div className="py-3 px-6 text-center flex-1">{proposal.name}</div>
                                         <div className="py-3 px-6 text-center flex-1 relative">
@@ -237,7 +237,7 @@ export default function Proposals({ isMetamaskInstalled, signer }:
                                                     placeholder='Num of Tokens'
                                                     value={proposalValues[proposal.proposal_id] || ''}
                                                     onChange={(e) => handleInputChange(proposal.proposal_id, e.target.value)}
-                                                    className="bg-white text-black text-center w-full pl-4 outline-0 shadow-lg py-2 hover:bg-gray-100 transition duration-1000 ease-in-out"
+                                                    className="bg-light2-color dark:bg-dark2-color text-black text-center w-full pl-4 outline-0 shadow-lg py-2 hover:bg-gray-100 hover:dark:bg-dark2-color transition duration-1000 ease-in-out"
                                                 />
                                             }
                                             {proposal.status != 'pending' && 
@@ -252,13 +252,13 @@ export default function Proposals({ isMetamaskInstalled, signer }:
                                         </div>
                                         <div className="py-3 px-6 text-left flex-1">
                                             {proposal.status === 'pending' && 
-                                                <button className="w-full bg-transparent hover:bg-secondary-color text-clue-color font-bold hover:text-white py-2 px-4 border-2 border-secondary-color hover:border-transparent rounded"
+                                                <button className="w-full text-sm bg-transparent hover:bg-secondary-color font-bold hover:text-white hover:dark:text-dark-color py-2 px-4 border-2 border-secondary-color hover:border-transparent rounded"
                                                         onClick={() => sendVote(proposal.proposal_id)}>
                                                     Vote YES for the Proposal
                                                 </button>
                                             }
                                             {(proposal.status === 'accepted' || proposal.status === 'rejected') && 
-                                                <button className="w-full bg-transparent hover:bg-secondary-color text-clue-color font-bold hover:text-white py-2 px-4 border-2 border-secondary-color hover:border-transparent rounded"
+                                                <button className="w-full bg-transparent hover:bg-secondary-color font-bold hover:text-white hover:dark:text-dark-color py-2 px-4 border-2 border-secondary-color hover:border-transparent rounded"
                                                         onClick={() => sendWithdraw(proposal.proposal_id)}>
                                                     Withdraw Tokens
                                                 </button>
@@ -269,10 +269,16 @@ export default function Proposals({ isMetamaskInstalled, signer }:
                             </div>
                             </div>
                         ):(
-                            <div className="flex justify-center items-center text-gray-500 text-xl font-medium">
+                            <div className="flex justify-center items-center text-gray-500 dark:text-gray-100 text-xl font-medium">
                                 You have no Proposals yet
                             </div>
                         )}
+                    </div>
+                    <div
+                        className="bg-light-color dark:bg-dark-color text-black dark:text-white font-bold rounded-full border-2 border-transparent cursor-pointer py-4 px-8 w-96 shadow-lg uppercase tracking-wider hover:bg-secondary-color hover:text-[white] hover:border-white hover:dark:bg-secondary-color hover:dark:text-[black] hover:dark:border-black transition duration-1000 ease-in-out"
+                        onClick={() => history("/create-proposal")}
+                        >
+                        Create Proposal
                     </div>
                 </section>
             </div>

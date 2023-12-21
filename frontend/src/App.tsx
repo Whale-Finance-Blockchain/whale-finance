@@ -60,7 +60,9 @@ function App() {
             />
           }>
             <Route path="/" element={<Home />} />
-            <Route path="/fundslist" element={<FundsList />} />
+            <Route path="/fundslist" element={<FundsList
+              signer={signer}
+            />} />
             <Route path="/fundslist/:id" element={
               <FundId
                 account={account}
