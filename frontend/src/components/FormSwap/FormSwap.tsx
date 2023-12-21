@@ -115,7 +115,7 @@ export default function FormSwap(props: any) {
                     <label className="block font-medium italic text-sm text-gray-400 mb-8" htmlFor="invest">
                         Choose your tokens to swap
                     </label>
-                    <div className="flex flex-row text-center text-sm text-blue-color italic font-bold mt-4 ml-8">
+                    <div className="flex flex-row text-center text-sm text-secondary-color italic font-bold mt-4 ml-8">
                         <h3>Balance: {Number(tokenABalance).toFixed(3)} {props.tokenA} </h3>
                     </div>
                     <div className="flex flex-row bg-[white] border-[2px] border-secondary-color text-center text-xl text-black mt-4 shadow-lg rounded-[15px]">
@@ -141,7 +141,7 @@ export default function FormSwap(props: any) {
                                     <option 
                                         key={key}
                                         value={key}
-                                        className="bg-white lg:text-xl text-center text-black p-2 mt-4 rounded-[10px] border-blue-color border-2 outline-0 shadow-lg focus:bg-secondary-color focus:text-white hover:bg-gray-100 transition duration-1000 ease-in-out"
+                                        className="bg-white lg:text-xl text-center text-black p-2 mt-4 rounded-[10px] border-secondary-color border-2 outline-0 shadow-lg focus:bg-secondary-color focus:text-white hover:bg-gray-100 transition duration-1000 ease-in-out"
                                     >{key}</option>
                                 )
                             })}
@@ -164,7 +164,7 @@ export default function FormSwap(props: any) {
                                     <option 
                                         key={key}
                                         value={key}
-                                        className="bg-white lg:text-xl text-center text-black p-2 mt-4 rounded-[10px] border-blue-color border-2 outline-0 shadow-lg focus:bg-secondary-color focus:text-white hover:bg-gray-100 transition duration-1000 ease-in-out"
+                                        className="bg-white lg:text-xl text-center text-black p-2 mt-4 rounded-[10px] border-secondary-color border-2 outline-0 shadow-lg focus:bg-secondary-color focus:text-white hover:bg-gray-100 transition duration-1000 ease-in-out"
                                     >{key}</option>
                                 )
                             })}
@@ -173,7 +173,7 @@ export default function FormSwap(props: any) {
                 </div>
             </div>
             <button
-            className="my-4 bg-gradient-to-r from-blue-color to-secondary-color text-white font-bold rounded-full border-2 border-transparent py-2 px-20 shadow-lg uppercase tracking-wider hover:from-white hover:to-white hover:text-secondary-color hover:border-secondary-color transition duration-1000 ease-in-out"
+            className="my-4 bg-gradient-to-r from-secondary-color to-secondary-color text-white font-bold rounded-full border-2 border-transparent py-2 px-20 shadow-lg uppercase tracking-wider hover:from-white hover:to-white hover:text-secondary-color hover:border-secondary-color transition duration-1000 ease-in-out"
             onClick={makeSwap}
             >
             Swap

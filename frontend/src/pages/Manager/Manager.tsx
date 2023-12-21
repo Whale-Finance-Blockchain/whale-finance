@@ -124,52 +124,52 @@ export default function Manager({ account, provider, signer }:
     ))
 
     const loadingElements = Array(4).fill(null).map((_, index) => (
-        <div key={index} className="bg-gradient-to-r from-white to-[#f6f6f6] h-[180px] opacity-80 flex items-center justify-center text-gray-500 rounded-lg shadow-lg m-[2vh]">
+        <div key={index} className="bg-gradient-to-r from-light-color to-light2-color dark:from-dark-color dark:to-dark2-color h-[180px] opacity-80 flex items-center justify-center text-gray-500 dark:text-white rounded-lg shadow-lg m-[2vh]">
         </div>
     ))
 
     const nullElements = Array(3).fill(null).map((_, index) => (
-      <div key={index} className="mt-6 bg-gradient-to-r from-white to-[#f6f6f6] h-[180px] opacity-80 flex items-center justify-center text-gray-500 rounded-lg shadow-lg m-[2vh]">
+      <div key={index} className="mt-6 bg-gradient-to-r from-light-color to-light2-color dark:from-dark-color dark:to-dark2-color h-[180px] opacity-80 flex items-center justify-center text-gray-500 dark:text-white rounded-lg shadow-lg m-[2vh]">
         <p className='italic'>Connect your manager wallet to see your funds <br></br> or start creating a new one</p>
       </div>
     ))
 
     return (
-        <>
-            <div className='w-[100vw] h-screen ml-6 mt-6 rounded-md bg-light-color dark:bg-dark-color text-gray-700 overflow-y-auto'>
-                <section className="">
-                    <div className="container mx-auto px-0 text-center py-12 md:px-6 lg:px-6">
-                        <h2 className="mb-16 text-4xl font-bold text-center text-secondary-color">
-                        Manager's Area
-                        </h2>
-                        <div className='flex flex-col items-center w-full'>
-                          <div
-                          className="bg-white text-black font-bold rounded-full border-2 border-transparent cursor-pointer py-4 px-8 w-96 shadow-lg uppercase tracking-wider hover:bg-secondary-color hover:text-[white] hover:border-white transition duration-1000 ease-in-out"
-                          onClick={() => history("/create-fund")}
-                          >
-                          Create Fund Now
-                          </div>
-                        </div>
-                        {!manager ? 
-                          <div className='grid grid-cols-1 justify-center mb-12 mt-6 md:grid-cols-2 lg:grid-cols-3'>
-                              {nullElements}
-                          </div>
-                          : 
-                          <div>
-                            <p className='text-xm mt-16 italic'>Please choose a hedge fund to manage and see stats</p>
-                            <div className='grid grid-cols-1 justify-center mb-12 mt-6 cursor-pointer md:grid-cols-2 lg:grid-cols-3'>
-                                {funds.length ? fundsElements : loadingElements }
-                            </div>
-                          </div>
-                        }
-                        {/* <div className='mb-24 mt-12 flex justify-center'>
-                          <div className="w-96 px-20 py-3 text-xm font-bold bg-blue-color text-white hover:bg-slate-200 hover:text-secondary-color transition duration-1000 ease-in-out rounded-full uppercase cursor-pointer" onClick={() => setManager(1)}>
-                          Connect Wallet
-                          </div>
-                        </div> */}
-                    </div>
-                </section>
+      <div className='w-[100vw] h-[100vh] text-gray-700 dark:text-gray-100 ml-12 py-12 overflow-y-auto'>
+        <h2 className="mb-2 text-2xl font-bold text-start ml-4 text-gray-500 dark:text-gray-100">
+        Manager's Area
+        </h2>
+        <div className='mt-6 rounded-md backdrop-blur-md bg-light-color/50 dark:bg-dark-color/50 '>
+          <section className="">
+            <div className="container mx-auto px-0 text-center py-12 md:px-6 lg:px-6">
+              <div className='flex flex-col items-center w-full'>
+                <div
+                className="bg-light-color dark:bg-dark-color text-black dark:text-white font-bold rounded-full border-2 border-transparent cursor-pointer py-4 px-8 w-96 shadow-lg uppercase tracking-wider hover:bg-secondary-color hover:text-[white] hover:border-white hover:dark:bg-secondary-color hover:dark:text-[black] hover:dark:border-black transition duration-1000 ease-in-out"
+                onClick={() => history("/create-fund")}
+                >
+                Create Fund Now
+                </div>
+              </div>
+              {!manager ? 
+                <div className='grid grid-cols-1 justify-center mb-12 mt-6 md:grid-cols-2 lg:grid-cols-3'>
+                    {nullElements}
+                </div>
+                : 
+                <div>
+                  <p className='text-xm mt-16 italic'>Please choose a hedge fund to manage and see stats</p>
+                  <div className='grid grid-cols-1 justify-center mb-12 mt-6 cursor-pointer md:grid-cols-2 lg:grid-cols-3'>
+                      {funds.length ? fundsElements : loadingElements }
+                  </div>
+                </div>
+              }
+              {/* <div className='mb-24 mt-12 flex justify-center'>
+                <div className="w-96 px-20 py-3 text-xm font-bold bg-secondary-color text-white hover:bg-slate-200 hover:text-secondary-color transition duration-1000 ease-in-out rounded-full uppercase cursor-pointer" onClick={() => setManager(1)}>
+                Connect Wallet
+                </div>
+              </div> */}
             </div>
-        </>
+          </section>
+        </div>
+      </div>
     )
 }

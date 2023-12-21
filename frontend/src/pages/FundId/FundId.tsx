@@ -332,8 +332,11 @@ export default function FundId({ account, provider, signer }: FundIdProps) {
     }
 
     return (
-        <>
-            <div className='w-[100vw] h-screen text-gray-700 ml-6 mt-6 rounded-md bg-light-color dark:bg-dark-color overflow-y-auto'>
+        <div className='w-[100vw] h-[100vh] text-gray-700 ml-12 py-12 overflow-y-auto'>
+            <h2 className="mb-2 text-2xl font-bold text-start ml-4 text-gray-500 dark:text-gray-100">
+                Funds List
+            </h2>
+            <div className='text-gray-700 mt-6 rounded-md backdrop-blur-md bg-light-color/50 dark:bg-dark-color/50 '>
                 <section className="">
                     <div className="container mx-auto px-0 text-center py-8 lg:px-6">
                         <h2 className="flex justify-center items-center bg-white h-[12vh] mx-6 text-4xl font-bold text-center text-secondary-color shadow-lg rounded-[20px]">
@@ -359,27 +362,27 @@ export default function FundId({ account, provider, signer }: FundIdProps) {
                                         <div className='grid grid-cols-2'>
                                             <h3 className='italic'>Your DREX Balance:</h3>
                                             <div className='flex flex-row items-center justify-center'>
-                                                <p className='font-bold text-blue-color'>{Number(zusdBalance).toFixed(2)}</p>
+                                                <p className='font-bold text-secondary-color'>{Number(zusdBalance).toFixed(2)}</p>
                                                 <img src={Zusd} alt="zusd" className='w-6 h-6 ml-2' />
                                             </div>
                                         </div>
                                         <div className='grid grid-cols-2'>
                                             <h3 className='italic'>Your quotas Balance:</h3>
-                                            <p className='font-bold text-blue-color'>{Number(quotaBalance).toFixed(2)}</p>
+                                            <p className='font-bold text-secondary-color'>{Number(quotaBalance).toFixed(2)}</p>
                                         </div>
                                         <div className='grid grid-cols-2'>
                                             <h3 className='italic'>Quota Price:</h3>
-                                            <p className='font-bold text-blue-color'>{Number(quotaPrice).toFixed(2)} USD/quota</p>
+                                            <p className='font-bold text-secondary-color'>{Number(quotaPrice).toFixed(2)} USD/quota</p>
                                         </div>
                                         
                                         <div className='grid grid-cols-2'>
                                             <h3 className='italic'>Total number of quotas:</h3>
-                                            <p className='font-bold text-blue-color'>{Number(totalQuotas).toFixed(2)}</p>
+                                            <p className='font-bold text-secondary-color'>{Number(totalQuotas).toFixed(2)}</p>
                                         </div>
 
                                         <div className='grid grid-cols-2'>
                                             <h3 className='italic'>Maturation Date</h3>
-                                            <p className='font-bold text-blue-color'>{timesTampToString(openRedeem)}</p>
+                                            <p className='font-bold text-secondary-color'>{timesTampToString(openRedeem)}</p>
                                         </div>
                                         
                                         <div className='grid grid-cols-2'>
@@ -394,7 +397,7 @@ export default function FundId({ account, provider, signer }: FundIdProps) {
                                             style={{
                                                 cursor: "pointer"
                                             }}
-                                            className='font-bold text-blue-color truncate'>{quotaAddress}</p>
+                                            className='font-bold text-secondary-color truncate'>{quotaAddress}</p>
                                         </div>
                                 </div>
                                 <FormInvestor   
@@ -402,7 +405,7 @@ export default function FundId({ account, provider, signer }: FundIdProps) {
                                     setInvest={setInvest}
                                 />
                                 <button
-                                className="mb-4 bg-gradient-to-r from-blue-color to-secondary-color text-white font-bold rounded-full border-2 border-transparent py-2 px-20 shadow-lg uppercase tracking-wider hover:from-white hover:to-white hover:text-secondary-color hover:border-secondary-color transition duration-1000 ease-in-out" onClick={makeInvestment}
+                                className="mb-4 bg-gradient-to-r from-secondary-color to-secondary-color text-white font-bold rounded-full border-2 border-transparent py-2 px-20 shadow-lg uppercase tracking-wider hover:from-white hover:to-white hover:text-secondary-color hover:border-secondary-color transition duration-1000 ease-in-out" onClick={makeInvestment}
                                 >
                                 {loading ? 'Loading...' : 'Invest'}
                                 </button>
@@ -425,6 +428,6 @@ export default function FundId({ account, provider, signer }: FundIdProps) {
                     </div>
                 </section>
             </div>
-        </>
+        </div>
     )
 }

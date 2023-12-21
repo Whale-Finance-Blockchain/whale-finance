@@ -200,17 +200,17 @@ export default function Proposals({ isMetamaskInstalled, signer }:
     },[]);
 
     return (
-        <div className='w-[100vw] h-screen text-gray-700 ml-6 mt-6 rounded-md bg-light-color dark:bg-dark-color overflow-y-auto'>
-            <section className="">
-                <div className="container mx-auto px-0 text-center py-8 md:px-6 lg:px-6">
-                    <h2 className="flex justify-center items-center bg-white h-[12vh] mx-6 text-4xl font-bold text-center text-secondary-color shadow-lg rounded-[20px]">
-                        Proposals Panel
-                    </h2>
-                    <div className='flex flex-col md:flex-row lg:flex-row justify-center my-10 mx-6 mb-12 shadow-lg bg-white text-secondary-color rounded-[20px]'>
+        <div className='w-[100vw] h-[100vh] text-gray-700 ml-12 py-12 overflow-y-auto'>
+            <h2 className="mb-2 text-2xl font-bold text-start ml-4 text-gray-500 dark:text-gray-100">
+                Proposals Panel
+            </h2>
+            <div className='text-gray-700 mt-6 rounded-md backdrop-blur-md bg-light-color/50 dark:bg-dark-color/50 '>
+                <section className="">
+                    <div className='flex flex-col md:flex-row lg:flex-row justify-center my-10 mx-6 mb-12 text-secondary-color rounded-[20px]'>
 
                         {myproposals.length ? (
                             <div className="flex flex-col w-[90%] my-12 shadow-lg rounded-lg overflow-hidden">
-                            <div className="flex border-blue-color bg-gray-100 text-secondary-color font-bold uppercase text-[0.5rem] md:text-sm lg:text-sm leading-normal">
+                            <div className="flex border-secondary-color bg-gray-100 text-secondary-color font-bold uppercase text-[0.5rem] md:text-sm lg:text-sm leading-normal">
                                 <div className="py-3 px-6 text-center flex-1">Proposal Id</div>
                                 <div className="py-3 px-6 text-center flex-1">Fund Name</div>
                                 <div className="py-3 px-6 text-center flex-1">Status</div>
@@ -252,13 +252,13 @@ export default function Proposals({ isMetamaskInstalled, signer }:
                                         </div>
                                         <div className="py-3 px-6 text-left flex-1">
                                             {proposal.status === 'pending' && 
-                                                <button className="w-full bg-transparent hover:bg-blue-color text-clue-color font-bold hover:text-white py-2 px-4 border-2 border-blue-color hover:border-transparent rounded"
+                                                <button className="w-full bg-transparent hover:bg-secondary-color text-clue-color font-bold hover:text-white py-2 px-4 border-2 border-secondary-color hover:border-transparent rounded"
                                                         onClick={() => sendVote(proposal.proposal_id)}>
                                                     Vote YES for the Proposal
                                                 </button>
                                             }
                                             {(proposal.status === 'accepted' || proposal.status === 'rejected') && 
-                                                <button className="w-full bg-transparent hover:bg-blue-color text-clue-color font-bold hover:text-white py-2 px-4 border-2 border-blue-color hover:border-transparent rounded"
+                                                <button className="w-full bg-transparent hover:bg-secondary-color text-clue-color font-bold hover:text-white py-2 px-4 border-2 border-secondary-color hover:border-transparent rounded"
                                                         onClick={() => sendWithdraw(proposal.proposal_id)}>
                                                     Withdraw Tokens
                                                 </button>
@@ -274,8 +274,8 @@ export default function Proposals({ isMetamaskInstalled, signer }:
                             </div>
                         )}
                     </div>
-                </div>
-            </section>
+                </section>
+            </div>
         </div>
     );
 }

@@ -95,7 +95,7 @@ export default function CreateProposal({ isMetamaskInstalled, signer }:
                                     setDeadline={setDeadline}
                                 />
                                 <button
-                                className="bg-gradient-to-r from-blue-color to-secondary-color text-white font-bold rounded-full border-2 border-transparent py-2 px-20 shadow-lg uppercase tracking-wider hover:from-white hover:to-white hover:text-secondary-color hover:border-secondary-color transition duration-1000 ease-in-out" onClick={handleClick}
+                                className="bg-gradient-to-r from-secondary-color to-secondary-color text-white font-bold rounded-full border-2 border-transparent py-2 px-20 shadow-lg uppercase tracking-wider hover:from-white hover:to-white hover:text-secondary-color hover:border-secondary-color transition duration-1000 ease-in-out" onClick={handleClick}
                                 >
                                 {loading ? 'Loading...' : 'Create'}
                                 </button>
