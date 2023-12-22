@@ -15,16 +15,17 @@ contract Create is Script {
     function setUp() public {}
 
     function run() external {
-        vm.startBroadcast(vm.envUint("PRIVATE_KEY_DANCEBOX"));
+        vm.startBroadcast(vm.envUint("PRIVATE_KEY"));
         address target = 0xB0Eb2a4CDf7be2D0c408cF60Ed8ba1065920b339;
 
-        MockERC20 itub4 = new MockERC20("WHALETEST", "WHALETEST");
+        MockERC20 tokenA = new MockERC20("DOT", "DOT");
+        MockERC20 tokenB = new MockERC20("WBTC", "WBTC");
 
-        console.log("itub4 address: %s", address(itub4));
-        console.log("my account: %s", tx.origin);
-        
+        tokenA.mint(target, 3000 ether);
+        tokenB.mint(target, 3000 ether);
 
-        itub4.mint(target, 1000000000000000 ether);
+        console.log("DOT Address: ", address(tokenA));
+        console.log("WBTC Address: ", address(tokenB));
 
 
         vm.stopBroadcast();

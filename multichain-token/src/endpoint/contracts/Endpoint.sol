@@ -9,7 +9,7 @@ import "./interfaces/ILayerZeroMessagingLibrary.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract Endpoint is Ownable, ILayerZeroEndpoint {
-    uint16 public immutable chainId;
+    uint256 public immutable chainId;
 
     // installed libraries and reserved versions
     uint16 public constant BLOCK_VERSION = 65535;
@@ -51,12 +51,12 @@ contract Endpoint is Ownable, ILayerZeroEndpoint {
     event DefaultReceiveVersionSet(uint16 version);
     event UaSendVersionSet(address ua, uint16 version);
     event UaReceiveVersionSet(address ua, uint16 version);
-    event UaForceResumeReceive(uint16 chainId, bytes srcAddress);
+    event UaForceResumeReceive(uint256 chainId, bytes srcAddress);
     // payload events
     event PayloadCleared(uint16 srcChainId, bytes srcAddress, uint64 nonce, address dstAddress);
     event PayloadStored(uint16 srcChainId, bytes srcAddress, address dstAddress, uint64 nonce, bytes payload, bytes reason);
 
-    constructor(uint16 _chainId) Ownable(msg.sender){
+    constructor(uint256 _chainId) Ownable(msg.sender){
         chainId = _chainId;
     }
 
@@ -283,7 +283,7 @@ contract Endpoint is Ownable, ILayerZeroEndpoint {
     }
 
     function getChainId() external view override returns (uint16) {
-        return chainId;
+        return uint16(chainId);
     }
 
     function getSendVersion(address _userApplication) external view override returns (uint16) {

@@ -2,20 +2,20 @@
 # Project Submission for Hackathon
 
 ## Basic Information
-- **Project Name:** 
+- **Project Name:** Whale Finance
 
-- **Project Establishment Date:** (Year and Month)
+- **Project Establishment Date:** 2023, October
 
 ## Overall Project Introduction
 - **Project Introduction:**
-  - To be submitted in English.
-  - Includes:
-    - Project background/origin/problems to be solved.
-    - (Other attachments can be placed in the `docs` directory. English submission required.)
+  - This project uses ERC 6551 to allow managers to hold assets from investors. In this way, we can basically make a descentralized asset management using EVM. The platform is designed for the two publics: The investors, who will be able to invest their tokens in really great funds around the work in a safe way, and the managers, who will be able to manage and hold investor tokens and can have a profit to themselves.
 
 - **Project Introduction:**
 
-- **Project Demo:**
+- **Project Demo and Presentation:**
+
+[Demo Link](https://whale-finance.vercel.app/)
+[Presentation Link](https://www.canva.com/design/DAF2W5AB2pI/RrVv85wJooo511YwWUQsbw/edit)
 
 - **Technical Architecture:**
 
@@ -26,9 +26,7 @@
   - For a mature project: A branch, created after May 12, 2023, with an explanation of existing functionalities.
 
 ## Items Planned to be Completed During the Hackathon
-- Teams should git clone this repository in the registration week, create a team directory, and list in the `readme` the functionalities planned to be completed during the hackathon.
-- Submit a PR to this repository.
-- **Example (for an NFT project):**
+
   - **Blockchain Side:**
     - `pallet-nft`:
       - NFT creation and data structure definition (`fn create_nft()`).
@@ -50,4 +48,16 @@
 - **Note:** Do not submit large files like Demo videos, PPTs, etc. Store their links in the readme.
 
 ## Team Member Information
-- Include the names and introductions of the contestants, roles in the team, GitHub accounts, and WeChat accounts (if available for timely contact).
+**Bryan Borck**
+
+ - Frontend developer and designer in Whale Finance
+ - Computer Engineering student at ITA (Brazil), PBA student cohort HK 2024, 2 years experience in Equity Research and involved (as participant and winner) in many web3 hackathons
+ - [Github](https://github.com/BryanBorck)
+ - Email: bryanborck@gmail.com
+
+**Luiz Vasconcelos **
+
+ - Blockchain developer in Whale Finance
+ - Computer Engineering student at ITA (Brazil), PBA student cohort HK 2024, 1 year experience in blockchain development in a leadership area of innovation (brazilian startup), 2 years experience in Equity Research and involved (as participant and winner) in many web3 hackathons
+ - [Github](https://github.com/luiz-lvj)
+ - Email: luiz-lvj@gmail.com
