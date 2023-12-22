@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+//import { useNavigate } from 'react-router-dom';
 // import { db } from '../../firebase/firebase';
 // import { get, ref } from "firebase/database";
-import FormInvestor from '../../components/FormInvestor/FormInvestor';
+//import FormInvestor from '../../components/FormInvestor/FormInvestor';
 import LineChartComponent from '../../components/LineChartComponent/LineChartComponent';
-import PieChartComponent from '../../components/PieChartComponent/PieChartComponent';
-import DataDiv from '../../components/DataDiv/DataDiv';
+//import PieChartComponent from '../../components/PieChartComponent/PieChartComponent';
+//import DataDiv from '../../components/DataDiv/DataDiv';
 import TokensTable from '../../components/TokensTable/TokensTable';
 
 // interface PerformanceItem {
@@ -38,25 +38,25 @@ export default function Investor() {
 
     // const id = '1';
 
-    const history = useNavigate();
+    //const history = useNavigate();
 
-    const [invest, setInvest] = React.useState('');
+    //const [invest, setInvest] = React.useState('');
 
     const [fund, setFund] = useState<FundData | null>(null);
     const [data, setData] = useState<CombinedDataItem[]>([]);
 
-    function handleSubmit() {
+    // function handleSubmit() {
 
-        // const body = {
-        //     "value_invested": invest
-        // }
+    //     // const body = {
+    //     //     "value_invested": invest
+    //     // }
 
-    }
+    // }
 
-    const handleClick = () => {
-        handleSubmit();
-        history('/fundslist');
-    };
+    // const handleClick = () => {
+    //     handleSubmit();
+    //     history('/fundslist');
+    // };
 
     // useEffect(() => {
     //     const fetchData = async () => {
