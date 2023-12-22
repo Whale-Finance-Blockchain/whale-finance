@@ -395,6 +395,15 @@ export default function FundId({ account, provider, signer }: FundIdProps) {
             </div>
             <div className='border-[1px] border-gray-300 dark:border-gray-700 text-gray-500 dark:text-gray-100 mt-6 rounded-md backdrop-blur-md bg-light-color/50 dark:bg-dark-color/50 '>
                 <h3 className='font-bold text-xl ml-8 mt-8'>
+                    Data Section
+                </h3>
+                <div className='w-[100%-8] h-[1px] mt-2 mb-8 bg-gray-300 dark:bg-gray-700 mx-8'></div>
+                <div className='w-[80%] md:w-[95%] lg:w-[95%] p-8 flex flex-col items-center justify-center'>
+                    <DataDiv fund={fund} />
+                </div>
+            </div>
+            <div className='border-[1px] border-gray-300 dark:border-gray-700 text-gray-500 dark:text-gray-100 mt-6 rounded-md backdrop-blur-md bg-light-color/50 dark:bg-dark-color/50 '>
+                <h3 className='font-bold text-xl ml-8 mt-8'>
                     Tokens Section
                 </h3>
                 <div className='w-[100%-8] h-[1px] mt-2 bg-gray-300 dark:bg-gray-700 mx-8'></div>
@@ -409,15 +418,6 @@ export default function FundId({ account, provider, signer }: FundIdProps) {
                 <div className='w-[100%-8] h-[1px] mt-2 mb-8 bg-gray-300 dark:bg-gray-700 mx-8'></div>
                 <div className='w-[80%] md:w-[95%] lg:w-[95%] h-[500px] p-6 flex flex-col items-center justify-center'>
                     <LineChartComponent data={data} />
-                </div>
-            </div>
-            <div className='border-[1px] border-gray-300 dark:border-gray-700 text-gray-500 dark:text-gray-100 mt-6 rounded-md backdrop-blur-md bg-light-color/50 dark:bg-dark-color/50 '>
-                <h3 className='font-bold text-xl ml-8 mt-8'>
-                    Data Section
-                </h3>
-                <div className='w-[100%-8] h-[1px] mt-2 mb-8 bg-gray-300 dark:bg-gray-700 mx-8'></div>
-                <div className='w-[80%] md:w-[95%] lg:w-[95%] p-8 flex flex-col items-center justify-center'>
-                    <DataDiv fund={fund} />
                 </div>
             </div>
             {/* <div className='border-[1px] border-gray-300 dark:border-gray-700 text-gray-700 mt-6 rounded-md backdrop-blur-md bg-light-color/50 dark:bg-dark-color/50 '>
