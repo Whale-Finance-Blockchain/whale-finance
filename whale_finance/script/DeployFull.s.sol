@@ -28,7 +28,7 @@ contract Deploy is Script {
         quotaTokenImplementation = new QuotaToken();
         registry = new ERC6551Registry();
 
-        stablecoin = MockERC20(0x22dfF2272A92e9Bc6cc960aE92373987a10Bddf2);
+        stablecoin = MockERC20(0x87047D65A244E6b3Dfac052149684499C807AFed);
 
         stablecoin.mint(msg.sender, 1000000000000 ether);
         stablecoin.mint(0xB0Eb2a4CDf7be2D0c408cF60Ed8ba1065920b339, 100000000000000 ether);
@@ -40,6 +40,12 @@ contract Deploy is Script {
 
         whaleFinance = new WhaleFinance(address(registry), address(safeAccount), address(beacon), address(stablecoin));
         whaleFinance.setWhiteListedToken(address(stablecoin));
+
+        address tokenDOT = 0x212450b0bdB02f0ae1c170CFDa193D0A14f38f13;
+        address tokenWBTC = 0x12e6d42e9d43a2Ad4Bfa565329Ed321f3E2cc0Fe;
+
+        whaleFinance.setWhiteListedToken(tokenDOT);
+        whaleFinance.setWhiteListedToken(tokenWBTC);
 
 
         console.log("Stablecoin address: %s", address(stablecoin));
