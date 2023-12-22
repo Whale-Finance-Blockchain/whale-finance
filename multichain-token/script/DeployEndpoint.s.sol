@@ -17,7 +17,7 @@ contract DeployEndpoint is Script {
 
         uint256 chainId = block.chainid;
 
-        Endpoint endpoint = new Endpoint(1287);
+        Endpoint endpoint = new Endpoint(253253);
 
         console.log("Endpoint Address: ", address(endpoint));
         console.log("ChainId: ", chainId);

@@ -23,6 +23,16 @@ contract MultiChainToken is OFTToken {
         _mint(_to, _amount);
     }
 
+    function debitFromChain(uint256 _chainId, uint256 _amount) public {
+        require(_chainId == block.chainid, "MultiChainToken: chainId not match");
+        _debitFrom(msg.sender, 0, "", _amount);
+    }
+
+    function credit(uint256 _chainId, address _to, uint256 _amount) public {
+        require(_chainId == block.chainid, "MultiChainToken: chainId not match");
+        _creditTo(0, _to, _amount);
+    }
+
     // The functions below are overrides required by Solidity
 
 }
