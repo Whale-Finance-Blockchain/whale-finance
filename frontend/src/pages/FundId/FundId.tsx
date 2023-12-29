@@ -146,7 +146,7 @@ export default function FundId({ account, provider, signer }: FundIdProps) {
             console.log(err);
         }
     }
-    //@ts-ignore
+    
     async function makeInvestment(){
         try{
             if(invest <= 0 || invest > zusdBalance){
@@ -385,8 +385,11 @@ export default function FundId({ account, provider, signer }: FundIdProps) {
                     <FormInvestor   
                         invest={invest}
                         setInvest={setInvest}
+                        
+
                     />
                     <button
+                    onClick={makeInvestment}
                     className="h-12 w-96 bg-secondary-color text-light-color dark:text-dark-color font-bold rounded-full border-2 border-transparent py-2 px-36 shadow-lg uppercase tracking-wider hover:bg-light-color hover:dark:bg-dark-color hover:text-secondary-color hover:dark:text-secondary-color hover:border-secondary-color transition duration-1000 ease-in-out"
                     >
                     {loading ? 'Loading...' : 'Invest'}

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 // import { db } from '../../firebase/firebase';
 // import { get, ref } from "firebase/database";
 import LineChartComponent from '../../components/LineChartComponent/LineChartComponent';
@@ -8,6 +8,10 @@ import DataDiv from '../../components/DataDiv/DataDiv';
 import FormSwap from '../../components/FormSwap/FormSwap';
 import Avatar from '../../assets/whale_avatar2.png';
 import TokensTable from '../../components/TokensTable/TokensTable';
+import { ethers } from 'ethers';
+import { MultiChainTokenAbi } from '../../contracts/MultichainToken';
+import { DrexAcala, DrexAddress, WHALECHAIN_CHAIN_ID } from '../../utils/addresses';
+import { ChainContext } from '../../contexts/ChainContext';
 // import axios from 'axios';
 
 // interface PerformanceItem {
@@ -39,7 +43,11 @@ interface FundData {
 
 export default function DashboardId({ account, signer }: 
     { account: string | null; signer: any;}) {
+    //@ts-ignore
+    const {chain, setChain} = useContext(ChainContext);
 
+    
+    const chainsBridge = ["WHALECHAIN", "ACALACHAIN"]
     const { id } = useParams<{ id: string }>();
 
     const [fund, setFund] = useState<FundData | null>(null);
@@ -48,12 +56,55 @@ export default function DashboardId({ account, signer }:
     const [tokenA, setTokenA] = useState("DREX");
     const [tokenB, setTokenB] = useState("DREX");
 
-    const [networkA, setNetworkA] = useState("A");
-    const [networkB, setNetworkB] = useState("B");
+    const [networkA, setNetworkA] = useState("WHALECHAIN");
+    const [networkB, setNetworkB] = useState("ACALACHAIN");
 
     async function makeBridge(){
-        console.log("Bridge");
+        if(msgBridge == "Bridge"){
+            try{
+                const multiContract = new ethers.Contract(DrexAddress, MultiChainTokenAbi, signer);
+                const txApprove = await multiContract.approve(DrexAddress, ethers.utils.parseEther(String(amountToBridge)));
+                await txApprove.wait();
+
+                const txBridge = await multiContract.debitFromChain(WHALECHAIN_CHAIN_ID, ethers.utils.parseEther(String(amountToBridge)));
+
+                await txBridge.wait();
+                setMsgBridge("Switch to Acala");
+            } catch (error) {
+                console.error('Error bridging data: ', error);
+                setMsgBridge("Bridge");
+            }
+        }
+        else if(msgBridge == "Switch to Acala"){
+            try{
+                await (window as any).ethereum.request({
+                    method: 'wallet_switchEthereumChain',
+                    params: [{ chainId: "0x253" }],
+                  });
+                setMsgBridge("Redeem");
+            } catch(err){
+                console.log(err);
+                setMsgBridge("Bridge");
+            }
+        } else if(msgBridge == "Redeem"){
+            try{
+                const account = signer.getAddress();
+                const multiContract = new ethers.Contract(DrexAcala, MultiChainTokenAbi, signer);
+                const txRedeem = await multiContract.credit(595, account, ethers.utils.parseEther(String(amountToBridge)));
+                await txRedeem.wait();
+
+            }catch(err){
+                console.log(err);
+                setMsgBridge("Bridge");
+            }
+        }
+
+
     }
+
+    const [amountToBridge, setAmountToBridge] = useState(0);
+
+    const [msgBridge, setMsgBridge] = useState("Bridge");
 
     // const apiKey = import.meta.env.COINMARKET_API_KEY;
     // const [ethPrice, setEthPrice] = useState(null);
@@ -207,6 +258,20 @@ export default function DashboardId({ account, signer }:
                     <label className="block font-medium italic text-sm text-gray-400 ml-8" htmlFor="invest">
                         Choose the networks to bridge Whale tokens
                     </label>
+                    <div className="flex flex-col mx-8">
+                    <label className="block indent-2 text-gray-500 dark:text-gray-100 font-medium md:text-lg lg:text-lg mb-2 mt-6" htmlFor="admFee">
+                        How many WHALE to Bridge?
+                    </label>
+                    <input
+                        type="number"
+                        id="amountBridge"
+                        name="amountBridge"
+                        placeholder='Amount to Bridge'
+                        value={amountToBridge}
+                        onChange={(e) => setAmountToBridge(parseInt(e.target.value))}
+                        className="  bg-light-color dark:bg-dark-color md:text-lg lg:text-lg indent-6 text-black dark:text-white p-2 mt-1 rounded outline-0 shadow-lg hover:bg-gray-100 hover:dark:bg-gray-500 border-2 border-transparent focus:border-secondary-color transition duration-1000 ease-in-out"
+                    />
+                </div>
                     <div className="mx-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
                         <div className="flex flex-row border-[2px] border-secondary-color text-center text-xl text-black dark:text-white mt-4 shadow-lg rounded-[15px]">
                             <p className="font-medium italic text-sm text-gray-400 ml-8 flex flex-col justify-center">
@@ -229,9 +294,14 @@ export default function DashboardId({ account, signer }:
                                         >{key}</option>
                                     )
                                 })} */}
-                                <option value="A">A</option>
-                                <option value="B">B</option>
-                                <option value="C">C</option>
+                                {chainsBridge.map((chain) => {
+                                    return (
+                                        <option
+                                        key={chain}
+                                        value={chain}
+                                        >{chain}</option>
+                                    )}
+                                )}
                             </select>
                         </div>
                         <div className="flex flex-row border-[2px] border-secondary-color text-center text-xl text-black dark:text-white mt-4 shadow-lg rounded-[15px]">
@@ -255,9 +325,14 @@ export default function DashboardId({ account, signer }:
                                         >{key}</option>
                                     )
                                 })} */}
-                                <option value="A">A</option>
-                                <option value="B">B</option>
-                                <option value="C">C</option>
+                                {chainsBridge.map((chain) => {
+                                    return (
+                                        <option
+                                        key={chain}
+                                        value={chain}
+                                        >{chain}</option>
+                                    )}
+                                )}
                             </select>
                         </div>
                     </div>
@@ -266,7 +341,7 @@ export default function DashboardId({ account, signer }:
                             className="mb-4 mt-12 self-center bg-secondary-color text-light-color dark:text-dark-color font-bold rounded-full border-2 border-transparent py-2 px-36 shadow-lg uppercase tracking-wider hover:bg-light-color hover:dark:bg-dark-color hover:text-secondary-color hover:dark:text-secondary-color hover:border-secondary-color transition duration-1000 ease-in-out"
                             onClick={makeBridge}
                             >
-                            Bridge
+                            {msgBridge}
                         </button>
                     </div>
                 </div>

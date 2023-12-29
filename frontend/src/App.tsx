@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useEffect } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home/Home'
@@ -16,8 +16,11 @@ import Proposals from './pages/Proposals/Proposals';
 import CreateProposal from './pages/CreateProposal/CreateProposal';
 import Test from './pages/Test/Test';
 import useLocalStorage from './hooks/useLocalStorage';
+import { ChainContext } from './contexts/ChainContext'
 
 function App() {
+
+  const [chain, setChain] = useState("WHALECHAIN"); 
 
   const [theme] = useLocalStorage('theme', 'light');
 
@@ -49,6 +52,7 @@ function App() {
 
   return (
     <>
+    <ChainContext.Provider value={{chain, setChain}}>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={
@@ -106,6 +110,7 @@ function App() {
           </Route>
         </Routes>
       </BrowserRouter>
+      </ChainContext.Provider>
     </>
   )
 }

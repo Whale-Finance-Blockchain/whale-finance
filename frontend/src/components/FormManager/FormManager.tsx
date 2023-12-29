@@ -1,6 +1,9 @@
+import { useState } from "react";
 import { allowedTokens } from "../../utils/addresses";
 
 export default function FormInvestor(props: any) {
+
+    const [dexes, setDexes] = useState(["Whale Swap"]);
 
     return (
         <div className="my-6 text-secondary-color">
@@ -153,37 +156,31 @@ export default function FormInvestor(props: any) {
                         Choose the Dex to use
                     </label>
                     <select
-                        id="tokens"
-                        name="tokens"
-                        placeholder='Tokens'
-                        value={props.tokens}
+                        id="dexes"
+                        name="dexes"
+                        placeholder='Dexes'
+                        value={dexes[0]}
                         style={{
                             height: '300px',
                         }}
                         // I have multiple tokens, so I need to set multiple to true
 
                         onChange={(e) =>{
-                            const selected = [...Array.from(e.target.selectedOptions).map((option) => option.value)];
-                            const newTokens = [...props.tokens]
-                            for(let i = 0; i < selected.length; i++){
-                                if(!newTokens.includes(selected[i])){
-                                    newTokens.push(selected[i])
-                                } else {
-                                    newTokens.splice(newTokens.indexOf(selected[i]), 1)
-                                }
-                            }
-                            props.setTokens([...newTokens]);
+                            //const selected = [...Array.from(e.target.selectedOptions).map((option) => option.value)];
+                            const newDexes = [...dexes]
+                            
+                            setDexes([...newDexes]);
 
                         }}
                         className="bg-light-color dark:bg-dark-color md:text-lg lg:text-lg indent-6 text-black dark:text-white p-2 mt-1 rounded-[10px] outline-0 shadow-lg "
                         multiple={true}
                     >
-                        {Object.keys(allowedTokens).map((tokenName: string, idx: number) => {
+                        {Object.keys(dexes).map((tokenName: string, idx: number) => {
                             return(
                             <option 
                             className=" bg-light-color dark:bg-dark-color text-center md:text-lg lg:text-lg indent-6 text-black dark:text-white p-2 mt-2 rounded-[10px] border-secondary-color border-2 outline-0 shadow-lg checked:bg-secondary-color checked:dark:bg-secondary-color hover:bg-gray-100 hover:dark:bg-gray-500"
                             key={idx}
-                            value={allowedTokens[tokenName]}>{tokenName}</option>);
+                            value={tokenName}>{tokenName}</option>);
                         })}
                     </select>
                 </div>
