@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import { db } from '../../firebase/firebase';
-import { get, ref } from "firebase/database";
+// import { db } from '../../firebase/firebase';
+// import { get, ref } from "firebase/database";
 import { useNavigate } from 'react-router-dom';
 import { AiOutlineArrowUp, AiOutlineArrowDown } from "react-icons/ai";
 import { getMetamaskProvider } from '../../utils/connectMetamask';
@@ -19,29 +19,29 @@ export default function FundsList({ signer }:
     { signer: any;}) {
 
     const [funds, setFunds] = useState<DataPoint[]>([]);
-    const [fundsData, setFundsData] = useState<any[]>([]);
+    // const [fundsData, setFundsData] = useState<any[]>([]);
 
     const history = useNavigate();
 
     useEffect(() => {
-        const fetchData = async () => {
-          try {
-            const dbRef = ref(db, 'Funds');
-            const snapshot = await get(dbRef);
-            if (snapshot.exists()) {
-              const fbData = snapshot.val();
-              setFundsData(fbData);
-            } else {
-              console.log("No data available");
-            }
-          } catch (error) {
-            console.error("Error reading data:", error);
-          }
-        };
+        // const fetchData = async () => {
+        //   try {
+        //     const dbRef = ref(db, 'Funds');
+        //     const snapshot = await get(dbRef);
+        //     if (snapshot.exists()) {
+        //       const fbData = snapshot.val();
+        //       setFundsData(fbData);
+        //     } else {
+        //       console.log("No data available");
+        //     }
+        //   } catch (error) {
+        //     console.error("Error reading data:", error);
+        //   }
+        // };
 
         const getFunds = async () => {
             try{
-                await fetchData();
+                // await fetchData();
                 const provider = getMetamaskProvider() as ethers.providers.Web3Provider;
                 const whaleFinanceContract = new ethers.Contract(WhaleFinanceAddress, WhaleFinanceAbi, provider);
                 const numberFundsBigNumber = await whaleFinanceContract.functions._fundIdCounter() as ethers.BigNumber[];
@@ -92,14 +92,14 @@ export default function FundsList({ signer }:
     const fundsElements = funds.map((fund, idx) => 
     {   
         
-        console.log("data", fundsData);
+        // console.log("data", fundsData);
         let apy = 0.10;
         let tvl = 100000000;
-        if(fundsData[idx]){
-            apy = rentValue(fundsData[idx].Performance);
-            tvl = fundsData[idx].TVL;
+        // if(fundsData[idx]){
+        //     apy = rentValue(fundsData[idx].Performance);
+        //     tvl = fundsData[idx].TVL;
             
-        }
+        // }
         const formattedRent = new Intl.NumberFormat('en-US', { style: 'percent', minimumFractionDigits: 1, maximumFractionDigits: 1 }).format(apy);
 
         return(<div onClick={() => history(`/fundslist/${fund.id}`)}>
