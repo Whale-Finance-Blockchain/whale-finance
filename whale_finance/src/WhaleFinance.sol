@@ -75,7 +75,7 @@ contract WhaleFinance is ERC721, Ownable {
     mapping(uint256 => uint256) public closeInvestimentTimestamps;
     mapping(uint256 => uint256) public openRedeemTimestamps;
     mapping(uint256 => address[]) public fundsAllowedTokens;
-    mapping(uint256 => address) public quotasAddresses;
+    mapping(uint256 => address) public quotasAddresses;    
 
     //EVENTS
     event FundCreated(address indexed fundAddress, address indexed quotaTokenAddress);
