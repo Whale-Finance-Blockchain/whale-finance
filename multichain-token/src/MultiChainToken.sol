@@ -34,5 +34,4 @@ contract MultiChainToken is OFTToken {
     }
 
     // The functions below are overrides required by Solidity
-
 }

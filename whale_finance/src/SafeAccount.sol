@@ -14,7 +14,7 @@ import "./WhaleFinance.sol";
 contract SafeAccount is IERC165, IERC1271, IERC6551Account {
     receive() external payable {}
 
-    IV2SwapRouter public swapRouter = IV2SwapRouter(0x62bcE76CE75d4f8Ef8Ad8F3EB9746490099824e0);
+    IV2SwapRouter public swapRouter = IV2SwapRouter(0x0fee4c356DEeF6567E95b6394420583CA1D1fEEa);
     WhaleFinance public whaleFinance;
 
 
@@ -26,9 +26,80 @@ contract SafeAccount is IERC165, IERC1271, IERC6551Account {
         uint deadline
     ) external returns (uint[] memory amounts){
         require(_isValidSigner(msg.sender), "Invalid signer");
-
         return swapRouter.swapExactTokensForTokens(amountIn, amountOutMin, path, to, deadline);
     }
+
+    
+    function executeSwapTokensForExactTokens(
+        uint amountOut,
+        uint amountInMax,
+        address[] calldata path,
+        address to,
+        uint deadline
+    ) external virtual   returns (uint[] memory amounts) {
+        require(_isValidSigner(msg.sender), "Invalid signer");
+        return swapRouter.swapTokensForExactTokens(amountOut, amountInMax, path, to, deadline);
+    }
+    function executeSwapExactETHForTokens(uint amountOutMin, address[] calldata path, address to, uint deadline)
+        external
+        virtual
+        
+        payable
+        
+        returns (uint[] memory amounts)
+    {
+        require(_isValidSigner(msg.sender), "Invalid signer");
+        return swapRouter.swapExactETHForTokens(amountOutMin, path, to, deadline);
+    }
+    function executeSwapTokensForExactETH(uint amountOut, uint amountInMax, address[] calldata path, address to, uint deadline)
+        external
+        virtual
+        
+        
+        returns (uint[] memory amounts)
+    {
+        require(_isValidSigner(msg.sender), "Invalid signer");
+        return swapRouter.swapTokensForExactETH(amountOut, amountInMax, path, to, deadline);
+    }
+    function executeSwapExactTokensForETH(uint amountIn, uint amountOutMin, address[] calldata path, address to, uint deadline)
+        external
+        virtual
+        
+        
+        returns (uint[] memory amounts)
+    {
+        require(_isValidSigner(msg.sender), "Invalid signer");
+        return swapRouter.swapExactTokensForETH(amountIn, amountOutMin, path, to, deadline);
+    }
+    function executeSwapETHForExactTokens(uint amountOut, address[] calldata path, address to, uint deadline)
+        external
+        virtual
+        
+        payable
+        
+        returns (uint[] memory amounts)
+    {
+        require(_isValidSigner(msg.sender), "Invalid signer");
+        return swapRouter.swapETHForExactTokens(amountOut, path, to, deadline);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     function executeApprove(address tokenErc20, address spender, uint256 amount) external returns (bool){
         require(_isValidSigner(msg.sender), "Invalid signer");

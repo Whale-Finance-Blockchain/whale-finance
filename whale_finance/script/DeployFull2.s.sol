@@ -11,7 +11,14 @@ import "../src/WhaleFinance.sol";
 import "../src/QuotaBeacon.sol";
 import "../src/MockERC20.sol";
 
-contract Mint is Script {
+contract Deploy is Script {
+    ERC6551Registry public registry;
+
+    QuotaToken public quotaTokenImplementation;
+    MockERC20 public stablecoin;
+    SafeAccount public safeAccount;
+    WhaleFinance public whaleFinance;
+    BeaconERC20 public beacon;
 
 
     function setUp() public {}
@@ -19,9 +26,9 @@ contract Mint is Script {
     function run() external {
         vm.startBroadcast(vm.envUint("PRIVATE_KEY"));
 
-        MockERC20 stablecoin = MockERC20(0xcd0A91FBC4D894820dffa1d4eF854c9c6f4B0FFb);
+        whaleFinance = WhaleFinance(0xcd055c8824Ef6E9306b1F707Ce2E327ae2145c5D);
 
-        stablecoin.mint(0x0CCfc28Ce76f48726C59Fc2a598b6eAac8bd3Ab4, 20000000000000 ether);
+        whaleFinance.setWhiteListedToken(0x9F0a79c5A1Fb5f7E2221Ddda85362f97FF847F66);
 
         vm.stopBroadcast();
         

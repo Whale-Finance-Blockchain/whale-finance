@@ -28,27 +28,47 @@ contract Deploy is Script {
         quotaTokenImplementation = new QuotaToken();
         registry = new ERC6551Registry();
 
-        stablecoin = MockERC20(0x87047D65A244E6b3Dfac052149684499C807AFed);
+        MockERC20 whaleToken = new MockERC20("Whale Finance Token", "WHALE");
+        MockERC20 WBTC = new MockERC20("Wrapped BTC", "WBTC");
+        MockERC20 WDOT = new MockERC20("Wrapped DOT", "WDOT");
+        MockERC20 USDT = new MockERC20("Tether USD", "USDT");
+        MockERC20 USDC = new MockERC20("USD Coin", "USDC");
+        MockERC20 aeron = new MockERC20("AERON", "AERON");
 
-        stablecoin.mint(msg.sender, 1000000000000 ether);
-        stablecoin.mint(0xB0Eb2a4CDf7be2D0c408cF60Ed8ba1065920b339, 100000000000000 ether);
+        console.log("whaleToken address: %s", address(whaleToken));
+        console.log("WBTC address: %s", address(WBTC));
+        console.log("WDOT address: %s", address(WDOT));
+        console.log("USDT address: %s", address(USDT));
+        console.log("USDC address: %s", address(USDC));
+        console.log("aeron address: %s", address(aeron));
+
+
+
+        whaleToken.mint(msg.sender, 1000000000000 ether);
+        whaleToken.mint(msg.sender, 100000000000000 ether);
+
+        WBTC.mint(msg.sender, 1000000000000 ether);
+        WDOT.mint(msg.sender, 1000000000000 ether);
+        USDT.mint(msg.sender, 1000000000000 ether);
+        USDC.mint(msg.sender, 1000000000000 ether);
+        aeron.mint(msg.sender, 1000000000000 ether);
 
         
 
         safeAccount = new SafeAccount();
         beacon = new BeaconERC20(address(quotaTokenImplementation)); //quota
 
-        whaleFinance = new WhaleFinance(address(registry), address(safeAccount), address(beacon), address(stablecoin));
-        whaleFinance.setWhiteListedToken(address(stablecoin));
+        whaleFinance = new WhaleFinance(address(registry), address(safeAccount), address(beacon), address(whaleToken));
+        whaleFinance.setWhiteListedToken(address(whaleToken));
 
-        address tokenDOT = 0x212450b0bdB02f0ae1c170CFDa193D0A14f38f13;
-        address tokenWBTC = 0x12e6d42e9d43a2Ad4Bfa565329Ed321f3E2cc0Fe;
+        whaleFinance.setWhiteListedToken(address(WBTC));
+        whaleFinance.setWhiteListedToken(address(WDOT));
+        whaleFinance.setWhiteListedToken(address(USDT));
+        whaleFinance.setWhiteListedToken(address(USDC));
+        whaleFinance.setWhiteListedToken(address(aeron));
 
-        whaleFinance.setWhiteListedToken(tokenDOT);
-        whaleFinance.setWhiteListedToken(tokenWBTC);
 
-
-        console.log("Stablecoin address: %s", address(stablecoin));
+        console.log("whaleToken address: %s", address(whaleToken));
         console.log("WhaleFinance address: %s", address(whaleFinance));
         console.log("QuotaToken address: %s", address(quotaTokenImplementation));
         console.log("SafeAccount address: %s", address(safeAccount));
