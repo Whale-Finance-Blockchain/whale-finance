@@ -1,4 +1,4 @@
-# Whale Finance - Areon Code Area 2024
+# Whale Finance - Smart Contracts Repo - Areon Code Area 2024
 
 ## Basic Information
 - *Project Name:* whale.finance
