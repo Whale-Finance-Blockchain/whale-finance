@@ -1,1 +1,0 @@
-forge script ./DeployEndpoint.s.sol --rpc-url $BIFROST_RPC_URL  --broadcast --legacy
